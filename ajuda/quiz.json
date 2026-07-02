@@ -1,0 +1,206 @@
+{
+    "config": {
+        "version": "1.0",
+        "currency": "BRL",
+        "taxa_base_diagnostico": 30,
+        "whatsapp_number": "00"
+    },
+    "fluxo": {
+        "inicio": {
+            "pergunta": "Qual o seu tipo de problema?",
+            "opcoes": [
+                {
+                    "label": "🛠️ Assistencia Hardware & Eletrônica",
+                    "next": "hardware_tipo"
+                },
+                {
+                    "label": "🌐 Serviços Web & Digital",
+                    "next": "digital_tipo"
+                },
+                {
+                    "label": "🤖 Inteligência Artificial",
+                    "next": "ia_tipo"
+                },
+                {
+                    "label": "♻️ Quero reciclar um eletronico",
+                    "next": "reciclagem"
+                }
+            ]
+        },
+        "hardware_tipo": {
+            "pergunta": "Qual tipo de aparelho?",
+            "opcoes": [
+                {
+                    "label": "Computador/Desktop",
+                    "next": "pc_sintomas"
+                },
+                {
+                    "label": "Notebook",
+                    "next": "note_sintomas"
+                },
+                {
+                    "label": "Smartphone/Celular",
+                    "next": "sp_sintomas"
+                },
+                {
+                    "label": "Controle (Playstation/Xbox/Paralelo)",
+                    "next": "controller_sintomas"
+                },
+                {
+                    "label": "Monitor (Abaixo de 25 pol)",
+                    "next": "monitor_sintomas"
+                },
+                {
+                    "label": "Quero ajuda para comprar o melhor dispositivo para meu uso.",
+                    "next": "ajudacompra"
+                },
+                {
+                    "label": "Outro",
+                    "next": "outro_hw"
+                }
+            ]
+        },
+        "pc_sintomas": {
+            "pergunta": "Qual o problema ou servico necessario?",
+            "opcoes": [
+                {
+                    "label": "Ele não liga",
+                    "next": "pc_nliga"
+                },
+                {
+                    "label": "Liga, mas não dá imagem",
+                    "next": "pc_semimg"
+                },
+                {
+                    "label": "Lentidão ou Erros de Sistema",
+                    "next": "pc_lentoerro"
+                },
+                {
+                    "label": "Superaquecimento / Barulho excessivo",
+                    "next": "pc_spa"
+                },
+                {
+                    "label": "Tuning (Overclock/Undervolt/BIOS)",
+                    "next": "pc_oc"
+                },
+                {
+                    "label": "Quando liga ha listras e e problemas visuais na tela / Artefatos",
+                    "next": "pc_art"
+                },
+                {
+                    "label": "Desliga do nada",
+                    "next": "pc_desl"
+                },
+                {
+                    "label": "Remocao de virus profunda (sist. de arq., registro e wservices)",
+                    "next": "virus"
+                }
+            ]
+        },
+        "note_sintomas": {
+            "pergunta": "Qual o defeito do notebook?",
+            "opcoes": [
+                {
+                    "label": "Tela quebrada ou sem imagem",
+                    "next": "resumo_note_tela"
+                },
+                {
+                    "label": "Teclado ou Touchpad falhando",
+                    "next": "resumo_note_entrada"
+                },
+                {
+                    "label": "Bateria não carrega / Desliga sozinho",
+                    "next": "resumo_hardware_mudo"
+                }
+            ]
+        },
+        "digital_tipo": {
+            "pergunta": "Qual serviço web você precisa?",
+            "opcoes": [
+                {
+                    "label": "Configurar VPN / Acesso Remoto",
+                    "next": "resumo_digital_vpn"
+                },
+                {
+                    "label": "Deploy de Site / DNS / SSL",
+                    "next": "resumo_digital_web"
+                },
+                {
+                    "label": "Servidor Local (Minecraft/Media Center)",
+                    "next": "resumo_digital_server"
+                }
+            ]
+        },
+        "ia_tipo": {
+            "pergunta": "O que você deseja implementar em IA?",
+            "opcoes": [
+                {
+                    "label": "LLM Local (Chatbot privado offline)",
+                    "next": "resumo_ia_local"
+                },
+                {
+                    "label": "Geração de Voz / Imagem",
+                    "next": "resumo_ia_midia"
+                }
+            ]
+        }
+    },
+    "resultados": {
+        "resumo_hardware_mudo": {
+            "titulo": "Reparo de Alimentação / Placa-mãe",
+            "descricao": "Diagnóstico de VRM, substituição de Mosfets ou reparo em linhas de alta tensão.",
+            "investimento_estimado": "R$ 150 - R$ 450",
+            "prazo_medio": "3 a 7 dias úteis",
+            "whatsapp_msg": "Olá Leonardo! Meu aparelho não liga. Preciso de uma análise na placa-mãe/alimentação."
+        },
+        "resumo_gpu_reballing": {
+            "titulo": "Recuperação de Chip Gráfico (GPU)",
+            "descricao": "Tratamento de artefatos ou falta de vídeo. Inclui regravação de BIOS se necessário.",
+            "investimento_estimado": "R$ 200 - R$ 500",
+            "prazo_medio": "5 a 10 dias úteis",
+            "whatsapp_msg": "Oi! Minha GPU está com artefatos/sem vídeo. Pode me ajudar com o diagnóstico?"
+        },
+        "resumo_limpeza_premium": {
+            "titulo": "Limpeza e Reparo Térmico Premium",
+            "descricao": "Higienização completa, troca de pasta térmica (GD900) e aplicação de Thermal Putty.",
+            "investimento_estimado": "R$ 100 - R$ 200",
+            "prazo_medio": "1 a 2 dias úteis",
+            "whatsapp_msg": "Meu PC está esquentando muito. Gostaria da Limpeza Premium com troca de condutores térmicos."
+        },
+        "resumo_pc_tuning": {
+            "titulo": "Otimização Avançada (Tuning)",
+            "descricao": "Configuração de Undervolt para eficiência ou Overclock para performance máxima via BIOS.",
+            "investimento_estimado": "R$ 100 - R$ 250",
+            "prazo_medio": "1 a 3 dias úteis",
+            "whatsapp_msg": "Quero extrair o máximo do meu hardware com Undervolt/Overclock especializado."
+        },
+        "resumo_digital_vpn": {
+            "titulo": "Infraestrutura de Rede e VPN",
+            "descricao": "Configuração de Tailscale ou ZeroTier para acesso remoto seguro e bypass de CGNAT.",
+            "investimento_estimado": "R$ 120 - R$ 250",
+            "prazo_medio": "1 a 2 dias úteis",
+            "whatsapp_msg": "Preciso configurar um acesso remoto seguro via VPN (Tailscale/ZeroTier)."
+        },
+        "resumo_digital_web": {
+            "titulo": "Deploy Web e Reverse Proxy",
+            "descricao": "Configuração de Nginx Proxy Manager com SSL e gestão de domínios/DNS.",
+            "investimento_estimado": "R$ 150 - R$ 400",
+            "prazo_medio": "2 a 4 dias úteis",
+            "whatsapp_msg": "Gostaria de colocar meu site/serviço no ar com SSL e Reverse Proxy."
+        },
+        "resumo_ia_local": {
+            "titulo": "Implementação de IA Local Privada",
+            "descricao": "Setup de Ollama ou LMStudio com modelos otimizados para o seu hardware.",
+            "investimento_estimado": "R$ 150 - R$ 350",
+            "prazo_medio": "2 a 3 dias úteis",
+            "whatsapp_msg": "Interessei no setup de IA Local para rodar modelos de linguagem na minha máquina."
+        },
+        "resumo_ia_midia": {
+            "titulo": "IA Generativa de Mídia",
+            "descricao": "Setup de Stable Diffusion (Imagens) ou RVC/Bark (Voz) com interface amigável.",
+            "investimento_estimado": "R$ 100 - R$ 300",
+            "prazo_medio": "1 a 2 dias úteis",
+            "whatsapp_msg": "Gostaria de ajuda para configurar síntese de voz ou geração de imagens por IA."
+        }
+    }
+}
