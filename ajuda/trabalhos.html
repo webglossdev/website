@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhos Realizados | webglossdev</title>
+    <meta name="description"
+        content="Confira trabalhos realizados pela webglossdev — casos reais de hardware, redes, IA e infraestrutura.">
+    <link rel="icon" type="image/svg+xml" href="../logo.svg">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --bg: #020817;
+            --glass-bg: rgba(8, 20, 48, 0.55);
+            --glass-bg-strong: rgba(8, 20, 48, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-border-top: rgba(255, 255, 255, 0.18);
+            --glass-shine: rgba(255, 255, 255, 0.05);
+            --accent: #38bdf8;
+            --accent-dim: rgba(56, 189, 248, 0.15);
+            --accent-glow: rgba(56, 189, 248, 0.35);
+            --success: #22c55e;
+            --success-dim: rgba(34, 197, 94, 0.15);
+            --danger: #ef4444;
+            --danger-dim: rgba(239, 68, 68, 0.12);
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+            --faint: #475569;
+            --font: 'Inter', system-ui, sans-serif;
+            --mono: 'JetBrains Mono', monospace;
+            --radius: 14px;
+            --radius-sm: 8px;
+            --radius-pill: 9999px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bg);
+            background-image:
+                radial-gradient(ellipse at 70% 10%, rgba(99, 102, 241, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(34, 197, 94, 0.04) 0%, transparent 60%);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(160deg, rgba(2, 8, 23, 0.82) 0%, rgba(2, 8, 23, 0.92) 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ─── Nav ────────────────────────────────── */
+        .aero-nav {
+            width: 100%;
+            padding: 14px 32px;
+            background: var(--glass-bg-strong);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--glass-border-top);
+            box-shadow: 0 1px 0 var(--glass-shine), 0 8px 32px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .aero-nav img {
+            height: 30px;
+            filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.25));
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .aero-nav img:hover {
+            transform: scale(1.06);
+            filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.45));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-link {
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--muted);
+            text-decoration: none;
+            padding: 5px 12px;
+            border-radius: var(--radius-pill);
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-link.active {
+            color: var(--accent);
+            background: var(--accent-dim);
+            border-color: rgba(56, 189, 248, 0.2);
+        }
+
+        /* ─── Hero ───────────────────────────────── */
+        .hero {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+            max-width: 820px;
+            padding: 56px 32px 36px;
+            animation: heroIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes heroIn {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-dim);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: var(--radius-pill);
+            padding: 5px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #22c55e 0%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--muted);
+            line-height: 1.6;
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        /* ─── Filter Bar ─────────────────────────── */
+        .filter-bar {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 640px;
+            padding: 0 20px 28px;
+        }
+
+        .filter-btn {
+            font-family: var(--font);
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-pill);
+            padding: 5px 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .filter-btn.active {
+            color: var(--accent);
+            background: var(--accent-dim);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        /* ─── Work Cards ─────────────────────────── */
+        .works-section {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 820px;
+            padding: 0 20px 64px;
+        }
+
+        .works-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .work-card {
+            background: var(--glass-bg);
+            background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 40%, rgba(0, 0, 0, 0.12) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid var(--glass-border-top);
+            border-radius: var(--radius);
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            animation: heroIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
+        .work-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+        }
+
+        .work-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
+            border-radius: var(--radius) var(--radius) 0 0;
+            pointer-events: none;
+        }
+
+        .work-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .work-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+        }
+
+        .work-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--accent-dim);
+            border: 1px solid rgba(56, 189, 248, 0.18);
+            border-radius: var(--radius-pill);
+            padding: 3px 10px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .work-desc {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.65;
+            margin-bottom: 16px;
+        }
+
+        /* Before / After comparison */
+        .work-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .comparison-box {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm);
+            padding: 12px 14px;
+        }
+
+        .comparison-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .comparison-label.before {
+            color: var(--danger);
+        }
+
+        .comparison-label.after {
+            color: var(--success);
+        }
+
+        .comparison-text {
+            font-size: 12.5px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* Tags */
+        .work-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .work-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .work-tag {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--faint);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-pill);
+            padding: 3px 10px;
+        }
+
+        .work-prazo {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--success);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+
+        /* ─── Empty / Loading ────────────────────── */
+        .empty-state {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--faint);
+            font-family: var(--mono);
+            font-size: 13px;
+        }
+
+        .loading-pulse {
+            color: var(--faint);
+            font-family: var(--mono);
+            font-size: 13px;
+            text-align: center;
+            padding: 48px 0;
+            animation: pulse 1.4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* ─── Footer ─────────────────────────────── */
+        .page-footer {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 20px 24px;
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: auto;
+        }
+
+        .footer-link {
+            font-size: 12px;
+            color: var(--faint);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: var(--muted);
+        }
+
+        @media (max-width: 520px) {
+            .hero {
+                padding: 36px 20px 24px;
+            }
+
+            .work-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .work-header {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="aero-nav">
+        <div class="nav-left">
+            <a href="index.html"><img src="../logo.svg" alt="webglossdev"></a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Diagnóstico</a>
+                <a href="avaliacoes.html" class="nav-link">Avaliações</a>
+                <a href="trabalhos.html" class="nav-link active">Trabalhos</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-eyebrow">🔧 Portfólio Técnico</div>
+        <h1>Trabalhos <span>realizados</span></h1>
+        <p>Cases reais de serviços que eu já realizei, com detalhes técnicos do antes e depois. Cada entrada aqui
+            representa um problema resolvido de verdade.</p>
+    </section>
+
+    <!-- Filter -->
+    <div class="filter-bar" id="filter-bar"></div>
+
+    <!-- Works -->
+    <section class="works-section">
+        <div class="works-grid" id="works-grid">
+            <div class="loading-pulse">Carregando trabalhos...</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <a href="index.html" class="footer-link">← Diagnóstico Técnico</a>
+        <a href="avaliacoes.html" class="footer-link">Ver Avaliações →</a>
+        <a href="mailto:webglossdev@proton.me" class="footer-link">webglossdev@proton.me</a>
+    </footer>
+
+    <script>
+        let allWorks = [];
+        let activeFilter = 'Todos';
+
+        function renderFilters(works) {
+            const bar = document.getElementById('filter-bar');
+            const categories = ['Todos', ...new Set(works.map(w => w.categoria))];
+            bar.innerHTML = categories.map(cat => `
+                <button class="filter-btn ${cat === activeFilter ? 'active' : ''}"
+                        onclick="setFilter('${cat}')">${cat}</button>
+            `).join('');
+        }
+
+        function renderWorks(works) {
+            const grid = document.getElementById('works-grid');
+            const filtered = activeFilter === 'Todos'
+                ? works
+                : works.filter(w => w.categoria === activeFilter);
+
+            if (!filtered.length) {
+                grid.innerHTML = '<div class="empty-state">Portfólio em construção. Os trabalhos serão adicionados no lançamento oficial.</div>';
+                return;
+            }
+
+            grid.innerHTML = filtered.map((w, i) => `
+                <div class="work-card" style="animation-delay: ${i * 0.07}s">
+                    <div class="work-header">
+                        <div class="work-title">${w.titulo}</div>
+                        <div class="work-category">${w.categoria}</div>
+                    </div>
+                    <p class="work-desc">${w.descricao}</p>
+                    <div class="work-comparison">
+                        <div class="comparison-box">
+                            <div class="comparison-label before">✗ Antes</div>
+                            <div class="comparison-text">${w.antes}</div>
+                        </div>
+                        <div class="comparison-box">
+                            <div class="comparison-label after">✓ Depois</div>
+                            <div class="comparison-text">${w.depois}</div>
+                        </div>
+                    </div>
+                    <div class="work-footer">
+                        <div class="work-tags">
+                            ${w.tags.map(t => `<span class="work-tag">${t}</span>`).join('')}
+                        </div>
+                        <div class="work-prazo">⏱ ${w.prazo}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.setFilter = function (cat) {
+            activeFilter = cat;
+            renderFilters(allWorks);
+            renderWorks(allWorks);
+        };
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                let base = window.location.href.split('?')[0].split('#')[0];
+                const lastSegment = base.substring(base.lastIndexOf('/') + 1);
+                if (lastSegment.includes('.')) {
+                    base = base.substring(0, base.lastIndexOf('/') + 1);
+                } else if (!base.endsWith('/')) {
+                    base = base + '/';
+                }
+                const res = await fetch(base + 'trabalhos.json');
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                allWorks = await res.json();
+                renderFilters(allWorks);
+                renderWorks(allWorks);
+            } catch (e) {
+                console.error('Erro ao carregar trabalhos:', e);
+                document.getElementById('works-grid').innerHTML =
+                    '<div class="empty-state" style="color:#ef4444">Erro ao carregar trabalhos.</div>';
+            }
+        };
+    </script>
+
+    <!-- Development Popup -->
+    <div id="dev-popup"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(5px); opacity: 0; pointer-events: none; transition: opacity 0.3s ease;">
+        <div style="background: #0f172a; border: 1px solid #38bdf8; border-radius: 16px; padding: 32px; max-width: 400px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.9); transform: translateY(20px); transition: transform 0.3s ease;"
+            id="dev-popup-content">
+            <h2 style="color: #fff; margin-bottom: 16px; font-size: 1.5rem;">🚧 Em Desenvolvimento</h2>
+            <p style="color: #94a3b8; line-height: 1.5; margin-bottom: 24px; font-size: 1rem;">Esta página ainda está em
+                construção e não está pronta para uso de clientes. Funções e conteúdos são apenas testes provisórios.
+            </p>
+            <button onclick="closeDevPopup()"
+                style="background: #38bdf8; color: #000; border: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: background 0.2s;">Entendi</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const popup = document.getElementById('dev-popup');
+                if (popup) {
+                    popup.style.opacity = '1';
+                    popup.style.pointerEvents = 'auto';
+                    document.getElementById('dev-popup-content').style.transform = 'translateY(0)';
+                }
+            }, 300);
+        });
+        function closeDevPopup() {
+            const popup = document.getElementById('dev-popup');
+            if (popup) {
+                popup.style.opacity = '0';
+                popup.style.pointerEvents = 'none';
+                document.getElementById('dev-popup-content').style.transform = 'translateY(20px)';
+            }
+        }
+    </script>
+</body>
+
+</html>

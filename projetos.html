@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos | Leonardo P. Soares</title>
+    <meta name="description"
+        content="Projetos de Leonardo P. Soares — website pessoal, infraestrutura em nuvem, workstation custom, workloads de IA, servidor local e mais.">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="content-wrapper">
+        <header class="hero">
+            <h1>Meus Projetos</h1>
+            <p class="subtitle">Laboratório de ideias, infraestrutura e aprendizado contínuo.</p>
+        </header>
+
+        <!-- Filtros -->
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="web">🌐 Web</button>
+            <button class="filter-btn" data-filter="infra">🖥️ Infra</button>
+            <button class="filter-btn" data-filter="ia">🤖 IA</button>
+            <button class="filter-btn" data-filter="hardware">🔧 Hardware</button>
+            <button class="filter-btn" data-filter="outros">📦 Outros</button>
+        </div>
+
+        <main class="projects-container">
+
+            <article class="project-card" data-category="web">
+                <div class="project-header">
+                    <h2 class="project-title">Diagnóstico Técnico (Ajuda)</h2>
+                    <div class="status-badge"
+                        style="background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);">
+                        🚧 Em Desenvolvimento</div>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-pill">HTML</span>
+                    <span class="tech-pill">CSS</span>
+                    <span class="tech-pill">JavaScript</span>
+                    <span class="tech-pill">JSON</span>
+                    <span class="tech-pill">Vercel</span>
+                    <span class="tech-pill">GitHub</span>
+                </div>
+
+                <div class="project-section">
+                    <h4>O Quê e Como:</h4>
+                    <p>Minha página de técnico de TI, junto com uma ferramenta para o cliente achar a estimativa de
+                        preço e tempo de serviço antes de me contratar. Feito com HTML, CSS e JS e com deploy no Vercel
+                        com GitHub.</p>
+                </div>
+
+                <div class="project-section">
+                    <h4>Por Que:</h4>
+                    <p>A maior parte dos técnicos tem apenas uma página que mostra um link pro whatsapp, assim algumas
+                        pessoas se desinteressam e nem sequer entram em contato. Eu queria algo que já desse ao cliente
+                        o que ele precisa saber, o que também economiza meu tempo caso alguém queira um tipo de serviço
+                        que eu não ofereça.</p>
+                </div>
+
+                <div class="project-section">
+                    <h4>Milestones:</h4>
+                    <ul class="milestones">
+                        <li class="done">Criar o layout standalone "Aero Glass" e responsivo.</li>
+                        <li class="done">Refatorar dados fixos para buscar dinamicamente com manipulação de DOM pelo
+                            JavaScript (Fetch API + JSON).</li>
+                        <li class="done">Implementar e polir as páginas complementares de "Avaliações" e "Trabalhos".
+                        </li>
+                        <li>Separar totalmente em um subdomínio (Ex: ajuda.meusite.com).</li>
+                        <li>Lançamento final para clientes.</li>
+                    </ul>
+                </div>
+
+                <div class="project-section" style="margin-top: 30px;">
+                    <a href="ajuda/index.html" target="_blank" class="btn-secondary"
+                        style="display: inline-flex; align-items: center; gap: 10px;">
+                        🌐 Ver Prévia do Projeto
+                    </a>
+                </div>
+
+                <button class="toggle-media-btn" onclick="toggleProjectMedia(this)">
+                    📂 Ver Capturas de Tela <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="project-media-collapse">
+                    <div class="project-carousel" data-current-slide="0">
+                        <div class="carousel-track-container">
+                            <div class="carousel-track">
+                                <div class="carousel-slide active">
+                                    <img src="assets/ajuda-main.png" alt="Painel de Diagnóstico Técnico"
+                                        class="carousel-img">
+                                    <div class="carousel-caption">Landing Page do site.</div>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/ajuda-resolve.png" alt="Interface de Atendimento"
+                                        class="carousel-img">
+                                    <div class="carousel-caption">Exemplo da página final que o cliente cai.</div>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/ajuda-review.png" alt="Página de Avaliações" class="carousel-img">
+                                    <div class="carousel-caption">Página com as avaliações que me deram.</div>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/ajuda-work.png" alt="Página de Trabalhos" class="carousel-img">
+                                    <div class="carousel-caption">Página com os trabalhos que me deram e que já
+                                        realizei.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-btn prev-btn" onclick="shiftSlide(this, -1)">‹</button>
+                        <button class="carousel-control-btn next-btn" onclick="shiftSlide(this, 1)">›</button>
+                        <div class="carousel-indicators">
+                            <span class="indicator-dot active" onclick="goToSlide(this, 0)"></span>
+                            <span class="indicator-dot" onclick="goToSlide(this, 1)"></span>
+                            <span class="indicator-dot" onclick="goToSlide(this, 2)"></span>
+                            <span class="indicator-dot" onclick="goToSlide(this, 3)"></span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="web">
+                <div class="project-header">
+                    <h2 class="project-title">Meu Website</h2>
+                    <div class="status-badge">📂 Repositório Público</div>
+                </div>
+                <div class="github-stats-container" data-repo="webglossdev/PWebsite">
+                    <div class="stat-loading">Carregando dados do GitHub...</div>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-pill">HTML</span>
+                    <span class="tech-pill">CSS</span>
+                    <span class="tech-pill">JavaScript</span>
+                    <span class="tech-pill">GitHub</span>
+                    <span class="tech-pill">Vercel</span>
+                </div>
+
+                <div class="project-section">
+                    <h4>O Quê e Como:</h4>
+                    <p>Esse website que você está acessando agora, hospedado na Vercel com deploy automático via GitHub.
+                        Anteriormente rodava em uma VPS da Oracle Cloud com Nginx & Nginx Proxy Manager.</p>
+                </div>
+
+                <div class="project-section">
+                    <h4>Por Que:</h4>
+                    <p>Eu queria ter um website pessoal para mostrar mais sobre mim e outras coisas, e também
+                        aprender mais sobre desenvolvimento web. Esse projeto me ajudou a entender melhor HTML, e
+                        JavaScript.
+                    </p>
+                </div>
+
+                <div class="project-section" style="margin-top: 30px;">
+                    <a href="https://github.com/webglossdev/PWebsite/tree/main" target="_blank" class="btn-secondary"
+                        style="display: inline-flex; align-items: center; gap: 10px;">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+                        </svg>
+                        Acessar Repositório
+                    </a>
+                </div>
+
+                <button class="toggle-media-btn" onclick="toggleProjectMedia(this)">
+                    📂 Ver Capturas de Tela <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="project-media-collapse">
+                    <div class="project-carousel" data-current-slide="0">
+                        <div class="carousel-track-container">
+                            <div class="carousel-track">
+                                <div class="carousel-slide active">
+                                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800"
+                                        alt="Home do Portfólio" class="carousel-img">
+                                    <div class="carousel-caption">Home Page com Tema Escuro e Efeitos Partículas</div>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://images.unsplash.com/photo-1547082299-de196ea013d6?w=800"
+                                        alt="Código Fonte do Portfólio" class="carousel-img">
+                                    <div class="carousel-caption">Estrutura de Código no VS Code e Design Glassmorphic
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-btn prev-btn" onclick="shiftSlide(this, -1)">‹</button>
+                        <button class="carousel-control-btn next-btn" onclick="shiftSlide(this, 1)">›</button>
+                        <div class="carousel-indicators">
+                            <span class="indicator-dot active" onclick="goToSlide(this, 0)"></span>
+                            <span class="indicator-dot" onclick="goToSlide(this, 1)"></span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="web">
+                <div class="project-header">
+                    <h2 class="project-title">Calendário Olímpico</h2>
+                    <div class="status-badge">🌐 Público</div>
+                </div>
+                <div class="github-stats-container" data-repo="webglossdev/Calendario-Olimpico">
+                    <div class="stat-loading">Carregando dados do GitHub...</div>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-pill">HTML</span>
+                    <span class="tech-pill">CSS</span>
+                    <span class="tech-pill">JavaScript</span>
+                    <span class="tech-pill">JSON (Base de dados)</span>
+                    <span class="tech-pill">Vercel</span>
+                    <span class="tech-pill">Github</span>
+                </div>
+
+                <div class="project-section">
+                    <h4>O Quê e Como:</h4>
+                    <p>Um website que centraliza todas as olimpíadas científicas brasileiras do ano: datas de provas e
+                        inscrição, matérias que caem, séries que podem participar e links para estudo específico de cada
+                        prova.</p>
+                </div>
+
+                <div class="project-section">
+                    <h4>Por Que:</h4>
+                    <p>Eu participava de várias olimpíadas e notei que era muito difícil encontrar todas as informações
+                        organizadas em um só lugar. Decidi criar essa ferramenta para ajudar outros estudantes.</p>
+                </div>
+
+                <div class="project-section" style="margin-top: 30px;">
+                    <a href="https://calendario-olimpico.vercel.app" target="_blank" class="btn-secondary"
+                        style="display: inline-flex; align-items: center; gap: 10px;">
+                        🌐 Acessar o Site
+                    </a>
+                </div>
+
+                <button class="toggle-media-btn" onclick="toggleProjectMedia(this)">
+                    📂 Ver Capturas de Tela <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="project-media-collapse">
+                    <div class="project-carousel" data-current-slide="0">
+                        <div class="carousel-track-container">
+                            <div class="carousel-track">
+                                <div class="carousel-slide active">
+                                    <img src="assets/c1.png" alt="Página Inicial do Calendário Olímpico" class="carousel-img">
+                                    <div class="carousel-caption">Página Inicial do Calendário Olímpico</div>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/c2.png" alt="Lista de Olimpíadas" class="carousel-img">
+                                    <div class="carousel-caption">Lista Centralizada de Olimpíadas Científicas</div>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/c3.png" alt="Página de Detalhes" class="carousel-img">
+                                    <div class="carousel-caption">Área de Cronogramas, Links de Inscrição e Estudos
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-btn prev-btn" onclick="shiftSlide(this, -1)">‹</button>
+                        <button class="carousel-control-btn next-btn" onclick="shiftSlide(this, 1)">›</button>
+                        <div class="carousel-indicators">
+                            <span class="indicator-dot active" onclick="goToSlide(this, 0)"></span>
+                            <span class="indicator-dot" onclick="goToSlide(this, 1)"></span>
+                            <span class="indicator-dot" onclick="goToSlide(this, 2)"></span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="infra">
+                <div class="project-header">
+                    <h2 class="project-title">Infraestrutura em Nuvem</h2>
+                    <div class="status-badge">🔒 Privado</div>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-pill">Oracle Cloud</span>
+                    <span class="tech-pill">Nginx</span>
+                    <span class="tech-pill">Nginx Proxy Manager</span>
+                    <span class="tech-pill">Linux (Ubuntu 22.04)</span>
+                </div>
+
+                <div class="project-section">
+                    <h4>O Quê e Como:</h4>
+                    <p>Meu VPS da Oracle Cloud (Forever-Free Tier | Vinhedo) com Ubuntu 22.04 para rodar alguns projetos
+                        leves. Utilizando Nginx Proxy Manager para gerenciar subdomínio/reverse proxy com certificado
+                        SSL.</p>
+                </div>
+
+                <div class="project-section">
+                    <h4>Por Que:</h4>
+                    <p>Eu queria hospedar meu próprio website e serviços sem pagar e sem usar minha própria
+                        máquina, então peguei um VPS simples e gratuito.</p>
+                </div>
+
+
+            </article>
+
+            <article class="project-card" data-category="hardware">
+                <div class="project-header">
+                    <h2 class="project-title">Workstation Custom</h2>
+                    <div class="status-badge">🔒 Privado</div>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-pill">Hardware</span>
+                    <span class="tech-pill">Software (BIOS)</span>
+                    <span class="tech-pill">Figma (Design)</span>
+                    <span class="tech-pill">3D Modeling em CAD</span>
+                </div>
+
+                <div class="project-section">
+                    <h4>O Quê e Como:</h4>
+                    <p>Minha máquina pessoal que estou construindo lentamente, feita para rodar tudo que preciso
+                        com peças escolhidas, montadas, configuradas, customizadas e com overclock por mim mesmo.</p>
+                </div>
+
+                <div class="project-section">
+                    <h4>Milestones:</h4>
+                    <ul class="milestones">
+                        <li class="done">Ter a máquina "básica/base"</li>
+                        <li class="done">Saber as peças que vou comprar e planejamento de gasto</li>
+                        <li>Comprar as peças novas e montar a workstation.</li>
+                        <li>Fazer a Customização da Workstation, físico e digital.</li>
+                    </ul>
+                </div>
+
+
+            </article>
+
+            <article class="project-card" data-category="ia">
+                <div class="project-header">
+                    <h2 class="project-title">Playground e Workloads de IA</h2>
+                    <div class="status-badge">🔒 Privado</div>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-pill">Ollama / LLM Studio</span>
+                    <span class="tech-pill">Applio</span>
+                    <span class="tech-pill">MCP Docker</span>
+                    <span class="tech-pill">Stable Diffusion e LoRA</span>
+                    <span class="tech-pill">Python</span>
+                </div>
+
+                <div class="project-section">
+                    <h4>O Quê e Como:</h4>
+                    <p>Workloads de IA que rodam localmente na minha máquina, para trabalho e diversão. LLMs,
+                        Inferência de Voz com IA, Geração de imagens com Stable Diffusion e treinamento com LoRA.</p>
+                </div>
+
+                <div class="project-section">
+                    <h4>Milestones:</h4>
+                    <ul class="milestones">
+                        <li class="done">Aprender mais sobre os conceitos básicos e teóricos.</li>
+                        <li>Começar a aplicação prática intensiva após o upgrade da máquina.</li>
+                    </ul>
+                </div>
+
+
+            </article>
+
+            <article class="project-card" data-category="infra">
+                <div class="project-header">
+                    <h2 class="project-title">Servidor Local</h2>
+                    <div class="status-badge">🔒 Privado</div>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-pill">Tailscale / ZeroTier One</span>
+                    <span class="tech-pill">Minecraft Server (mcss)</span>
+                    <span class="tech-pill">Playit.gg</span>
+                    <span class="tech-pill">Jellyfin</span>
+                    <span class="tech-pill">Docker Compose</span>
+                </div>
+
+                <div class="project-section">
+                    <h4>O Quê e Como:</h4>
+                    <p>Serviços para mim e meus amigos rodando localmente: Jellyfin para streaming privado,
+                        Servidor de Minecraft, Playit.gg para IP público sem port forwarding, Docker Desktop e
+                        Tailscale/ZeroTier para acesso remoto.</p>
+                </div>
+
+                <div class="project-section">
+                    <h4>Milestones:</h4>
+                    <ul class="milestones">
+                        <li class="done">Configurar e subir todos esses serviços na máquina atual.</li>
+                        <li>Transicionar completamente do ZeroTier ao Tailscale.</li>
+                        <li>Upgrade na máquina pra rodar tudo 24/7.</li>
+                    </ul>
+                </div>
+
+
+            </article>
+
+            <article class="project-card" data-category="outros">
+                <div class="project-header">
+                    <h2 class="project-title">Lua UI Hub (Ambiente Roblox)</h2>
+                    <div class="status-badge public">📂 Repositório Público Arquivado</div>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-pill">Lua</span>
+                    <span class="tech-pill">UI Libraries</span>
+                    <span class="tech-pill">Roblox Engine</span>
+                </div>
+
+                <div class="project-section">
+                    <h4>O Quê e Como:</h4>
+                    <p>Um hub GUI de scripts para jogos na plataforma Roblox, feito completamente em Lua com a UI
+                        Library "OrionLib".</p>
+                </div>
+
+                <div class="project-section" style="margin-top: 30px;">
+                    <a href="https://github.com/webglossdev/Orionlib/tree/main" target="_blank" class="btn-secondary"
+                        style="display: inline-flex; align-items: center; gap: 10px;">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+                        </svg>
+                        Acessar Repositório
+                    </a>
+                </div>
+
+
+            </article>
+
+        </main>
+
+        <!-- Projetos Futuros -->
+        <section class="future-projects">
+            <h2 class="section-title">🔮 Na Prancheta</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: var(--text-secondary);">Projetos que estão
+                aguardando apenas eu adquirir mais experiência técnica.</p>
+
+            <div class="future-timeline">
+                <div class="future-card">
+                    <h3>🤖 Website de Playground e Ferramentas IA</h3>
+                    <p>Website onde usuários acessam diversas ferramentas de IA, incluindo modelos locais e API
+                        para integrar em projetos. Open WebUI + Applio + planos gratuitos e pagos.</p>
+                </div>
+
+                <div class="future-card">
+                    <h3>🏠 Casa Inteligente</h3>
+                    <p>Automatizar minha casa inteira com aparelhos modulares conectados. Sistema centralizado
+                        de controle com foco em automação e economia máxima de energia.</p>
+                </div>
+
+                <div class="future-card">
+                    <h3>🤖 Robô Humanoide Controlado por IA</h3>
+                    <p>Robô funcional com exterior impresso em 3D, atuadores mecânicos, e cérebro processado
+                        por IA multimodal local (inspirado no Gemini Robotics).</p>
+                </div>
+
+                <div class="future-card">
+                    <h3>🚲 Bicicleta Elétrica DIY</h3>
+                    <p>Bicicleta elétrica do zero: células de lítio, pack de bateria customizado, motor de cubo
+                        e painel customizado (talvez com PCB desenhada por mim).</p>
+                </div>
+
+                <div class="future-card">
+                    <h3>📱 Meu Próprio Android Custom (OS)</h3>
+                    <p>Fork do AOSP com KernelSU Next, otimizações de scheduler/kernel e remoção de bloatware.
+                        Possível versão GSI no GitHub para a comunidade.</p>
+                </div>
+
+                <div class="future-card">
+                    <h3>💡 Meus próprios apps e ferramentas</h3>
+                    <p>Criar minhas próprias versões de ferramentas e apps que eu uso do zero quando tiver
+                        conhecimento suficiente em programação.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script defer src="layout.js"></script>
+    <script defer src="script.js"></script>
+</body>
+
+</html>
