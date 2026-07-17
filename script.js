@@ -166,7 +166,7 @@
                     type: 'image',
                     options: {
                         image: {
-                            src: 'estrelas.svg',
+                            src: 'assets/estrelas.svg',
                             width: 32,
                             height: 32,
                             replaceColor: false
@@ -593,7 +593,7 @@
     });
 })();
 
-window.toggleCollapse = function(btn) {
+window.toggleCollapse = function (btn) {
     const grid = btn.previousElementSibling;
     if (grid && grid.classList.contains('stack-grid')) {
         const hiddenArea = grid.querySelector('.collapsible-hidden-area');
@@ -609,13 +609,13 @@ window.toggleCollapse = function(btn) {
     }
 };
 
-window.toggleProjectMedia = function(btn) {
+window.toggleProjectMedia = function (btn) {
     const collapseArea = btn.nextElementSibling;
     if (collapseArea && collapseArea.classList.contains('project-media-collapse')) {
         const isExpanding = !collapseArea.classList.contains('expanded');
         collapseArea.classList.toggle('expanded');
         btn.classList.toggle('expanded');
-        
+
         if (isExpanding) {
             btn.innerHTML = '📂 Ocultar Capturas <i class="fas fa-chevron-up"></i>';
         } else {
@@ -624,14 +624,14 @@ window.toggleProjectMedia = function(btn) {
     }
 };
 
-window.setCarouselSlide = function(carousel, index) {
+window.setCarouselSlide = function (carousel, index) {
     const slides = carousel.querySelectorAll('.carousel-slide');
     const dots = carousel.querySelectorAll('.indicator-dot');
     if (slides.length === 0) return;
-    
+
     let newIndex = (index + slides.length) % slides.length;
     carousel.setAttribute('data-current-slide', newIndex);
-    
+
     slides.forEach((slide, idx) => {
         if (idx === newIndex) {
             slide.classList.add('active');
@@ -639,7 +639,7 @@ window.setCarouselSlide = function(carousel, index) {
             slide.classList.remove('active');
         }
     });
-    
+
     dots.forEach((dot, idx) => {
         if (idx === newIndex) {
             dot.classList.add('active');
@@ -649,13 +649,13 @@ window.setCarouselSlide = function(carousel, index) {
     });
 };
 
-window.shiftSlide = function(btn, direction) {
+window.shiftSlide = function (btn, direction) {
     const carousel = btn.closest('.project-carousel');
     const currentIndex = parseInt(carousel.getAttribute('data-current-slide') || '0', 10);
     window.setCarouselSlide(carousel, currentIndex + direction);
 };
 
-window.goToSlide = function(dot, index) {
+window.goToSlide = function (dot, index) {
     const carousel = dot.closest('.project-carousel');
     window.setCarouselSlide(carousel, index);
 };
