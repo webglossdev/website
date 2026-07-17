@@ -23,7 +23,7 @@ const headerHTML = `
         </div>
         
         <div class="nav-logo">
-            <a href="index.html">
+            <a href="/">
                 <img src="assets/logo.svg" alt="Leonardo P. Soares Logo">
             </a>
         </div>
