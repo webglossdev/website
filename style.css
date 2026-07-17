@@ -891,11 +891,13 @@ strong {
 .collapsible-hidden-area {
     display: none;
 }
+
 .collapsible-hidden-area.expanded {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
+
 .toggle-collapse-btn {
     margin-top: 16px;
     background: transparent;
@@ -913,14 +915,17 @@ strong {
     width: 100%;
     font-weight: 500;
 }
+
 .toggle-collapse-btn:hover {
     color: var(--text-primary);
     border-color: var(--border-strong);
     background: var(--bg-hover);
 }
+
 .toggle-collapse-btn i {
     transition: transform 0.3s ease;
 }
+
 .toggle-collapse-btn.expanded i {
     transform: rotate(180deg);
 }
@@ -1296,7 +1301,7 @@ textarea.glass-input {
     flex-wrap: wrap;
     margin-bottom: 40px;
     width: 100%;
-    max-width: 600px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -2510,7 +2515,7 @@ html.dark .folder-tab.active {
 html.light .folder-tab.active {
     color: #0f172a !important;
 }
-}
+
 
 @media (max-width: 768px) {
     .hero {
@@ -2964,6 +2969,7 @@ html.light .filter-btn {
    RESPONSIVE — NEW COMPONENTS & LAYOUT FIXES
    ========================================= */
 @media (max-width: 768px) {
+
     /* Grid Adjustments */
     .interests-grid,
     .featured-grid,
@@ -2993,12 +2999,12 @@ html.light .filter-btn {
         gap: 12px;
         flex-wrap: wrap;
     }
-    
+
     .nav-links.left-links {
         justify-content: flex-end;
         width: auto;
     }
-    
+
     .nav-links.right-links {
         justify-content: flex-start;
         width: auto;
@@ -3041,6 +3047,7 @@ html.light .filter-btn {
 }
 
 @media (max-width: 480px) {
+
     /* Refine nav links to fit very small screens */
     .nav-links {
         gap: 8px;
@@ -3059,7 +3066,7 @@ html.light .filter-btn {
     .nav-logo img {
         height: 24px;
     }
-    
+
     .header-controls {
         top: 12px;
         right: 12px;
@@ -3203,7 +3210,7 @@ html.light .filter-btn {
     text-align: center;
     z-index: 3;
     font-weight: 500;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 .carousel-control-btn {

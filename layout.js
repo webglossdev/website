@@ -18,19 +18,19 @@ const backgroundHTML = `
 const headerHTML = `
     <nav class="floating-header">
         <div class="nav-links left-links">
-            <a href="index.html">Início</a>
-            <a href="sobre.html">Sobre Mim</a>
+            <a href="/contato">Contato</a>
+            <a href="/sobre">Sobre Mim</a>
         </div>
         
         <div class="nav-logo">
             <a href="index.html">
-                <img src="logo.svg" alt="Leonardo P. Soares Logo">
+                <img src="assets/logo.svg" alt="Leonardo P. Soares Logo">
             </a>
         </div>
         
         <div class="nav-links right-links">
-            <a href="projetos.html">Projetos</a>
-            <a href="contrate-me.html" class="nav-hire-link">💼 Contrate-me</a>
+            <a href="/projetos">Projetos</a>
+            <a href="/contrate-me" class="nav-hire-link">💼 Contrate-me</a>
         </div>
 
         <div class="header-controls">
