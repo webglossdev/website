@@ -28,9 +28,9 @@ const headerHTML = `
             </a>
         </div>
         
-        <div class="nav-links right-links">
+          <div class="nav-links right-links">
             <a href="/projetos">Projetos</a>
-            <a href="/contrate-me" class="nav-hire-link">💼 Contrate-me</a>
+            <a href="/blog" >Blog Pessoal</a>
         </div>
 
         <div class="header-controls">
