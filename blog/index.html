@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário do Abismo | Blog</title>
+    <meta name="description"
+        content="Registros encontrados nas profundezas — Blog temático inspirado em Made in Abyss.">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ==========================================
+           MADE IN ABYSS — BLOG THEME
+           ========================================== */
+
+        /* --- Theme Variables --- */
+        :root {
+            --gold: #d4a574;
+            --gold-bright: #f0c987;
+            --gold-dim: #8a6d4a;
+            --cyan-glow: #7dd3fc;
+            --purple-glow: #a78bfa;
+            --amber-glow: #fbbf24;
+            --text-primary: #e8dfd0;
+            --text-secondary: #a89880;
+            --text-muted: #6d5f4f;
+            --surface: rgba(42, 35, 28, 0.82);
+            --surface-hover: rgba(55, 46, 36, 0.88);
+            --surface-strong: rgba(32, 26, 20, 0.92);
+            --border: rgba(212, 165, 116, 0.15);
+            --border-hover: rgba(212, 165, 116, 0.35);
+            --border-strong: rgba(212, 165, 116, 0.5);
+            --scroll-progress: 0;
+
+            /* Layer colors */
+            --layer-1: #4a6741;
+            --layer-2: #2d5a4a;
+            --layer-3: #1a4a5a;
+            --layer-4: #1a3a6a;
+            --layer-5: #3a1a5a;
+            --layer-6: #1a0a3a;
+            --layer-7: #08030f;
+
+            /* Fonts */
+            --font-display: 'Cinzel', 'Georgia', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+        }
+
+        /* --- Reset --- */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+        }
+
+        html::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: #0a0418;
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--gold-bright);
+        }
+
+        /* ==========================================
+           BACKGROUND — Abyss Geological Layers
+           ========================================== */
+        .abyss-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 250vh;
+            z-index: -100;
+            background: linear-gradient(180deg,
+                    #3a5c45 0%,
+                    #2f5040 5%,
+                    #264a3a 10%,
+                    #1e4a4a 16%,
+                    #184555 22%,
+                    #154058 28%,
+                    #143660 35%,
+                    #152e65 42%,
+                    #1a2560 48%,
+                    #221a58 55%,
+                    #2a1250 62%,
+                    #250a45 68%,
+                    #1e0838 75%,
+                    #150528 82%,
+                    #0c031c 90%,
+                    #060210 95%,
+                    #030108 100%);
+            transform: translateY(calc(var(--scroll-progress) * -150vh));
+            will-change: transform;
+        }
+
+        /* Map texture overlay — topographic grid lines */
+        .abyss-texture {
+            position: fixed;
+            inset: 0;
+            z-index: -99;
+            pointer-events: none;
+        }
+
+        .abyss-texture::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(0deg,
+                    transparent, transparent 100px,
+                    rgba(212, 165, 116, 0.025) 100px,
+                    rgba(212, 165, 116, 0.025) 101px),
+                repeating-linear-gradient(90deg,
+                    transparent, transparent 160px,
+                    rgba(212, 165, 116, 0.015) 160px,
+                    rgba(212, 165, 116, 0.015) 161px);
+        }
+
+        .abyss-texture::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 800px 400px at 20% 30%, rgba(212, 165, 116, 0.03), transparent),
+                radial-gradient(ellipse 600px 300px at 75% 60%, rgba(125, 211, 252, 0.02), transparent),
+                radial-gradient(ellipse 500px 500px at 50% 80%, rgba(167, 139, 250, 0.02), transparent);
+        }
+
+        /* ==========================================
+           ATMOSPHERE — Mist & Particles
+           ========================================== */
+        .abyss-mist {
+            position: fixed;
+            inset: 0;
+            z-index: -98;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .mist-layer {
+            position: absolute;
+            width: 140%;
+            height: 40%;
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+
+        .mist-1 {
+            bottom: -15%;
+            left: -20%;
+            background: radial-gradient(ellipse, rgba(180, 190, 200, 0.06) 0%, transparent 70%);
+            animation: mist-drift-1 25s ease-in-out infinite;
+        }
+
+        .mist-2 {
+            top: 20%;
+            right: -30%;
+            background: radial-gradient(ellipse, rgba(120, 160, 180, 0.04) 0%, transparent 70%);
+            animation: mist-drift-2 30s ease-in-out infinite;
+        }
+
+        .mist-3 {
+            bottom: 30%;
+            left: -10%;
+            background: radial-gradient(ellipse, rgba(167, 139, 250, 0.03) 0%, transparent 70%);
+            animation: mist-drift-3 35s ease-in-out infinite;
+        }
+
+        .abyss-particles {
+            position: fixed;
+            inset: 0;
+            z-index: -97;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: float-up var(--duration) linear infinite;
+            animation-delay: var(--delay);
+            opacity: 0;
+        }
+
+        /* ==========================================
+           NAVIGATION — Minimal Top Bar
+           ========================================== */
+        .abyss-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            height: 52px;
+            background: rgba(10, 4, 24, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-back {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.3s;
+        }
+
+        .nav-back:hover {
+            color: var(--gold-bright);
+        }
+
+        .nav-title {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================
+           DEPTH GAUGE — Custom Scroll Indicator
+           ========================================== */
+        .depth-gauge {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 6px;
+            background: rgba(20, 15, 10, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            border-radius: 24px;
+            min-height: 320px;
+            width: 52px;
+            box-shadow:
+                0 0 20px rgba(0, 0, 0, 0.4),
+                inset 0 0 20px rgba(212, 165, 116, 0.03);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .depth-gauge.hidden {
+            opacity: 0;
+            transform: translateY(-50%) translateX(80px);
+            pointer-events: none;
+        }
+
+        .gauge-label {
+            font-family: var(--font-mono);
+            font-size: 0.5rem;
+            font-weight: 500;
+            color: var(--gold-dim);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            white-space: nowrap;
+            display: none;
+        }
+
+        .gauge-track {
+            position: relative;
+            width: 3px;
+            flex: 1;
+            min-height: 200px;
+            background: linear-gradient(180deg,
+                    var(--layer-1) 0%,
+                    var(--layer-2) 14%,
+                    var(--layer-3) 28%,
+                    var(--layer-4) 42%,
+                    var(--layer-5) 58%,
+                    var(--layer-6) 72%,
+                    var(--layer-7) 90%);
+            border-radius: 4px;
+            overflow: visible;
+        }
+
+        .gauge-marker {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, -50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--gold-bright);
+            border: 2px solid var(--gold);
+            box-shadow:
+                0 0 8px var(--gold),
+                0 0 20px rgba(212, 165, 116, 0.3);
+            transition: top 0.15s ease-out;
+            z-index: 5;
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        .layer-mark {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .layer-mark::before {
+            content: '';
+            width: 18px;
+            height: 1px;
+            background: var(--mark-color);
+            opacity: 0.5;
+            position: absolute;
+            right: 100%;
+            margin-right: 2px;
+        }
+
+        .layer-mark-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--mark-color);
+            opacity: 0.6;
+        }
+
+        .layer-mark-label {
+            position: absolute;
+            right: calc(100% + 8px);
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(5px);
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+        }
+
+        .depth-gauge:hover .layer-mark-label {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .gauge-readout {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-align: center;
+            min-width: 36px;
+            letter-spacing: 0.5px;
+        }
+
+        .gauge-origin {
+            font-family: var(--font-mono);
+            font-size: 0.5rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* ==========================================
+           HERO — Abyss Portal
+           ========================================== */
+        .abyss-hero {
+            padding: 120px 24px 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        .portal {
+            position: relative;
+            width: 420px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portal-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            border: 1px solid;
+            opacity: 0.35;
+            transform-origin: center center;
+        }
+
+        .ring-1 {
+            width: 100%;
+            height: 100%;
+            margin-top: -50%;
+            margin-left: -50%;
+            border-color: var(--layer-1);
+            border-width: 1.5px;
+            animation: portal-spin 60s linear infinite;
+        }
+
+        .ring-2 {
+            width: 85%;
+            height: 85%;
+            margin-top: -42.5%;
+            margin-left: -42.5%;
+            border-color: var(--layer-2);
+            animation: portal-spin 50s linear infinite reverse;
+        }
+
+        .ring-3 {
+            width: 70%;
+            height: 70%;
+            margin-top: -35%;
+            margin-left: -35%;
+            border-color: var(--layer-3);
+            animation: portal-spin 45s linear infinite;
+        }
+
+        .ring-4 {
+            width: 56%;
+            height: 56%;
+            margin-top: -28%;
+            margin-left: -28%;
+            border-color: var(--layer-4);
+            animation: portal-spin 38s linear infinite reverse;
+        }
+
+        .ring-5 {
+            width: 43%;
+            height: 43%;
+            margin-top: -21.5%;
+            margin-left: -21.5%;
+            border-color: var(--layer-5);
+            animation: portal-spin 32s linear infinite;
+        }
+
+        .ring-6 {
+            width: 32%;
+            height: 32%;
+            margin-top: -16%;
+            margin-left: -16%;
+            border-color: var(--layer-6);
+            border-width: 1.5px;
+            animation: portal-spin 26s linear infinite reverse;
+        }
+
+        .ring-7 {
+            width: 22%;
+            height: 22%;
+            margin-top: -11%;
+            margin-left: -11%;
+            border-color: rgba(212, 165, 116, 0.4);
+            border-width: 2px;
+            animation: portal-spin 20s linear infinite;
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.1);
+        }
+
+        .portal-center {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .portal-center h1 {
+            font-family: var(--font-display);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--gold-bright);
+            letter-spacing: 3px;
+            text-shadow: 0 0 30px rgba(212, 165, 116, 0.3), 0 2px 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .portal-center p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* ==========================================
+           POSTS GRID — Relic Cards
+           ========================================== */
+        .posts-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 24px 100px;
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 24px;
+        }
+
+        .post-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            animation: card-appear 0.6s ease-out both;
+            animation-delay: var(--appear-delay, 0s);
+        }
+
+        .post-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    var(--card-accent, var(--gold)),
+                    transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .post-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            background: radial-gradient(ellipse at 50% 0%, var(--card-accent-glow, rgba(212, 165, 116, 0.05)), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+        }
+
+        .post-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            background: var(--surface-hover);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 0 0 1px var(--border-hover);
+        }
+
+        .post-card:hover::before {
+            opacity: 1;
+        }
+
+        .post-card:hover::after {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            line-height: 1;
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(212, 165, 116, 0.08);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 165, 116, 0.1);
+        }
+
+        .card-meta {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .card-date {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        .card-excerpt {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .card-tag {
+            font-size: 0.68rem;
+            font-weight: 500;
+            padding: 3px 10px;
+            border-radius: 20px;
+            background: rgba(212, 165, 116, 0.08);
+            color: var(--gold-dim);
+            border: 1px solid rgba(212, 165, 116, 0.1);
+            letter-spacing: 0.5px;
+        }
+
+        .card-layer {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            padding: 3px 10px;
+            border-radius: 20px;
+            border: 1px solid var(--layer-border, var(--border));
+            background: var(--layer-bg, rgba(0, 0, 0, 0.2));
+        }
+
+        .card-layer-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--layer-dot-color, var(--gold));
+        }
+
+        /* ==========================================
+           POST VIEWER — Single Post Display
+           ========================================== */
+        .post-viewer {
+            position: relative;
+            z-index: 50;
+            min-height: 100vh;
+            padding: 80px 24px 100px;
+        }
+
+        .viewer-container {
+            max-width: 740px;
+            margin: 0 auto;
+            animation: viewer-enter 0.5s ease-out;
+        }
+
+        .viewer-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 8px 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 40px;
+        }
+
+        .viewer-back:hover {
+            color: var(--gold-bright);
+            border-color: var(--border-hover);
+            background: var(--surface-hover);
+        }
+
+        .viewer-header {
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .viewer-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .viewer-title {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--gold-bright);
+            letter-spacing: 1px;
+            line-height: 1.25;
+            margin-bottom: 16px;
+            text-shadow: 0 0 20px rgba(212, 165, 116, 0.15);
+        }
+
+        .viewer-meta-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .viewer-date {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .viewer-layer-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: rgba(0, 0, 0, 0.2);
+            color: var(--text-secondary);
+        }
+
+        .viewer-layer-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+        }
+
+        .viewer-tags {
+            display: flex;
+            gap: 6px;
+        }
+
+        .viewer-tag {
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 3px 10px;
+            border-radius: 16px;
+            background: rgba(212, 165, 116, 0.08);
+            color: var(--gold-dim);
+            border: 1px solid rgba(212, 165, 116, 0.1);
+        }
+
+        /* ==========================================
+           MARKDOWN CONTENT — Typography
+           ========================================== */
+        .viewer-body {
+            color: var(--text-primary);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .viewer-body h1 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold-bright);
+            margin: 48px 0 20px;
+            letter-spacing: 1px;
+        }
+
+        .viewer-body h2 {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin: 40px 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .viewer-body h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 32px 0 12px;
+        }
+
+        .viewer-body h4,
+        .viewer-body h5,
+        .viewer-body h6 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin: 24px 0 8px;
+        }
+
+        .viewer-body p {
+            margin-bottom: 16px;
+        }
+
+        .viewer-body strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .viewer-body em {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .viewer-body a {
+            color: var(--cyan-glow);
+            text-decoration: underline;
+            text-decoration-color: rgba(125, 211, 252, 0.3);
+            text-underline-offset: 3px;
+            transition: all 0.3s;
+        }
+
+        .viewer-body a:hover {
+            color: #a5e4ff;
+            text-decoration-color: rgba(125, 211, 252, 0.7);
+        }
+
+        .viewer-body img {
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 24px 0;
+            border: 1px solid var(--border);
+        }
+
+        .viewer-body blockquote {
+            margin: 24px 0;
+            padding: 16px 20px;
+            border-left: 3px solid var(--gold);
+            background: rgba(212, 165, 116, 0.05);
+            border-radius: 0 10px 10px 0;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .viewer-body pre {
+            margin: 24px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #c8d6e5;
+        }
+
+        .viewer-body code {
+            font-family: var(--font-mono);
+            font-size: 0.85em;
+            padding: 2px 7px;
+            background: rgba(212, 165, 116, 0.08);
+            border: 1px solid rgba(212, 165, 116, 0.1);
+            border-radius: 5px;
+            color: var(--gold);
+        }
+
+        .viewer-body pre code {
+            padding: 0;
+            background: none;
+            border: none;
+            border-radius: 0;
+            color: inherit;
+            font-size: 1em;
+        }
+
+        .viewer-body ul,
+        .viewer-body ol {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+
+        .viewer-body li {
+            margin-bottom: 6px;
+        }
+
+        .viewer-body ul li::marker {
+            color: var(--gold-dim);
+        }
+
+        .viewer-body ol li::marker {
+            color: var(--gold-dim);
+            font-family: var(--font-mono);
+            font-size: 0.85em;
+        }
+
+        .viewer-body hr {
+            margin: 40px 0;
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+        }
+
+        .viewer-body del {
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        /* ==========================================
+           EMPTY & LOADING STATES
+           ========================================== */
+        .empty-state {
+            text-align: center;
+            padding: 80px 24px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .empty-whistle {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: float-gentle 4s ease-in-out infinite;
+        }
+
+        .empty-state h2 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .empty-state p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .loading-state {
+            text-align: center;
+            padding: 100px 24px;
+        }
+
+        .loading-spinner {
+            width: 36px;
+            height: 36px;
+            border: 2.5px solid rgba(212, 165, 116, 0.15);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        .loading-state p {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        /* ==========================================
+           KEYFRAME ANIMATIONS
+           ========================================== */
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+
+            5% {
+                opacity: var(--p-opacity, 0.4);
+            }
+
+            90% {
+                opacity: var(--p-opacity, 0.4);
+            }
+
+            100% {
+                transform: translateY(-40px) translateX(var(--drift-x, 20px));
+                opacity: 0;
+            }
+        }
+
+        @keyframes mist-drift-1 {
+
+            0%,
+            100% {
+                transform: translateX(-5%) scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: translateX(8%) scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes mist-drift-2 {
+
+            0%,
+            100% {
+                transform: translateX(5%) scale(1.05);
+                opacity: 0.4;
+            }
+
+            50% {
+                transform: translateX(-10%) scale(1);
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes mist-drift-3 {
+
+            0%,
+            100% {
+                transform: translateX(-3%) scale(1);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translateX(6%) scale(1.15);
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes portal-spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .ring-1 {
+            animation-name: portal-spin;
+        }
+
+        .ring-2 {
+            animation-name: portal-spin;
+            animation-direction: reverse;
+        }
+
+        .ring-3 {
+            animation-name: portal-spin;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 8px var(--gold), 0 0 16px rgba(212, 165, 116, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 14px var(--gold-bright), 0 0 28px rgba(212, 165, 116, 0.35);
+            }
+        }
+
+        @keyframes card-appear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes viewer-enter {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float-gentle {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
+        @media (max-width: 768px) {
+            .portal {
+                width: 300px;
+                height: 300px;
+            }
+
+            .portal-center h1 {
+                font-size: 1.6rem;
+                letter-spacing: 1px;
+            }
+
+            .portal-center p {
+                font-size: 0.82rem;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .depth-gauge {
+                right: 8px;
+                width: 40px;
+                min-height: 260px;
+                padding: 10px 4px;
+            }
+
+            .gauge-readout {
+                font-size: 0.55rem;
+            }
+
+            .depth-gauge:hover .layer-mark-label {
+                display: none;
+            }
+
+            .viewer-title {
+                font-size: 1.6rem;
+            }
+
+            .viewer-body h1 {
+                font-size: 1.5rem;
+            }
+
+            .viewer-body h2 {
+                font-size: 1.25rem;
+            }
+
+            .abyss-hero {
+                min-height: 55vh;
+                padding: 100px 16px 40px;
+            }
+
+            .posts-section {
+                padding: 10px 16px 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .depth-gauge {
+                display: none;
+            }
+
+            .portal {
+                width: 240px;
+                height: 240px;
+            }
+
+            .portal-center h1 {
+                font-size: 1.3rem;
+            }
+
+            .portal-center {
+                padding: 20px;
+            }
+
+            .post-card {
+                padding: 20px;
+            }
+
+            .nav-title {
+                font-size: 0.75rem;
+                letter-spacing: 1px;
+            }
+
+            .viewer-title {
+                font-size: 1.3rem;
+            }
+
+            .viewer-meta-row {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background Layers -->
+    <div class="abyss-bg"></div>
+    <div class="abyss-texture"></div>
+
+    <!-- Atmosphere -->
+    <div class="abyss-mist">
+        <div class="mist-layer mist-1"></div>
+        <div class="mist-layer mist-2"></div>
+        <div class="mist-layer mist-3"></div>
+    </div>
+    <div class="abyss-particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="abyss-nav">
+        <a href="/" class="nav-back" id="nav-back-link">← Voltar ao Site</a>
+        <span class="nav-title">Blog do @webglossdev</span>
+    </nav>
+
+    <!-- Depth Gauge -->
+    <div class="depth-gauge hidden" id="depth-gauge">
+        <div class="gauge-origin">Início</div>
+        <div class="gauge-track" id="gauge-track">
+            <div class="gauge-marker" id="gauge-marker"></div>
+            <!-- Layer marks inserted by JS -->
+        </div>
+        <div class="gauge-readout" id="gauge-readout">0m</div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero -->
+        <header class="abyss-hero" id="hero">
+            <div class="portal">
+                <div class="portal-ring ring-1"></div>
+                <div class="portal-ring ring-2"></div>
+                <div class="portal-ring ring-3"></div>
+                <div class="portal-ring ring-4"></div>
+                <div class="portal-ring ring-5"></div>
+                <div class="portal-ring ring-6"></div>
+                <div class="portal-ring ring-7"></div>
+                <div class="portal-center">
+                    <h1>Blog do @webglossdev</h1>
+                    <p>Um abismo de opiniões e informações.</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Posts Grid -->
+        <section class="posts-section" id="posts-section">
+            <div class="posts-grid" id="posts-container"></div>
+        </section>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="empty-state" style="display: none;">
+            <div class="empty-whistle">🔔</div>
+            <h2>Nenhum registro encontrado</h2>
+            <p>As profundezas do Abismo ainda guardam seus segredos...</p>
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading-state" id="loading-state">
+            <div class="loading-spinner"></div>
+            <p>Explorando as profundezas...</p>
+        </div>
+    </main>
+
+    <!-- Post Viewer -->
+    <div class="post-viewer" id="post-viewer" style="display: none;">
+        <div class="viewer-container">
+            <button class="viewer-back" id="viewer-back">← Voltar ao blog</button>
+            <div class="viewer-header" id="viewer-header"></div>
+            <article class="viewer-body" id="viewer-body"></article>
+        </div>
+    </div>
+
+
+    <script>
+        /* ==========================================
+           CONFIGURATION — Abyss Layer Data
+           ========================================== */
+        const LAYERS = [
+            { depth: 0, pct: 0, name: '1ª Camada', fullName: 'Borda do Abismo', color: '#4a6741' },
+            { depth: 1350, pct: 14, name: '2ª Camada', fullName: 'Floresta dos Tentáculos', color: '#2d5a4a' },
+            { depth: 2600, pct: 26, name: '3ª Camada', fullName: 'Grande Falha', color: '#1a4a5a' },
+            { depth: 7000, pct: 40, name: '4ª Camada', fullName: 'Taças Gigantes', color: '#1a3a6a' },
+            { depth: 12000, pct: 58, name: '5ª Camada', fullName: 'Mar de Cadáveres', color: '#3a1a5a' },
+            { depth: 13000, pct: 68, name: '6ª Camada', fullName: 'Capital dos Não-Retornáveis', color: '#1a0a3a' },
+            { depth: 15500, pct: 82, name: '7ª Camada', fullName: 'O Anel Final', color: '#08030f' },
+        ];
+        const MAX_DEPTH = 20000;
+
+        /* ==========================================
+           FRONTMATTER PARSER
+           ========================================== */
+        function parseFrontmatter(content) {
+            const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
+            if (!match) return { meta: {}, body: content };
+
+            const meta = {};
+            const lines = match[1].split(/\r?\n/);
+            for (const line of lines) {
+                const colonIdx = line.indexOf(':');
+                if (colonIdx === -1) continue;
+                const key = line.slice(0, colonIdx).trim();
+                let value = line.slice(colonIdx + 1).trim();
+
+                // Handle arrays [item1, item2]
+                if (value.startsWith('[') && value.endsWith(']')) {
+                    value = value.slice(1, -1).split(',').map(s => s.trim().replace(/^["']|["']$/g, ''));
+                }
+                meta[key] = value;
+            }
+            return { meta, body: match[2] };
+        }
+
+        /* ==========================================
+           MARKDOWN PARSER
+           ========================================== */
+        function escapeHtml(str) {
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        function parseMarkdown(md) {
+            // Preserve code blocks
+            const codeBlocks = [];
+            md = md.replace(/```(\w*)\r?\n([\s\S]*?)```/g, (_, lang, code) => {
+                codeBlocks.push({ lang, code: escapeHtml(code.replace(/\n$/, '')) });
+                return `\n\n%%CB${codeBlocks.length - 1}%%\n\n`;
+            });
+
+            // Preserve inline code
+            const inlineCodes = [];
+            md = md.replace(/`([^`\n]+)`/g, (_, code) => {
+                inlineCodes.push(escapeHtml(code));
+                return `%%IC${inlineCodes.length - 1}%%`;
+            });
+
+            // Headers
+            md = md.replace(/^######\s+(.*)/gm, '<h6>$1</h6>');
+            md = md.replace(/^#####\s+(.*)/gm, '<h5>$1</h5>');
+            md = md.replace(/^####\s+(.*)/gm, '<h4>$1</h4>');
+            md = md.replace(/^###\s+(.*)/gm, '<h3>$1</h3>');
+            md = md.replace(/^##\s+(.*)/gm, '<h2>$1</h2>');
+            md = md.replace(/^#\s+(.*)/gm, '<h1>$1</h1>');
+
+            // Horizontal rules
+            md = md.replace(/^(?:---|\*\*\*|___)\s*$/gm, '<hr>');
+
+            // Blockquotes
+            md = md.replace(/^>\s+(.*)/gm, '<blockquote><p>$1</p></blockquote>');
+            md = md.replace(/<\/blockquote>\n<blockquote>/g, '');
+
+            // Bold+Italic, Bold, Italic, Strikethrough
+            md = md.replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>');
+            md = md.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            md = md.replace(/(?<!\w)\*([^*\n]+)\*(?!\w)/g, '<em>$1</em>');
+            md = md.replace(/~~(.*?)~~/g, '<del>$1</del>');
+
+            // Images
+            md = md.replace(/!\[(.*?)\]\((.*?)\)/g, '<img alt="$1" src="$2" loading="lazy">');
+
+            // Links
+            md = md.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+
+            // Unordered lists
+            md = md.replace(/((?:^[\-\*]\s+.*\n?)+)/gm, (block) => {
+                const items = block.trim().split(/\n/).map(line =>
+                    '<li>' + line.replace(/^[\-\*]\s+/, '') + '</li>'
+                ).join('\n');
+                return '\n<ul>' + items + '</ul>\n';
+            });
+
+            // Ordered lists
+            md = md.replace(/((?:^\d+\.\s+.*\n?)+)/gm, (block) => {
+                const items = block.trim().split(/\n/).map(line =>
+                    '<li>' + line.replace(/^\d+\.\s+/, '') + '</li>'
+                ).join('\n');
+                return '\n<ol>' + items + '</ol>\n';
+            });
+
+            // Paragraphs
+            const blocks = md.split(/\n{2,}/);
+            md = blocks.map(block => {
+                block = block.trim();
+                if (!block) return '';
+                if (/^<(h[1-6]|ul|ol|blockquote|pre|hr|div|table|img|%%CB)/.test(block)) return block;
+                return '<p>' + block.replace(/\n/g, ' ') + '</p>';
+            }).join('\n');
+
+            // Restore code blocks
+            md = md.replace(/<p>%%CB(\d+)%%<\/p>|%%CB(\d+)%%/g, (_, i1, i2) => {
+                const idx = parseInt(i1 ?? i2);
+                const { lang, code } = codeBlocks[idx];
+                return `<pre><code class="lang-${lang || 'text'}">${code}</code></pre>`;
+            });
+
+            // Restore inline code
+            md = md.replace(/%%IC(\d+)%%/g, (_, i) => `<code>${inlineCodes[parseInt(i)]}</code>`);
+
+            return md;
+        }
+
+        /* ==========================================
+           DATE FORMATTER (pt-BR)
+           ========================================== */
+        function formatDate(dateStr) {
+            if (!dateStr) return '';
+            const months = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
+                'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+            const parts = dateStr.split('-');
+            if (parts.length < 3) return dateStr;
+            const day = parseInt(parts[2]);
+            const month = months[parseInt(parts[1]) - 1] || '';
+            const year = parts[0];
+            return `${day} de ${month} de ${year}`;
+        }
+
+        /* ==========================================
+           LAYER HELPERS
+           ========================================== */
+        function getLayerData(layerNum) {
+            const idx = Math.max(0, Math.min(6, (parseInt(layerNum) || 1) - 1));
+            return LAYERS[idx];
+        }
+
+        function getLayerColorCSS(layerNum) {
+            const layer = getLayerData(layerNum);
+            return {
+                bg: layer.color,
+                border: layer.color,
+                dot: layer.color,
+            };
+        }
+
+        /* ==========================================
+           DEPTH GAUGE SETUP
+           ========================================== */
+        function initGauge() {
+            const track = document.getElementById('gauge-track');
+            if (!track) return;
+
+            // Create layer marks
+            LAYERS.forEach((layer, i) => {
+                const mark = document.createElement('div');
+                mark.className = 'layer-mark';
+                mark.style.top = layer.pct + '%';
+                mark.style.setProperty('--mark-color', layer.color);
+
+                const dot = document.createElement('div');
+                dot.className = 'layer-mark-dot';
+                mark.appendChild(dot);
+
+                const label = document.createElement('div');
+                label.className = 'layer-mark-label';
+                label.textContent = `${layer.name}`;
+                mark.appendChild(label);
+
+                track.appendChild(mark);
+            });
+        }
+
+        function updateGauge() {
+            const scrollTop = window.scrollY;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = maxScroll > 0 ? Math.min(1, scrollTop / maxScroll) : 0;
+
+            document.documentElement.style.setProperty('--scroll-progress', progress);
+
+            // Update marker position
+            const marker = document.getElementById('gauge-marker');
+            if (marker) {
+                marker.style.top = (progress * 100) + '%';
+            }
+
+            // Update depth readout
+            const readout = document.getElementById('gauge-readout');
+            if (readout) {
+                const depth = Math.round(progress * MAX_DEPTH);
+                readout.textContent = depth.toLocaleString('pt-BR') + 'm';
+            }
+        }
+
+        /* ==========================================
+           PARTICLE SYSTEM
+           ========================================== */
+        function initParticles() {
+            const container = document.getElementById('particles');
+            if (!container) return;
+
+            const count = window.innerWidth < 768 ? 15 : 30;
+            const colors = [
+                'rgba(240,230,210,VAR)',  // warm white
+                'rgba(125,211,252,VAR)',  // cyan
+                'rgba(212,165,116,VAR)',  // gold
+                'rgba(167,139,250,VAR)',  // purple
+            ];
+
+            for (let i = 0; i < count; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+
+                const size = 2 + Math.random() * 4;
+                const opacity = 0.15 + Math.random() * 0.35;
+                const duration = 15 + Math.random() * 25;
+                const delay = Math.random() * -duration;
+                const x = Math.random() * 100;
+                const driftX = -30 + Math.random() * 60;
+                const colorTemplate = colors[Math.floor(Math.random() * colors.length)];
+                const color = colorTemplate.replace('VAR', opacity.toFixed(2));
+
+                p.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}%;
+                    background: ${color};
+                    box-shadow: 0 0 ${size * 2}px ${color};
+                    --duration: ${duration}s;
+                    --delay: ${delay}s;
+                    --drift-x: ${driftX}px;
+                    --p-opacity: ${opacity};
+                    animation-delay: ${delay}s;
+                `;
+
+                container.appendChild(p);
+            }
+        }
+
+        /* ==========================================
+           POST LOADING & RENDERING
+           ========================================== */
+        let allPosts = [];
+
+        async function loadPosts() {
+            const container = document.getElementById('posts-container');
+            const loading = document.getElementById('loading-state');
+            const empty = document.getElementById('empty-state');
+
+            try {
+                const res = await fetch('../posts/index.json');
+                if (!res.ok) throw new Error('No index.json');
+                const files = await res.json();
+
+                if (!Array.isArray(files) || files.length === 0) {
+                    loading.style.display = 'none';
+                    empty.style.display = 'block';
+                    return;
+                }
+
+                // Fetch all posts
+                const posts = await Promise.all(files.map(async (filename) => {
+                    try {
+                        const postRes = await fetch(`../posts/${filename}`);
+                        if (!postRes.ok) return null;
+                        const text = await postRes.text();
+                        const { meta, body } = parseFrontmatter(text);
+                        return { filename, meta, body };
+                    } catch { return null; }
+                }));
+
+                allPosts = posts.filter(Boolean);
+
+                // Sort by date (newest first)
+                allPosts.sort((a, b) => {
+                    const da = a.meta.date || '0000-00-00';
+                    const db = b.meta.date || '0000-00-00';
+                    return db.localeCompare(da);
+                });
+
+                loading.style.display = 'none';
+
+                if (allPosts.length === 0) {
+                    empty.style.display = 'block';
+                    return;
+                }
+
+                renderPostCards(allPosts);
+            } catch (err) {
+                console.warn('Could not load posts:', err);
+                loading.style.display = 'none';
+                empty.style.display = 'block';
+            }
+        }
+
+        function renderPostCards(posts) {
+            const container = document.getElementById('posts-container');
+            container.innerHTML = '';
+
+            posts.forEach((post, index) => {
+                const layer = getLayerData(post.meta.layer || 1);
+                const tags = Array.isArray(post.meta.tags) ? post.meta.tags : [];
+                const excerpt = post.body.replace(/^#.*\n?/gm, '').replace(/[*_~`#>\-\[\]()!]/g, '').trim().slice(0, 160);
+                const accent = post.meta.accent || 'var(--gold)';
+
+                const card = document.createElement('div');
+                card.className = 'post-card';
+                card.style.setProperty('--appear-delay', `${index * 0.1}s`);
+                card.style.setProperty('--card-accent', accent);
+                card.style.setProperty('--card-accent-glow', accent.startsWith('#') ? accent + '12' : 'rgba(212,165,116,0.05)');
+                card.style.setProperty('--layer-bg', layer.color + '30');
+                card.style.setProperty('--layer-border', layer.color + '60');
+                card.style.setProperty('--layer-dot-color', layer.color);
+
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="card-icon">${post.meta.icon || '📜'}</div>
+                        <div class="card-meta">
+                            <div class="card-title">${post.meta.title || post.filename.replace('.md', '')}</div>
+                            <div class="card-date">${formatDate(post.meta.date)}</div>
+                        </div>
+                    </div>
+                    <div class="card-excerpt">${excerpt}...</div>
+                    <div class="card-footer">
+                        <div class="card-tags">
+                            ${tags.map(t => `<span class="card-tag">${t}</span>`).join('')}
+                        </div>
+                        <div class="card-layer">
+                            <span class="card-layer-dot" style="background: ${layer.color}"></span>
+                            ${layer.name}
+                        </div>
+                    </div>
+                `;
+
+                card.addEventListener('click', () => {
+                    const slug = post.filename.replace('.md', '');
+                    history.pushState({ post: slug }, '', `?post=${slug}`);
+                    showPost(slug);
+                });
+
+                container.appendChild(card);
+            });
+        }
+
+        /* ==========================================
+           POST VIEWER
+           ========================================== */
+        function showPost(slug) {
+            const filename = slug.endsWith('.md') ? slug : slug + '.md';
+            const post = allPosts.find(p => p.filename === filename);
+
+            const mainContent = document.getElementById('main-content');
+            const viewer = document.getElementById('post-viewer');
+            const header = document.getElementById('viewer-header');
+            const body = document.getElementById('viewer-body');
+
+            if (!post) {
+                // Post not loaded yet — fetch individually
+                fetchAndShowPost(filename);
+                return;
+            }
+
+            renderPostView(post);
+        }
+
+        async function fetchAndShowPost(filename) {
+            try {
+                const res = await fetch(`posts/${filename}`);
+                if (!res.ok) throw new Error('Post not found');
+                const text = await res.text();
+                const { meta, body } = parseFrontmatter(text);
+                const post = { filename, meta, body };
+
+                // Add to cache
+                if (!allPosts.find(p => p.filename === filename)) {
+                    allPosts.push(post);
+                }
+
+                renderPostView(post);
+            } catch (err) {
+                console.error('Failed to load post:', err);
+                showGrid();
+            }
+        }
+
+        function renderPostView(post) {
+            const mainContent = document.getElementById('main-content');
+            const viewer = document.getElementById('post-viewer');
+            const headerEl = document.getElementById('viewer-header');
+            const bodyEl = document.getElementById('viewer-body');
+            const navBack = document.getElementById('nav-back-link');
+
+            mainContent.style.display = 'none';
+            viewer.style.display = 'block';
+
+            // Apply custom background if specified
+            if (post.meta.bg) {
+                viewer.style.background = `linear-gradient(180deg, ${post.meta.bg}40 0%, transparent 40%)`;
+            } else {
+                viewer.style.background = '';
+            }
+
+            // Apply custom accent
+            const accent = post.meta.accent || '';
+            if (accent) {
+                viewer.style.setProperty('--custom-accent', accent);
+            }
+
+            const layer = getLayerData(post.meta.layer || 1);
+            const tags = Array.isArray(post.meta.tags) ? post.meta.tags : [];
+
+            headerEl.innerHTML = `
+                ${post.meta.icon ? `<div class="viewer-icon">${post.meta.icon}</div>` : ''}
+                <h1 class="viewer-title">${post.meta.title || post.filename.replace('.md', '')}</h1>
+                <div class="viewer-meta-row">
+                    <span class="viewer-date">${formatDate(post.meta.date)}</span>
+                    <span class="viewer-layer-badge">
+                        <span class="viewer-layer-dot" style="background: ${layer.color}"></span>
+                        ${layer.name} — ${layer.fullName}
+                    </span>
+                    ${tags.length ? `
+                        <div class="viewer-tags">
+                            ${tags.map(t => `<span class="viewer-tag">${t}</span>`).join('')}
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+
+            bodyEl.innerHTML = parseMarkdown(post.body);
+
+            // Update nav back link
+            navBack.textContent = '← Voltar aos blog';
+            navBack.href = '/blog';
+            navBack.onclick = (e) => {
+                e.preventDefault();
+                history.pushState({}, '', '/blog');
+                showGrid();
+            };
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showGrid() {
+            const mainContent = document.getElementById('main-content');
+            const viewer = document.getElementById('post-viewer');
+            const navBack = document.getElementById('nav-back-link');
+
+            viewer.style.display = 'none';
+            mainContent.style.display = 'block';
+
+            // Restore nav back link
+            navBack.textContent = '← Voltar ao Site';
+            navBack.href = '../';
+            navBack.onclick = null;
+        }
+
+        /* ==========================================
+           ROUTING — Query Params & History
+           ========================================== */
+        function handleRoute() {
+            const params = new URLSearchParams(window.location.search);
+            const postSlug = params.get('post');
+
+            if (postSlug) {
+                showPost(postSlug);
+            } else {
+                showGrid();
+            }
+        }
+
+        window.addEventListener('popstate', handleRoute);
+
+        /* ==========================================
+           SCROLL HANDLER
+           ========================================== */
+        let scrollTicking = false;
+        let gaugeHideTimeout = null;
+
+        function onScroll() {
+            if (!scrollTicking) {
+                requestAnimationFrame(() => {
+                    updateGauge();
+                    scrollTicking = false;
+                });
+                scrollTicking = true;
+            }
+
+            // Show gauge while scrolling
+            const gauge = document.getElementById('depth-gauge');
+            if (gauge) {
+                gauge.classList.remove('hidden');
+
+                // Clear existing timeout
+                if (gaugeHideTimeout) clearTimeout(gaugeHideTimeout);
+
+                // Hide 1.5s after scrolling stops
+                gaugeHideTimeout = setTimeout(() => {
+                    gauge.classList.add('hidden');
+                }, 800);
+            }
+        }
+
+        /* ==========================================
+           INITIALIZATION
+           ========================================== */
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Init systems
+            initGauge();
+            initParticles();
+            updateGauge();
+
+            // Scroll listener
+            window.addEventListener('scroll', onScroll, { passive: true });
+
+            // Back button in post viewer
+            document.getElementById('viewer-back').addEventListener('click', () => {
+                history.pushState({}, '', './blog');
+                showGrid();
+            });
+
+            // Load posts
+            await loadPosts();
+
+            // Check if there's a ?post= parameter
+            const params = new URLSearchParams(window.location.search);
+            const postSlug = params.get('post');
+            if (postSlug) {
+                showPost(postSlug);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
