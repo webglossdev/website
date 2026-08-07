@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloads — Desbloqueio Epson XP-241 | @webglossdev</title>
+    <meta name="description"
+        content="Página de downloads do tutorial para desbloquear a Epson XP-241 para usar cartuchos reutilizáveis. Firmware .bin, Driver XP-243, Neoprogrammer e mais.">
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ==========================================
+           ABYSS THEME — Downloads Page
+           ========================================== */
+
+        :root {
+            --gold: #d4a574;
+            --gold-bright: #f0c987;
+            --gold-dim: #8a6d4a;
+            --cyan-glow: #7dd3fc;
+            --purple-glow: #a78bfa;
+            --amber-glow: #fbbf24;
+            --text-primary: #e8dfd0;
+            --text-secondary: #a89880;
+            --text-muted: #6d5f4f;
+            --surface: rgba(42, 35, 28, 0.82);
+            --surface-hover: rgba(55, 46, 36, 0.88);
+            --surface-strong: rgba(32, 26, 20, 0.92);
+            --border: rgba(212, 165, 116, 0.15);
+            --border-hover: rgba(212, 165, 116, 0.35);
+            --border-strong: rgba(212, 165, 116, 0.5);
+
+            --font-display: 'Cinzel', 'Georgia', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold-dim) rgba(10, 4, 24, 0.5);
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: #0a0418;
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--gold-bright);
+        }
+
+        /* ==========================================
+           BACKGROUND — Abyss Deep Layer
+           ========================================== */
+        .abyss-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -100;
+            background: linear-gradient(180deg,
+                    #1a3a6a 0%,
+                    #152e65 15%,
+                    #1a2560 30%,
+                    #221a58 45%,
+                    #2a1250 60%,
+                    #1e0838 75%,
+                    #0c031c 90%,
+                    #060210 100%);
+        }
+
+        .abyss-texture {
+            position: fixed;
+            inset: 0;
+            z-index: -99;
+            pointer-events: none;
+        }
+
+        .abyss-texture::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(0deg,
+                    transparent, transparent 100px,
+                    rgba(212, 165, 116, 0.025) 100px,
+                    rgba(212, 165, 116, 0.025) 101px),
+                repeating-linear-gradient(90deg,
+                    transparent, transparent 160px,
+                    rgba(212, 165, 116, 0.015) 160px,
+                    rgba(212, 165, 116, 0.015) 161px);
+        }
+
+        .abyss-texture::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 800px 400px at 20% 30%, rgba(212, 165, 116, 0.03), transparent),
+                radial-gradient(ellipse 600px 300px at 75% 60%, rgba(125, 211, 252, 0.02), transparent),
+                radial-gradient(ellipse 500px 500px at 50% 80%, rgba(167, 139, 250, 0.02), transparent);
+        }
+
+        /* ==========================================
+           TSPARTICLES CONTAINER
+           ========================================== */
+        #tsparticles-dl {
+            position: fixed;
+            inset: 0;
+            z-index: -95;
+            pointer-events: none;
+        }
+
+        /* ==========================================
+           NAVIGATION
+           ========================================== */
+        .abyss-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            height: 52px;
+            background: rgba(10, 4, 24, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-back {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.3s;
+        }
+
+        .nav-back:hover {
+            color: var(--gold-bright);
+        }
+
+        .nav-title {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================
+           MAIN CONTAINER
+           ========================================== */
+        .dl-page {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 100px 24px 80px;
+            animation: page-enter 0.6s ease-out;
+        }
+
+        @keyframes page-enter {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==========================================
+           HERO HEADER
+           ========================================== */
+        .dl-hero {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 36px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .dl-hero-icon {
+            font-size: 3.5rem;
+            display: inline-block;
+            margin-bottom: 16px;
+            animation: float-gentle 4s ease-in-out infinite;
+        }
+
+        @keyframes float-gentle {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .dl-hero h1 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold-bright);
+            letter-spacing: 1px;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            text-shadow: 0 0 20px rgba(212, 165, 116, 0.15);
+        }
+
+        .dl-hero-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto 24px;
+        }
+
+        .dl-badge-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .dl-badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 4px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            background: rgba(212, 165, 116, 0.06);
+            color: var(--gold-dim);
+            letter-spacing: 0.5px;
+        }
+
+        .dl-badge.safe {
+            border-color: rgba(74, 222, 128, 0.25);
+            background: rgba(74, 222, 128, 0.06);
+            color: #6ee7b7;
+        }
+
+        /* ==========================================
+           BLOG POST LINK BUTTON
+           ========================================== */
+        .dl-blog-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--cyan-glow);
+            background: rgba(125, 211, 252, 0.06);
+            border: 1px solid rgba(125, 211, 252, 0.2);
+            border-radius: 12px;
+            padding: 10px 22px;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            text-decoration: none;
+        }
+
+        .dl-blog-link:hover {
+            background: rgba(125, 211, 252, 0.12);
+            border-color: rgba(125, 211, 252, 0.4);
+            color: #a5e4ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(125, 211, 252, 0.1);
+        }
+
+        .dl-blog-link .link-icon {
+            font-size: 1.1rem;
+        }
+
+        /* ==========================================
+           WARNING CARD
+           ========================================== */
+        .dl-warning {
+            background: rgba(251, 191, 36, 0.04);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-left: 3px solid var(--amber-glow);
+            border-radius: 0 12px 12px 0;
+            padding: 16px 20px;
+            margin-bottom: 40px;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .dl-warning strong {
+            color: var(--amber-glow);
+        }
+
+        /* ==========================================
+           DOWNLOADS SECTION
+           ========================================== */
+        .dl-section-title {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 24px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dl-section-title .title-icon {
+            font-size: 1.2rem;
+        }
+
+        .dl-cards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* ==========================================
+           DOWNLOAD CARD — Collapsible
+           ========================================== */
+        .dl-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            animation: card-appear 0.5s ease-out both;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .dl-card:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        .dl-card:nth-child(2) {
+            animation-delay: 0.12s;
+        }
+
+        .dl-card:nth-child(3) {
+            animation-delay: 0.19s;
+        }
+
+        .dl-card:nth-child(4) {
+            animation-delay: 0.26s;
+        }
+
+        @keyframes card-appear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dl-card:hover {
+            border-color: var(--border-hover);
+        }
+
+        .dl-card-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            text-align: left;
+            transition: background 0.3s;
+        }
+
+        .dl-card-btn:hover {
+            background: var(--surface-hover);
+        }
+
+        .dl-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            background: rgba(212, 165, 116, 0.08);
+            border: 1px solid rgba(212, 165, 116, 0.1);
+            transition: all 0.3s;
+        }
+
+        .dl-card:hover .dl-card-icon {
+            background: rgba(212, 165, 116, 0.12);
+            border-color: rgba(212, 165, 116, 0.25);
+        }
+
+        .dl-card-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .dl-card-name {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .dl-card-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .dl-card-chevron {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s;
+            flex-shrink: 0;
+        }
+
+        .dl-card.open .dl-card-chevron {
+            transform: rotate(180deg);
+            color: var(--gold);
+        }
+
+        /* ==========================================
+           COLLAPSE PANEL — Download Sources
+           ========================================== */
+        .dl-collapse {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.35s ease;
+            opacity: 0;
+        }
+
+        .dl-card.open .dl-collapse {
+            opacity: 1;
+        }
+
+        .dl-collapse-inner {
+            padding: 0 24px 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .dl-source-title {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin: 16px 0 12px;
+        }
+
+        .dl-sources {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+        }
+
+        .dl-source-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .dl-source-link:hover {
+            background: rgba(212, 165, 116, 0.08);
+            border-color: var(--border-hover);
+            color: var(--gold-bright);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .dl-source-link .source-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .dl-source-link.mediafire .source-icon {
+            background: rgba(34, 130, 255, 0.15);
+            color: #5ba8ff;
+        }
+
+        .dl-source-link.mega .source-icon {
+            background: rgba(214, 40, 40, 0.15);
+            color: #f87171;
+        }
+
+        .dl-source-link.archive .source-icon {
+            background: rgba(74, 222, 128, 0.15);
+            color: #6ee7b7;
+        }
+
+        .source-name {
+            flex: 1;
+        }
+
+        .source-arrow {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .dl-source-link:hover .source-arrow {
+            transform: translateX(3px);
+            color: var(--gold);
+        }
+
+        /* ==========================================
+           FOOTER NOTE
+           ========================================== */
+        .dl-footer-note {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .dl-footer-note a {
+            color: var(--cyan-glow);
+            text-decoration: underline;
+            text-decoration-color: rgba(125, 211, 252, 0.3);
+            text-underline-offset: 3px;
+        }
+
+        .dl-footer-note a:hover {
+            color: #a5e4ff;
+            text-decoration-color: rgba(125, 211, 252, 0.7);
+        }
+
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
+        @media (max-width: 768px) {
+            .dl-hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .dl-card-btn {
+                padding: 16px 18px;
+                gap: 12px;
+            }
+
+            .dl-card-icon {
+                width: 42px;
+                height: 42px;
+                font-size: 1.3rem;
+            }
+
+            .dl-card-name {
+                font-size: 0.95rem;
+            }
+
+            .dl-collapse-inner {
+                padding: 0 18px 16px;
+            }
+
+            .dl-sources {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-title {
+                font-size: 0.75rem;
+                letter-spacing: 1px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dl-page {
+                padding: 80px 16px 60px;
+            }
+
+            .dl-hero h1 {
+                font-size: 1.3rem;
+            }
+
+            .dl-badge-row {
+                gap: 6px;
+            }
+
+            .dl-badge {
+                font-size: 0.62rem;
+                padding: 3px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background Layers -->
+    <div class="abyss-bg"></div>
+    <div class="abyss-texture"></div>
+
+    <!-- tsParticles Container -->
+    <div id="tsparticles-dl"></div>
+
+    <!-- Navigation -->
+    <nav class="abyss-nav">
+        <a href="/blog" class="nav-back">← Voltar ao Blog</a>
+        <span class="nav-title">Downloads</span>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="dl-page">
+
+        <!-- Hero -->
+        <header class="dl-hero">
+            <div class="dl-hero-icon">📥</div>
+            <h1>Downloads — Desbloqueio Epson XP-241</h1>
+            <p class="dl-hero-subtitle">
+                Uma página de downloads do tutorial para desbloquear uma XP-241 para usar cartuchos reutilizáveis.
+                Todos os arquivos necessários estão disponíveis abaixo, sem anúncios, senhas ou malware.
+            </p>
+
+            <div class="dl-badge-row">
+                <span class="dl-badge">🖨️ Epson XP-241</span>
+                <span class="dl-badge">📂 Firmware Mod</span>
+                <span class="dl-badge safe">✅ Sem anúncios ou malware</span>
+            </div>
+
+            <a href="/blog?post=04-08-2026-12.24_1" class="dl-blog-link" id="blog-post-link">
+                <span class="link-icon">📝</span>
+                Ver Tutorial Completo no Blog
+                <span style="font-size: 0.75rem; opacity: 0.6;">→</span>
+            </a>
+        </header>
+
+        <!-- Warning -->
+        <div class="dl-warning">
+            <strong>⚠️ Atenção:</strong> Esse procedimento é delicado. Leia o tutorial completo antes de prosseguir.
+            Caso cometa algum erro, sua impressora pode ser inutilizada. Siga os passos com cuidado.
+        </div>
+
+        <!-- Downloads -->
+        <div class="dl-section-title">
+            <span class="title-icon">📦</span>
+            Arquivos para Download
+        </div>
+
+        <div class="dl-cards-list">
+
+            <!-- Card 1: Firmware .bin -->
+            <div class="dl-card" id="dl-firmware">
+                <button class="dl-card-btn" onclick="toggleDlCard('dl-firmware')" aria-expanded="false"
+                    aria-controls="dl-firmware-panel">
+                    <div class="dl-card-icon">💾</div>
+                    <div class="dl-card-info">
+                        <div class="dl-card-name">Firmware .bin</div>
+                        <div class="dl-card-desc">Firmware modificado da impressora (LADO USB.bin e LADO
+                            TRANSISTOR.bin)</div>
+                    </div>
+                    <span class="dl-card-chevron">▼</span>
+                </button>
+                <div class="dl-collapse" id="dl-firmware-panel">
+                    <div class="dl-collapse-inner">
+                        <div class="dl-source-title">Escolha uma fonte para baixar</div>
+                        <div class="dl-sources">
+                            <a href="https://www.mediafire.com/file/46b77kr1bgvkwik/XP241.zip/file"
+                                class="dl-source-link mediafire" target="_blank" rel="noopener noreferrer">
+                                <div class="source-icon">🔥</div>
+                                <span class="source-name">Mediafire</span>
+                                <span class="source-arrow">→</span>
+                            </a>
+                            <a href="https://mega.nz/file/JMhSHQZJ#MeZEBpFA8k73u0Q5ZVjX6x57-cptEx8XvYnfbQdmTKY"
+                                class="dl-source-link mega" target="_blank" rel="noopener noreferrer">
+                                <div class="source-icon">☁️</div>
+                                <span class="source-name">Mega</span>
+                                <span class="source-arrow">→</span>
+                            </a>
+                            <a href="https://archive.org/details/xp-241-1-usb" class="dl-source-link archive"
+                                target="_blank" rel="noopener noreferrer">
+                                <div class="source-icon">🏛️</div>
+                                <span class="source-name">Internet Archive</span>
+                                <span class="source-arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Driver XP-243 -->
+            <div class="dl-card" id="dl-driver">
+                <button class="dl-card-btn" onclick="toggleDlCard('dl-driver')" aria-expanded="false"
+                    aria-controls="dl-driver-panel">
+                    <div class="dl-card-icon">🖨️</div>
+                    <div class="dl-card-info">
+                        <div class="dl-card-name">Driver XP-243</div>
+                        <div class="dl-card-desc">Driver da Epson XP-243 para Windows 10 e acima</div>
+                    </div>
+                    <span class="dl-card-chevron">▼</span>
+                </button>
+                <div class="dl-collapse" id="dl-driver-panel">
+                    <div class="dl-collapse-inner">
+                        <div class="dl-source-title">Escolha uma fonte para baixar</div>
+                        <div class="dl-sources">
+                            <a href="https://download-center.epson.com/softwares/?device_id=XP-243+245+247+Series&region=GB&os=WIN10&language=en"
+                                class="dl-source-link mediafire" target="_blank" rel="noopener noreferrer">
+                                <div class="source-icon">⭐</div>
+                                <span class="source-name">Site Oficial Epson</span>
+                                <span class="source-arrow">→</span>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Neoprogrammer -->
+            <div class="dl-card" id="dl-neoprogrammer">
+                <button class="dl-card-btn" onclick="toggleDlCard('dl-neoprogrammer')" aria-expanded="false"
+                    aria-controls="dl-neoprogrammer-panel">
+                    <div class="dl-card-icon">⚡</div>
+                    <div class="dl-card-info">
+                        <div class="dl-card-name">Neoprogrammer</div>
+                        <div class="dl-card-desc">Software para programar chips EEPROM com a CH341</div>
+                    </div>
+                    <span class="dl-card-chevron">▼</span>
+                </button>
+                <div class="dl-collapse" id="dl-neoprogrammer-panel">
+                    <div class="dl-collapse-inner">
+                        <div class="dl-source-title">Escolha uma fonte para baixar</div>
+                        <div class="dl-sources">
+                            <a href="https://www.mediafire.com/file/4f9ax3brdzf76ki/CH341B-NeoProgramer-main.zip/file"
+                                class="dl-source-link mediafire" target="_blank" rel="noopener noreferrer">
+                                <div class="source-icon">🔥</div>
+                                <span class="source-name">Mediafire</span>
+                                <span class="source-arrow">→</span>
+                            </a>
+                            <a href="https://mega.nz/file/gBQynZzS#Wmi2XdCemEvkSxCptSKzYliWO77QCYG0NaWQvc7RqRs"
+                                class="dl-source-link mega" target="_blank" rel="noopener noreferrer">
+                                <div class="source-icon">☁️</div>
+                                <span class="source-name">Mega</span>
+                                <span class="source-arrow">→</span>
+                            </a>
+                            <a href="https://neoprogrammer.org/" class="dl-source-link archive" target="_blank"
+                                rel="noopener noreferrer">
+                                <div class="source-icon">⭐</div>
+                                <span class="source-name">Neoprogrammer.org</span>
+                                <span class="source-arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Firmware .bin de emergência -->
+            <div class="dl-card" id="dl-emergency">
+                <button class="dl-card-btn" onclick="toggleDlCard('dl-emergency')" aria-expanded="false"
+                    aria-controls="dl-emergency-panel">
+                    <div class="dl-card-icon">🚨</div>
+                    <div class="dl-card-info">
+                        <div class="dl-card-name">Firmware .bin de Emergência</div>
+                        <div class="dl-card-desc">Firmware original caso algo dê errado durante o processo</div>
+                    </div>
+                    <span class="dl-card-chevron">▼</span>
+                </button>
+                <div class="dl-collapse" id="dl-emergency-panel">
+                    <div class="dl-collapse-inner">
+                        <div class="dl-source-title">Escolha uma fonte para baixar</div>
+                        <div class="dl-sources">
+                            <a href="https://www.mediafire.com/file/gq109z47orn8ciu/XP-241_BIN_EMERGENCIA.zip/file"
+                                class="dl-source-link mediafire" target="_blank" rel="noopener noreferrer">
+                                <div class="source-icon">🔥</div>
+                                <span class="source-name">Mediafire</span>
+                                <span class="source-arrow">→</span>
+                            </a>
+                            <a href="https://mega.nz/file/kdQTRTza#0CEmLNQZKHzPtNdNEg56aNwceJPplF-d0CWnnEehnmY"
+                                class="dl-source-link mega" target="_blank" rel="noopener noreferrer">
+                                <div class="source-icon">☁️</div>
+                                <span class="source-name">Mega</span>
+                                <span class="source-arrow">→</span>
+                            </a>
+                            <a href="https://archive.org/details/xp-241-bin-emergencia" class="dl-source-link archive"
+                                target="_blank" rel="noopener noreferrer">
+                                <div class="source-icon">🏛️</div>
+                                <span class="source-name">Internet Archive</span>
+                                <span class="source-arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer Note -->
+        <div class="dl-footer-note">
+            Todos os arquivos estão hospedados em múltiplos servidores para garantir disponibilidade.<br>
+            Caso todos os links estejam fora do ar, entre em <a href="/contato">contato</a>.
+        </div>
+
+    </main>
+
+    <script>
+        /* ==========================================
+           COLLAPSE TOGGLE
+           ========================================== */
+        function toggleDlCard(cardId) {
+            const card = document.getElementById(cardId);
+            if (!card) return;
+
+            const panel = card.querySelector('.dl-collapse');
+            const btn = card.querySelector('.dl-card-btn');
+            const isOpen = card.classList.contains('open');
+
+            if (isOpen) {
+                // Close
+                panel.style.maxHeight = panel.scrollHeight + 'px';
+                panel.offsetHeight; // force reflow
+                panel.style.maxHeight = '0px';
+                card.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
+            } else {
+                // Close others first
+                document.querySelectorAll('.dl-card.open').forEach(other => {
+                    if (other.id !== cardId) {
+                        const otherPanel = other.querySelector('.dl-collapse');
+                        otherPanel.style.maxHeight = otherPanel.scrollHeight + 'px';
+                        otherPanel.offsetHeight;
+                        otherPanel.style.maxHeight = '0px';
+                        other.classList.remove('open');
+                        other.querySelector('.dl-card-btn').setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                // Open this one
+                card.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+                panel.style.maxHeight = panel.scrollHeight + 'px';
+
+                // After transition, remove fixed height to allow resize
+                panel.addEventListener('transitionend', function handler() {
+                    if (card.classList.contains('open')) {
+                        panel.style.maxHeight = 'none';
+                    }
+                    panel.removeEventListener('transitionend', handler);
+                });
+            }
+        }
+
+        /* ==========================================
+           TSPARTICLES — Load & Init
+           ========================================== */
+        function loadTsParticles() {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js';
+            script.async = true;
+            script.onload = () => initParticlesEffect();
+            document.head.appendChild(script);
+        }
+
+        function initParticlesEffect() {
+            if (!window.tsParticles) return;
+
+            const isMobile = window.matchMedia('(max-width: 768px)').matches || navigator.maxTouchPoints > 0;
+
+            window.tsParticles.load('tsparticles-dl', {
+                fpsLimit: 60,
+                interactivity: {
+                    events: {
+                        onHover: {
+                            enable: !isMobile,
+                            mode: 'repulse'
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        repulse: {
+                            distance: 120,
+                            duration: 9,
+                            factor: 8,
+                            speed: 0.4,
+                            easing: 'ease-out-sine'
+                        }
+                    }
+                },
+                particles: {
+                    color: { value: ['#6DD6FF', '#8B9CF6', '#A7F3D0', '#E2E8F0'] },
+                    links: { enable: false },
+                    move: {
+                        direction: 'none',
+                        enable: true,
+                        outModes: { default: 'out' },
+                        random: true,
+                        speed: { min: 0.1, max: 0.35 },
+                        straight: false
+                    },
+                    number: { density: { enable: true, area: 900 }, value: isMobile ? 12 : 22 },
+                    opacity: {
+                        value: { min: 0.15, max: 0.45 },
+                        animation: { enable: true, speed: 0.3, minimumValue: 0.15, sync: false }
+                    },
+                    shape: {
+                        type: 'image',
+                        options: {
+                            image: {
+                                src: '/assets/estrelas.svg',
+                                width: 32,
+                                height: 32,
+                                replaceColor: false
+                            }
+                        }
+                    },
+                    size: {
+                        value: { min: 6, max: 12 },
+                        animation: { enable: true, speed: 1, minimumValue: 6, sync: false }
+                    },
+                    rotate: {
+                        value: { min: 0, max: 360 },
+                        direction: 'random',
+                        animation: { enable: true, speed: 2, sync: false }
+                    }
+                },
+                detectRetina: true
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadTsParticles();
+        });
+    </script>
+
+</body>
+
+</html>
