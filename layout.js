@@ -23,12 +23,12 @@ const headerHTML = `
         </div>
         
         <div class="nav-logo">
-            <a href="/">
+            <a href="index.html">
                 <img src="assets/logo.svg" alt="Leonardo P. Soares Logo">
             </a>
         </div>
         
-          <div class="nav-links right-links">
+        <div class="nav-links right-links">
             <a href="/projetos">Projetos</a>
             <a href="/blog" >Blog Pessoal</a>
         </div>
@@ -73,8 +73,11 @@ const footerHTML = `
 
     <div class="site-credits">
         <p>Hospedado na Vercel com deploy automático via GitHub.<br>
-        © 2026 Leonardo P. Soares. O conteúdo deste site é protegido por direitos autorais.<br>O código-fonte está disponível sob a licença <a href="https://github.com/monanadmin/MONAN-Model/blob/main/licenca-gpl-3.0.pt-br.md">GNU GPLv3</a>.
-        </p>
+            © 2026 Leonardo P. Soares. O conteúdo deste site é protegido
+            por direitos autorais de acordo com a <a href="https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+                target="_blank" rel="noopener">Lei 9.610/98</a>.<br>O código-fonte está disponível sob a
+            licença <a href="https://github.com/monanadmin/MONAN-Model/blob/main/licenca-gpl-3.0.pt-br.md"
+                target="_blank" rel="noopener">GNU GPLv3</a>.</p>
     </div>
 `;
 
