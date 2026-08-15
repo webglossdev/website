@@ -66,7 +66,7 @@ const footerHTML = `
         <a href="https://linktr.ee/webglossdev" target="_blank" rel="noopener noreferrer" class="social-pill">
             <span class="icon">🔗</span> Linktree
         </a>
-        <a href="contato.html" class="social-pill">
+        <a href="/contato" class="social-pill">
             <span class="icon">💬</span> Contato
         </a>
     </footer>
