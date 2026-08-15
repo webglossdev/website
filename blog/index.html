@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog do @webglossdev | Blog</title>
-    <meta name="description"
-        content="Blog pessoal do @webglossdev.">
+    <meta name="description" content="Blog pessoal do @webglossdev.">
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -222,13 +221,57 @@
             z-index: 1000;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             padding: 0 24px;
             height: 52px;
             background: rgba(10, 4, 24, 0.7);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
+        }
+
+        .blog-site-footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 24px 24px 16px;
+        }
+
+        .blog-back-home-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: underline;
+            text-decoration-color: rgba(212, 165, 116, 0.3);
+            text-underline-offset: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .blog-back-home-link:hover {
+            color: var(--gold-bright);
+            text-decoration-color: var(--gold-bright);
+        }
+
+        .blog-site-credits {
+            text-align: center;
+            padding: 16px 24px 48px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .blog-site-credits a {
+            color: var(--text-secondary);
+            text-decoration: underline;
+            text-decoration-color: rgba(212, 165, 116, 0.3);
+            text-underline-offset: 3px;
+        }
+
+        .blog-site-credits a:hover {
+            color: var(--gold-bright);
         }
 
         .nav-back {
@@ -1257,7 +1300,6 @@
 
     <!-- Navigation -->
     <nav class="abyss-nav">
-        <a href="/" class="nav-back" id="nav-back-link">← Voltar ao Site</a>
         <span class="nav-title">Blog do @webglossdev</span>
     </nav>
 
@@ -1306,6 +1348,21 @@
         <div class="loading-state" id="loading-state">
             <div class="loading-spinner"></div>
             <p>Explorando as profundezas...</p>
+        </div>
+
+        <!-- Footer Back Link & Site Credits -->
+        <div class="blog-site-footer">
+            <a href="/" class="blog-back-home-link">← Visitar meu website pessoal</a>
+        </div>
+
+        <div class="blog-site-credits">
+            <p>Hospedado na Vercel com deploy automático via GitHub.<br>
+                © 2026 Leonardo P. Soares. O conteúdo deste site é protegido
+                por direitos autorais de acordo com a <a href="https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+                    target="_blank" rel="noopener">Lei 9.610/98</a>.<br>O código-fonte está disponível sob a
+                licença <a href="https://github.com/monanadmin/MONAN-Model/blob/main/licenca-gpl-3.0.pt-br.md"
+                    target="_blank" rel="noopener">GNU GPLv3</a>.
+            </p>
         </div>
     </main>
 
@@ -1380,6 +1437,13 @@
                 return `%%IC${inlineCodes.length - 1}%%`;
             });
 
+            // Wiki-link image embeds: [[path/to/image.png]]
+            md = md.replace(/\[\[([^\]]+\.(?:png|jpe?g|gif|svg|webp|avif|bmp))\]\]/gi, (_, path) => {
+                const src = (path.startsWith('http') || path.startsWith('/')) ? path : '/' + path;
+                const alt = path.split('/').pop().replace(/\.[^.]+$/, '');
+                return `<img alt="${alt}" src="${src}" loading="lazy">`;
+            });
+
             // Headers
             md = md.replace(/^######\s+(.*)/gm, '<h6>$1</h6>');
             md = md.replace(/^#####\s+(.*)/gm, '<h5>$1</h5>');
@@ -1416,11 +1480,15 @@
             });
 
             // Ordered lists
-            md = md.replace(/((?:^\d+\.\s+.*\n?)+)/gm, (block) => {
-                const items = block.trim().split(/\n/).map(line =>
-                    '<li>' + line.replace(/^\d+\.\s+/, '') + '</li>'
+            md = md.replace(/((?:^\d+\.[ \t]+.*\n?)+)/gm, (block) => {
+                const lines = block.trim().split(/\n/);
+                const startMatch = lines[0].match(/^(\d+)\./);
+                const start = startMatch ? parseInt(startMatch[1]) : 1;
+                const items = lines.map(line =>
+                    '<li>' + line.replace(/^\d+\.[ \t]+/, '') + '</li>'
                 ).join('\n');
-                return '\n<ol>' + items + '</ol>\n';
+                const startAttr = start !== 1 ? ` start="${start}"` : '';
+                return '\n<ol' + startAttr + '>' + items + '</ol>\n';
             });
 
             // Paragraphs
@@ -1761,30 +1829,15 @@
 
             bodyEl.innerHTML = parseMarkdown(post.body);
 
-            // Update nav back link
-            navBack.textContent = '← Voltar aos blog';
-            navBack.href = '/blog';
-            navBack.onclick = (e) => {
-                e.preventDefault();
-                history.pushState({}, '', '/blog');
-                showGrid();
-            };
-
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function showGrid() {
             const mainContent = document.getElementById('main-content');
             const viewer = document.getElementById('post-viewer');
-            const navBack = document.getElementById('nav-back-link');
 
             viewer.style.display = 'none';
             mainContent.style.display = 'block';
-
-            // Restore nav back link
-            navBack.textContent = '← Voltar ao Site';
-            navBack.href = '../';
-            navBack.onclick = null;
         }
 
         /* ==========================================
