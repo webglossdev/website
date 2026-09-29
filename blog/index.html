@@ -4,2829 +4,682 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog do @webglossdev | Blog</title>
-    <meta name="description" content="Blog pessoal do @webglossdev.">
-    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <title>Blog Pessoal | Leonardo P. Soares</title>
+    <meta name="description" content="Blog pessoal do webglossdev — Relic records, anotações de engenharia e ideias inspiradas em Made in Abyss.">
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+
+    <!-- Script síncrono anti-FOUC (Prevenção de flash de tema) -->
+    <script>
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.add('light', 'light-theme');
+        }
+    </script>
+
+    <!-- Fontes Google Otimizadas (display=swap, zero CLS) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <style>
-        /* ==========================================
-           MADE IN ABYSS — BLOG THEME
-           ========================================== */
-
-        /* --- Theme Variables --- */
-        :root {
-            --gold: #d4a574;
-            --gold-bright: #f0c987;
-            --gold-dim: #8a6d4a;
-            --cyan-glow: #7dd3fc;
-            --purple-glow: #a78bfa;
-            --amber-glow: #fbbf24;
-            --text-primary: #e8dfd0;
-            --text-secondary: #a89880;
-            --text-muted: #6d5f4f;
-            --surface: rgba(42, 35, 28, 0.82);
-            --surface-hover: rgba(55, 46, 36, 0.88);
-            --surface-strong: rgba(32, 26, 20, 0.92);
-            --border: rgba(212, 165, 116, 0.15);
-            --border-hover: rgba(212, 165, 116, 0.35);
-            --border-strong: rgba(212, 165, 116, 0.5);
-            --scroll-progress: 0;
-
-            /* Layer colors */
-            --layer-1: #4a6741;
-            --layer-2: #2d5a4a;
-            --layer-3: #1a4a5a;
-            --layer-4: #1a3a6a;
-            --layer-5: #3a1a5a;
-            --layer-6: #1a0a3a;
-            --layer-7: #08030f;
-
-            /* Fonts */
-            --font-display: 'Cinzel', 'Georgia', serif;
-            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
-        }
-
-        /* --- Reset --- */
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scrollbar-width: none;
-        }
-
-        html::-webkit-scrollbar {
-            display: none;
-        }
-
-        body {
-            font-family: var(--font-body);
-            color: var(--text-primary);
-            min-height: 100vh;
-            overflow-x: hidden;
-            background: #0a0418;
-            line-height: 1.7;
-        }
-
-        a {
-            color: var(--gold);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: var(--gold-bright);
-        }
-
-        /* ==========================================
-           BACKGROUND — Abyss Geological Layers
-           ========================================== */
-        .abyss-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 250vh;
-            z-index: -100;
-            background: linear-gradient(180deg,
-                    #3a5c45 0%,
-                    #2f5040 5%,
-                    #264a3a 10%,
-                    #1e4a4a 16%,
-                    #184555 22%,
-                    #154058 28%,
-                    #143660 35%,
-                    #152e65 42%,
-                    #1a2560 48%,
-                    #221a58 55%,
-                    #2a1250 62%,
-                    #250a45 68%,
-                    #1e0838 75%,
-                    #150528 82%,
-                    #0c031c 90%,
-                    #060210 95%,
-                    #030108 100%);
-            transform: translateY(calc(var(--scroll-progress) * -150vh));
-            will-change: transform;
-        }
-
-        /* Map texture overlay — topographic grid lines */
-        .abyss-texture {
-            position: fixed;
-            inset: 0;
-            z-index: -99;
-            pointer-events: none;
-        }
-
-        .abyss-texture::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                repeating-linear-gradient(0deg,
-                    transparent, transparent 100px,
-                    rgba(212, 165, 116, 0.025) 100px,
-                    rgba(212, 165, 116, 0.025) 101px),
-                repeating-linear-gradient(90deg,
-                    transparent, transparent 160px,
-                    rgba(212, 165, 116, 0.015) 160px,
-                    rgba(212, 165, 116, 0.015) 161px);
-        }
-
-        .abyss-texture::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(ellipse 800px 400px at 20% 30%, rgba(212, 165, 116, 0.03), transparent),
-                radial-gradient(ellipse 600px 300px at 75% 60%, rgba(125, 211, 252, 0.02), transparent),
-                radial-gradient(ellipse 500px 500px at 50% 80%, rgba(167, 139, 250, 0.02), transparent);
-        }
-
-        /* ==========================================
-           ATMOSPHERE — Mist & Particles
-           ========================================== */
-        .abyss-mist {
-            position: fixed;
-            inset: 0;
-            z-index: -98;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .mist-layer {
-            position: absolute;
-            width: 140%;
-            height: 40%;
-            border-radius: 50%;
-            filter: blur(60px);
-        }
-
-        .mist-1 {
-            bottom: -15%;
-            left: -20%;
-            background: radial-gradient(ellipse, rgba(180, 190, 200, 0.06) 0%, transparent 70%);
-            animation: mist-drift-1 25s ease-in-out infinite;
-        }
-
-        .mist-2 {
-            top: 20%;
-            right: -30%;
-            background: radial-gradient(ellipse, rgba(120, 160, 180, 0.04) 0%, transparent 70%);
-            animation: mist-drift-2 30s ease-in-out infinite;
-        }
-
-        .mist-3 {
-            bottom: 30%;
-            left: -10%;
-            background: radial-gradient(ellipse, rgba(167, 139, 250, 0.03) 0%, transparent 70%);
-            animation: mist-drift-3 35s ease-in-out infinite;
-        }
-
-        .abyss-particles {
-            position: fixed;
-            inset: 0;
-            z-index: -97;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            animation: float-up var(--duration) linear infinite;
-            animation-delay: var(--delay);
-            opacity: 0;
-        }
-
-        /* ==========================================
-           NAVIGATION — Minimal Top Bar
-           ========================================== */
-        .abyss-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 24px;
-            height: 52px;
-            background: rgba(10, 4, 24, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .blog-site-footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 24px 24px 16px;
-        }
-
-        .blog-back-home-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-family: var(--font-body);
-            font-size: 0.88rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            text-decoration: underline;
-            text-decoration-color: rgba(212, 165, 116, 0.3);
-            text-underline-offset: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .blog-back-home-link:hover {
-            color: var(--gold-bright);
-            text-decoration-color: var(--gold-bright);
-        }
-
-        .blog-site-credits {
-            text-align: center;
-            padding: 16px 24px 48px;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .blog-site-credits a {
-            color: var(--text-secondary);
-            text-decoration: underline;
-            text-decoration-color: rgba(212, 165, 116, 0.3);
-            text-underline-offset: 3px;
-        }
-
-        .blog-site-credits a:hover {
-            color: var(--gold-bright);
-        }
-
-        .nav-back {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            transition: color 0.3s;
-        }
-
-        .nav-back:hover {
-            color: var(--gold-bright);
-        }
-
-        .nav-title {
-            font-family: var(--font-display);
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--gold);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        /* ==========================================
-           DEPTH GAUGE — Custom Scroll Indicator
-           ========================================== */
-        .depth-gauge {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 6px;
-            background: rgba(20, 15, 10, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 165, 116, 0.2);
-            border-radius: 24px;
-            min-height: 320px;
-            width: 52px;
-            box-shadow:
-                0 0 20px rgba(0, 0, 0, 0.4),
-                inset 0 0 20px rgba(212, 165, 116, 0.03);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .depth-gauge.hidden {
-            opacity: 0;
-            transform: translateY(-50%) translateX(80px);
-            pointer-events: none;
-        }
-
-        .gauge-label {
-            font-family: var(--font-mono);
-            font-size: 0.5rem;
-            font-weight: 500;
-            color: var(--gold-dim);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            writing-mode: vertical-lr;
-            text-orientation: mixed;
-            transform: rotate(180deg);
-            white-space: nowrap;
-            display: none;
-        }
-
-        .gauge-track {
-            position: relative;
-            width: 3px;
-            flex: 1;
-            min-height: 200px;
-            background: linear-gradient(180deg,
-                    var(--layer-1) 0%,
-                    var(--layer-2) 14%,
-                    var(--layer-3) 28%,
-                    var(--layer-4) 42%,
-                    var(--layer-5) 58%,
-                    var(--layer-6) 72%,
-                    var(--layer-7) 90%);
-            border-radius: 4px;
-            overflow: visible;
-        }
-
-        .gauge-marker {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            transform: translate(-50%, -50%);
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: var(--gold-bright);
-            border: 2px solid var(--gold);
-            box-shadow:
-                0 0 8px var(--gold),
-                0 0 20px rgba(212, 165, 116, 0.3);
-            transition: top 0.15s ease-out;
-            z-index: 5;
-            animation: pulse-glow 3s ease-in-out infinite;
-        }
-
-        .layer-mark {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            gap: 0;
-        }
-
-        .layer-mark::before {
-            content: '';
-            width: 18px;
-            height: 1px;
-            background: var(--mark-color);
-            opacity: 0.5;
-            position: absolute;
-            right: 100%;
-            margin-right: 2px;
-        }
-
-        .layer-mark-dot {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--mark-color);
-            opacity: 0.6;
-        }
-
-        .layer-mark-label {
-            position: absolute;
-            right: calc(100% + 8px);
-            font-family: var(--font-mono);
-            font-size: 0.55rem;
-            color: var(--text-muted);
-            white-space: nowrap;
-            opacity: 0;
-            transform: translateX(5px);
-            transition: opacity 0.3s, transform 0.3s;
-            pointer-events: none;
-        }
-
-        .depth-gauge:hover .layer-mark-label {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .gauge-readout {
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            font-weight: 500;
-            color: var(--gold);
-            text-align: center;
-            min-width: 36px;
-            letter-spacing: 0.5px;
-        }
-
-        .gauge-origin {
-            font-family: var(--font-mono);
-            font-size: 0.5rem;
-            color: var(--text-muted);
-            text-align: center;
-        }
-
-        /* ==========================================
-           HERO — Abyss Portal
-           ========================================== */
-        .abyss-hero {
-            padding: 120px 24px 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 70vh;
-        }
-
-        .portal {
-            position: relative;
-            width: 420px;
-            height: 420px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .portal-ring {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            border-radius: 50%;
-            border: 1px solid;
-            opacity: 0.35;
-            transform-origin: center center;
-        }
-
-        .ring-1 {
-            width: 100%;
-            height: 100%;
-            margin-top: -50%;
-            margin-left: -50%;
-            border-color: var(--layer-1);
-            border-width: 1.5px;
-            animation: portal-spin 60s linear infinite;
-        }
-
-        .ring-2 {
-            width: 85%;
-            height: 85%;
-            margin-top: -42.5%;
-            margin-left: -42.5%;
-            border-color: var(--layer-2);
-            animation: portal-spin 50s linear infinite reverse;
-        }
-
-        .ring-3 {
-            width: 70%;
-            height: 70%;
-            margin-top: -35%;
-            margin-left: -35%;
-            border-color: var(--layer-3);
-            animation: portal-spin 45s linear infinite;
-        }
-
-        .ring-4 {
-            width: 56%;
-            height: 56%;
-            margin-top: -28%;
-            margin-left: -28%;
-            border-color: var(--layer-4);
-            animation: portal-spin 38s linear infinite reverse;
-        }
-
-        .ring-5 {
-            width: 43%;
-            height: 43%;
-            margin-top: -21.5%;
-            margin-left: -21.5%;
-            border-color: var(--layer-5);
-            animation: portal-spin 32s linear infinite;
-        }
-
-        .ring-6 {
-            width: 32%;
-            height: 32%;
-            margin-top: -16%;
-            margin-left: -16%;
-            border-color: var(--layer-6);
-            border-width: 1.5px;
-            animation: portal-spin 26s linear infinite reverse;
-        }
-
-        .ring-7 {
-            width: 22%;
-            height: 22%;
-            margin-top: -11%;
-            margin-left: -11%;
-            border-color: rgba(212, 165, 116, 0.4);
-            border-width: 2px;
-            animation: portal-spin 20s linear infinite;
-            box-shadow: 0 0 30px rgba(212, 165, 116, 0.1);
-        }
-
-        .portal-center {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            padding: 40px;
-        }
-
-        .portal-center h1 {
-            font-family: var(--font-display);
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: var(--gold-bright);
-            letter-spacing: 3px;
-            text-shadow: 0 0 30px rgba(212, 165, 116, 0.3), 0 2px 10px rgba(0, 0, 0, 0.5);
-            margin-bottom: 12px;
-            line-height: 1.2;
-        }
-
-        .portal-center p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
-        /* ==========================================
-           CONTROLS — Translucent Bubbles
-           ========================================== */
-        .controls-wrapper {
-            max-width: 900px;
-            margin: 0 auto 48px;
-            padding: 0 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        /* Search Bubble — standalone, prominent */
-        .search-bubble {
-            background: rgba(25, 18, 35, 0.45);
-            border: 1px solid rgba(212, 165, 116, 0.12);
-            border-radius: 28px;
-            padding: 6px 8px;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            box-shadow:
-                0 8px 32px rgba(0, 0, 0, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.04);
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-
-        .search-bubble:focus-within {
-            border-color: rgba(212, 165, 116, 0.35);
-            box-shadow:
-                0 8px 32px rgba(0, 0, 0, 0.2),
-                0 0 20px rgba(212, 165, 116, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.04);
-        }
-
-        .search-input-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 18px;
-            color: var(--gold-dim);
-            pointer-events: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-
-        .search-input {
-            width: 100%;
-            height: 46px;
-            padding: 0 44px 0 48px;
-            background: transparent;
-            border: none;
-            border-radius: 24px;
-            color: var(--text-primary);
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .search-input::placeholder {
-            color: var(--text-muted);
-            font-weight: 300;
-        }
-
-        .search-input:focus {
-            outline: none;
-        }
-
-        .search-input:focus ~ .search-icon {
-            color: var(--gold-bright);
-        }
-
-        .search-clear-btn {
-            position: absolute;
-            right: 14px;
-            background: rgba(212, 165, 116, 0.1);
-            border: 1px solid rgba(212, 165, 116, 0.15);
-            color: var(--text-secondary);
-            border-radius: 50%;
-            width: 26px;
-            height: 26px;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 0.75rem;
-            transition: all 0.2s;
-        }
-
-        .search-clear-btn:hover {
-            background: rgba(212, 165, 116, 0.25);
-            color: var(--gold-bright);
-            transform: scale(1.08);
-        }
-
-        /* Filter Bubbles Row */
-        .filters-bubbles-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            justify-content: center;
-        }
-
-        .filter-bubble {
-            background: rgba(25, 18, 35, 0.4);
-            border: 1px solid rgba(212, 165, 116, 0.1);
-            border-radius: 22px;
-            padding: 12px 18px;
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            box-shadow:
-                0 6px 24px rgba(0, 0, 0, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.03);
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            flex: 1 1 180px;
-            min-width: 180px;
-            max-width: 260px;
-            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-        }
-
-        .filter-bubble:hover {
-            border-color: rgba(212, 165, 116, 0.25);
-            transform: translateY(-2px);
-            box-shadow:
-                0 10px 32px rgba(0, 0, 0, 0.2),
-                0 0 16px rgba(212, 165, 116, 0.06),
-                inset 0 1px 0 rgba(255, 255, 255, 0.04);
-        }
-
-        .filter-label {
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            font-weight: 500;
-            color: var(--gold-dim);
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding-left: 4px;
-        }
-
-        .custom-select-wrapper {
-            position: relative;
-        }
-
-        .custom-select {
-            width: 100%;
-            height: 38px;
-            padding: 0 28px 0 12px;
-            background: rgba(10, 5, 18, 0.5);
-            border: 1px solid rgba(212, 165, 116, 0.08);
-            border-radius: 14px;
-            color: var(--text-primary);
-            font-family: var(--font-body);
-            font-size: 0.82rem;
-            cursor: pointer;
-            appearance: none;
-            -webkit-appearance: none;
-            transition: all 0.3s ease;
-        }
-
-        .custom-select:focus {
-            outline: none;
-            border-color: rgba(212, 165, 116, 0.35);
-            box-shadow: 0 0 12px rgba(212, 165, 116, 0.1);
-        }
-
-        .custom-select:hover {
-            border-color: rgba(212, 165, 116, 0.2);
-        }
-
-        .custom-select option {
-            background: #140b22;
-            color: var(--text-primary);
-            padding: 8px;
-        }
-
-        .select-arrow {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            pointer-events: none;
-            color: var(--gold-dim);
-            font-size: 0.55rem;
-            opacity: 0.6;
-        }
-
-        /* Meta Bar Bubble */
-        .controls-meta-bubble {
-            background: rgba(25, 18, 35, 0.35);
-            border: 1px solid rgba(212, 165, 116, 0.08);
-            border-radius: 22px;
-            padding: 14px 22px;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            box-shadow:
-                0 4px 16px rgba(0, 0, 0, 0.12),
-                inset 0 1px 0 rgba(255, 255, 255, 0.02);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .results-info {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .results-count-badge {
-            color: var(--gold-bright);
-            font-weight: 600;
-        }
-
-        .active-chips-container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 8px;
-            flex: 1;
-        }
-
-        .filter-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 5px 12px;
-            background: rgba(212, 165, 116, 0.08);
-            border: 1px solid rgba(212, 165, 116, 0.2);
-            border-radius: 16px;
-            font-size: 0.72rem;
-            color: var(--gold-bright);
-            font-family: var(--font-mono);
-            animation: chip-appear 0.25s ease-out;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-
-        .filter-chip-remove {
-            background: none;
-            border: none;
-            color: var(--gold-dim);
-            cursor: pointer;
-            font-size: 0.85rem;
-            line-height: 1;
-            padding: 0 2px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: color 0.2s, transform 0.2s;
-        }
-
-        .filter-chip-remove:hover {
-            color: #ff7777;
-            transform: scale(1.15);
-        }
-
-        .btn-reset-all {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(212, 165, 116, 0.06);
-            border: 1px solid rgba(212, 165, 116, 0.15);
-            color: var(--gold);
-            font-family: var(--font-body);
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: 6px 16px;
-            border-radius: 14px;
-            cursor: pointer;
-            transition: all 0.25s;
-            margin-left: auto;
-        }
-
-        .btn-reset-all:hover {
-            background: rgba(212, 165, 116, 0.15);
-            color: var(--gold-bright);
-            border-color: rgba(212, 165, 116, 0.4);
-        }
-
-        /* Filter empty state */
-        .filter-empty-card {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 60px 24px;
-            background: rgba(25, 18, 35, 0.4);
-            border: 1px solid rgba(212, 165, 116, 0.1);
-            border-radius: 22px;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-
-        .filter-empty-icon {
-            font-size: 2.5rem;
-            margin-bottom: 14px;
-            animation: float-gentle 4s ease-in-out infinite;
-        }
-
-        .filter-empty-title {
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            color: var(--gold-bright);
-            margin-bottom: 8px;
-        }
-
-        .filter-empty-desc {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            max-width: 440px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        @keyframes chip-appear {
-            from {
-                opacity: 0;
-                transform: scale(0.85);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        /* ==========================================
-           POSTS GRID — Relic Cards
-           ========================================== */
-        .posts-section {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px 24px 100px;
-        }
-
-        .posts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 24px;
-        }
-
-        .post-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 28px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            animation: card-appear 0.6s ease-out both;
-            animation-delay: var(--appear-delay, 0s);
-        }
-
-        .post-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg,
-                    transparent,
-                    var(--card-accent, var(--gold)),
-                    transparent);
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-
-        .post-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 16px;
-            background: radial-gradient(ellipse at 50% 0%, var(--card-accent-glow, rgba(212, 165, 116, 0.05)), transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s;
-            pointer-events: none;
-        }
-
-        .post-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--border-hover);
-            background: var(--surface-hover);
-            box-shadow:
-                0 8px 32px rgba(0, 0, 0, 0.3),
-                0 0 0 1px var(--border-hover);
-        }
-
-        .post-card:hover::before {
-            opacity: 1;
-        }
-
-        .post-card:hover::after {
-            opacity: 1;
-        }
-
-        .card-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            margin-bottom: 14px;
-        }
-
-        .card-icon {
-            font-size: 1.8rem;
-            line-height: 1;
-            flex-shrink: 0;
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(212, 165, 116, 0.08);
-            border-radius: 12px;
-            border: 1px solid rgba(212, 165, 116, 0.1);
-        }
-
-        .card-meta {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .card-title {
-            font-family: var(--font-display);
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-            line-height: 1.3;
-        }
-
-        .card-date {
-            font-family: var(--font-mono);
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
-        }
-
-        .card-excerpt {
-            font-size: 0.88rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 16px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .card-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        .card-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .card-tag {
-            font-size: 0.68rem;
-            font-weight: 500;
-            padding: 3px 10px;
-            border-radius: 20px;
-            background: rgba(212, 165, 116, 0.08);
-            color: var(--gold-dim);
-            border: 1px solid rgba(212, 165, 116, 0.1);
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-        }
-
-        .card-tag:hover {
-            background: rgba(212, 165, 116, 0.2);
-            color: var(--gold-bright);
-            border-color: var(--gold);
-            transform: translateY(-1px);
-        }
-
-        .card-layer {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            white-space: nowrap;
-            padding: 3px 10px;
-            border-radius: 20px;
-            border: 1px solid var(--layer-border, var(--border));
-            background: var(--layer-bg, rgba(0, 0, 0, 0.2));
-        }
-
-        .card-layer-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--layer-dot-color, var(--gold));
-        }
-
-        /* ==========================================
-           POST VIEWER — Single Post Display
-           ========================================== */
-        .post-viewer {
-            position: relative;
-            z-index: 50;
-            min-height: 100vh;
-            padding: 80px 24px 100px;
-        }
-
-        .viewer-container {
-            max-width: 740px;
-            margin: 0 auto;
-            animation: viewer-enter 0.5s ease-out;
-        }
-
-        .viewer-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-family: var(--font-body);
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 8px 18px;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-bottom: 40px;
-        }
-
-        .viewer-back:hover {
-            color: var(--gold-bright);
-            border-color: var(--border-hover);
-            background: var(--surface-hover);
-        }
-
-        .viewer-header {
-            margin-bottom: 48px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .viewer-icon {
-            font-size: 2.5rem;
-            margin-bottom: 16px;
-            display: inline-block;
-        }
-
-        .viewer-title {
-            font-family: var(--font-display);
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--gold-bright);
-            letter-spacing: 1px;
-            line-height: 1.25;
-            margin-bottom: 16px;
-            text-shadow: 0 0 20px rgba(212, 165, 116, 0.15);
-        }
-
-        .viewer-meta-row {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .viewer-date {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .viewer-layer-badge {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-family: var(--font-mono);
-            font-size: 0.72rem;
-            padding: 4px 12px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-            background: rgba(0, 0, 0, 0.2);
-            color: var(--text-secondary);
-        }
-
-        .viewer-layer-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-        }
-
-        .viewer-tags {
-            display: flex;
-            gap: 6px;
-        }
-
-        .viewer-tag {
-            font-size: 0.7rem;
-            font-weight: 500;
-            padding: 3px 10px;
-            border-radius: 16px;
-            background: rgba(212, 165, 116, 0.08);
-            color: var(--gold-dim);
-            border: 1px solid rgba(212, 165, 116, 0.1);
-            cursor: pointer;
-            transition: all 0.25s ease;
-        }
-
-        .viewer-tag:hover {
-            background: rgba(212, 165, 116, 0.2);
-            color: var(--gold-bright);
-            border-color: var(--gold);
-            transform: translateY(-1px);
-        }
-
-        /* ==========================================
-           MARKDOWN CONTENT — Typography
-           ========================================== */
-        .viewer-body {
-            color: var(--text-primary);
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-
-        .viewer-body h1 {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--gold-bright);
-            margin: 48px 0 20px;
-            letter-spacing: 1px;
-        }
-
-        .viewer-body h2 {
-            font-family: var(--font-display);
-            font-size: 1.45rem;
-            font-weight: 600;
-            color: var(--gold);
-            margin: 40px 0 16px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .viewer-body h3 {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin: 32px 0 12px;
-        }
-
-        .viewer-body h4,
-        .viewer-body h5,
-        .viewer-body h6 {
-            font-family: var(--font-display);
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            margin: 24px 0 8px;
-        }
-
-        .viewer-body p {
-            margin-bottom: 16px;
-        }
-
-        .viewer-body strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .viewer-body em {
-            font-style: italic;
-            color: var(--text-secondary);
-        }
-
-        .viewer-body a {
-            color: var(--cyan-glow);
-            text-decoration: underline;
-            text-decoration-color: rgba(125, 211, 252, 0.3);
-            text-underline-offset: 3px;
-            transition: all 0.3s;
-        }
-
-        .viewer-body a:hover {
-            color: #a5e4ff;
-            text-decoration-color: rgba(125, 211, 252, 0.7);
-        }
-
-        .viewer-body img {
-            max-width: 100%;
-            border-radius: 12px;
-            margin: 24px 0;
-            border: 1px solid var(--border);
-        }
-
-        .viewer-body blockquote {
-            margin: 24px 0;
-            padding: 16px 20px;
-            border-left: 3px solid var(--gold);
-            background: rgba(212, 165, 116, 0.05);
-            border-radius: 0 10px 10px 0;
-            color: var(--text-secondary);
-            font-style: italic;
-        }
-
-        .viewer-body pre {
-            margin: 24px 0;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow-x: auto;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            line-height: 1.6;
-            color: #c8d6e5;
-        }
-
-        .viewer-body code {
-            font-family: var(--font-mono);
-            font-size: 0.85em;
-            padding: 2px 7px;
-            background: rgba(212, 165, 116, 0.08);
-            border: 1px solid rgba(212, 165, 116, 0.1);
-            border-radius: 5px;
-            color: var(--gold);
-        }
-
-        .viewer-body pre code {
-            padding: 0;
-            background: none;
-            border: none;
-            border-radius: 0;
-            color: inherit;
-            font-size: 1em;
-        }
-
-        .viewer-body ul,
-        .viewer-body ol {
-            margin: 16px 0;
-            padding-left: 24px;
-        }
-
-        .viewer-body li {
-            margin-bottom: 6px;
-        }
-
-        .viewer-body ul li::marker {
-            color: var(--gold-dim);
-        }
-
-        .viewer-body ol li::marker {
-            color: var(--gold-dim);
-            font-family: var(--font-mono);
-            font-size: 0.85em;
-        }
-
-        .viewer-body hr {
-            margin: 40px 0;
-            border: none;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
-        }
-
-        .viewer-body del {
-            color: var(--text-muted);
-            text-decoration: line-through;
-        }
-
-        /* ==========================================
-           EMPTY & LOADING STATES
-           ========================================== */
-        .empty-state {
-            text-align: center;
-            padding: 80px 24px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .empty-whistle {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            animation: float-gentle 4s ease-in-out infinite;
-        }
-
-        .empty-state h2 {
-            font-family: var(--font-display);
-            font-size: 1.4rem;
-            color: var(--gold);
-            margin-bottom: 12px;
-        }
-
-        .empty-state p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .loading-state {
-            text-align: center;
-            padding: 100px 24px;
-        }
-
-        .loading-spinner {
-            width: 36px;
-            height: 36px;
-            border: 2.5px solid rgba(212, 165, 116, 0.15);
-            border-top-color: var(--gold);
-            border-radius: 50%;
-            animation: spin 0.9s linear infinite;
-            margin: 0 auto 16px;
-        }
-
-        .loading-state p {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-        }
-
-        /* ==========================================
-           KEYFRAME ANIMATIONS
-           ========================================== */
-        @keyframes float-up {
-            0% {
-                transform: translateY(100vh) translateX(0);
-                opacity: 0;
-            }
-
-            5% {
-                opacity: var(--p-opacity, 0.4);
-            }
-
-            90% {
-                opacity: var(--p-opacity, 0.4);
-            }
-
-            100% {
-                transform: translateY(-40px) translateX(var(--drift-x, 20px));
-                opacity: 0;
-            }
-        }
-
-        @keyframes mist-drift-1 {
-
-            0%,
-            100% {
-                transform: translateX(-5%) scale(1);
-                opacity: 0.5;
-            }
-
-            50% {
-                transform: translateX(8%) scale(1.1);
-                opacity: 0.8;
-            }
-        }
-
-        @keyframes mist-drift-2 {
-
-            0%,
-            100% {
-                transform: translateX(5%) scale(1.05);
-                opacity: 0.4;
-            }
-
-            50% {
-                transform: translateX(-10%) scale(1);
-                opacity: 0.7;
-            }
-        }
-
-        @keyframes mist-drift-3 {
-
-            0%,
-            100% {
-                transform: translateX(-3%) scale(1);
-                opacity: 0.3;
-            }
-
-            50% {
-                transform: translateX(6%) scale(1.15);
-                opacity: 0.6;
-            }
-        }
-
-        @keyframes portal-spin {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .ring-1 {
-            animation-name: portal-spin;
-        }
-
-        .ring-2 {
-            animation-name: portal-spin;
-            animation-direction: reverse;
-        }
-
-        .ring-3 {
-            animation-name: portal-spin;
-        }
-
-        @keyframes pulse-glow {
-
-            0%,
-            100% {
-                box-shadow: 0 0 8px var(--gold), 0 0 16px rgba(212, 165, 116, 0.2);
-            }
-
-            50% {
-                box-shadow: 0 0 14px var(--gold-bright), 0 0 28px rgba(212, 165, 116, 0.35);
-            }
-        }
-
-        @keyframes card-appear {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes viewer-enter {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float-gentle {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* ==========================================
-           RESPONSIVE
-           ========================================== */
-        @media (max-width: 900px) {
-            .filter-bubble {
-                flex: 1 1 45%;
-                max-width: 48%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .portal {
-                width: 300px;
-                height: 300px;
-            }
-
-            .portal-center h1 {
-                font-size: 1.6rem;
-                letter-spacing: 1px;
-            }
-
-            .portal-center p {
-                font-size: 0.82rem;
-            }
-
-            .controls-wrapper {
-                padding: 0 16px;
-                margin-bottom: 28px;
-                gap: 14px;
-            }
-
-            .posts-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .depth-gauge {
-                right: 8px;
-                width: 40px;
-                min-height: 260px;
-                padding: 10px 4px;
-            }
-
-            .gauge-readout {
-                font-size: 0.55rem;
-            }
-
-            .depth-gauge:hover .layer-mark-label {
-                display: none;
-            }
-
-            .viewer-title {
-                font-size: 1.6rem;
-            }
-
-            .viewer-body h1 {
-                font-size: 1.5rem;
-            }
-
-            .viewer-body h2 {
-                font-size: 1.25rem;
-            }
-
-            .abyss-hero {
-                min-height: 55vh;
-                padding: 100px 16px 40px;
-            }
-
-            .posts-section {
-                padding: 10px 16px 80px;
-            }
-        }
-
-        @media (max-width: 520px) {
-            .filter-bubble {
-                flex: 1 1 100%;
-                max-width: 100%;
-            }
-
-            .filters-bubbles-row {
-                gap: 10px;
-            }
-
-            .controls-meta-bubble {
-                flex-direction: column;
-                align-items: stretch;
-                padding: 12px 16px;
-            }
-
-            .btn-reset-all {
-                margin-left: 0;
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .depth-gauge {
-                display: none;
-            }
-
-            .portal {
-                width: 240px;
-                height: 240px;
-            }
-
-            .portal-center h1 {
-                font-size: 1.3rem;
-            }
-
-            .portal-center {
-                padding: 20px;
-            }
-
-            .post-card {
-                padding: 20px;
-            }
-
-            .nav-title {
-                font-size: 0.75rem;
-                letter-spacing: 1px;
-            }
-
-            .viewer-title {
-                font-size: 1.3rem;
-            }
-
-            .viewer-meta-row {
-                gap: 10px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
 
-    <!-- Background Layers -->
-    <div class="abyss-bg"></div>
-    <div class="abyss-texture"></div>
-
-    <!-- Atmosphere -->
-    <div class="abyss-mist">
-        <div class="mist-layer mist-1"></div>
-        <div class="mist-layer mist-2"></div>
-        <div class="mist-layer mist-3"></div>
-    </div>
-    <div class="abyss-particles" id="particles"></div>
-
-    <!-- Navigation -->
-    <nav class="abyss-nav">
-        <span class="nav-title">Blog do @webglossdev</span>
-    </nav>
-
-    <!-- Depth Gauge -->
-    <div class="depth-gauge hidden" id="depth-gauge">
-        <div class="gauge-origin">Início</div>
+    <!-- Altímetro Lateral HUD (Desktop >= 769px) -->
+    <aside class="depth-gauge" id="depth-gauge" aria-label="Indicador de Profundidade do Abismo">
+        <div class="gauge-origin">Orth</div>
         <div class="gauge-track" id="gauge-track">
             <div class="gauge-marker" id="gauge-marker"></div>
-            <!-- Layer marks inserted by JS -->
         </div>
         <div class="gauge-readout" id="gauge-readout">0m</div>
+        <div class="gauge-layer-badge" id="gauge-layer-badge">Orth // 0m</div>
+    </aside>
+
+    <!-- Altímetro Mobile Flutuante (Diretriz 2: Seguro sob o header, z-index 40) -->
+    <div class="mobile-depth-pill" id="mobile-depth-pill" aria-live="polite">
+        <span class="pill-dot"></span>
+        <span class="pill-depth" id="mobile-depth-readout">0m</span>
+        <span class="pill-layer" id="mobile-layer-readout">Orth</span>
     </div>
 
-    <!-- Main Content -->
-    <main id="main-content">
-        <!-- Hero -->
-        <header class="abyss-hero" id="hero">
-            <div class="portal">
-                <div class="portal-ring ring-1"></div>
-                <div class="portal-ring ring-2"></div>
-                <div class="portal-ring ring-3"></div>
-                <div class="portal-ring ring-4"></div>
-                <div class="portal-ring ring-5"></div>
-                <div class="portal-ring ring-6"></div>
-                <div class="portal-ring ring-7"></div>
-                <div class="portal-center">
-                    <h1>Blog do @webglossdev</h1>
-                    <p>Um abismo de opiniões e informações.</p>
-                </div>
-            </div>
+    <div class="content-wrapper">
+        <!-- Hero Section -->
+        <header class="hero" id="blog-hero">
+            <p class="hero-greeting" style="color: var(--accent-cyan); letter-spacing: 0.12em;">RELIC ARCHIVES // MADE IN ABYSS</p>
+            <h1>Blog Pessoal</h1>
+            <p class="subtitle">Um abismo de notas técnicas, explorações de hardware e ideias em constante descida. 🧭</p>
         </header>
 
-        <!-- Controls: Search, Filters & Sorting -->
-        <section class="controls-wrapper" id="controls-section" aria-label="Controles de busca e filtragem">
-
-            <!-- Search Bubble -->
-            <div class="search-bubble">
-                <div class="search-input-wrapper">
-                    <span class="search-icon" aria-hidden="true">🔍</span>
-                    <input type="text" 
-                           id="search-input" 
-                           class="search-input" 
-                           placeholder="Pesquisar posts por título, assunto, tag..." 
-                           autocomplete="off"
-                           aria-label="Pesquisar publicações">
-                    <button type="button" 
-                            id="search-clear" 
-                            class="search-clear-btn" 
-                            title="Limpar pesquisa"
-                            aria-label="Limpar pesquisa">✕</button>
-                </div>
+        <!-- Controles de Busca e Filtros -->
+        <section class="blog-controls" id="blog-controls" aria-label="Controles de busca e filtragem">
+            <div class="search-glass-wrapper">
+                <span class="search-glass-icon" aria-hidden="true">🔍</span>
+                <input type="text" id="search-input" class="search-glass-input" placeholder="Pesquisar publicações por título, assunto, tag..." autocomplete="off" aria-label="Pesquisar publicações">
+                <button type="button" id="search-clear" class="search-glass-clear" title="Limpar busca" aria-label="Limpar pesquisa">✕</button>
             </div>
 
-            <!-- Filter Bubbles Row -->
-            <div class="filters-bubbles-row">
-                <!-- Layer Filter Bubble -->
-                <div class="filter-bubble">
-                    <label for="filter-layer" class="filter-label">
-                        <span>🏔️</span> Camada
-                    </label>
-                    <div class="custom-select-wrapper">
-                        <select id="filter-layer" class="custom-select" aria-label="Filtrar por camada">
-                            <option value="all">Todas as Camadas</option>
-                            <option value="1">1ª Camada (Borda)</option>
-                            <option value="2">2ª Camada (Floresta)</option>
-                            <option value="3">3ª Camada (Falha)</option>
-                            <option value="4">4ª Camada (Taças)</option>
-                            <option value="5">5ª Camada (Mar)</option>
-                            <option value="6">6ª Camada (Capital)</option>
-                            <option value="7">7ª Camada (Anel)</option>
-                        </select>
-                        <span class="select-arrow" aria-hidden="true">▼</span>
-                    </div>
-                </div>
+            <div class="filter-glass-row">
+                <select id="filter-layer" class="filter-glass-select" aria-label="Filtrar por camada">
+                    <option value="all">Todas as Camadas</option>
+                    <option value="1">1ª Camada (Borda)</option>
+                    <option value="2">2ª Camada (Floresta)</option>
+                    <option value="3">3ª Camada (Falha)</option>
+                    <option value="4">4ª Camada (Taças)</option>
+                    <option value="5">5ª Camada (Mar)</option>
+                    <option value="6">6ª Camada (Capital)</option>
+                    <option value="7">7ª Camada (Anel Final)</option>
+                </select>
 
-                <!-- Date Filter Bubble -->
-                <div class="filter-bubble">
-                    <label for="filter-date" class="filter-label">
-                        <span>📅</span> Data / Período
-                    </label>
-                    <div class="custom-select-wrapper">
-                        <select id="filter-date" class="custom-select" aria-label="Filtrar por data">
-                            <option value="all">Todas as datas</option>
-                            <!-- Populated dynamically from posts -->
-                        </select>
-                        <span class="select-arrow" aria-hidden="true">▼</span>
-                    </div>
-                </div>
+                <select id="filter-date" class="filter-glass-select" aria-label="Filtrar por data">
+                    <option value="all">Todas as datas</option>
+                </select>
 
-                <!-- Tag Filter Bubble -->
-                <div class="filter-bubble">
-                    <label for="filter-tag" class="filter-label">
-                        <span>🏷️</span> Tag
-                    </label>
-                    <div class="custom-select-wrapper">
-                        <select id="filter-tag" class="custom-select" aria-label="Filtrar por tag">
-                            <option value="all">Todas as tags</option>
-                            <!-- Populated dynamically from posts -->
-                        </select>
-                        <span class="select-arrow" aria-hidden="true">▼</span>
-                    </div>
-                </div>
+                <select id="filter-tag" class="filter-glass-select" aria-label="Filtrar por tag">
+                    <option value="all">Todas as tags</option>
+                </select>
 
-                <!-- Sort By Bubble -->
-                <div class="filter-bubble">
-                    <label for="sort-by" class="filter-label">
-                        <span>⚡</span> Ordenar por
-                    </label>
-                    <div class="custom-select-wrapper">
-                        <select id="sort-by" class="custom-select" aria-label="Ordenar publicações">
-                            <option value="date-desc">Data: Mais recentes</option>
-                            <option value="date-asc">Data: Mais antigos</option>
-                            <option value="layer-asc">Camada: Mais rasa (1ª→7ª)</option>
-                            <option value="layer-desc">Camada: Mais profunda (7ª→1ª)</option>
-                            <option value="title-asc">Título: A → Z</option>
-                            <option value="title-desc">Título: Z → A</option>
-                        </select>
-                        <span class="select-arrow" aria-hidden="true">▼</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Meta & Active Chips Bubble -->
-            <div class="controls-meta-bubble" id="controls-meta-bar">
-                <div class="results-info">
-                    <span id="results-count" class="results-count-badge">0</span>
-                    <span id="results-label">registros encontrados</span>
-                </div>
-
-                <div class="active-chips-container" id="active-chips-container">
-                    <!-- Chips inserted dynamically -->
-                </div>
-
-                <button type="button" id="btn-reset-all" class="btn-reset-all" style="display: none;">
-                    <span>✕</span> Limpar filtros
-                </button>
+                <select id="sort-by" class="filter-glass-select" aria-label="Ordenar publicações">
+                    <option value="date-desc">Data: Mais recentes</option>
+                    <option value="date-asc">Data: Mais antigos</option>
+                    <option value="layer-asc">Camada: Mais rasa (1ª→7ª)</option>
+                    <option value="layer-desc">Camada: Mais profunda (7ª→1ª)</option>
+                    <option value="title-asc">Título: A → Z</option>
+                    <option value="title-desc">Título: Z → A</option>
+                </select>
             </div>
         </section>
 
-        <!-- Posts Grid -->
+        <!-- Lista de Relic Cards -->
         <section class="posts-section" id="posts-section">
             <div class="posts-grid" id="posts-container"></div>
+
+            <div id="loading-state" style="text-align: center; padding: 48px 0; color: var(--text-muted); font-family: var(--font-mono); font-size: 13px;">
+                <p>Sondando as profundezas do Abismo...</p>
+            </div>
+
+            <div id="empty-state" class="glass-card" style="display: none; text-align: center; padding: 48px 24px; max-width: 580px; margin: 0 auto;">
+                <div style="font-size: 2.4rem; margin-bottom: 12px;">🔔</div>
+                <h3 style="font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 8px;">Nenhum registro recuperado</h3>
+                <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 20px;">Nenhum artefato corresponde aos filtros atuais. Tente redefinir a busca.</p>
+                <button type="button" id="btn-reset-filters" class="btn-secondary">Limpar Filtros</button>
+            </div>
         </section>
 
-        <!-- Empty State -->
-        <div class="empty-state" id="empty-state" style="display: none;">
-            <div class="empty-whistle">🔔</div>
-            <h2>Nenhum registro encontrado</h2>
-            <p>As profundezas do Abismo ainda guardam seus segredos...</p>
-        </div>
-
-        <!-- Loading State -->
-        <div class="loading-state" id="loading-state">
-            <div class="loading-spinner"></div>
-            <p>Explorando as profundezas...</p>
-        </div>
-
-        <!-- Footer Back Link & Site Credits -->
-        <div class="blog-site-footer">
-            <a href="/" class="blog-back-home-link">← Visitar meu website pessoal</a>
-        </div>
-
-        <div class="blog-site-credits">
-            <p>Hospedado na Vercel com deploy automático via GitHub.<br>
-                © 2026 Leonardo P. Soares. O conteúdo deste site é protegido
-                por direitos autorais de acordo com a <a href="https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
-                    target="_blank" rel="noopener">Lei 9.610/98</a>.<br>O código-fonte está disponível sob a
-                licença <a href="https://github.com/monanadmin/MONAN-Model/blob/main/licenca-gpl-3.0.pt-br.md"
-                    target="_blank" rel="noopener">GNU GPLv3</a>.
-            </p>
-        </div>
-    </main>
-
-    <!-- Post Viewer -->
-    <div class="post-viewer" id="post-viewer" style="display: none;">
-        <div class="viewer-container">
-            <button class="viewer-back" id="viewer-back">← Voltar ao blog</button>
-            <div class="viewer-header" id="viewer-header"></div>
-            <article class="viewer-body" id="viewer-body"></article>
-        </div>
+        <!-- Post Viewer (Artigo Individual) -->
+        <section class="post-viewer-container" id="post-viewer" style="display: none;">
+            <button type="button" class="viewer-back-btn" id="viewer-back">← Voltar às Relíquias</button>
+            <article class="glass-card viewer-content">
+                <div class="relic-badge-row">
+                    <span class="relic-grade" id="viewer-grade">GRAU ESPECIAL // APITO BRANCO</span>
+                    <span class="relic-depth-coord" id="viewer-depth">0m</span>
+                </div>
+                <h1 id="viewer-title" style="font-family: var(--font-display); font-size: 2.1rem; line-height: 1.25; margin-bottom: 12px; color: var(--text-primary);"></h1>
+                <div id="viewer-meta" style="font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); margin-bottom: 24px;"></div>
+                <div class="viewer-body" id="viewer-body"></div>
+            </article>
+        </section>
     </div>
 
+    <script defer src="/layout.js"></script>
+    <script defer src="/script.js"></script>
 
+    <!-- Lógica Exclusiva do Blog: Telemetria, Markdown e Relic Cards -->
     <script>
-        /* ==========================================
-           CONFIGURATION — Abyss Layer Data
-           ========================================== */
-        const LAYERS = [
-            { depth: 0, pct: 0, name: '1ª Camada', fullName: 'Borda do Abismo', color: '#4a6741' },
-            { depth: 1350, pct: 14, name: '2ª Camada', fullName: 'Floresta dos Tentáculos', color: '#2d5a4a' },
-            { depth: 2600, pct: 26, name: '3ª Camada', fullName: 'Grande Falha', color: '#1a4a5a' },
-            { depth: 7000, pct: 40, name: '4ª Camada', fullName: 'Taças Gigantes', color: '#1a3a6a' },
-            { depth: 12000, pct: 58, name: '5ª Camada', fullName: 'Mar de Cadáveres', color: '#3a1a5a' },
-            { depth: 13000, pct: 68, name: '6ª Camada', fullName: 'Capital dos Não-Retornáveis', color: '#1a0a3a' },
-            { depth: 15500, pct: 82, name: '7ª Camada', fullName: 'O Anel Final', color: '#08030f' },
-        ];
-        const MAX_DEPTH = 20000;
-
-        /* ==========================================
-           FRONTMATTER PARSER
-           ========================================== */
-        function parseFrontmatter(content) {
-            const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
-            if (!match) return { meta: {}, body: content };
-
-            const meta = {};
-            const lines = match[1].split(/\r?\n/);
-            for (const line of lines) {
-                const colonIdx = line.indexOf(':');
-                if (colonIdx === -1) continue;
-                const key = line.slice(0, colonIdx).trim();
-                let value = line.slice(colonIdx + 1).trim();
-
-                // Handle arrays [item1, item2]
-                if (value.startsWith('[') && value.endsWith(']')) {
-                    value = value.slice(1, -1).split(',').map(s => s.trim().replace(/^["']|["']$/g, ''));
-                }
-                meta[key] = value;
-            }
-            return { meta, body: match[2] };
-        }
-
-        /* ==========================================
-           MARKDOWN PARSER
-           ========================================== */
-        function escapeHtml(str) {
-            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        }
-
-        function parseMarkdown(md) {
-            // Preserve code blocks
-            const codeBlocks = [];
-            md = md.replace(/```(\w*)\r?\n([\s\S]*?)```/g, (_, lang, code) => {
-                codeBlocks.push({ lang, code: escapeHtml(code.replace(/\n$/, '')) });
-                return `\n\n%%CB${codeBlocks.length - 1}%%\n\n`;
-            });
-
-            // Preserve inline code
-            const inlineCodes = [];
-            md = md.replace(/`([^`\n]+)`/g, (_, code) => {
-                inlineCodes.push(escapeHtml(code));
-                return `%%IC${inlineCodes.length - 1}%%`;
-            });
-
-            // Wiki-link image embeds: [[path/to/image.png]]
-            md = md.replace(/\[\[([^\]]+\.(?:png|jpe?g|gif|svg|webp|avif|bmp))\]\]/gi, (_, path) => {
-                const src = (path.startsWith('http') || path.startsWith('/')) ? path : '/' + path;
-                const alt = path.split('/').pop().replace(/\.[^.]+$/, '');
-                return `<img alt="${alt}" src="${src}" loading="lazy">`;
-            });
-
-            // Headers
-            md = md.replace(/^######\s+(.*)/gm, '<h6>$1</h6>');
-            md = md.replace(/^#####\s+(.*)/gm, '<h5>$1</h5>');
-            md = md.replace(/^####\s+(.*)/gm, '<h4>$1</h4>');
-            md = md.replace(/^###\s+(.*)/gm, '<h3>$1</h3>');
-            md = md.replace(/^##\s+(.*)/gm, '<h2>$1</h2>');
-            md = md.replace(/^#\s+(.*)/gm, '<h1>$1</h1>');
-
-            // Horizontal rules
-            md = md.replace(/^(?:---|\*\*\*|___)\s*$/gm, '<hr>');
-
-            // Blockquotes
-            md = md.replace(/^>\s+(.*)/gm, '<blockquote><p>$1</p></blockquote>');
-            md = md.replace(/<\/blockquote>\n<blockquote>/g, '');
-
-            // Bold+Italic, Bold, Italic, Strikethrough
-            md = md.replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>');
-            md = md.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            md = md.replace(/(?<!\w)\*([^*\n]+)\*(?!\w)/g, '<em>$1</em>');
-            md = md.replace(/~~(.*?)~~/g, '<del>$1</del>');
-
-            // Images
-            md = md.replace(/!\[(.*?)\]\((.*?)\)/g, '<img alt="$1" src="$2" loading="lazy">');
-
-            // Links
-            md = md.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
-
-            // Unordered lists
-            md = md.replace(/((?:^[\-\*]\s+.*\n?)+)/gm, (block) => {
-                const items = block.trim().split(/\n/).map(line =>
-                    '<li>' + line.replace(/^[\-\*]\s+/, '') + '</li>'
-                ).join('\n');
-                return '\n<ul>' + items + '</ul>\n';
-            });
-
-            // Ordered lists
-            md = md.replace(/((?:^\d+\.[ \t]+.*\n?)+)/gm, (block) => {
-                const lines = block.trim().split(/\n/);
-                const startMatch = lines[0].match(/^(\d+)\./);
-                const start = startMatch ? parseInt(startMatch[1]) : 1;
-                const items = lines.map(line =>
-                    '<li>' + line.replace(/^\d+\.[ \t]+/, '') + '</li>'
-                ).join('\n');
-                const startAttr = start !== 1 ? ` start="${start}"` : '';
-                return '\n<ol' + startAttr + '>' + items + '</ol>\n';
-            });
-
-            // Paragraphs
-            const blocks = md.split(/\n{2,}/);
-            md = blocks.map(block => {
-                block = block.trim();
-                if (!block) return '';
-                if (/^<(h[1-6]|ul|ol|blockquote|pre|hr|div|table|img|%%CB)/.test(block)) return block;
-                return '<p>' + block.replace(/\n/g, ' ') + '</p>';
-            }).join('\n');
-
-            // Restore code blocks
-            md = md.replace(/<p>%%CB(\d+)%%<\/p>|%%CB(\d+)%%/g, (_, i1, i2) => {
-                const idx = parseInt(i1 ?? i2);
-                const { lang, code } = codeBlocks[idx];
-                return `<pre><code class="lang-${lang || 'text'}">${code}</code></pre>`;
-            });
-
-            // Restore inline code
-            md = md.replace(/%%IC(\d+)%%/g, (_, i) => `<code>${inlineCodes[parseInt(i)]}</code>`);
-
-            return md;
-        }
-
-        /* ==========================================
-           DATE FORMATTER (pt-BR)
-           ========================================== */
-        function formatDate(dateStr) {
-            if (!dateStr) return '';
-            const months = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
-                'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
-            const parts = dateStr.split('-');
-            if (parts.length < 3) return dateStr;
-            const day = parseInt(parts[2]);
-            const month = months[parseInt(parts[1]) - 1] || '';
-            const year = parts[0];
-            return `${day} de ${month} de ${year}`;
-        }
-
-        /* ==========================================
-           LAYER HELPERS
-           ========================================== */
-        function getLayerData(layerNum) {
-            const idx = Math.max(0, Math.min(6, (parseInt(layerNum) || 1) - 1));
-            return LAYERS[idx];
-        }
-
-        function getLayerColorCSS(layerNum) {
-            const layer = getLayerData(layerNum);
-            return {
-                bg: layer.color,
-                border: layer.color,
-                dot: layer.color,
-            };
-        }
-
-        /* ==========================================
-           DEPTH GAUGE SETUP
-           ========================================== */
-        function initGauge() {
-            const track = document.getElementById('gauge-track');
-            if (!track) return;
-
-            // Create layer marks
-            LAYERS.forEach((layer, i) => {
-                const mark = document.createElement('div');
-                mark.className = 'layer-mark';
-                mark.style.top = layer.pct + '%';
-                mark.style.setProperty('--mark-color', layer.color);
-
-                const dot = document.createElement('div');
-                dot.className = 'layer-mark-dot';
-                mark.appendChild(dot);
-
-                const label = document.createElement('div');
-                label.className = 'layer-mark-label';
-                label.textContent = `${layer.name}`;
-                mark.appendChild(label);
-
-                track.appendChild(mark);
-            });
-        }
-
-        function updateGauge() {
-            const scrollTop = window.scrollY;
-            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = maxScroll > 0 ? Math.min(1, scrollTop / maxScroll) : 0;
-
-            document.documentElement.style.setProperty('--scroll-progress', progress);
-
-            // Update marker position
-            const marker = document.getElementById('gauge-marker');
-            if (marker) {
-                marker.style.top = (progress * 100) + '%';
-            }
-
-            // Update depth readout
-            const readout = document.getElementById('gauge-readout');
-            if (readout) {
-                const depth = Math.round(progress * MAX_DEPTH);
-                readout.textContent = depth.toLocaleString('pt-BR') + 'm';
-            }
-        }
-
-        /* ==========================================
-           PARTICLE SYSTEM
-           ========================================== */
-        function initParticles() {
-            const container = document.getElementById('particles');
-            if (!container) return;
-
-            const count = window.innerWidth < 768 ? 15 : 30;
-            const colors = [
-                'rgba(240,230,210,VAR)',  // warm white
-                'rgba(125,211,252,VAR)',  // cyan
-                'rgba(212,165,116,VAR)',  // gold
-                'rgba(167,139,250,VAR)',  // purple
+        (() => {
+            const MAX_DEPTH = 20000;
+            const MONTH_NAMES = [
+                'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+                'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
             ];
 
-            for (let i = 0; i < count; i++) {
-                const p = document.createElement('div');
-                p.className = 'particle';
+            let allPosts = [];
+            let currentFilteredPosts = [];
+            let depthObserver = null;
+            let currentDepthIndex = 0;
 
-                const size = 2 + Math.random() * 4;
-                const opacity = 0.15 + Math.random() * 0.35;
-                const duration = 15 + Math.random() * 25;
-                const delay = Math.random() * -duration;
-                const x = Math.random() * 100;
-                const driftX = -30 + Math.random() * 60;
-                const colorTemplate = colors[Math.floor(Math.random() * colors.length)];
-                const color = colorTemplate.replace('VAR', opacity.toFixed(2));
+            const filterState = {
+                search: '',
+                layer: 'all',
+                date: 'all',
+                tag: 'all',
+                sortBy: 'date-desc'
+            };
 
-                p.style.cssText = `
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}%;
-                    background: ${color};
-                    box-shadow: 0 0 ${size * 2}px ${color};
-                    --duration: ${duration}s;
-                    --delay: ${delay}s;
-                    --drift-x: ${driftX}px;
-                    --p-opacity: ${opacity};
-                    animation-delay: ${delay}s;
-                `;
-
-                container.appendChild(p);
+            // Camadas do Abismo para Telemetria
+            function getLayerFromDepth(depth) {
+                if (depth < 200) return { name: 'Orth', relic: 'Superfície' };
+                if (depth <= 1350) return { name: '1ª Camada', relic: 'Borda do Abismo' };
+                if (depth <= 2600) return { name: '2ª Camada', relic: 'Floresta dos Tentáculos' };
+                if (depth <= 7000) return { name: '3ª Camada', relic: 'Grande Falha' };
+                if (depth <= 12000) return { name: '4ª Camada', relic: 'Taças Gigantes' };
+                if (depth <= 13000) return { name: '5ª Camada', relic: 'Mar de Cadáveres' };
+                if (depth <= 15500) return { name: '6ª Camada', relic: 'Capital dos Não-Retornáveis' };
+                return { name: '7ª Camada', relic: 'O Anel Final' };
             }
-        }
 
-        /* ==========================================
-           POST LOADING, FILTERING & RENDERING
-           ========================================== */
-        let allPosts = [];
-        let filterState = {
-            search: '',
-            layer: 'all',
-            date: 'all',
-            tag: 'all',
-            sortBy: 'date-desc'
-        };
+            function getRelicGrade(layer, index, total) {
+                const l = parseInt(layer, 10);
+                if (l === 1) return 'GRAU 4 // APITO VERMELHO';
+                if (l === 2) return 'GRAU 3 // APITO AZUL';
+                if (l === 3) return 'GRAU 2 // APITO DA LUA';
+                if (l === 4) return 'GRAU 1 // APITO PRETO';
+                if (l >= 5) return 'GRAU ESPECIAL // APITO BRANCO';
 
-        const MONTH_NAMES = [
-            'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
-            'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
-        ];
-
-        function normalizeText(str) {
-            return (str || '')
-                .normalize('NFD')
-                .replace(/[\u0300-\u036f]/g, '')
-                .toLowerCase();
-        }
-
-        async function loadPosts() {
-            const loading = document.getElementById('loading-state');
-            const empty = document.getElementById('empty-state');
-
-            try {
-                const res = await fetch('../posts/index.json');
-                if (!res.ok) throw new Error('No index.json');
-                const files = await res.json();
-
-                if (!Array.isArray(files) || files.length === 0) {
-                    loading.style.display = 'none';
-                    empty.style.display = 'block';
-                    return;
-                }
-
-                // Fetch all posts
-                const posts = await Promise.all(files.map(async (filename) => {
-                    try {
-                        const postRes = await fetch(`../posts/${filename}`);
-                        if (!postRes.ok) return null;
-                        const text = await postRes.text();
-                        const { meta, body } = parseFrontmatter(text);
-                        return { filename, meta, body };
-                    } catch { return null; }
-                }));
-
-                allPosts = posts.filter(Boolean);
-
-                loading.style.display = 'none';
-
-                if (allPosts.length === 0) {
-                    empty.style.display = 'block';
-                    return;
-                }
-
-                // Populate filter options dynamically
-                populateFilterDropdowns();
-
-                // Apply initial filters and sort
-                applyFiltersAndSort();
-
-            } catch (err) {
-                console.warn('Could not load posts:', err);
-                loading.style.display = 'none';
-                empty.style.display = 'block';
+                const denominator = Math.max(total - 1, 1);
+                const ratio = index / denominator;
+                if (ratio < 0.25) return 'GRAU 4 // APITO VERMELHO';
+                if (ratio < 0.5) return 'GRAU 3 // APITO AZUL';
+                if (ratio < 0.75) return 'GRAU 2 // APITO DA LUA';
+                if (ratio < 0.9) return 'GRAU 1 // APITO PRETO';
+                return 'GRAU ESPECIAL // APITO BRANCO';
             }
-        }
 
-        function populateFilterDropdowns() {
-            // Populate Date filter
-            const dateSelect = document.getElementById('filter-date');
-            if (dateSelect) {
-                const yearMonths = new Map();
-                allPosts.forEach(post => {
-                    if (post.meta.date && typeof post.meta.date === 'string') {
-                        const parts = post.meta.date.split('-');
-                        if (parts.length >= 2) {
-                            const key = `${parts[0]}-${parts[1]}`;
-                            const monthIdx = parseInt(parts[1], 10) - 1;
-                            const monthName = MONTH_NAMES[monthIdx] || parts[1];
-                            const label = `${monthName} de ${parts[0]}`;
-                            yearMonths.set(key, label);
-                        }
+            function escapeHtml(str) {
+                return (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            }
+
+            function parseFrontmatter(content) {
+                const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
+                if (!match) return { meta: {}, body: content };
+
+                const meta = {};
+                const lines = match[1].split(/\r?\n/);
+                for (const line of lines) {
+                    const colonIdx = line.indexOf(':');
+                    if (colonIdx === -1) continue;
+                    const key = line.slice(0, colonIdx).trim();
+                    let value = line.slice(colonIdx + 1).trim();
+
+                    if (value.startsWith('[') && value.endsWith(']')) {
+                        value = value.slice(1, -1).split(',').map(s => s.trim().replace(/^["']|["']$/g, ''));
                     }
+                    meta[key] = value;
+                }
+                return { meta, body: match[2] };
+            }
+
+            function parseMarkdown(md) {
+                const codeBlocks = [];
+                md = md.replace(/```(\w*)\r?\n([\s\S]*?)```/g, (_, lang, code) => {
+                    codeBlocks.push({ lang, code: escapeHtml(code.replace(/\n$/, '')) });
+                    return `\n\n%%CB${codeBlocks.length - 1}%%\n\n`;
                 });
 
-                // Sort keys descending
-                const sortedDates = Array.from(yearMonths.entries()).sort((a, b) => b[0].localeCompare(a[0]));
-                
-                dateSelect.innerHTML = '<option value="all">Todas as datas</option>';
-                sortedDates.forEach(([key, label]) => {
-                    const opt = document.createElement('option');
-                    opt.value = key;
-                    opt.textContent = label;
-                    dateSelect.appendChild(opt);
+                const inlineCodes = [];
+                md = md.replace(/`([^`\n]+)`/g, (_, code) => {
+                    inlineCodes.push(escapeHtml(code));
+                    return `%%IC${inlineCodes.length - 1}%%`;
+                });
+
+                md = md.replace(/^###\s+(.*)/gm, '<h3>$1</h3>');
+                md = md.replace(/^##\s+(.*)/gm, '<h2>$1</h2>');
+                md = md.replace(/^#\s+(.*)/gm, '<h1>$1</h1>');
+                md = md.replace(/^(?:---|\*\*\*|___)\s*$/gm, '<hr style="border: none; border-top: 1px solid var(--liquid-border-subtle); margin: 28px 0;">');
+                md = md.replace(/^>\s+(.*)/gm, '<blockquote><p>$1</p></blockquote>');
+                md = md.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                md = md.replace(/\*(.*?)\*/g, '<em>$1</em>');
+                md = md.replace(/!\[(.*?)\]\((.*?)\)/g, '<img alt="$1" src="$2" loading="lazy">');
+                md = md.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener" style="color: var(--accent-cyan); text-decoration: underline;">$1</a>');
+
+                md = md.replace(/((?:^[\-\*]\s+.*\n?)+)/gm, (block) => {
+                    const items = block.trim().split(/\n/).map(line =>
+                        '<li>' + line.replace(/^[\-\*]\s+/, '') + '</li>'
+                    ).join('\n');
+                    return '\n<ul style="padding-left: 20px; margin: 16px 0;">' + items + '</ul>\n';
+                });
+
+                const blocks = md.split(/\n{2,}/);
+                md = blocks.map(block => {
+                    block = block.trim();
+                    if (!block) return '';
+                    if (/^<(h[1-6]|ul|ol|blockquote|pre|hr|div|table|img|%%CB)/.test(block)) return block;
+                    return '<p>' + block.replace(/\n/g, ' ') + '</p>';
+                }).join('\n');
+
+                md = md.replace(/<p>%%CB(\d+)%%<\/p>|%%CB(\d+)%%/g, (_, i1, i2) => {
+                    const idx = parseInt(i1 ?? i2, 10);
+                    const { lang, code } = codeBlocks[idx];
+                    return `<pre><code class="lang-${lang || 'text'}">${code}</code></pre>`;
+                });
+
+                md = md.replace(/%%IC(\d+)%%/g, (_, i) => `<code>${inlineCodes[parseInt(i, 10)]}</code>`);
+                return md;
+            }
+
+            function formatDate(dateStr) {
+                if (!dateStr) return '';
+                const parts = dateStr.split('-');
+                if (parts.length < 3) return dateStr;
+                const day = parseInt(parts[2], 10);
+                const month = MONTH_NAMES[parseInt(parts[1], 10) - 1] || '';
+                const year = parts[0];
+                return `${day} de ${month} de ${year}`;
+            }
+
+            function normalizeText(str) {
+                return (str || '')
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .toLowerCase();
+            }
+
+            // Diretriz 4: Desempenho no display numérico — Apenas transform: translateY() e textContent
+            function applyDepthTelemetry(depth, progressPct) {
+                const marker = document.getElementById('gauge-marker');
+                const track = document.getElementById('gauge-track');
+                const readout = document.getElementById('gauge-readout');
+                const layerBadge = document.getElementById('gauge-layer-badge');
+
+                const mobileReadout = document.getElementById('mobile-depth-readout');
+                const mobileLayer = document.getElementById('mobile-layer-readout');
+
+                const layer = getLayerFromDepth(depth);
+                const formattedMeters = depth.toLocaleString('pt-BR') + 'm';
+
+                // Desktop HUD
+                if (track && marker) {
+                    const trackHeight = Math.max(track.clientHeight - 8, 10);
+                    const translateY = Math.round(progressPct * trackHeight);
+                    marker.style.transform = `translateY(${translateY}px)`;
+                }
+
+                if (readout) readout.textContent = formattedMeters;
+                if (layerBadge) layerBadge.textContent = `${layer.name} // ${formattedMeters}`;
+
+                // Mobile Pill
+                if (mobileReadout) mobileReadout.textContent = formattedMeters;
+                if (mobileLayer) mobileLayer.textContent = layer.name;
+            }
+
+            // Diretriz 1: IntersectionObserver com margem central para tamanhos desiguais
+            function setupDepthObserver(postsCount) {
+                if (depthObserver) {
+                    depthObserver.disconnect();
+                }
+
+                depthObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const depthIndex = Number(entry.target.dataset.depthIndex || 0);
+                            currentDepthIndex = depthIndex;
+
+                            // Guarda contra divisão por zero
+                            const denominator = Math.max(postsCount - 1, 1);
+                            const progressPct = Math.min(1, Math.max(0, depthIndex / denominator));
+                            const depth = Math.round(progressPct * MAX_DEPTH);
+
+                            applyDepthTelemetry(depth, progressPct);
+                        }
+                    });
+                }, { rootMargin: '-40% 0px -40% 0px' });
+
+                document.querySelectorAll('.relic-card').forEach(card => {
+                    depthObserver.observe(card);
                 });
             }
 
-            // Populate Tag filter
-            const tagSelect = document.getElementById('filter-tag');
-            if (tagSelect) {
-                const tagCounts = new Map();
-                allPosts.forEach(post => {
+            // Diretriz 2: Posicionamento e transição suave do pill no topo (Orth / 0m)
+            function handleScroll() {
+                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                const mobilePill = document.getElementById('mobile-depth-pill');
+
+                if (scrollY < 120) {
+                    applyDepthTelemetry(0, 0);
+                    if (mobilePill) mobilePill.classList.remove('visible');
+                } else {
+                    if (mobilePill) mobilePill.classList.add('visible');
+                }
+            }
+
+            function renderFilteredResults(posts) {
+                const container = document.getElementById('posts-container');
+                const empty = document.getElementById('empty-state');
+                if (!container || !empty) return;
+
+                currentFilteredPosts = posts;
+
+                if (posts.length === 0) {
+                    container.innerHTML = '';
+                    empty.style.display = 'block';
+                    applyDepthTelemetry(0, 0);
+                    return;
+                }
+
+                empty.style.display = 'none';
+
+                const total = posts.length;
+                // Guarda contra divisão por zero ao calcular profundidade
+                const denominator = Math.max(total - 1, 1);
+
+                container.innerHTML = posts.map((post, index) => {
+                    const depth = Math.round((index / denominator) * MAX_DEPTH);
+                    const relicGrade = getRelicGrade(post.meta.layer, index, total);
                     const tags = Array.isArray(post.meta.tags) ? post.meta.tags : [];
-                    tags.forEach(tag => {
-                        const trimmed = tag.trim();
-                        if (trimmed) {
-                            tagCounts.set(trimmed, (tagCounts.get(trimmed) || 0) + 1);
-                        }
+                    const tagsHtml = tags.map(t => `<span class="relic-tag">${escapeHtml(t)}</span>`).join('');
+                    const excerpt = post.body.replace(/^#+.*$/gm, '').replace(/\[\[.*?\]\]/g, '').trim().slice(0, 160) + '...';
+
+                    return `
+                        <article class="relic-card glass-card" data-depth-index="${index}" data-slug="${encodeURIComponent(post.filename)}">
+                            <div>
+                                <div class="relic-badge-row">
+                                    <span class="relic-grade">${relicGrade}</span>
+                                    <span class="relic-depth-coord">${depth.toLocaleString('pt-BR')}m</span>
+                                </div>
+                                <h3>${escapeHtml(post.meta.title || post.filename.replace('.md', ''))}</h3>
+                                <p>${escapeHtml(excerpt)}</p>
+                            </div>
+                            <div class="relic-footer">
+                                <span class="relic-date">${formatDate(post.meta.date)}</span>
+                                <div class="relic-tags">${tagsHtml}</div>
+                            </div>
+                        </article>
+                    `;
+                }).join('');
+
+                // Adiciona cliques para abrir o viewer
+                container.querySelectorAll('.relic-card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        const slug = decodeURIComponent(card.dataset.slug);
+                        showPost(slug);
                     });
                 });
 
-                const sortedTags = Array.from(tagCounts.entries()).sort((a, b) => 
-                    a[0].localeCompare(b[0], 'pt-BR', { sensitivity: 'base' })
-                );
-
-                tagSelect.innerHTML = '<option value="all">Todas as tags</option>';
-                sortedTags.forEach(([tag, count]) => {
-                    const opt = document.createElement('option');
-                    opt.value = tag;
-                    opt.textContent = `${tag} (${count})`;
-                    tagSelect.appendChild(opt);
-                });
-            }
-        }
-
-        function applyFiltersAndSort() {
-            let filtered = allPosts.slice();
-
-            // 1. Search Query Filter
-            const searchNorm = normalizeText(filterState.search);
-            if (searchNorm) {
-                filtered = filtered.filter(post => {
-                    const title = normalizeText(post.meta.title || '');
-                    const filename = normalizeText(post.filename || '');
-                    const body = normalizeText(post.body || '');
-                    const tags = Array.isArray(post.meta.tags) 
-                        ? post.meta.tags.map(t => normalizeText(t)).join(' ') 
-                        : '';
-                    return title.includes(searchNorm) || 
-                           filename.includes(searchNorm) || 
-                           tags.includes(searchNorm) || 
-                           body.includes(searchNorm);
-                });
+                // Ativa o observer de profundidade
+                setupDepthObserver(total);
             }
 
-            // 2. Layer Filter
-            if (filterState.layer !== 'all') {
-                filtered = filtered.filter(post => {
-                    const postLayer = String(post.meta.layer || 1);
-                    return postLayer === String(filterState.layer);
-                });
-            }
+            function applyFiltersAndSort() {
+                let filtered = allPosts.slice();
 
-            // 3. Date Filter (matches YYYY-MM prefix)
-            if (filterState.date !== 'all') {
-                filtered = filtered.filter(post => {
-                    return post.meta.date && post.meta.date.startsWith(filterState.date);
-                });
-            }
-
-            // 4. Tag Filter
-            if (filterState.tag !== 'all') {
-                const targetTag = normalizeText(filterState.tag);
-                filtered = filtered.filter(post => {
-                    const tags = Array.isArray(post.meta.tags) ? post.meta.tags : [];
-                    return tags.some(t => normalizeText(t) === targetTag);
-                });
-            }
-
-            // 5. Sorting
-            filtered.sort((a, b) => {
-                const dateA = a.meta.date || '0000-00-00';
-                const dateB = b.meta.date || '0000-00-00';
-                const layerA = parseInt(a.meta.layer, 10) || 1;
-                const layerB = parseInt(b.meta.layer, 10) || 1;
-                const titleA = a.meta.title || a.filename.replace('.md', '');
-                const titleB = b.meta.title || b.filename.replace('.md', '');
-
-                switch (filterState.sortBy) {
-                    case 'date-asc':
-                        return dateA.localeCompare(dateB);
-                    case 'date-desc':
-                        return dateB.localeCompare(dateA);
-                    case 'layer-asc':
-                        return layerA - layerB;
-                    case 'layer-desc':
-                        return layerB - layerA;
-                    case 'title-asc':
-                        return titleA.localeCompare(titleB, 'pt-BR', { sensitivity: 'base' });
-                    case 'title-desc':
-                        return titleB.localeCompare(titleA, 'pt-BR', { sensitivity: 'base' });
-                    default:
-                        return dateB.localeCompare(dateA);
-                }
-            });
-
-            // Update Result Counts
-            updateControlsMeta(filtered.length);
-
-            // Render cards or empty filtered state
-            renderFilteredResults(filtered);
-        }
-
-        function updateControlsMeta(count) {
-            const countEl = document.getElementById('results-count');
-            const labelEl = document.getElementById('results-label');
-            const chipsContainer = document.getElementById('active-chips-container');
-            const resetBtn = document.getElementById('btn-reset-all');
-
-            if (countEl) {
-                countEl.textContent = count;
-            }
-
-            if (labelEl) {
-                if (filterState.search || filterState.layer !== 'all' || filterState.date !== 'all' || filterState.tag !== 'all') {
-                    labelEl.textContent = `de ${allPosts.length} registros`;
-                } else {
-                    labelEl.textContent = count === 1 ? 'registro encontrado' : 'registros encontrados';
-                }
-            }
-
-            // Generate Active Chips
-            if (chipsContainer) {
-                chipsContainer.innerHTML = '';
-                let hasActiveFilter = false;
-
-                if (filterState.search) {
-                    hasActiveFilter = true;
-                    chipsContainer.appendChild(createChip(`🔍 "${filterState.search}"`, () => {
-                        filterState.search = '';
-                        const input = document.getElementById('search-input');
-                        if (input) input.value = '';
-                        const clearBtn = document.getElementById('search-clear');
-                        if (clearBtn) clearBtn.style.display = 'none';
-                        applyFiltersAndSort();
-                    }));
+                const searchNorm = normalizeText(filterState.search);
+                if (searchNorm) {
+                    filtered = filtered.filter(post => {
+                        const title = normalizeText(post.meta.title || '');
+                        const body = normalizeText(post.body || '');
+                        const tags = Array.isArray(post.meta.tags) ? post.meta.tags.map(normalizeText).join(' ') : '';
+                        return title.includes(searchNorm) || tags.includes(searchNorm) || body.includes(searchNorm);
+                    });
                 }
 
                 if (filterState.layer !== 'all') {
-                    hasActiveFilter = true;
-                    const layer = getLayerData(filterState.layer);
-                    chipsContainer.appendChild(createChip(`🏔️ ${layer.name}`, () => {
-                        filterState.layer = 'all';
-                        const select = document.getElementById('filter-layer');
-                        if (select) select.value = 'all';
-                        applyFiltersAndSort();
-                    }));
+                    filtered = filtered.filter(post => String(post.meta.layer || 1) === String(filterState.layer));
                 }
 
                 if (filterState.date !== 'all') {
-                    hasActiveFilter = true;
-                    const dateSelect = document.getElementById('filter-date');
-                    const selectedOpt = dateSelect ? dateSelect.querySelector(`option[value="${filterState.date}"]`) : null;
-                    const label = selectedOpt ? selectedOpt.textContent : filterState.date;
-                    chipsContainer.appendChild(createChip(`📅 ${label}`, () => {
-                        filterState.date = 'all';
-                        if (dateSelect) dateSelect.value = 'all';
-                        applyFiltersAndSort();
-                    }));
+                    filtered = filtered.filter(post => post.meta.date && post.meta.date.startsWith(filterState.date));
                 }
 
                 if (filterState.tag !== 'all') {
-                    hasActiveFilter = true;
-                    chipsContainer.appendChild(createChip(`🏷️ ${filterState.tag}`, () => {
-                        filterState.tag = 'all';
-                        const select = document.getElementById('filter-tag');
-                        if (select) select.value = 'all';
-                        applyFiltersAndSort();
-                    }));
+                    const targetTag = normalizeText(filterState.tag);
+                    filtered = filtered.filter(post => {
+                        const tags = Array.isArray(post.meta.tags) ? post.meta.tags : [];
+                        return tags.some(t => normalizeText(t) === targetTag);
+                    });
                 }
 
-                if (filterState.sortBy !== 'date-desc') {
-                    hasActiveFilter = true;
-                    const sortMap = {
-                        'date-asc': 'Mais antigos',
-                        'layer-asc': 'Camada rasa',
-                        'layer-desc': 'Camada profunda',
-                        'title-asc': 'Título: A-Z',
-                        'title-desc': 'Título: Z-A'
-                    };
-                    chipsContainer.appendChild(createChip(`⚡ ${sortMap[filterState.sortBy] || filterState.sortBy}`, () => {
-                        filterState.sortBy = 'date-desc';
-                        const select = document.getElementById('sort-by');
-                        if (select) select.value = 'date-desc';
+                filtered.sort((a, b) => {
+                    const dateA = a.meta.date || '0000-00-00';
+                    const dateB = b.meta.date || '0000-00-00';
+                    const layerA = parseInt(a.meta.layer, 10) || 1;
+                    const layerB = parseInt(b.meta.layer, 10) || 1;
+                    const titleA = a.meta.title || a.filename;
+                    const titleB = b.meta.title || b.filename;
+
+                    switch (filterState.sortBy) {
+                        case 'date-asc': return dateA.localeCompare(dateB);
+                        case 'date-desc': return dateB.localeCompare(dateA);
+                        case 'layer-asc': return layerA - layerB;
+                        case 'layer-desc': return layerB - layerA;
+                        case 'title-asc': return titleA.localeCompare(titleB, 'pt-BR', { sensitivity: 'base' });
+                        case 'title-desc': return titleB.localeCompare(titleA, 'pt-BR', { sensitivity: 'base' });
+                        default: return dateB.localeCompare(dateA);
+                    }
+                });
+
+                renderFilteredResults(filtered);
+            }
+
+            function populateFilterDropdowns() {
+                const dateSelect = document.getElementById('filter-date');
+                if (dateSelect) {
+                    const yearMonths = new Map();
+                    allPosts.forEach(post => {
+                        if (post.meta.date && typeof post.meta.date === 'string') {
+                            const parts = post.meta.date.split('-');
+                            if (parts.length >= 2) {
+                                const key = `${parts[0]}-${parts[1]}`;
+                                const monthIdx = parseInt(parts[1], 10) - 1;
+                                const monthName = MONTH_NAMES[monthIdx] || parts[1];
+                                yearMonths.set(key, `${monthName} de ${parts[0]}`);
+                            }
+                        }
+                    });
+
+                    const sortedDates = Array.from(yearMonths.entries()).sort((a, b) => b[0].localeCompare(a[0]));
+                    dateSelect.innerHTML = '<option value="all">Todas as datas</option>';
+                    sortedDates.forEach(([key, label]) => {
+                        const opt = document.createElement('option');
+                        opt.value = key;
+                        opt.textContent = label;
+                        dateSelect.appendChild(opt);
+                    });
+                }
+
+                const tagSelect = document.getElementById('filter-tag');
+                if (tagSelect) {
+                    const tagCounts = new Map();
+                    allPosts.forEach(post => {
+                        const tags = Array.isArray(post.meta.tags) ? post.meta.tags : [];
+                        tags.forEach(tag => {
+                            const trimmed = tag.trim();
+                            if (trimmed) {
+                                tagCounts.set(trimmed, (tagCounts.get(trimmed) || 0) + 1);
+                            }
+                        });
+                    });
+
+                    const sortedTags = Array.from(tagCounts.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+                    tagSelect.innerHTML = '<option value="all">Todas as tags</option>';
+                    sortedTags.forEach(([tag, count]) => {
+                        const opt = document.createElement('option');
+                        opt.value = tag;
+                        opt.textContent = `${tag} (${count})`;
+                        tagSelect.appendChild(opt);
+                    });
+                }
+            }
+
+            function initControls() {
+                const searchInput = document.getElementById('search-input');
+                const searchClear = document.getElementById('search-clear');
+                const filterLayer = document.getElementById('filter-layer');
+                const filterDate = document.getElementById('filter-date');
+                const filterTag = document.getElementById('filter-tag');
+                const sortBy = document.getElementById('sort-by');
+                const resetBtn = document.getElementById('btn-reset-filters');
+
+                if (searchInput) {
+                    searchInput.addEventListener('input', (e) => {
+                        filterState.search = e.target.value;
+                        if (searchClear) searchClear.style.display = filterState.search ? 'block' : 'none';
                         applyFiltersAndSort();
-                    }));
+                    });
+                }
+
+                if (searchClear) {
+                    searchClear.addEventListener('click', () => {
+                        if (searchInput) searchInput.value = '';
+                        filterState.search = '';
+                        searchClear.style.display = 'none';
+                        applyFiltersAndSort();
+                    });
+                }
+
+                if (filterLayer) {
+                    filterLayer.addEventListener('change', (e) => {
+                        filterState.layer = e.target.value;
+                        applyFiltersAndSort();
+                    });
+                }
+
+                if (filterDate) {
+                    filterDate.addEventListener('change', (e) => {
+                        filterState.date = e.target.value;
+                        applyFiltersAndSort();
+                    });
+                }
+
+                if (filterTag) {
+                    filterTag.addEventListener('change', (e) => {
+                        filterState.tag = e.target.value;
+                        applyFiltersAndSort();
+                    });
+                }
+
+                if (sortBy) {
+                    sortBy.addEventListener('change', (e) => {
+                        filterState.sortBy = e.target.value;
+                        applyFiltersAndSort();
+                    });
                 }
 
                 if (resetBtn) {
-                    resetBtn.style.display = hasActiveFilter ? 'inline-flex' : 'none';
-                }
-            }
-        }
-
-        function createChip(text, onRemove) {
-            const chip = document.createElement('span');
-            chip.className = 'filter-chip';
-            chip.innerHTML = `
-                <span>${text}</span>
-                <button type="button" class="filter-chip-remove" title="Remover filtro" aria-label="Remover filtro">✕</button>
-            `;
-            chip.querySelector('.filter-chip-remove').addEventListener('click', onRemove);
-            return chip;
-        }
-
-        function renderFilteredResults(posts) {
-            const container = document.getElementById('posts-container');
-            container.innerHTML = '';
-
-            if (posts.length === 0) {
-                const emptyCard = document.createElement('div');
-                emptyCard.className = 'filter-empty-card';
-                emptyCard.innerHTML = `
-                    <div class="filter-empty-icon">🔔</div>
-                    <h3 class="filter-empty-title">Nenhum registro encontrado</h3>
-                    <p class="filter-empty-desc">Não foram encontradas publicações com os filtros selecionados nas profundezas do Abismo.</p>
-                    <button type="button" class="btn-reset-all" id="btn-empty-reset" style="margin: 0 auto;">
-                        <span>✕</span> Limpar filtros
-                    </button>
-                `;
-                emptyCard.querySelector('#btn-empty-reset').addEventListener('click', resetAllFilters);
-                container.appendChild(emptyCard);
-                return;
-            }
-
-            renderPostCards(posts);
-        }
-
-        function renderPostCards(posts) {
-            const container = document.getElementById('posts-container');
-            container.innerHTML = '';
-
-            posts.forEach((post, index) => {
-                const layer = getLayerData(post.meta.layer || 1);
-                const tags = Array.isArray(post.meta.tags) ? post.meta.tags : [];
-                const excerpt = post.body.replace(/^#.*\n?/gm, '').replace(/[*_~`#>\-\[\]()!]/g, '').trim().slice(0, 160);
-                const accent = post.meta.accent || 'var(--gold)';
-
-                const card = document.createElement('div');
-                card.className = 'post-card';
-                card.style.setProperty('--appear-delay', `${index * 0.08}s`);
-                card.style.setProperty('--card-accent', accent);
-                card.style.setProperty('--card-accent-glow', accent.startsWith('#') ? accent + '12' : 'rgba(212,165,116,0.05)');
-                card.style.setProperty('--layer-bg', layer.color + '30');
-                card.style.setProperty('--layer-border', layer.color + '60');
-                card.style.setProperty('--layer-dot-color', layer.color);
-
-                card.innerHTML = `
-                    <div class="card-header">
-                        <div class="card-icon">${post.meta.icon || '📜'}</div>
-                        <div class="card-meta">
-                            <div class="card-title">${post.meta.title || post.filename.replace('.md', '')}</div>
-                            <div class="card-date">${formatDate(post.meta.date)}</div>
-                        </div>
-                    </div>
-                    <div class="card-excerpt">${excerpt}...</div>
-                    <div class="card-footer">
-                        <div class="card-tags">
-                            ${tags.map(t => `<span class="card-tag" data-tag="${t}">${t}</span>`).join('')}
-                        </div>
-                        <div class="card-layer" title="${layer.name}: ${layer.fullName}">
-                            <span class="card-layer-dot" style="background: ${layer.color}"></span>
-                            ${layer.name}
-                        </div>
-                    </div>
-                `;
-
-                // Add click listener to tags
-                card.querySelectorAll('.card-tag').forEach(tagEl => {
-                    tagEl.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        const tag = tagEl.getAttribute('data-tag');
-                        if (tag) setFilterTag(tag);
-                    });
-                });
-
-                card.addEventListener('click', () => {
-                    const slug = post.filename.replace('.md', '');
-                    history.pushState({ post: slug }, '', `?post=${slug}`);
-                    showPost(slug);
-                });
-
-                container.appendChild(card);
-            });
-        }
-
-        function setFilterTag(tag) {
-            filterState.tag = tag;
-            const select = document.getElementById('filter-tag');
-            if (select) {
-                select.value = tag;
-            }
-            applyFiltersAndSort();
-
-            const controlsSection = document.getElementById('controls-section');
-            if (controlsSection) {
-                controlsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-
-        function resetAllFilters() {
-            filterState.search = '';
-            filterState.layer = 'all';
-            filterState.date = 'all';
-            filterState.tag = 'all';
-            filterState.sortBy = 'date-desc';
-
-            const searchInput = document.getElementById('search-input');
-            if (searchInput) searchInput.value = '';
-
-            const clearBtn = document.getElementById('search-clear');
-            if (clearBtn) clearBtn.style.display = 'none';
-
-            const layerSelect = document.getElementById('filter-layer');
-            if (layerSelect) layerSelect.value = 'all';
-
-            const dateSelect = document.getElementById('filter-date');
-            if (dateSelect) dateSelect.value = 'all';
-
-            const tagSelect = document.getElementById('filter-tag');
-            if (tagSelect) tagSelect.value = 'all';
-
-            const sortSelect = document.getElementById('sort-by');
-            if (sortSelect) sortSelect.value = 'date-desc';
-
-            applyFiltersAndSort();
-        }
-
-        function initControls() {
-            // Search Input listener
-            const searchInput = document.getElementById('search-input');
-            const searchClear = document.getElementById('search-clear');
-
-            if (searchInput) {
-                searchInput.addEventListener('input', (e) => {
-                    filterState.search = e.target.value;
-                    if (searchClear) {
-                        searchClear.style.display = filterState.search ? 'flex' : 'none';
-                    }
-                    applyFiltersAndSort();
-                });
-
-                searchInput.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape') {
-                        searchInput.value = '';
+                    resetBtn.addEventListener('click', () => {
                         filterState.search = '';
+                        filterState.layer = 'all';
+                        filterState.date = 'all';
+                        filterState.tag = 'all';
+                        filterState.sortBy = 'date-desc';
+
+                        if (searchInput) searchInput.value = '';
                         if (searchClear) searchClear.style.display = 'none';
+                        if (filterLayer) filterLayer.value = 'all';
+                        if (filterDate) filterDate.value = 'all';
+                        if (filterTag) filterTag.value = 'all';
+                        if (sortBy) sortBy.value = 'date-desc';
+
                         applyFiltersAndSort();
+                    });
+                }
+            }
+
+            function showPost(filename) {
+                const post = allPosts.find(p => p.filename === filename);
+                if (!post) return;
+
+                const hero = document.getElementById('blog-hero');
+                const controls = document.getElementById('blog-controls');
+                const postsSection = document.getElementById('posts-section');
+                const viewer = document.getElementById('post-viewer');
+
+                if (hero) hero.style.display = 'none';
+                if (controls) controls.style.display = 'none';
+                if (postsSection) postsSection.style.display = 'none';
+                if (viewer) viewer.style.display = 'block';
+
+                const titleEl = document.getElementById('viewer-title');
+                const metaEl = document.getElementById('viewer-meta');
+                const bodyEl = document.getElementById('viewer-body');
+                const gradeEl = document.getElementById('viewer-grade');
+                const depthEl = document.getElementById('viewer-depth');
+
+                if (titleEl) titleEl.textContent = post.meta.title || post.filename.replace('.md', '');
+                if (gradeEl) gradeEl.textContent = getRelicGrade(post.meta.layer, 0, 1);
+                if (depthEl) depthEl.textContent = post.meta.layer ? `Camada ${post.meta.layer}` : 'Profundezas';
+                if (metaEl) metaEl.textContent = `Registrado em: ${formatDate(post.meta.date)} • Tags: ${(post.meta.tags || []).join(', ')}`;
+                if (bodyEl) bodyEl.innerHTML = parseMarkdown(post.body);
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                history.pushState({ post: filename }, '', `?post=${encodeURIComponent(filename)}`);
+            }
+
+            function showGrid() {
+                const hero = document.getElementById('blog-hero');
+                const controls = document.getElementById('blog-controls');
+                const postsSection = document.getElementById('posts-section');
+                const viewer = document.getElementById('post-viewer');
+
+                if (hero) hero.style.display = '';
+                if (controls) controls.style.display = '';
+                if (postsSection) postsSection.style.display = '';
+                if (viewer) viewer.style.display = 'none';
+
+                history.pushState({}, '', window.location.pathname);
+                setupDepthObserver(currentFilteredPosts.length);
+            }
+
+            async function loadPosts() {
+                const loading = document.getElementById('loading-state');
+                const empty = document.getElementById('empty-state');
+
+                try {
+                    const res = await fetch('/posts/index.json');
+                    if (!res.ok) throw new Error('Não foi possível carregar posts/index.json');
+                    const files = await res.json();
+
+                    if (!Array.isArray(files) || files.length === 0) {
+                        if (loading) loading.style.display = 'none';
+                        if (empty) empty.style.display = 'block';
+                        return;
                     }
-                });
-            }
 
-            if (searchClear) {
-                searchClear.addEventListener('click', () => {
-                    if (searchInput) {
-                        searchInput.value = '';
-                        searchInput.focus();
+                    const posts = await Promise.all(files.map(async (filename) => {
+                        try {
+                            const postRes = await fetch(`/posts/${filename}`);
+                            if (!postRes.ok) return null;
+                            const text = await postRes.text();
+                            const { meta, body } = parseFrontmatter(text);
+                            return { filename, meta, body };
+                        } catch {
+                            return null;
+                        }
+                    }));
+
+                    allPosts = posts.filter(Boolean);
+                    if (loading) loading.style.display = 'none';
+
+                    if (allPosts.length === 0) {
+                        if (empty) empty.style.display = 'block';
+                        return;
                     }
-                    filterState.search = '';
-                    searchClear.style.display = 'none';
+
+                    populateFilterDropdowns();
                     applyFiltersAndSort();
-                });
+
+                    // Verifica se há parâmetro ?post= na URL
+                    const params = new URLSearchParams(window.location.search);
+                    const postParam = params.get('post');
+                    if (postParam) {
+                        showPost(postParam);
+                    }
+                } catch (err) {
+                    console.error('Erro ao carregar posts:', err);
+                    if (loading) loading.style.display = 'none';
+                    if (empty) empty.style.display = 'block';
+                }
             }
 
-            // Layer select
-            const layerSelect = document.getElementById('filter-layer');
-            if (layerSelect) {
-                layerSelect.addEventListener('change', (e) => {
-                    filterState.layer = e.target.value;
-                    applyFiltersAndSort();
-                });
-            }
+            document.addEventListener('DOMContentLoaded', () => {
+                initControls();
+                loadPosts();
 
-            // Date select
-            const dateSelect = document.getElementById('filter-date');
-            if (dateSelect) {
-                dateSelect.addEventListener('change', (e) => {
-                    filterState.date = e.target.value;
-                    applyFiltersAndSort();
-                });
-            }
+                window.addEventListener('scroll', handleScroll, { passive: true });
 
-            // Tag select
-            const tagSelect = document.getElementById('filter-tag');
-            if (tagSelect) {
-                tagSelect.addEventListener('change', (e) => {
-                    filterState.tag = e.target.value;
-                    applyFiltersAndSort();
-                });
-            }
-
-            // Sort By select
-            const sortSelect = document.getElementById('sort-by');
-            if (sortSelect) {
-                sortSelect.addEventListener('change', (e) => {
-                    filterState.sortBy = e.target.value;
-                    applyFiltersAndSort();
-                });
-            }
-
-            // Reset all button
-            const resetBtn = document.getElementById('btn-reset-all');
-            if (resetBtn) {
-                resetBtn.addEventListener('click', resetAllFilters);
-            }
-        }
-
-        /* ==========================================
-           POST VIEWER
-           ========================================== */
-        function showPost(slug) {
-            const filename = slug.endsWith('.md') ? slug : slug + '.md';
-            const post = allPosts.find(p => p.filename === filename);
-
-            if (!post) {
-                // Post not loaded yet — fetch individually
-                fetchAndShowPost(filename);
-                return;
-            }
-
-            renderPostView(post);
-        }
-
-        async function fetchAndShowPost(filename) {
-            try {
-                const res = await fetch(`../posts/${filename}`);
-                if (!res.ok) throw new Error('Post not found');
-                const text = await res.text();
-                const { meta, body } = parseFrontmatter(text);
-                const post = { filename, meta, body };
-
-                // Add to cache
-                if (!allPosts.find(p => p.filename === filename)) {
-                    allPosts.push(post);
+                const backBtn = document.getElementById('viewer-back');
+                if (backBtn) {
+                    backBtn.addEventListener('click', showGrid);
                 }
 
-                renderPostView(post);
-            } catch (err) {
-                console.error('Failed to load post:', err);
-                showGrid();
-            }
-        }
-
-        function renderPostView(post) {
-            const mainContent = document.getElementById('main-content');
-            const viewer = document.getElementById('post-viewer');
-            const headerEl = document.getElementById('viewer-header');
-            const bodyEl = document.getElementById('viewer-body');
-
-            mainContent.style.display = 'none';
-            viewer.style.display = 'block';
-
-            // Apply custom background if specified
-            if (post.meta.bg) {
-                viewer.style.background = `linear-gradient(180deg, ${post.meta.bg}40 0%, transparent 40%)`;
-            } else {
-                viewer.style.background = '';
-            }
-
-            // Apply custom accent
-            const accent = post.meta.accent || '';
-            if (accent) {
-                viewer.style.setProperty('--custom-accent', accent);
-            }
-
-            const layer = getLayerData(post.meta.layer || 1);
-            const tags = Array.isArray(post.meta.tags) ? post.meta.tags : [];
-
-            headerEl.innerHTML = `
-                ${post.meta.icon ? `<div class="viewer-icon">${post.meta.icon}</div>` : ''}
-                <h1 class="viewer-title">${post.meta.title || post.filename.replace('.md', '')}</h1>
-                <div class="viewer-meta-row">
-                    <span class="viewer-date">${formatDate(post.meta.date)}</span>
-                    <span class="viewer-layer-badge">
-                        <span class="viewer-layer-dot" style="background: ${layer.color}"></span>
-                        ${layer.name} — ${layer.fullName}
-                    </span>
-                    ${tags.length ? `
-                        <div class="viewer-tags">
-                            ${tags.map(t => `<span class="viewer-tag" data-tag="${t}">${t}</span>`).join('')}
-                        </div>
-                    ` : ''}
-                </div>
-            `;
-
-            // Add click listener to viewer tags to filter by tag
-            headerEl.querySelectorAll('.viewer-tag').forEach(tagEl => {
-                tagEl.addEventListener('click', () => {
-                    const tag = tagEl.getAttribute('data-tag');
-                    showGrid();
-                    if (tag) setFilterTag(tag);
+                window.addEventListener('popstate', (e) => {
+                    if (e.state && e.state.post) {
+                        showPost(e.state.post);
+                    } else {
+                        showGrid();
+                    }
                 });
             });
-
-            bodyEl.innerHTML = parseMarkdown(post.body);
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function showGrid() {
-            const mainContent = document.getElementById('main-content');
-            const viewer = document.getElementById('post-viewer');
-
-            viewer.style.display = 'none';
-            mainContent.style.display = 'block';
-        }
-
-        /* ==========================================
-           ROUTING — Query Params & History
-           ========================================== */
-        function handleRoute() {
-            const params = new URLSearchParams(window.location.search);
-            const postSlug = params.get('post');
-
-            if (postSlug) {
-                showPost(postSlug);
-            } else {
-                showGrid();
-            }
-        }
-
-        window.addEventListener('popstate', handleRoute);
-
-        /* ==========================================
-           SCROLL HANDLER
-           ========================================== */
-        let scrollTicking = false;
-        let gaugeHideTimeout = null;
-
-        function onScroll() {
-            if (!scrollTicking) {
-                requestAnimationFrame(() => {
-                    updateGauge();
-                    scrollTicking = false;
-                });
-                scrollTicking = true;
-            }
-
-            // Show gauge while scrolling
-            const gauge = document.getElementById('depth-gauge');
-            if (gauge) {
-                gauge.classList.remove('hidden');
-
-                // Clear existing timeout
-                if (gaugeHideTimeout) clearTimeout(gaugeHideTimeout);
-
-                // Hide 1.5s after scrolling stops
-                gaugeHideTimeout = setTimeout(() => {
-                    gauge.classList.add('hidden');
-                }, 800);
-            }
-        }
-
-        /* ==========================================
-           INITIALIZATION
-           ========================================== */
-        document.addEventListener('DOMContentLoaded', async () => {
-            // Init systems
-            initGauge();
-            initParticles();
-            updateGauge();
-            initControls();
-
-            // Scroll listener
-            window.addEventListener('scroll', onScroll, { passive: true });
-
-            // Back button in post viewer
-            document.getElementById('viewer-back').addEventListener('click', () => {
-                history.pushState({}, '', window.location.pathname);
-                showGrid();
-            });
-
-            // Load posts
-            await loadPosts();
-
-            // Check if there's a ?post= parameter
-            const params = new URLSearchParams(window.location.search);
-            const postSlug = params.get('post');
-            if (postSlug) {
-                showPost(postSlug);
-            }
-        });
+        })();
     </script>
-
 </body>
 
 </html>
