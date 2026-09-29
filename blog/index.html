@@ -562,6 +562,346 @@
         }
 
         /* ==========================================
+           CONTROLS — Translucent Bubbles
+           ========================================== */
+        .controls-wrapper {
+            max-width: 900px;
+            margin: 0 auto 48px;
+            padding: 0 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Search Bubble — standalone, prominent */
+        .search-bubble {
+            background: rgba(25, 18, 35, 0.45);
+            border: 1px solid rgba(212, 165, 116, 0.12);
+            border-radius: 28px;
+            padding: 6px 8px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .search-bubble:focus-within {
+            border-color: rgba(212, 165, 116, 0.35);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.2),
+                0 0 20px rgba(212, 165, 116, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        }
+
+        .search-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            color: var(--gold-dim);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .search-input {
+            width: 100%;
+            height: 46px;
+            padding: 0 44px 0 48px;
+            background: transparent;
+            border: none;
+            border-radius: 24px;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .search-input:focus {
+            outline: none;
+        }
+
+        .search-input:focus ~ .search-icon {
+            color: var(--gold-bright);
+        }
+
+        .search-clear-btn {
+            position: absolute;
+            right: 14px;
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            color: var(--text-secondary);
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: all 0.2s;
+        }
+
+        .search-clear-btn:hover {
+            background: rgba(212, 165, 116, 0.25);
+            color: var(--gold-bright);
+            transform: scale(1.08);
+        }
+
+        /* Filter Bubbles Row */
+        .filters-bubbles-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+        }
+
+        .filter-bubble {
+            background: rgba(25, 18, 35, 0.4);
+            border: 1px solid rgba(212, 165, 116, 0.1);
+            border-radius: 22px;
+            padding: 12px 18px;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow:
+                0 6px 24px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1 1 180px;
+            min-width: 180px;
+            max-width: 260px;
+            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+
+        .filter-bubble:hover {
+            border-color: rgba(212, 165, 116, 0.25);
+            transform: translateY(-2px);
+            box-shadow:
+                0 10px 32px rgba(0, 0, 0, 0.2),
+                0 0 16px rgba(212, 165, 116, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        }
+
+        .filter-label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: var(--gold-dim);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding-left: 4px;
+        }
+
+        .custom-select-wrapper {
+            position: relative;
+        }
+
+        .custom-select {
+            width: 100%;
+            height: 38px;
+            padding: 0 28px 0 12px;
+            background: rgba(10, 5, 18, 0.5);
+            border: 1px solid rgba(212, 165, 116, 0.08);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            transition: all 0.3s ease;
+        }
+
+        .custom-select:focus {
+            outline: none;
+            border-color: rgba(212, 165, 116, 0.35);
+            box-shadow: 0 0 12px rgba(212, 165, 116, 0.1);
+        }
+
+        .custom-select:hover {
+            border-color: rgba(212, 165, 116, 0.2);
+        }
+
+        .custom-select option {
+            background: #140b22;
+            color: var(--text-primary);
+            padding: 8px;
+        }
+
+        .select-arrow {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--gold-dim);
+            font-size: 0.55rem;
+            opacity: 0.6;
+        }
+
+        /* Meta Bar Bubble */
+        .controls-meta-bubble {
+            background: rgba(25, 18, 35, 0.35);
+            border: 1px solid rgba(212, 165, 116, 0.08);
+            border-radius: 22px;
+            padding: 14px 22px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow:
+                0 4px 16px rgba(0, 0, 0, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.02);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .results-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .results-count-badge {
+            color: var(--gold-bright);
+            font-weight: 600;
+        }
+
+        .active-chips-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .filter-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            background: rgba(212, 165, 116, 0.08);
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            border-radius: 16px;
+            font-size: 0.72rem;
+            color: var(--gold-bright);
+            font-family: var(--font-mono);
+            animation: chip-appear 0.25s ease-out;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .filter-chip-remove {
+            background: none;
+            border: none;
+            color: var(--gold-dim);
+            cursor: pointer;
+            font-size: 0.85rem;
+            line-height: 1;
+            padding: 0 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .filter-chip-remove:hover {
+            color: #ff7777;
+            transform: scale(1.15);
+        }
+
+        .btn-reset-all {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(212, 165, 116, 0.06);
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            color: var(--gold);
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 6px 16px;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.25s;
+            margin-left: auto;
+        }
+
+        .btn-reset-all:hover {
+            background: rgba(212, 165, 116, 0.15);
+            color: var(--gold-bright);
+            border-color: rgba(212, 165, 116, 0.4);
+        }
+
+        /* Filter empty state */
+        .filter-empty-card {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 24px;
+            background: rgba(25, 18, 35, 0.4);
+            border: 1px solid rgba(212, 165, 116, 0.1);
+            border-radius: 22px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .filter-empty-icon {
+            font-size: 2.5rem;
+            margin-bottom: 14px;
+            animation: float-gentle 4s ease-in-out infinite;
+        }
+
+        .filter-empty-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--gold-bright);
+            margin-bottom: 8px;
+        }
+
+        .filter-empty-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            max-width: 440px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @keyframes chip-appear {
+            from {
+                opacity: 0;
+                transform: scale(0.85);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ==========================================
            POSTS GRID — Relic Cards
            ========================================== */
         .posts-section {
@@ -709,6 +1049,15 @@
             color: var(--gold-dim);
             border: 1px solid rgba(212, 165, 116, 0.1);
             letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .card-tag:hover {
+            background: rgba(212, 165, 116, 0.2);
+            color: var(--gold-bright);
+            border-color: var(--gold);
+            transform: translateY(-1px);
         }
 
         .card-layer {
@@ -839,6 +1188,15 @@
             background: rgba(212, 165, 116, 0.08);
             color: var(--gold-dim);
             border: 1px solid rgba(212, 165, 116, 0.1);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .viewer-tag:hover {
+            background: rgba(212, 165, 116, 0.2);
+            color: var(--gold-bright);
+            border-color: var(--gold);
+            transform: translateY(-1px);
         }
 
         /* ==========================================
@@ -1190,6 +1548,13 @@
         /* ==========================================
            RESPONSIVE
            ========================================== */
+        @media (max-width: 900px) {
+            .filter-bubble {
+                flex: 1 1 45%;
+                max-width: 48%;
+            }
+        }
+
         @media (max-width: 768px) {
             .portal {
                 width: 300px;
@@ -1203,6 +1568,12 @@
 
             .portal-center p {
                 font-size: 0.82rem;
+            }
+
+            .controls-wrapper {
+                padding: 0 16px;
+                margin-bottom: 28px;
+                gap: 14px;
             }
 
             .posts-grid {
@@ -1243,6 +1614,28 @@
 
             .posts-section {
                 padding: 10px 16px 80px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .filter-bubble {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+
+            .filters-bubbles-row {
+                gap: 10px;
+            }
+
+            .controls-meta-bubble {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 12px 16px;
+            }
+
+            .btn-reset-all {
+                margin-left: 0;
+                justify-content: center;
             }
         }
 
@@ -1331,6 +1724,113 @@
                 </div>
             </div>
         </header>
+
+        <!-- Controls: Search, Filters & Sorting -->
+        <section class="controls-wrapper" id="controls-section" aria-label="Controles de busca e filtragem">
+
+            <!-- Search Bubble -->
+            <div class="search-bubble">
+                <div class="search-input-wrapper">
+                    <span class="search-icon" aria-hidden="true">🔍</span>
+                    <input type="text" 
+                           id="search-input" 
+                           class="search-input" 
+                           placeholder="Pesquisar posts por título, assunto, tag..." 
+                           autocomplete="off"
+                           aria-label="Pesquisar publicações">
+                    <button type="button" 
+                            id="search-clear" 
+                            class="search-clear-btn" 
+                            title="Limpar pesquisa"
+                            aria-label="Limpar pesquisa">✕</button>
+                </div>
+            </div>
+
+            <!-- Filter Bubbles Row -->
+            <div class="filters-bubbles-row">
+                <!-- Layer Filter Bubble -->
+                <div class="filter-bubble">
+                    <label for="filter-layer" class="filter-label">
+                        <span>🏔️</span> Camada
+                    </label>
+                    <div class="custom-select-wrapper">
+                        <select id="filter-layer" class="custom-select" aria-label="Filtrar por camada">
+                            <option value="all">Todas as Camadas</option>
+                            <option value="1">1ª Camada (Borda)</option>
+                            <option value="2">2ª Camada (Floresta)</option>
+                            <option value="3">3ª Camada (Falha)</option>
+                            <option value="4">4ª Camada (Taças)</option>
+                            <option value="5">5ª Camada (Mar)</option>
+                            <option value="6">6ª Camada (Capital)</option>
+                            <option value="7">7ª Camada (Anel)</option>
+                        </select>
+                        <span class="select-arrow" aria-hidden="true">▼</span>
+                    </div>
+                </div>
+
+                <!-- Date Filter Bubble -->
+                <div class="filter-bubble">
+                    <label for="filter-date" class="filter-label">
+                        <span>📅</span> Data / Período
+                    </label>
+                    <div class="custom-select-wrapper">
+                        <select id="filter-date" class="custom-select" aria-label="Filtrar por data">
+                            <option value="all">Todas as datas</option>
+                            <!-- Populated dynamically from posts -->
+                        </select>
+                        <span class="select-arrow" aria-hidden="true">▼</span>
+                    </div>
+                </div>
+
+                <!-- Tag Filter Bubble -->
+                <div class="filter-bubble">
+                    <label for="filter-tag" class="filter-label">
+                        <span>🏷️</span> Tag
+                    </label>
+                    <div class="custom-select-wrapper">
+                        <select id="filter-tag" class="custom-select" aria-label="Filtrar por tag">
+                            <option value="all">Todas as tags</option>
+                            <!-- Populated dynamically from posts -->
+                        </select>
+                        <span class="select-arrow" aria-hidden="true">▼</span>
+                    </div>
+                </div>
+
+                <!-- Sort By Bubble -->
+                <div class="filter-bubble">
+                    <label for="sort-by" class="filter-label">
+                        <span>⚡</span> Ordenar por
+                    </label>
+                    <div class="custom-select-wrapper">
+                        <select id="sort-by" class="custom-select" aria-label="Ordenar publicações">
+                            <option value="date-desc">Data: Mais recentes</option>
+                            <option value="date-asc">Data: Mais antigos</option>
+                            <option value="layer-asc">Camada: Mais rasa (1ª→7ª)</option>
+                            <option value="layer-desc">Camada: Mais profunda (7ª→1ª)</option>
+                            <option value="title-asc">Título: A → Z</option>
+                            <option value="title-desc">Título: Z → A</option>
+                        </select>
+                        <span class="select-arrow" aria-hidden="true">▼</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meta & Active Chips Bubble -->
+            <div class="controls-meta-bubble" id="controls-meta-bar">
+                <div class="results-info">
+                    <span id="results-count" class="results-count-badge">0</span>
+                    <span id="results-label">registros encontrados</span>
+                </div>
+
+                <div class="active-chips-container" id="active-chips-container">
+                    <!-- Chips inserted dynamically -->
+                </div>
+
+                <button type="button" id="btn-reset-all" class="btn-reset-all" style="display: none;">
+                    <span>✕</span> Limpar filtros
+                </button>
+            </div>
+        </section>
 
         <!-- Posts Grid -->
         <section class="posts-section" id="posts-section">
@@ -1639,12 +2139,30 @@
         }
 
         /* ==========================================
-           POST LOADING & RENDERING
+           POST LOADING, FILTERING & RENDERING
            ========================================== */
         let allPosts = [];
+        let filterState = {
+            search: '',
+            layer: 'all',
+            date: 'all',
+            tag: 'all',
+            sortBy: 'date-desc'
+        };
+
+        const MONTH_NAMES = [
+            'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+            'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+        ];
+
+        function normalizeText(str) {
+            return (str || '')
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .toLowerCase();
+        }
 
         async function loadPosts() {
-            const container = document.getElementById('posts-container');
             const loading = document.getElementById('loading-state');
             const empty = document.getElementById('empty-state');
 
@@ -1672,13 +2190,6 @@
 
                 allPosts = posts.filter(Boolean);
 
-                // Sort by date (newest first)
-                allPosts.sort((a, b) => {
-                    const da = a.meta.date || '0000-00-00';
-                    const db = b.meta.date || '0000-00-00';
-                    return db.localeCompare(da);
-                });
-
                 loading.style.display = 'none';
 
                 if (allPosts.length === 0) {
@@ -1686,12 +2197,278 @@
                     return;
                 }
 
-                renderPostCards(allPosts);
+                // Populate filter options dynamically
+                populateFilterDropdowns();
+
+                // Apply initial filters and sort
+                applyFiltersAndSort();
+
             } catch (err) {
                 console.warn('Could not load posts:', err);
                 loading.style.display = 'none';
                 empty.style.display = 'block';
             }
+        }
+
+        function populateFilterDropdowns() {
+            // Populate Date filter
+            const dateSelect = document.getElementById('filter-date');
+            if (dateSelect) {
+                const yearMonths = new Map();
+                allPosts.forEach(post => {
+                    if (post.meta.date && typeof post.meta.date === 'string') {
+                        const parts = post.meta.date.split('-');
+                        if (parts.length >= 2) {
+                            const key = `${parts[0]}-${parts[1]}`;
+                            const monthIdx = parseInt(parts[1], 10) - 1;
+                            const monthName = MONTH_NAMES[monthIdx] || parts[1];
+                            const label = `${monthName} de ${parts[0]}`;
+                            yearMonths.set(key, label);
+                        }
+                    }
+                });
+
+                // Sort keys descending
+                const sortedDates = Array.from(yearMonths.entries()).sort((a, b) => b[0].localeCompare(a[0]));
+                
+                dateSelect.innerHTML = '<option value="all">Todas as datas</option>';
+                sortedDates.forEach(([key, label]) => {
+                    const opt = document.createElement('option');
+                    opt.value = key;
+                    opt.textContent = label;
+                    dateSelect.appendChild(opt);
+                });
+            }
+
+            // Populate Tag filter
+            const tagSelect = document.getElementById('filter-tag');
+            if (tagSelect) {
+                const tagCounts = new Map();
+                allPosts.forEach(post => {
+                    const tags = Array.isArray(post.meta.tags) ? post.meta.tags : [];
+                    tags.forEach(tag => {
+                        const trimmed = tag.trim();
+                        if (trimmed) {
+                            tagCounts.set(trimmed, (tagCounts.get(trimmed) || 0) + 1);
+                        }
+                    });
+                });
+
+                const sortedTags = Array.from(tagCounts.entries()).sort((a, b) => 
+                    a[0].localeCompare(b[0], 'pt-BR', { sensitivity: 'base' })
+                );
+
+                tagSelect.innerHTML = '<option value="all">Todas as tags</option>';
+                sortedTags.forEach(([tag, count]) => {
+                    const opt = document.createElement('option');
+                    opt.value = tag;
+                    opt.textContent = `${tag} (${count})`;
+                    tagSelect.appendChild(opt);
+                });
+            }
+        }
+
+        function applyFiltersAndSort() {
+            let filtered = allPosts.slice();
+
+            // 1. Search Query Filter
+            const searchNorm = normalizeText(filterState.search);
+            if (searchNorm) {
+                filtered = filtered.filter(post => {
+                    const title = normalizeText(post.meta.title || '');
+                    const filename = normalizeText(post.filename || '');
+                    const body = normalizeText(post.body || '');
+                    const tags = Array.isArray(post.meta.tags) 
+                        ? post.meta.tags.map(t => normalizeText(t)).join(' ') 
+                        : '';
+                    return title.includes(searchNorm) || 
+                           filename.includes(searchNorm) || 
+                           tags.includes(searchNorm) || 
+                           body.includes(searchNorm);
+                });
+            }
+
+            // 2. Layer Filter
+            if (filterState.layer !== 'all') {
+                filtered = filtered.filter(post => {
+                    const postLayer = String(post.meta.layer || 1);
+                    return postLayer === String(filterState.layer);
+                });
+            }
+
+            // 3. Date Filter (matches YYYY-MM prefix)
+            if (filterState.date !== 'all') {
+                filtered = filtered.filter(post => {
+                    return post.meta.date && post.meta.date.startsWith(filterState.date);
+                });
+            }
+
+            // 4. Tag Filter
+            if (filterState.tag !== 'all') {
+                const targetTag = normalizeText(filterState.tag);
+                filtered = filtered.filter(post => {
+                    const tags = Array.isArray(post.meta.tags) ? post.meta.tags : [];
+                    return tags.some(t => normalizeText(t) === targetTag);
+                });
+            }
+
+            // 5. Sorting
+            filtered.sort((a, b) => {
+                const dateA = a.meta.date || '0000-00-00';
+                const dateB = b.meta.date || '0000-00-00';
+                const layerA = parseInt(a.meta.layer, 10) || 1;
+                const layerB = parseInt(b.meta.layer, 10) || 1;
+                const titleA = a.meta.title || a.filename.replace('.md', '');
+                const titleB = b.meta.title || b.filename.replace('.md', '');
+
+                switch (filterState.sortBy) {
+                    case 'date-asc':
+                        return dateA.localeCompare(dateB);
+                    case 'date-desc':
+                        return dateB.localeCompare(dateA);
+                    case 'layer-asc':
+                        return layerA - layerB;
+                    case 'layer-desc':
+                        return layerB - layerA;
+                    case 'title-asc':
+                        return titleA.localeCompare(titleB, 'pt-BR', { sensitivity: 'base' });
+                    case 'title-desc':
+                        return titleB.localeCompare(titleA, 'pt-BR', { sensitivity: 'base' });
+                    default:
+                        return dateB.localeCompare(dateA);
+                }
+            });
+
+            // Update Result Counts
+            updateControlsMeta(filtered.length);
+
+            // Render cards or empty filtered state
+            renderFilteredResults(filtered);
+        }
+
+        function updateControlsMeta(count) {
+            const countEl = document.getElementById('results-count');
+            const labelEl = document.getElementById('results-label');
+            const chipsContainer = document.getElementById('active-chips-container');
+            const resetBtn = document.getElementById('btn-reset-all');
+
+            if (countEl) {
+                countEl.textContent = count;
+            }
+
+            if (labelEl) {
+                if (filterState.search || filterState.layer !== 'all' || filterState.date !== 'all' || filterState.tag !== 'all') {
+                    labelEl.textContent = `de ${allPosts.length} registros`;
+                } else {
+                    labelEl.textContent = count === 1 ? 'registro encontrado' : 'registros encontrados';
+                }
+            }
+
+            // Generate Active Chips
+            if (chipsContainer) {
+                chipsContainer.innerHTML = '';
+                let hasActiveFilter = false;
+
+                if (filterState.search) {
+                    hasActiveFilter = true;
+                    chipsContainer.appendChild(createChip(`🔍 "${filterState.search}"`, () => {
+                        filterState.search = '';
+                        const input = document.getElementById('search-input');
+                        if (input) input.value = '';
+                        const clearBtn = document.getElementById('search-clear');
+                        if (clearBtn) clearBtn.style.display = 'none';
+                        applyFiltersAndSort();
+                    }));
+                }
+
+                if (filterState.layer !== 'all') {
+                    hasActiveFilter = true;
+                    const layer = getLayerData(filterState.layer);
+                    chipsContainer.appendChild(createChip(`🏔️ ${layer.name}`, () => {
+                        filterState.layer = 'all';
+                        const select = document.getElementById('filter-layer');
+                        if (select) select.value = 'all';
+                        applyFiltersAndSort();
+                    }));
+                }
+
+                if (filterState.date !== 'all') {
+                    hasActiveFilter = true;
+                    const dateSelect = document.getElementById('filter-date');
+                    const selectedOpt = dateSelect ? dateSelect.querySelector(`option[value="${filterState.date}"]`) : null;
+                    const label = selectedOpt ? selectedOpt.textContent : filterState.date;
+                    chipsContainer.appendChild(createChip(`📅 ${label}`, () => {
+                        filterState.date = 'all';
+                        if (dateSelect) dateSelect.value = 'all';
+                        applyFiltersAndSort();
+                    }));
+                }
+
+                if (filterState.tag !== 'all') {
+                    hasActiveFilter = true;
+                    chipsContainer.appendChild(createChip(`🏷️ ${filterState.tag}`, () => {
+                        filterState.tag = 'all';
+                        const select = document.getElementById('filter-tag');
+                        if (select) select.value = 'all';
+                        applyFiltersAndSort();
+                    }));
+                }
+
+                if (filterState.sortBy !== 'date-desc') {
+                    hasActiveFilter = true;
+                    const sortMap = {
+                        'date-asc': 'Mais antigos',
+                        'layer-asc': 'Camada rasa',
+                        'layer-desc': 'Camada profunda',
+                        'title-asc': 'Título: A-Z',
+                        'title-desc': 'Título: Z-A'
+                    };
+                    chipsContainer.appendChild(createChip(`⚡ ${sortMap[filterState.sortBy] || filterState.sortBy}`, () => {
+                        filterState.sortBy = 'date-desc';
+                        const select = document.getElementById('sort-by');
+                        if (select) select.value = 'date-desc';
+                        applyFiltersAndSort();
+                    }));
+                }
+
+                if (resetBtn) {
+                    resetBtn.style.display = hasActiveFilter ? 'inline-flex' : 'none';
+                }
+            }
+        }
+
+        function createChip(text, onRemove) {
+            const chip = document.createElement('span');
+            chip.className = 'filter-chip';
+            chip.innerHTML = `
+                <span>${text}</span>
+                <button type="button" class="filter-chip-remove" title="Remover filtro" aria-label="Remover filtro">✕</button>
+            `;
+            chip.querySelector('.filter-chip-remove').addEventListener('click', onRemove);
+            return chip;
+        }
+
+        function renderFilteredResults(posts) {
+            const container = document.getElementById('posts-container');
+            container.innerHTML = '';
+
+            if (posts.length === 0) {
+                const emptyCard = document.createElement('div');
+                emptyCard.className = 'filter-empty-card';
+                emptyCard.innerHTML = `
+                    <div class="filter-empty-icon">🔔</div>
+                    <h3 class="filter-empty-title">Nenhum registro encontrado</h3>
+                    <p class="filter-empty-desc">Não foram encontradas publicações com os filtros selecionados nas profundezas do Abismo.</p>
+                    <button type="button" class="btn-reset-all" id="btn-empty-reset" style="margin: 0 auto;">
+                        <span>✕</span> Limpar filtros
+                    </button>
+                `;
+                emptyCard.querySelector('#btn-empty-reset').addEventListener('click', resetAllFilters);
+                container.appendChild(emptyCard);
+                return;
+            }
+
+            renderPostCards(posts);
         }
 
         function renderPostCards(posts) {
@@ -1706,7 +2483,7 @@
 
                 const card = document.createElement('div');
                 card.className = 'post-card';
-                card.style.setProperty('--appear-delay', `${index * 0.1}s`);
+                card.style.setProperty('--appear-delay', `${index * 0.08}s`);
                 card.style.setProperty('--card-accent', accent);
                 card.style.setProperty('--card-accent-glow', accent.startsWith('#') ? accent + '12' : 'rgba(212,165,116,0.05)');
                 card.style.setProperty('--layer-bg', layer.color + '30');
@@ -1724,14 +2501,23 @@
                     <div class="card-excerpt">${excerpt}...</div>
                     <div class="card-footer">
                         <div class="card-tags">
-                            ${tags.map(t => `<span class="card-tag">${t}</span>`).join('')}
+                            ${tags.map(t => `<span class="card-tag" data-tag="${t}">${t}</span>`).join('')}
                         </div>
-                        <div class="card-layer">
+                        <div class="card-layer" title="${layer.name}: ${layer.fullName}">
                             <span class="card-layer-dot" style="background: ${layer.color}"></span>
                             ${layer.name}
                         </div>
                     </div>
                 `;
+
+                // Add click listener to tags
+                card.querySelectorAll('.card-tag').forEach(tagEl => {
+                    tagEl.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const tag = tagEl.getAttribute('data-tag');
+                        if (tag) setFilterTag(tag);
+                    });
+                });
 
                 card.addEventListener('click', () => {
                     const slug = post.filename.replace('.md', '');
@@ -1743,17 +2529,133 @@
             });
         }
 
+        function setFilterTag(tag) {
+            filterState.tag = tag;
+            const select = document.getElementById('filter-tag');
+            if (select) {
+                select.value = tag;
+            }
+            applyFiltersAndSort();
+
+            const controlsSection = document.getElementById('controls-section');
+            if (controlsSection) {
+                controlsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function resetAllFilters() {
+            filterState.search = '';
+            filterState.layer = 'all';
+            filterState.date = 'all';
+            filterState.tag = 'all';
+            filterState.sortBy = 'date-desc';
+
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) searchInput.value = '';
+
+            const clearBtn = document.getElementById('search-clear');
+            if (clearBtn) clearBtn.style.display = 'none';
+
+            const layerSelect = document.getElementById('filter-layer');
+            if (layerSelect) layerSelect.value = 'all';
+
+            const dateSelect = document.getElementById('filter-date');
+            if (dateSelect) dateSelect.value = 'all';
+
+            const tagSelect = document.getElementById('filter-tag');
+            if (tagSelect) tagSelect.value = 'all';
+
+            const sortSelect = document.getElementById('sort-by');
+            if (sortSelect) sortSelect.value = 'date-desc';
+
+            applyFiltersAndSort();
+        }
+
+        function initControls() {
+            // Search Input listener
+            const searchInput = document.getElementById('search-input');
+            const searchClear = document.getElementById('search-clear');
+
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    filterState.search = e.target.value;
+                    if (searchClear) {
+                        searchClear.style.display = filterState.search ? 'flex' : 'none';
+                    }
+                    applyFiltersAndSort();
+                });
+
+                searchInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        searchInput.value = '';
+                        filterState.search = '';
+                        if (searchClear) searchClear.style.display = 'none';
+                        applyFiltersAndSort();
+                    }
+                });
+            }
+
+            if (searchClear) {
+                searchClear.addEventListener('click', () => {
+                    if (searchInput) {
+                        searchInput.value = '';
+                        searchInput.focus();
+                    }
+                    filterState.search = '';
+                    searchClear.style.display = 'none';
+                    applyFiltersAndSort();
+                });
+            }
+
+            // Layer select
+            const layerSelect = document.getElementById('filter-layer');
+            if (layerSelect) {
+                layerSelect.addEventListener('change', (e) => {
+                    filterState.layer = e.target.value;
+                    applyFiltersAndSort();
+                });
+            }
+
+            // Date select
+            const dateSelect = document.getElementById('filter-date');
+            if (dateSelect) {
+                dateSelect.addEventListener('change', (e) => {
+                    filterState.date = e.target.value;
+                    applyFiltersAndSort();
+                });
+            }
+
+            // Tag select
+            const tagSelect = document.getElementById('filter-tag');
+            if (tagSelect) {
+                tagSelect.addEventListener('change', (e) => {
+                    filterState.tag = e.target.value;
+                    applyFiltersAndSort();
+                });
+            }
+
+            // Sort By select
+            const sortSelect = document.getElementById('sort-by');
+            if (sortSelect) {
+                sortSelect.addEventListener('change', (e) => {
+                    filterState.sortBy = e.target.value;
+                    applyFiltersAndSort();
+                });
+            }
+
+            // Reset all button
+            const resetBtn = document.getElementById('btn-reset-all');
+            if (resetBtn) {
+                resetBtn.addEventListener('click', resetAllFilters);
+            }
+        }
+
         /* ==========================================
            POST VIEWER
            ========================================== */
         function showPost(slug) {
             const filename = slug.endsWith('.md') ? slug : slug + '.md';
             const post = allPosts.find(p => p.filename === filename);
-
-            const mainContent = document.getElementById('main-content');
-            const viewer = document.getElementById('post-viewer');
-            const header = document.getElementById('viewer-header');
-            const body = document.getElementById('viewer-body');
 
             if (!post) {
                 // Post not loaded yet — fetch individually
@@ -1766,7 +2668,7 @@
 
         async function fetchAndShowPost(filename) {
             try {
-                const res = await fetch(`posts/${filename}`);
+                const res = await fetch(`../posts/${filename}`);
                 if (!res.ok) throw new Error('Post not found');
                 const text = await res.text();
                 const { meta, body } = parseFrontmatter(text);
@@ -1789,7 +2691,6 @@
             const viewer = document.getElementById('post-viewer');
             const headerEl = document.getElementById('viewer-header');
             const bodyEl = document.getElementById('viewer-body');
-            const navBack = document.getElementById('nav-back-link');
 
             mainContent.style.display = 'none';
             viewer.style.display = 'block';
@@ -1821,11 +2722,20 @@
                     </span>
                     ${tags.length ? `
                         <div class="viewer-tags">
-                            ${tags.map(t => `<span class="viewer-tag">${t}</span>`).join('')}
+                            ${tags.map(t => `<span class="viewer-tag" data-tag="${t}">${t}</span>`).join('')}
                         </div>
                     ` : ''}
                 </div>
             `;
+
+            // Add click listener to viewer tags to filter by tag
+            headerEl.querySelectorAll('.viewer-tag').forEach(tagEl => {
+                tagEl.addEventListener('click', () => {
+                    const tag = tagEl.getAttribute('data-tag');
+                    showGrid();
+                    if (tag) setFilterTag(tag);
+                });
+            });
 
             bodyEl.innerHTML = parseMarkdown(post.body);
 
@@ -1894,13 +2804,14 @@
             initGauge();
             initParticles();
             updateGauge();
+            initControls();
 
             // Scroll listener
             window.addEventListener('scroll', onScroll, { passive: true });
 
             // Back button in post viewer
             document.getElementById('viewer-back').addEventListener('click', () => {
-                history.pushState({}, '', './blog');
+                history.pushState({}, '', window.location.pathname);
                 showGrid();
             });
 
