@@ -8,6 +8,19 @@
     <meta name="description"
         content="Página 'Sobre Mim' de Leonardo. Quem sou eu, o que faço, hobbies e áreas de interesse.">
     <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+
+    <!-- Script síncrono anti-FOUC (Prevenção de flash de tema) -->
+    <script>
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.add('light', 'light-theme');
+        }
+    </script>
+
+    <!-- Fontes Google Otimizadas (display=swap, zero CLS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/style.css">
 </head>
 
@@ -53,7 +66,7 @@
 
             <div class="hobby-grid">
                 <div class="hobby-card">
-                    <img src="assets/elec.jpeg" alt="Consertando eletrônicos" class="hobby-card-img" loading="lazy">
+                    <img src="/assets/elec.jpeg" alt="Consertando eletrônicos" class="hobby-card-img" loading="lazy">
                     <div class="hobby-card-body">
                         <h3>🔧 Consertar e Modificar Eletrônicos</h3>
                         <p>Nossa, só de pensar em abrir algo pra consertar e ficar horas medindo coisa com multímetro só
@@ -63,7 +76,7 @@
                 </div>
 
                 <div class="hobby-card">
-                    <img src="assets/davinci-resolve.jpg" alt="DaVinci Resolve" class="hobby-card-img" loading="lazy">
+                    <img src="/assets/davinci-resolve.jpg" alt="DaVinci Resolve" class="hobby-card-img" loading="lazy">
                     <div class="hobby-card-body">
                         <h3>🎬 Edição Audiovisual</h3>
                         <p>Tenho alguns vídeos pra editar no Davinci Resolve 20 porque me interesso em edição e criação
@@ -75,7 +88,7 @@
                 </div>
 
                 <div class="hobby-card">
-                    <img src="assets/osu.jpg" alt="Gaming" class="hobby-card-img" loading="lazy">
+                    <img src="/assets/osu.jpg" alt="Gaming" class="hobby-card-img" loading="lazy">
                     <div class="hobby-card-body">
                         <h3>🎮 Jogatina</h3>
                         <p>Gosto de jogar OSU! (não acredito que jogo isso há três anos e continuo viciado), e qualquer
@@ -96,7 +109,7 @@
                 </div>
 
                 <div class="hobby-card">
-                    <img src="assets/vscode-minimap.png" alt="Programação" class="hobby-card-img" loading="lazy">
+                    <img src="/assets/vscode-minimap.png" alt="Programação" class="hobby-card-img" loading="lazy">
                     <div class="hobby-card-body">
                         <h3>💻 Tempo ""Livre""</h3>
                         <p>Tire os estudos escolares da minha rotina e você vai ver que ainda tô estudando algo só pela
@@ -634,8 +647,8 @@
         </div>
     </div>
 
-    <script defer src="layout.js"></script>
-    <script defer src="script.js"></script>
+    <script defer src="/layout.js"></script>
+    <script defer src="/script.js"></script>
 
 </body>
 

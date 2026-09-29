@@ -7,7 +7,20 @@
     <title>Projetos | Leonardo P. Soares</title>
     <meta name="description"
         content="Projetos de Leonardo P. Soares — website pessoal, infraestrutura em nuvem, workstation custom, workloads de IA, servidor local e mais.">
-    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+
+    <!-- Script síncrono anti-FOUC (Prevenção de flash de tema) -->
+    <script>
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.add('light', 'light-theme');
+        }
+    </script>
+
+    <!-- Fontes Google Otimizadas (display=swap, zero CLS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/style.css">
 </head>
 
@@ -77,7 +90,7 @@
                 </div>
 
                 <div class="project-section" style="margin-top: 30px;">
-                    <a href="ajuda/index.html" target="_blank" class="btn-secondary"
+                    <a href="/ajuda/index.html" target="_blank" class="btn-secondary"
                         style="display: inline-flex; align-items: center; gap: 10px;">
                         🌐 Ver Prévia do Projeto
                     </a>
@@ -91,21 +104,21 @@
                         <div class="carousel-track-container">
                             <div class="carousel-track">
                                 <div class="carousel-slide active">
-                                    <img src="assets/ajuda-main.png" alt="Painel de Diagnóstico Técnico"
+                                    <img src="/assets/ajuda-main.png" alt="Painel de Diagnóstico Técnico"
                                         class="carousel-img">
                                     <div class="carousel-caption">Landing Page do site.</div>
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/ajuda-resolve.png" alt="Interface de Atendimento"
+                                    <img src="/assets/ajuda-resolve.png" alt="Interface de Atendimento"
                                         class="carousel-img">
                                     <div class="carousel-caption">Exemplo da página final que o cliente cai.</div>
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/ajuda-review.png" alt="Página de Avaliações" class="carousel-img">
+                                    <img src="/assets/ajuda-review.png" alt="Página de Avaliações" class="carousel-img">
                                     <div class="carousel-caption">Página com as avaliações que me deram.</div>
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/ajuda-work.png" alt="Página de Trabalhos" class="carousel-img">
+                                    <img src="/assets/ajuda-work.png" alt="Página de Trabalhos" class="carousel-img">
                                     <div class="carousel-caption">Página com os trabalhos que me deram e que já
                                         realizei.</div>
                                 </div>
@@ -242,16 +255,16 @@
                         <div class="carousel-track-container">
                             <div class="carousel-track">
                                 <div class="carousel-slide active">
-                                    <img src="assets/c1.png" alt="Página Inicial do Calendário Olímpico"
+                                    <img src="/assets/c1.png" alt="Página Inicial do Calendário Olímpico"
                                         class="carousel-img">
                                     <div class="carousel-caption">Página Inicial do Calendário Olímpico</div>
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/c2.png" alt="Lista de Olimpíadas" class="carousel-img">
+                                    <img src="/assets/c2.png" alt="Lista de Olimpíadas" class="carousel-img">
                                     <div class="carousel-caption">Lista Centralizada de Olimpíadas Científicas</div>
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/c3.png" alt="Página de Detalhes" class="carousel-img">
+                                    <img src="/assets/c3.png" alt="Página de Detalhes" class="carousel-img">
                                     <div class="carousel-caption">Área de Cronogramas, Links de Inscrição e Estudos
                                     </div>
                                 </div>
@@ -474,8 +487,8 @@
         </section>
 
     </div>
-    <script defer src="layout.js"></script>
-    <script defer src="script.js"></script>
+    <script defer src="/layout.js"></script>
+    <script defer src="/script.js"></script>
 </body>
 
 </html>

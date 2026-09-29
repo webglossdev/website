@@ -10,16 +10,21 @@
     let scrollQueued = false;
 
     function applyTheme(theme) {
-        document.documentElement.classList.remove('dark', 'light');
-        if (theme === 'dark' || theme === 'light') {
-            document.documentElement.classList.add(theme);
+        const isLight = theme === 'light';
+        document.documentElement.classList.remove('dark', 'light', 'light-theme');
+        if (isLight) {
+            document.documentElement.classList.add('light', 'light-theme');
+        } else {
+            document.documentElement.classList.add('dark');
         }
 
         const themeToggle = document.getElementById('theme-toggle');
         if (themeToggle) {
-            const isDark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-            themeToggle.textContent = isDark ? '☀️' : '🌙';
-            themeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+            themeToggle.setAttribute('aria-pressed', isLight ? 'false' : 'true');
+            themeToggle.setAttribute(
+                'title',
+                isLight ? 'Tapa-olho Selado (Modo Claro) — Despertar Jao Shingan' : 'Jao Shingan Ativado (Modo Escuro) — Selar com Tapa-olho'
+            );
         }
     }
 
@@ -33,7 +38,11 @@
         if (!themeToggle) return;
 
         themeToggle.addEventListener('click', () => {
-            const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+            themeToggle.classList.add('activating');
+            setTimeout(() => themeToggle.classList.remove('activating'), 200);
+
+            const isCurrentLight = document.documentElement.classList.contains('light') || document.documentElement.classList.contains('light-theme');
+            const nextTheme = isCurrentLight ? 'dark' : 'light';
             localStorage.setItem('theme', nextTheme);
             applyTheme(nextTheme);
         });
@@ -138,35 +147,34 @@
                 },
                 modes: {
                     repulse: {
-                        distance: 140,
-                        duration: 9,
-                        factor: 10,
-                        speed: 0.5,
+                        distance: 100,
+                        duration: 6,
+                        factor: 8,
+                        speed: 0.4,
                         easing: 'ease-out-sine'
                     }
                 }
             },
             particles: {
-                color: { value: ['#6DD6FF', '#8B9CF6', '#A7F3D0', '#E2E8F0'] },
                 links: { enable: false },
                 move: {
                     direction: 'none',
                     enable: true,
                     outModes: { default: 'out' },
                     random: true,
-                    speed: { min: 0.12, max: 0.42 },
+                    speed: { min: 0.12, max: 0.28 },
                     straight: false
                 },
-                number: { density: { enable: true, area: 800 }, value: isMobile ? 16 : 28 },
+                number: { density: { enable: true, area: 1000 }, value: isMobile ? 8 : 18 },
                 opacity: {
-                    value: { min: 0.18, max: 0.5 },
-                    animation: { enable: true, speed: 0.35, minimumValue: 0.18, sync: false }
+                    value: { min: 0.22, max: 0.55 },
+                    animation: { enable: true, speed: 0.4, minimumValue: 0.22, sync: false }
                 },
                 shape: {
                     type: 'image',
                     options: {
                         image: {
-                            src: 'assets/estrelas.svg',
+                            src: '/assets/estrelas.svg',
                             width: 32,
                             height: 32,
                             replaceColor: false
@@ -174,13 +182,13 @@
                     }
                 },
                 size: {
-                    value: { min: 8, max: 14 },
-                    animation: { enable: true, speed: 1.2, minimumValue: 8, sync: false }
+                    value: { min: 12, max: 20 },
+                    animation: { enable: true, speed: 0.8, minimumValue: 12, sync: false }
                 },
                 rotate: {
                     value: { min: 0, max: 360 },
                     direction: 'random',
-                    animation: { enable: true, speed: 2.5, sync: false }
+                    animation: { enable: true, speed: 0.5, sync: false }
                 }
             },
             detectRetina: true
