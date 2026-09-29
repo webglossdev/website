@@ -2,16 +2,9 @@
 // LAYOUT INJECTION — Redesigned Navigation
 // ==========================================
 
-// Particles & Aurora background (hidden by default, toggled via JS)
+// Particles background (gerenciado via tsParticles)
 const backgroundHTML = `
     <div id="tsparticles"></div>
-    <div class="vista-scene">
-        <div class="dust dust-layer-1"></div>
-        <div class="dust dust-layer-2"></div>
-        <div class="aurora aurora-purple"></div>
-        <div class="aurora aurora-cyan"></div>
-        <div class="aurora aurora-green"></div>
-    </div>
 `;
 
 // Header with redesigned navigation
@@ -23,31 +16,41 @@ const headerHTML = `
         </div>
         
         <div class="nav-logo">
-            <a href="index.html">
-                <img src="assets/logo.svg" alt="Leonardo P. Soares Logo">
+            <a href="/">
+                <img src="/assets/logo.svg" alt="Leonardo P. Soares Logo">
             </a>
         </div>
         
         <div class="nav-links right-links">
             <a href="/projetos">Projetos</a>
-            <a href="/blog" >Blog Pessoal</a>
+            <a href="/blog">Blog Pessoal</a>
         </div>
 
         <div class="header-controls">
-            <button class="particles-toggle" id="particles-toggle" aria-label="Alternar partículas" title="Alternar efeito de partículas">
-                ✨
+            <button class="particles-toggle" id="particles-toggle" aria-label="Alternar partículas da Utena" title="Alternar partículas da Utena">
+                <svg class="sparkle-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/>
+                </svg>
             </button>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema" title="Alternar tema claro/escuro">
-                🌙
+            <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema" title="Selo Chuunibyou (Alternar tema)">
+                <svg class="eyepatch-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="5" y="6" width="14" height="12" rx="3" stroke="currentColor"/>
+                    <line x1="2" y1="4" x2="6" y2="7" stroke="currentColor" stroke-linecap="round"/>
+                    <line x1="18" y1="17" x2="22" y2="20" stroke="currentColor" stroke-linecap="round"/>
+                    <circle cx="12" cy="12" r="2.2" fill="var(--accent-gold)"/>
+                </svg>
             </button>
         </div>
     </nav>
 `;
 
-// Development popup
+// Development popup (Madoka Magica Soul Gem + Clean Glass)
 const popupHTML = `
     <div id="dev-popup" class="dev-popup hidden">
         <div class="popup-content">
+            <svg class="soul-gem-icon" viewBox="0 0 24 24" width="32" height="32">
+                <path d="M12 2C8.5 2 6 5.5 6 9c0 4.5 4 8 6 13 2-5 6-8.5 6-13 0-3.5-2.5-7-6-7zm0 4a3 3 0 110 6 3 3 0 010-6z"/>
+            </svg>
             <h2>Em Desenvolvimento</h2>
             <p>Olá! Este site ainda está em construção e não está finalizado. Algumas informações podem estar faltando ou sofrerão alterações.</p>
             <button id="close-popup" class="btn-primary" style="width: 100%; margin-top: 10px;">Entendi</button>
@@ -66,7 +69,7 @@ const footerHTML = `
         <a href="https://linktr.ee/webglossdev" target="_blank" rel="noopener noreferrer" class="social-pill">
             <span class="icon">🔗</span> Linktree
         </a>
-        <a href="contato.html" class="social-pill">
+        <a href="/contato" class="social-pill">
             <span class="icon">💬</span> Contato
         </a>
     </footer>
@@ -102,10 +105,10 @@ function injectLayout() {
     }
 
     // Highlight current page in nav
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
     document.querySelectorAll('.nav-links a').forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === currentPage) {
+        const href = (link.getAttribute('href') || '').replace(/\/+$/, '');
+        if ((href === '' && currentPath === '') || (href && href !== '/' && currentPath.startsWith(href)) || (href === '/' && currentPath === '')) {
             link.classList.add('nav-active');
         }
     });

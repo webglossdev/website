@@ -6,7 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leonardo P. Soares | Página Inicial</title>
     <meta name="description" content="Website pessoal do webglossdev (Leonardo).">
-    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+    
+    <!-- Script síncrono anti-FOUC (Prevenção de flash de tema) -->
+    <script>
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.add('light', 'light-theme');
+        }
+    </script>
+
+    <!-- Fontes Google Otimizadas (display=swap, zero CLS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/style.css">
 </head>
 
@@ -19,8 +32,8 @@
             <p class="subtitle">Estudante, maker e entusiasta de tecnologia. 🚀</p>
 
             <div class="hero-buttons">
-                <a href="sobre.html" class="btn-primary">Sobre Mim</a>
-                <a href="projetos.html" class="btn-secondary">Meus Projetos</a>
+                <a href="/sobre" class="btn-primary">Sobre Mim</a>
+                <a href="/projetos" class="btn-secondary">Meus Projetos</a>
             </div>
         </header>
 
@@ -124,14 +137,14 @@
                     <h3>Está me procurando para trabalho?</h3>
                     <p>Tenho uma página dedicada com minhas habilidades, formação, certificados e currículo.</p>
                 </div>
-                <a href="contrate-me.html" class="btn-primary">Ver Página Profissional →</a>
+                <a href="/contrate-me.html" class="btn-primary">Ver Página Profissional →</a>
             </div>
         </section>
 
     </div>
 
-    <script defer src="layout.js"></script>
-    <script defer src="script.js"></script>
+    <script defer src="/layout.js"></script>
+    <script defer src="/script.js"></script>
 
 </body>
 

@@ -4,21 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manutenção</title>
+    <title>Manutenção | Leonardo P. Soares</title>
+    <meta name="description" content="Página profissional em manutenção.">
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+
+    <!-- Script síncrono anti-FOUC (Prevenção de flash de tema) -->
+    <script>
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.add('light', 'light-theme');
+        }
+    </script>
+
+    <!-- Fontes Google Otimizadas (display=swap, zero CLS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
     <div class="content-wrapper">
         <header class="hero">
-            <h1 class="glossy-text" style="font-size: 3rem;">Manutenção</h1>
-            <p class="subtitle">Essa página está em manutenção ou ainda não está pronta, informações no projeto do site.
-            </p>
+            <h1>Manutenção</h1>
+            <p class="subtitle">Essa página profissional está em reformulação cirúrgica. Em breve, novos detalhes e métricas estarão disponíveis.</p>
         </header>
+
+        <section class="glass-card" style="max-width: 680px; margin: 0 auto; text-align: center; padding: 40px 28px;">
+            <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 24px;">
+                Para oportunidades ou parcerias imediatas, entre em contato direto pelo canal de transmissão ou confira os repositórios públicos.
+            </p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a href="/contato" class="btn-primary">Ir para Contato</a>
+                <a href="/projetos" class="btn-secondary">Ver Projetos</a>
+            </div>
+        </section>
     </div>
 
-    <script defer src="layout.js"></script>
-    <script defer src="script.js"></script>
+    <script defer src="/layout.js"></script>
+    <script defer src="/script.js"></script>
 </body>
 
 </html>
