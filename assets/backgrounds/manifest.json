@@ -1,0 +1,125 @@
+﻿{
+    "landing":  {
+                    "desktop":  [
+                                    "bg-chuunibyou-bk.jpg",
+                                    "bg-chuunibyou-bk1.jpg",
+                                    "bg-chuunibyou-bk2.jpg",
+                                    "bg-chuunibyou-bk3.jpg",
+                                    "bg-chuunibyou-bk4.jpg",
+                                    "bg-chuunibyou-bk5.jpg",
+                                    "bg-chuunibyou-bk6.jpg",
+                                    "bg-chuunibyou.jpg",
+                                    "wallpaper-takanashi-rikka-by-soko-sensei-1920x1200.jpg",
+                                    "wp2357759-chuniby-demo-koi-ga-shitai-wallpapers.jpg"
+                                ],
+                    "mobile":  [
+
+                               ]
+                },
+    "projetos":  {
+                     "desktop":  [
+                                     "bg-gosick.jpg",
+                                     "thumb-1920-194139.jpg",
+                                     "thumb-1920-738208.png",
+                                     "thumb-1920-781199.jpg",
+                                     "thumb-1920-781206.jpg",
+                                     "thumb-1920-781215.png",
+                                     "wp3124985-gosick-wallpapers.jpg",
+                                     "wp3125002-gosick-wallpapers.png",
+                                     "wp3125046-gosick-wallpapers.jpg",
+                                     "wp3125051-gosick-wallpapers.jpg",
+                                     "wp3125138-gosick-wallpapers.png"
+                                 ],
+                     "mobile":  [
+
+                                ]
+                 },
+    "contato":  {
+                    "desktop":  [
+                                    "thumb-1920-1140155.jpg",
+                                    "thumb-1920-127894.jpg"
+                                ],
+                    "mobile":  [
+
+                               ]
+                },
+    "sobre":  {
+                  "desktop":  [
+                                  "1221991.jpg",
+                                  "1229372.jpg",
+                                  "1301944.jpg",
+                                  "135570.jpg",
+                                  "149998.jpg",
+                                  "294443.jpg",
+                                  "320785.jpg",
+                                  "321547.jpg",
+                                  "331293.jpg",
+                                  "360261.png",
+                                  "387020.jpg",
+                                  "418453.jpg",
+                                  "593783.jpg",
+                                  "657398.jpg",
+                                  "693285.png",
+                                  "745593.png",
+                                  "746677.jpg",
+                                  "839974.jpg",
+                                  "915945.jpg",
+                                  "919294.jpg",
+                                  "thumb-1920-1290062.jpg",
+                                  "thumb-1920-1312358.jpg",
+                                  "thumb-1920-143512.jpg",
+                                  "thumb-1920-301556.jpg",
+                                  "thumb-1920-321548.png",
+                                  "thumb-1920-326099.jpg",
+                                  "thumb-1920-330955.jpg",
+                                  "thumb-1920-360195.jpg",
+                                  "thumb-1920-746685.jpg",
+                                  "thumb-1920-789181.jpg",
+                                  "thumb-1920-789183.jpg",
+                                  "thumb-1920-810971.png",
+                                  "thumb-1920-843662.png"
+                              ],
+                  "mobile":  [
+
+                             ]
+              },
+    "blog":  {
+                 "desktop":  [
+                                 "1085821.jpg",
+                                 "1085838.jpg",
+                                 "1085840.png",
+                                 "1085852.jpg",
+                                 "bg-abyss.jpg",
+                                 "thumb-1920-1000342.jpg",
+                                 "thumb-1920-1105138.jpg",
+                                 "thumb-1920-1240016.jpg",
+                                 "thumb-1920-1269274.jpg",
+                                 "thumb-1920-1275452.png",
+                                 "thumb-1920-1307367.jpeg",
+                                 "thumb-1920-856712.jpg",
+                                 "thumb-1920-860635.jpg",
+                                 "thumb-1920-874398.png",
+                                 "thumb-1920-901912.jpg",
+                                 "thumb-1920-952135.png",
+                                 "thumb-1920-952227.jpg",
+                                 "thumb-1920-967277.png"
+                             ],
+                 "mobile":  [
+
+                            ]
+             },
+    "contrate-me":  {
+                        "desktop":  [
+                                        "702657.png",
+                                        "811607.jpg",
+                                        "thumb-1920-1137027.png",
+                                        "thumb-1920-718319.png",
+                                        "thumb-1920-737387.png",
+                                        "wp9159425-beatrice-re-zero-wallpapers.jpg",
+                                        "wp9159523-beatrice-re-zero-wallpapers.jpg"
+                                    ],
+                        "mobile":  [
+
+                                   ]
+                    }
+}

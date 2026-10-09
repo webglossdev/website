@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Pessoal | Leonardo P. Soares</title>
-    <meta name="description" content="Blog pessoal do webglossdev — Relic records, anotações de engenharia e ideias inspiradas em Made in Abyss.">
+    <meta name="description"
+        content="Blog pessoal do webglossdev — Relic records, anotações de engenharia e ideias inspiradas em Made in Abyss.">
     <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
 
     <!-- Script síncrono anti-FOUC (Prevenção de flash de tema) -->
@@ -18,16 +19,18 @@
     <!-- Fontes Google Otimizadas (display=swap, zero CLS) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
+<body data-theme="abyss">
 
     <!-- Altímetro Lateral HUD (Desktop >= 769px) -->
     <aside class="depth-gauge" id="depth-gauge" aria-label="Indicador de Profundidade do Abismo">
-        <div class="gauge-origin">Orth</div>
+        <div class="gauge-origin" id="gauge-origin">Orth</div>
         <div class="gauge-track" id="gauge-track">
             <div class="gauge-marker" id="gauge-marker"></div>
         </div>
@@ -44,18 +47,21 @@
 
     <div class="content-wrapper">
         <!-- Hero Section -->
-        <header class="hero" id="blog-hero">
-            <p class="hero-greeting" style="color: var(--accent-cyan); letter-spacing: 0.12em;">RELIC ARCHIVES // MADE IN ABYSS</p>
+        <header class="hero glass-panel" id="blog-hero">
             <h1>Blog Pessoal</h1>
-            <p class="subtitle">Um abismo de notas técnicas, explorações de hardware e ideias em constante descida. 🧭</p>
+            <p class="subtitle">Um abismo de notas técnicas, explorações de hardware e ideias em constante descida. <svg class="anime-icon" style="color: var(--accent-amber);" aria-hidden="true"><use href="#icon-white-whistle"></use></svg>
+            </p>
         </header>
 
         <!-- Controles de Busca e Filtros -->
         <section class="blog-controls" id="blog-controls" aria-label="Controles de busca e filtragem">
             <div class="search-glass-wrapper">
-                <span class="search-glass-icon" aria-hidden="true">🔍</span>
-                <input type="text" id="search-input" class="search-glass-input" placeholder="Pesquisar publicações por título, assunto, tag..." autocomplete="off" aria-label="Pesquisar publicações">
-                <button type="button" id="search-clear" class="search-glass-clear" title="Limpar busca" aria-label="Limpar pesquisa">✕</button>
+                <span class="search-glass-icon" aria-hidden="true"><svg class="anime-icon" style="color: var(--accent-amber);"><use href="#icon-white-whistle"></use></svg></span>
+                <input type="text" id="search-input" class="search-glass-input"
+                    placeholder="Pesquisar publicações por título, assunto, tag..." autocomplete="off"
+                    aria-label="Pesquisar publicações">
+                <button type="button" id="search-clear" class="search-glass-clear" title="Limpar busca"
+                    aria-label="Limpar pesquisa">✕</button>
             </div>
 
             <div class="filter-glass-row">
@@ -93,14 +99,18 @@
         <section class="posts-section" id="posts-section">
             <div class="posts-grid" id="posts-container"></div>
 
-            <div id="loading-state" style="text-align: center; padding: 48px 0; color: var(--text-muted); font-family: var(--font-mono); font-size: 13px;">
+            <div id="loading-state"
+                style="text-align: center; padding: 48px 0; color: var(--text-muted); font-family: var(--font-mono); font-size: 13px;">
                 <p>Sondando as profundezas do Abismo...</p>
             </div>
 
-            <div id="empty-state" class="glass-card" style="display: none; text-align: center; padding: 48px 24px; max-width: 580px; margin: 0 auto;">
-                <div style="font-size: 2.4rem; margin-bottom: 12px;">🔔</div>
-                <h3 style="font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 8px;">Nenhum registro recuperado</h3>
-                <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 20px;">Nenhum artefato corresponde aos filtros atuais. Tente redefinir a busca.</p>
+            <div id="empty-state" class="glass-card"
+                style="display: none; text-align: center; padding: 48px 24px; max-width: 580px; margin: 0 auto;">
+                <div style="margin-bottom: 16px;"><svg class="anime-icon" style="width: 44px; height: 44px; color: var(--accent-amber);" aria-hidden="true"><use href="#icon-white-whistle"></use></svg></div>
+                <h3 style="font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 8px;">Nenhum registro
+                    recuperado</h3>
+                <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 20px;">Nenhum artefato
+                    corresponde aos filtros atuais. Tente redefinir a busca.</p>
                 <button type="button" id="btn-reset-filters" class="btn-secondary">Limpar Filtros</button>
             </div>
         </section>
@@ -110,12 +120,20 @@
             <button type="button" class="viewer-back-btn" id="viewer-back">← Voltar às Relíquias</button>
             <article class="glass-card viewer-content">
                 <div class="relic-badge-row">
-                    <span class="relic-grade" id="viewer-grade">GRAU ESPECIAL // APITO BRANCO</span>
+                    <span class="relic-grade" id="viewer-grade"><svg class="anime-icon" style="width: 14px; height: 14px; margin-right: 4px; vertical-align: -2px;" aria-hidden="true"><use href="#icon-white-whistle"></use></svg>Camada 1</span>
                     <span class="relic-depth-coord" id="viewer-depth">0m</span>
                 </div>
-                <h1 id="viewer-title" style="font-family: var(--font-display); font-size: 2.1rem; line-height: 1.25; margin-bottom: 12px; color: var(--text-primary);"></h1>
-                <div id="viewer-meta" style="font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); margin-bottom: 24px;"></div>
+                <h1 id="viewer-title"
+                    style="font-family: var(--font-display); font-size: 2.1rem; line-height: 1.25; margin-bottom: 12px; color: var(--text-primary);">
+                </h1>
+                <div id="viewer-meta"
+                    style="font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); margin-bottom: 24px;">
+                </div>
                 <div class="viewer-body" id="viewer-body"></div>
+                <div class="viewer-footer-actions" style="margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--liquid-border-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                    <button type="button" class="viewer-back-btn" id="viewer-back-bottom" style="margin: 0;">← Voltar às Relíquias</button>
+                    <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">Fim do Registro • Profundidade Máxima Alcançada</span>
+                </div>
             </article>
         </section>
     </div>
@@ -136,6 +154,7 @@
             let currentFilteredPosts = [];
             let depthObserver = null;
             let currentDepthIndex = 0;
+            let currentViewingPost = null;
 
             const filterState = {
                 search: '',
@@ -145,33 +164,113 @@
                 sortBy: 'date-desc'
             };
 
-            // Camadas do Abismo para Telemetria
-            function getLayerFromDepth(depth) {
-                if (depth < 200) return { name: 'Orth', relic: 'Superfície' };
-                if (depth <= 1350) return { name: '1ª Camada', relic: 'Borda do Abismo' };
-                if (depth <= 2600) return { name: '2ª Camada', relic: 'Floresta dos Tentáculos' };
-                if (depth <= 7000) return { name: '3ª Camada', relic: 'Grande Falha' };
-                if (depth <= 12000) return { name: '4ª Camada', relic: 'Taças Gigantes' };
-                if (depth <= 13000) return { name: '5ª Camada', relic: 'Mar de Cadáveres' };
-                if (depth <= 15500) return { name: '6ª Camada', relic: 'Capital dos Não-Retornáveis' };
-                return { name: '7ª Camada', relic: 'O Anel Final' };
+            // Guia Canônico de Profundidade e Apitos (Made in Abyss)
+            const LAYER_GUIDE = {
+                1: {
+                    layerNum: 1,
+                    name: '1ª Camada',
+                    title: 'Borda do Abismo',
+                    min: 0,
+                    max: 1350,
+                    whistleColor: '#ef4444', // Apito Vermelho
+                    whistleBg: 'rgba(239, 68, 68, 0.14)',
+                    whistleBorder: 'rgba(239, 68, 68, 0.4)',
+                    whistleGlow: 'rgba(239, 68, 68, 0.35)'
+                },
+                2: {
+                    layerNum: 2,
+                    name: '2ª Camada',
+                    title: 'Floresta dos Tentáculos',
+                    min: 1350,
+                    max: 2600,
+                    whistleColor: '#38bdf8', // Apito Azul
+                    whistleBg: 'rgba(56, 189, 248, 0.14)',
+                    whistleBorder: 'rgba(56, 189, 248, 0.4)',
+                    whistleGlow: 'rgba(56, 189, 248, 0.35)'
+                },
+                3: {
+                    layerNum: 3,
+                    name: '3ª Camada',
+                    title: 'Grande Falha',
+                    min: 2600,
+                    max: 7000,
+                    whistleColor: '#c084fc', // Apito da Lua (Roxo / Ametista)
+                    whistleBg: 'rgba(192, 132, 252, 0.14)',
+                    whistleBorder: 'rgba(192, 132, 252, 0.4)',
+                    whistleGlow: 'rgba(192, 132, 252, 0.35)'
+                },
+                4: {
+                    layerNum: 4,
+                    name: '4ª Camada',
+                    title: 'Taças Gigantes',
+                    min: 7000,
+                    max: 12000,
+                    whistleColor: '#cbd5e1', // Apito Preto (Grafite / Slate)
+                    whistleBg: 'rgba(30, 41, 59, 0.85)',
+                    whistleBorder: 'rgba(148, 163, 184, 0.55)',
+                    whistleGlow: 'rgba(148, 163, 184, 0.3)'
+                },
+                5: {
+                    layerNum: 5,
+                    name: '5ª Camada',
+                    title: 'Mar de Cadáveres',
+                    min: 12000,
+                    max: 13000,
+                    whistleColor: '#ffffff', // Apito Branco (Perolado)
+                    whistleBg: 'rgba(255, 255, 255, 0.16)',
+                    whistleBorder: 'rgba(255, 255, 255, 0.55)',
+                    whistleGlow: 'rgba(255, 255, 255, 0.45)'
+                },
+                6: {
+                    layerNum: 6,
+                    name: '6ª Camada',
+                    title: 'Capital dos Não-Retornáveis',
+                    min: 13000,
+                    max: 15500,
+                    whistleColor: '#fef08a', // Apito Branco Dourado / Iridescente
+                    whistleBg: 'rgba(254, 240, 138, 0.14)',
+                    whistleBorder: 'rgba(254, 240, 138, 0.5)',
+                    whistleGlow: 'rgba(254, 240, 138, 0.4)'
+                },
+                7: {
+                    layerNum: 7,
+                    name: '7ª Camada',
+                    title: 'O Vórtice Final',
+                    min: 15500,
+                    max: 20000,
+                    whistleColor: '#fb7185', // Apito Branco Carmesim Final
+                    whistleBg: 'rgba(251, 113, 133, 0.14)',
+                    whistleBorder: 'rgba(251, 113, 133, 0.5)',
+                    whistleGlow: 'rgba(251, 113, 133, 0.4)'
+                }
+            };
+
+            function getLayerData(layerNum) {
+                const l = parseInt(layerNum, 10) || 1;
+                return LAYER_GUIDE[l] || LAYER_GUIDE[1];
             }
 
-            function getRelicGrade(layer, index, total) {
-                const l = parseInt(layer, 10);
-                if (l === 1) return 'GRAU 4 // APITO VERMELHO';
-                if (l === 2) return 'GRAU 3 // APITO AZUL';
-                if (l === 3) return 'GRAU 2 // APITO DA LUA';
-                if (l === 4) return 'GRAU 1 // APITO PRETO';
-                if (l >= 5) return 'GRAU ESPECIAL // APITO BRANCO';
+            function getOriginLabel(layerNum) {
+                const l = parseInt(layerNum, 10) || 1;
+                if (l <= 1) return 'Orth';
+                return `${l - 1}ª Camada`;
+            }
 
-                const denominator = Math.max(total - 1, 1);
-                const ratio = index / denominator;
-                if (ratio < 0.25) return 'GRAU 4 // APITO VERMELHO';
-                if (ratio < 0.5) return 'GRAU 3 // APITO AZUL';
-                if (ratio < 0.75) return 'GRAU 2 // APITO DA LUA';
-                if (ratio < 0.9) return 'GRAU 1 // APITO PRETO';
-                return 'GRAU ESPECIAL // APITO BRANCO';
+            function formatDepthRange(layerNum) {
+                const d = getLayerData(layerNum);
+                if (d.layerNum === 7) return '15.500m+';
+                return `${d.min.toLocaleString('pt-BR')}m – ${d.max.toLocaleString('pt-BR')}m`;
+            }
+
+            function getLayerFromDepth(depth) {
+                if (depth < 50) return { name: 'Orth (Superfície)', layerNum: 0, title: 'Superfície', whistleColor: '#f8fafc' };
+                if (depth <= 1350) return LAYER_GUIDE[1];
+                if (depth <= 2600) return LAYER_GUIDE[2];
+                if (depth <= 7000) return LAYER_GUIDE[3];
+                if (depth <= 12000) return LAYER_GUIDE[4];
+                if (depth <= 13000) return LAYER_GUIDE[5];
+                if (depth <= 15500) return LAYER_GUIDE[6];
+                return LAYER_GUIDE[7];
             }
 
             function escapeHtml(str) {
@@ -211,21 +310,22 @@
                     return `%%IC${inlineCodes.length - 1}%%`;
                 });
 
-                md = md.replace(/^###\s+(.*)/gm, '<h3>$1</h3>');
-                md = md.replace(/^##\s+(.*)/gm, '<h2>$1</h2>');
-                md = md.replace(/^#\s+(.*)/gm, '<h1>$1</h1>');
-                md = md.replace(/^(?:---|\*\*\*|___)\s*$/gm, '<hr style="border: none; border-top: 1px solid var(--liquid-border-subtle); margin: 28px 0;">');
-                md = md.replace(/^>\s+(.*)/gm, '<blockquote><p>$1</p></blockquote>');
+                // Cabeçalhos proporcionais em escala harmônica
+                md = md.replace(/^###\s+(.*)/gm, '<h4 class="post-h4">$1</h4>');
+                md = md.replace(/^##\s+(.*)/gm, '<h3 class="post-h3">$1</h3>');
+                md = md.replace(/^#\s+(.*)/gm, '<h2 class="post-h2">$1</h2>');
+                md = md.replace(/^(?:---|\*\*\*|___)\s*$/gm, '<hr class="post-divider">');
+                md = md.replace(/^>\s+(.*)/gm, '<blockquote class="post-quote"><p>$1</p></blockquote>');
                 md = md.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
                 md = md.replace(/\*(.*?)\*/g, '<em>$1</em>');
-                md = md.replace(/!\[(.*?)\]\((.*?)\)/g, '<img alt="$1" src="$2" loading="lazy">');
-                md = md.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener" style="color: var(--accent-cyan); text-decoration: underline;">$1</a>');
+                md = md.replace(/!\[(.*?)\]\((.*?)\)/g, '<img alt="$1" src="$2" loading="lazy" class="post-image">');
+                md = md.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener" class="post-link">$1</a>');
 
                 md = md.replace(/((?:^[\-\*]\s+.*\n?)+)/gm, (block) => {
                     const items = block.trim().split(/\n/).map(line =>
                         '<li>' + line.replace(/^[\-\*]\s+/, '') + '</li>'
                     ).join('\n');
-                    return '\n<ul style="padding-left: 20px; margin: 16px 0;">' + items + '</ul>\n';
+                    return '\n<ul class="post-list">' + items + '</ul>\n';
                 });
 
                 const blocks = md.split(/\n{2,}/);
@@ -233,16 +333,25 @@
                     block = block.trim();
                     if (!block) return '';
                     if (/^<(h[1-6]|ul|ol|blockquote|pre|hr|div|table|img|%%CB)/.test(block)) return block;
-                    return '<p>' + block.replace(/\n/g, ' ') + '</p>';
+                    return '<p class="post-p">' + block.replace(/\n/g, ' ') + '</p>';
                 }).join('\n');
 
-                md = md.replace(/<p>%%CB(\d+)%%<\/p>|%%CB(\d+)%%/g, (_, i1, i2) => {
+                md = md.replace(/<p class="post-p">%%CB(\d+)%%<\/p>|%%CB(\d+)%%/g, (_, i1, i2) => {
                     const idx = parseInt(i1 ?? i2, 10);
                     const { lang, code } = codeBlocks[idx];
-                    return `<pre><code class="lang-${lang || 'text'}">${code}</code></pre>`;
+                    const displayLang = (lang || 'TEXT').toUpperCase();
+                    return `
+                        <div class="code-terminal">
+                            <div class="terminal-bar">
+                                <span class="terminal-dots"><i></i><i></i><i></i></span>
+                                <span class="terminal-lang">${displayLang}</span>
+                            </div>
+                            <pre><code class="lang-${lang || 'text'}">${code}</code></pre>
+                        </div>
+                    `;
                 });
 
-                md = md.replace(/%%IC(\d+)%%/g, (_, i) => `<code>${inlineCodes[parseInt(i, 10)]}</code>`);
+                md = md.replace(/%%IC(\d+)%%/g, (_, i) => `<code class="post-inline-code">${inlineCodes[parseInt(i, 10)]}</code>`);
                 return md;
             }
 
@@ -263,8 +372,7 @@
                     .toLowerCase();
             }
 
-            // Diretriz 4: Desempenho no display numérico — Apenas transform: translateY() e textContent
-            function applyDepthTelemetry(depth, progressPct) {
+            function applyDepthTelemetry(depth, progressPct, layerData) {
                 const marker = document.getElementById('gauge-marker');
                 const track = document.getElementById('gauge-track');
                 const readout = document.getElementById('gauge-readout');
@@ -272,38 +380,73 @@
 
                 const mobileReadout = document.getElementById('mobile-depth-readout');
                 const mobileLayer = document.getElementById('mobile-layer-readout');
+                const mobilePill = document.getElementById('mobile-depth-pill');
+                const mobileDot = mobilePill ? mobilePill.querySelector('.pill-dot') : null;
 
-                const layer = getLayerFromDepth(depth);
+                const layer = layerData || getLayerFromDepth(depth);
                 const formattedMeters = depth.toLocaleString('pt-BR') + 'm';
 
                 // Desktop HUD
                 if (track && marker) {
-                    const trackHeight = Math.max(track.clientHeight - 8, 10);
+                    const trackHeight = track.clientHeight || 180;
                     const translateY = Math.round(progressPct * trackHeight);
                     marker.style.transform = `translateY(${translateY}px)`;
+                    marker.style.backgroundColor = layer.whistleColor;
+                    marker.style.boxShadow = `0 0 10px ${layer.whistleGlow || layer.whistleColor}`;
                 }
 
-                if (readout) readout.textContent = formattedMeters;
-                if (layerBadge) layerBadge.textContent = `${layer.name} // ${formattedMeters}`;
+                if (readout) {
+                    readout.textContent = formattedMeters;
+                    readout.style.color = layer.whistleColor;
+                    readout.style.textShadow = `0 0 8px ${layer.whistleGlow || layer.whistleColor}`;
+                }
+
+                if (layerBadge) {
+                    layerBadge.textContent = `${layer.name || 'Camada ' + layer.layerNum} // ${formattedMeters}`;
+                    layerBadge.style.color = layer.whistleColor;
+                    layerBadge.style.borderColor = layer.whistleBorder || 'rgba(255,255,255,0.2)';
+                }
 
                 // Mobile Pill
-                if (mobileReadout) mobileReadout.textContent = formattedMeters;
-                if (mobileLayer) mobileLayer.textContent = layer.name;
+                if (mobileReadout) {
+                    mobileReadout.textContent = formattedMeters;
+                    mobileReadout.style.color = layer.whistleColor;
+                }
+                if (mobileLayer) {
+                    mobileLayer.textContent = layer.name || 'Camada ' + layer.layerNum;
+                    mobileLayer.style.color = layer.whistleColor;
+                }
+                if (mobileDot) {
+                    mobileDot.style.backgroundColor = layer.whistleColor;
+                    mobileDot.style.boxShadow = `0 0 8px ${layer.whistleColor}`;
+                }
+
+                // Atualiza o contador de profundidade do post viewer caso esteja aberto
+                const viewerDepth = document.getElementById('viewer-depth');
+                if (viewerDepth && currentViewingPost) {
+                    viewerDepth.textContent = formattedMeters;
+                }
             }
 
-            // Diretriz 1: IntersectionObserver com margem central para tamanhos desiguais
             function setupDepthObserver(postsCount) {
                 if (depthObserver) {
                     depthObserver.disconnect();
                 }
 
                 depthObserver = new IntersectionObserver((entries) => {
+                    if (currentViewingPost) return;
+
+                    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                    if (scrollY < 120) {
+                        applyDepthTelemetry(0, 0);
+                        return;
+                    }
+
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             const depthIndex = Number(entry.target.dataset.depthIndex || 0);
                             currentDepthIndex = depthIndex;
 
-                            // Guarda contra divisão por zero
                             const denominator = Math.max(postsCount - 1, 1);
                             const progressPct = Math.min(1, Math.max(0, depthIndex / denominator));
                             const depth = Math.round(progressPct * MAX_DEPTH);
@@ -311,18 +454,41 @@
                             applyDepthTelemetry(depth, progressPct);
                         }
                     });
-                }, { rootMargin: '-40% 0px -40% 0px' });
+                }, { rootMargin: '-30% 0px -30% 0px' });
 
                 document.querySelectorAll('.relic-card').forEach(card => {
                     depthObserver.observe(card);
                 });
+
+                // Inicia rigorosamente em 0m se estiver no topo
+                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollY < 120) {
+                    applyDepthTelemetry(0, 0);
+                }
             }
 
-            // Diretriz 2: Posicionamento e transição suave do pill no topo (Orth / 0m)
             function handleScroll() {
                 const scrollY = window.pageYOffset || document.documentElement.scrollTop;
                 const mobilePill = document.getElementById('mobile-depth-pill');
 
+                // Se estiver dentro de um post aberto
+                if (currentViewingPost) {
+                    const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+                    const currentProgress = Math.min(1, Math.max(0, scrollY / maxScroll));
+
+                    const layerData = getLayerData(currentViewingPost.meta.layer);
+                    const depth = Math.round(layerData.min + currentProgress * (layerData.max - layerData.min));
+
+                    applyDepthTelemetry(depth, currentProgress, layerData);
+
+                    if (mobilePill) {
+                        if (scrollY > 60) mobilePill.classList.add('visible');
+                        else mobilePill.classList.remove('visible');
+                    }
+                    return;
+                }
+
+                // Modo feed
                 if (scrollY < 120) {
                     applyDepthTelemetry(0, 0);
                     if (mobilePill) mobilePill.classList.remove('visible');
@@ -347,23 +513,33 @@
 
                 empty.style.display = 'none';
 
-                const total = posts.length;
-                // Guarda contra divisão por zero ao calcular profundidade
-                const denominator = Math.max(total - 1, 1);
-
                 container.innerHTML = posts.map((post, index) => {
-                    const depth = Math.round((index / denominator) * MAX_DEPTH);
-                    const relicGrade = getRelicGrade(post.meta.layer, index, total);
+                    const layerData = getLayerData(post.meta.layer);
+                    const depthCoordStr = formatDepthRange(layerData.layerNum);
                     const tags = Array.isArray(post.meta.tags) ? post.meta.tags : [];
-                    const tagsHtml = tags.map(t => `<span class="relic-tag">${escapeHtml(t)}</span>`).join('');
+                    const tagsHtml = tags.map(t => {
+                        const lower = (t || '').toLowerCase();
+                        let charClass = '';
+                        if (lower.includes('riko')) charClass = 'tag-riko';
+                        else if (lower.includes('reg')) charClass = 'tag-reg';
+                        else if (lower.includes('nanachi')) charClass = 'tag-nanachi';
+                        else if (lower.includes('prushka')) charClass = 'tag-prushka';
+                        else if (lower.includes('faputa')) charClass = 'tag-faputa';
+                        return `<span class="relic-tag ${charClass}">${escapeHtml(t)}</span>`;
+                    }).join('');
                     const excerpt = post.body.replace(/^#+.*$/gm, '').replace(/\[\[.*?\]\]/g, '').trim().slice(0, 160) + '...';
 
                     return `
                         <article class="relic-card glass-card" data-depth-index="${index}" data-slug="${encodeURIComponent(post.filename)}">
                             <div>
                                 <div class="relic-badge-row">
-                                    <span class="relic-grade">${relicGrade}</span>
-                                    <span class="relic-depth-coord">${depth.toLocaleString('pt-BR')}m</span>
+                                    <span class="relic-grade" style="color: ${layerData.whistleColor}; background: ${layerData.whistleBg}; border-color: ${layerData.whistleBorder}; box-shadow: 0 0 10px ${layerData.whistleGlow};">
+                                        <svg class="anime-icon" style="width: 13px; height: 13px; margin-right: 5px; vertical-align: -2px; color: ${layerData.whistleColor};" aria-hidden="true"><use href="#icon-white-whistle"></use></svg>
+                                        Camada ${layerData.layerNum}
+                                    </span>
+                                    <span class="relic-depth-coord" style="color: ${layerData.whistleColor}; background: ${layerData.whistleBg}; border: 1px solid ${layerData.whistleBorder}; padding: 3px 10px; border-radius: var(--radius-pill); font-weight: 600; box-shadow: 0 0 8px ${layerData.whistleGlow};">
+                                        ${depthCoordStr}
+                                    </span>
                                 </div>
                                 <h3>${escapeHtml(post.meta.title || post.filename.replace('.md', ''))}</h3>
                                 <p>${escapeHtml(excerpt)}</p>
@@ -385,7 +561,7 @@
                 });
 
                 // Ativa o observer de profundidade
-                setupDepthObserver(total);
+                setupDepthObserver(posts.length);
             }
 
             function applyFiltersAndSort() {
@@ -567,6 +743,8 @@
                 const post = allPosts.find(p => p.filename === filename);
                 if (!post) return;
 
+                currentViewingPost = post;
+
                 const hero = document.getElementById('blog-hero');
                 const controls = document.getElementById('blog-controls');
                 const postsSection = document.getElementById('posts-section');
@@ -583,28 +761,87 @@
                 const gradeEl = document.getElementById('viewer-grade');
                 const depthEl = document.getElementById('viewer-depth');
 
+                const layerData = getLayerData(post.meta.layer);
+
                 if (titleEl) titleEl.textContent = post.meta.title || post.filename.replace('.md', '');
-                if (gradeEl) gradeEl.textContent = getRelicGrade(post.meta.layer, 0, 1);
-                if (depthEl) depthEl.textContent = post.meta.layer ? `Camada ${post.meta.layer}` : 'Profundezas';
-                if (metaEl) metaEl.textContent = `Registrado em: ${formatDate(post.meta.date)} • Tags: ${(post.meta.tags || []).join(', ')}`;
+
+                // Tag indicando a Camada com a cor do apito correspondente (sem citar nome do apito no texto)
+                if (gradeEl) {
+                    gradeEl.innerHTML = `<svg class="anime-icon" style="width: 14px; height: 14px; margin-right: 5px; vertical-align: -2px; color: ${layerData.whistleColor};" aria-hidden="true"><use href="#icon-white-whistle"></use></svg>Camada ${layerData.layerNum}`;
+                    gradeEl.style.color = layerData.whistleColor;
+                    gradeEl.style.background = layerData.whistleBg;
+                    gradeEl.style.borderColor = layerData.whistleBorder;
+                    gradeEl.style.boxShadow = `0 0 12px ${layerData.whistleGlow}`;
+                }
+
+                // Indicador de profundidade com a cor do apito
+                if (depthEl) {
+                    depthEl.textContent = `${layerData.min.toLocaleString('pt-BR')}m`;
+                    depthEl.style.color = layerData.whistleColor;
+                    depthEl.style.borderColor = layerData.whistleBorder;
+                    depthEl.style.background = layerData.whistleBg;
+                    depthEl.style.boxShadow = `0 0 10px ${layerData.whistleGlow}`;
+                    depthEl.style.padding = '3px 10px';
+                    depthEl.style.borderRadius = 'var(--radius-pill)';
+                    depthEl.style.border = `1px solid ${layerData.whistleBorder}`;
+                }
+
+                const tagsHtml = (post.meta.tags || []).map(t => `<span class="relic-tag tag-post">${escapeHtml(t)}</span>`).join('');
+                const dateFormatted = formatDate(post.meta.date);
+                const wordCount = post.body.trim().split(/\s+/).length;
+                const readTime = Math.max(1, Math.ceil(wordCount / 180));
+
+                if (metaEl) {
+                    metaEl.innerHTML = `
+                        <div class="post-meta-bar">
+                            <span class="meta-item"><svg class="anime-icon"><use href="#icon-star-badge"></use></svg> ${dateFormatted}</span>
+                            <span class="meta-item-separator">&bull;</span>
+                            <span class="meta-item"><svg class="anime-icon" style="color: ${layerData.whistleColor};"><use href="#icon-white-whistle"></use></svg> ${readTime} min de leitura</span>
+                            <span class="meta-item-separator">&bull;</span>
+                            <span class="meta-item" style="color: ${layerData.whistleColor}; font-weight: 600;">Camada ${layerData.layerNum} (${layerData.title})</span>
+                        </div>
+                        ${tagsHtml ? `<div class="post-meta-tags-row">${tagsHtml}</div>` : ''}
+                    `;
+                }
+
                 if (bodyEl) bodyEl.innerHTML = parseMarkdown(post.body);
 
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Atualiza a origem no altímetro (Camada imediatamente acima, ou Orth se for Camada 1)
+                const originEl = document.getElementById('gauge-origin');
+                if (originEl) {
+                    originEl.textContent = getOriginLabel(layerData.layerNum);
+                }
+
+                window.scrollTo({ top: 0, behavior: 'instant' });
+                // Inicia imediatamente no topo da página (progresso 0) na profundidade inicial da camada
+                applyDepthTelemetry(layerData.min, 0, layerData);
+
                 history.pushState({ post: filename }, '', `?post=${encodeURIComponent(filename)}`);
             }
 
             function showGrid() {
+                currentViewingPost = null;
+
                 const hero = document.getElementById('blog-hero');
                 const controls = document.getElementById('blog-controls');
                 const postsSection = document.getElementById('posts-section');
                 const viewer = document.getElementById('post-viewer');
+                const originEl = document.getElementById('gauge-origin');
 
                 if (hero) hero.style.display = '';
                 if (controls) controls.style.display = '';
                 if (postsSection) postsSection.style.display = '';
                 if (viewer) viewer.style.display = 'none';
 
+                if (originEl) originEl.textContent = 'Orth';
+
+                const gradeEl = document.getElementById('viewer-grade');
+                const depthEl = document.getElementById('viewer-depth');
+                if (gradeEl) gradeEl.removeAttribute('style');
+                if (depthEl) depthEl.removeAttribute('style');
+
                 history.pushState({}, '', window.location.pathname);
+                applyDepthTelemetry(0, 0);
                 setupDepthObserver(currentFilteredPosts.length);
             }
 
@@ -668,6 +905,11 @@
                 const backBtn = document.getElementById('viewer-back');
                 if (backBtn) {
                     backBtn.addEventListener('click', showGrid);
+                }
+
+                const backBtnBottom = document.getElementById('viewer-back-bottom');
+                if (backBtnBottom) {
+                    backBtnBottom.addEventListener('click', showGrid);
                 }
 
                 window.addEventListener('popstate', (e) => {

@@ -1,0 +1,16 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# Logs & Temporary Files
+*.log
+*.tmp
+
+# Editor & IDE directories
+.vscode/
+.idea/
+
+# Node dependencies (if any)
+node_modules/

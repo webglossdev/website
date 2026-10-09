@@ -1,0 +1,288 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- ======================================================================
+       CHUUNIBYOU DEMO KOI GA SHITAI!
+       ====================================================================== -->
+  <!-- Tapa-olho médico da Rikka Takanashi -->
+  <symbol id="icon-eyepatch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="5" y="6" width="14" height="12" rx="3" fill="currentColor" fill-opacity="0.12" />
+    <line x1="2" y1="4" x2="6" y2="7" />
+    <line x1="18" y1="17" x2="22" y2="20" />
+    <path d="M12 9v6M9 12h6" stroke-width="1.6" />
+    <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+  </symbol>
+
+  <!-- Círculo de Runas / Schwarz Sechs Prototype -->
+  <symbol id="icon-rune-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9.5" />
+    <circle cx="12" cy="12" r="7" stroke-dasharray="2 1.5" />
+    <polygon points="12,5 18,15.5 6,15.5" stroke-width="1.2" />
+    <polygon points="12,19 18,8.5 6,8.5" stroke-width="1.2" />
+    <circle cx="12" cy="12" r="1.8" fill="currentColor" />
+  </symbol>
+
+  <!-- Orbes de cabelo / Pesos da Dekomori -->
+  <symbol id="icon-dekomori-balls" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 3c0 4 3 6 3 9" />
+    <path d="M16 3c0 4-3 6-3 9" />
+    <circle cx="7" cy="16" r="4.5" fill="currentColor" fill-opacity="0.2" />
+    <circle cx="17" cy="16" r="4.5" fill="currentColor" fill-opacity="0.2" />
+    <path d="M5 14.5a3 3 0 0 1 4 0M15 14.5a3 3 0 0 1 4 0" />
+    <circle cx="7" cy="16" r="1.2" fill="currentColor" />
+    <circle cx="17" cy="16" r="1.2" fill="currentColor" />
+  </symbol>
+
+  <!-- Travesseiro de cochilo da Kumin -->
+  <symbol id="icon-kumin-pillow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 7c3-2 13-2 16 0s2 10 0 10-13 2-16 0S2 9 4 7z" fill="currentColor" fill-opacity="0.15" />
+    <path d="M8 12c2-1 6-1 8 0" stroke-width="1.4" stroke-dasharray="1 1.5" />
+    <circle cx="4" cy="7" r="0.8" fill="currentColor" />
+    <circle cx="20" cy="7" r="0.8" fill="currentColor" />
+    <circle cx="20" cy="17" r="0.8" fill="currentColor" />
+    <circle cx="4" cy="17" r="0.8" fill="currentColor" />
+  </symbol>
+
+  <!-- ======================================================================
+       GOSICK
+       ====================================================================== -->
+  <!-- Cachimbo vitoriano de porcelana da Victorique -->
+  <symbol id="icon-pipe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 4h-4v4c0 3 2 5 5 5h1V4z" fill="currentColor" fill-opacity="0.18" />
+    <path d="M19 13c-4.5 0-8 3-11 3H4a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h4c2.5 0 5-2 8-2" />
+    <path d="M16 2c1 0.8 1 1.5 0 2.2M18 1c1 0.8 1 1.5 0 2.2" stroke-width="1.2" />
+  </symbol>
+
+  <!-- Medalhão / Locket de Ouro da Victorique -->
+  <symbol id="icon-locket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="4" r="1.5" />
+    <path d="M12 5.5v2" />
+    <ellipse cx="12" cy="14.5" rx="6.5" ry="7.5" fill="currentColor" fill-opacity="0.15" />
+    <ellipse cx="12" cy="14.5" rx="4" ry="5" stroke-dasharray="2 1.5" />
+    <polygon points="12,12 13.5,14.5 12,17 10.5,14.5" fill="currentColor" />
+  </symbol>
+
+  <!-- Livro antigo de mistério / Tomo da Biblioteca -->
+  <symbol id="icon-vintage-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v16H6.5a2.5 2.5 0 0 0-2.5 2.5z" fill="currentColor" fill-opacity="0.15" />
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+    <line x1="8" y1="6" x2="16" y2="6" stroke-width="1.4" />
+    <line x1="8" y1="9" x2="14" y2="9" stroke-width="1.4" />
+    <line x1="8" y1="12" x2="12" y2="12" stroke-width="1.4" />
+    <path d="M14 2v6l2-1.5L18 8V2" fill="currentColor" fill-opacity="0.4" />
+  </symbol>
+
+  <!-- Laço drapeado das costas do vestido -->
+  <symbol id="icon-dress-bow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="10" r="2.2" fill="currentColor" />
+    <path d="M10 9C5 6 3 11 9.8 11z" fill="currentColor" fill-opacity="0.2" />
+    <path d="M14 9C19 6 21 11 14.2 11z" fill="currentColor" fill-opacity="0.2" />
+    <path d="M10.5 11.5L7 20l3-1 2 2 2-2 3 1-3.5-8.5" />
+  </symbol>
+
+  <!-- ======================================================================
+       MADE IN ABYSS
+       ====================================================================== -->
+  <!-- Apito Branco da Prushka (White Whistle) -->
+  <symbol id="icon-white-whistle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="4" r="2" />
+    <path d="M12 6c-3 1-5 4-5 8 0 4 2.5 7 5 7s5-3 5-7c0-4-2-7-5-8z" fill="currentColor" fill-opacity="0.18" />
+    <ellipse cx="12" cy="14" rx="2" ry="3" />
+    <line x1="12" y1="10" x2="12" y2="11" />
+  </symbol>
+
+  <!-- Capacete do Reg -->
+  <symbol id="icon-reg-helmet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12a7 7 0 0 1 14 0v5a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-5z" fill="currentColor" fill-opacity="0.15" />
+    <rect x="7" y="11" width="10" height="4" rx="1.5" />
+    <circle cx="10" cy="13" r="1" fill="currentColor" />
+    <circle cx="14" cy="13" r="1" fill="currentColor" />
+    <path d="M4 10l-2-3M20 10l2-3" />
+  </symbol>
+
+  <!-- Hexágono terminal do cabelo da Nanachi -->
+  <symbol id="icon-nanachi-hex" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="12,3 19,7 19,15 12,19 5,15 5,7" fill="currentColor" fill-opacity="0.2" />
+    <polygon points="12,6 16,8.5 16,13.5 12,16 8,13.5 8,8.5" />
+    <circle cx="12" cy="11" r="1.5" fill="currentColor" />
+    <path d="M12 19v3M9 22h6" />
+  </symbol>
+
+  <!-- Chapéu / Boina de exploradora da Prushka -->
+  <symbol id="icon-prushka-hat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="12" cy="15" rx="9" ry="3" fill="currentColor" fill-opacity="0.12" />
+    <path d="M5 14c0-5 3-9 7-9s7 4 7 9" />
+    <circle cx="12" cy="5" r="1.2" fill="currentColor" />
+    <path d="M15 6l4-3" stroke-width="1.3" />
+  </symbol>
+
+  <!-- ======================================================================
+       PUELLA MAGI MADOKA MAGICA
+       ====================================================================== -->
+  <!-- Soul Gem da Madoka (Gota / Rosa) -->
+  <symbol id="icon-soulgem-madoka" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2C8.5 2 6 5.5 6 9c0 4.5 4 8 6 13 2-5 6-8.5 6-13 0-3.5-2.5-7-6-7z" fill="currentColor" fill-opacity="0.2" />
+    <circle cx="12" cy="9" r="3.2" fill="currentColor" />
+    <circle cx="12" cy="3.5" r="1" fill="currentColor" />
+  </symbol>
+
+  <!-- Soul Gem da Homura (Diamante / Roxo) -->
+  <symbol id="icon-soulgem-homura" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2l5 7-5 13-5-13z" fill="currentColor" fill-opacity="0.2" />
+    <polygon points="12,5 15,9 12,17 9,9" fill="currentColor" />
+    <path d="M7 9h10" stroke-width="1.2" />
+  </symbol>
+
+  <!-- Soul Gem da Mami (Flor Dourada) -->
+  <symbol id="icon-soulgem-mami" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="3.5" fill="currentColor" />
+    <circle cx="12" cy="5" r="2.2" />
+    <circle cx="12" cy="19" r="2.2" />
+    <circle cx="5" cy="12" r="2.2" />
+    <circle cx="19" cy="12" r="2.2" />
+  </symbol>
+
+  <!-- Soul Gem da Sayaka (Chave de Sol / Azul) -->
+  <symbol id="icon-soulgem-sayaka" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="13" r="5" fill="currentColor" fill-opacity="0.2" />
+    <path d="M12 3v12a2.5 2.5 0 1 1-2-2.45M12 6c3 0 4 2 4 4" />
+  </symbol>
+
+  <!-- Soul Gem da Kyoko (Chama / Vermelho) -->
+  <symbol id="icon-soulgem-kyoko" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2c1.5 3 5 5 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9z" fill="currentColor" fill-opacity="0.2" />
+    <path d="M12 9c1 1.5 2 2.5 2 4a2 2 0 0 1-4 0c0-1.5 1-2.5 2-4z" fill="currentColor" />
+  </symbol>
+
+  <!-- Flecha de luz da Madoka -->
+  <symbol id="icon-madoka-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="3" y1="21" x2="20" y2="4" stroke-width="1.8" />
+    <polygon points="21,3 15,4 20,9" fill="currentColor" />
+    <path d="M11 13c-2 0-3-2-2-4s2-2 4-2M15 9c0 2-2 3-4 2" />
+  </symbol>
+
+  <!-- Auréola / Anéis orbitais do Kyubey -->
+  <symbol id="icon-kyubey-halo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(-20 12 12)" />
+    <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(20 12 12)" />
+    <circle cx="12" cy="12" r="2.5" fill="currentColor" />
+  </symbol>
+
+  <!-- Nota musical estilizada -->
+  <symbol id="icon-musical-note" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="8" cy="17" r="3" fill="currentColor" />
+    <path d="M11 17V5l8-2v11" />
+    <circle cx="16" cy="14" r="3" fill="currentColor" />
+  </symbol>
+
+  <!-- Mosquete vitoriano de luz da Mami -->
+  <symbol id="icon-magic-musket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="2" y1="20" x2="21" y2="5" stroke-width="2" />
+    <path d="M2 20l2 2 3-1-1-3z" fill="currentColor" />
+    <line x1="16" y1="6" x2="19" y2="9" />
+    <line x1="10" y1="12" x2="8" y2="15" />
+  </symbol>
+
+  <!-- Laço vermelho de fita da Madoka/Homura -->
+  <symbol id="icon-ribbon-bow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="10" r="1.8" fill="currentColor" />
+    <path d="M10.5 9.5C6 7 4 12 10.5 11z" fill="currentColor" fill-opacity="0.3" />
+    <path d="M13.5 9.5C18 7 20 12 13.5 11z" fill="currentColor" fill-opacity="0.3" />
+    <path d="M10.5 11.5L6 20M13.5 11.5L18 20" />
+  </symbol>
+
+  <!-- Palitos de Pocky da Kyoko -->
+  <symbol id="icon-pocky-sticks" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="5" y="10" width="8" height="12" rx="1" fill="currentColor" fill-opacity="0.18" />
+    <line x1="7" y1="10" x2="7" y2="2" stroke-width="2" stroke-linecap="round" />
+    <line x1="10" y1="10" x2="11" y2="3" stroke-width="2" stroke-linecap="round" />
+    <line x1="15" y1="8" x2="19" y2="2" stroke-width="2" stroke-linecap="round" />
+  </symbol>
+
+  <!-- ======================================================================
+       MAHOAKO (MAHOU SHOUJO NI AKOGARETE)
+       ====================================================================== -->
+  <!-- Estrela facetada da Enormeeta -->
+  <symbol id="icon-enormeeta-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2l2.8 6.5L21 11l-5.5 3.5L16 21l-4-4-4 4 0.5-6.5L3 11l6.2-2.5z" fill="currentColor" fill-opacity="0.2" />
+    <polygon points="12,5 14,9 18,11 14,13 15,18 12,15 9,18 10,13 6,11 10,9" fill="currentColor" />
+  </symbol>
+
+  <!-- Chifres demoníacos da Utena (Magia Baiser) -->
+  <symbol id="icon-utena-horns" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 19c-2-6 0-12 4-15 0 5-1 10-4 15z" fill="currentColor" fill-opacity="0.25" />
+    <path d="M19 19c2-6 0-12-4-15 0 5 1 10 4 15z" fill="currentColor" fill-opacity="0.25" />
+    <path d="M8 18c2 2 6 2 8 0" stroke-width="1.5" />
+  </symbol>
+
+  <!-- ======================================================================
+       RE:ZERO KARA HAJIMERU ISEKAI SEIKATSU
+       ====================================================================== -->
+  <!-- Borboleta ornamental de Beatrice (olhos & vestido) -->
+  <symbol id="icon-rezero-butterfly" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 7v10" stroke-width="1.8" />
+    <path d="M12 8c-3-5-9-4-9 2 0 4 5 6 9 2z" fill="currentColor" fill-opacity="0.22" />
+    <path d="M12 8c3-5 9-4 9 2 0 4-5 6-9 2z" fill="currentColor" fill-opacity="0.22" />
+    <path d="M12 12c-2.5 1-6 4-5 7 1.5 3 6-1 5-7z" fill="currentColor" fill-opacity="0.16" />
+    <path d="M12 12c2.5 1 6 4 5 7-1.5 3-6-1-5-7z" fill="currentColor" fill-opacity="0.16" />
+    <circle cx="10" cy="5" r="0.8" fill="currentColor" />
+    <circle cx="14" cy="5" r="0.8" fill="currentColor" />
+  </symbol>
+
+  <!-- Laço duplo de empregada (Ram & Rem) -->
+  <symbol id="icon-rezero-maid-bow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="12" cy="12" rx="2.5" ry="2" fill="currentColor" />
+    <path d="M9.5 12C5 8 3 14 9.5 14.5z" fill="currentColor" fill-opacity="0.22" />
+    <path d="M14.5 12C19 8 21 14 14.5 14.5z" fill="currentColor" fill-opacity="0.22" />
+    <path d="M10 13.5L7 21l3-1.5 2 2" />
+    <path d="M14 13.5L17 21l-3-1.5-2 2" />
+  </symbol>
+
+  <!-- Grimório Proibido da Biblioteca de Beatrice -->
+  <symbol id="icon-rezero-tome" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v16H6.5a2.5 2.5 0 0 0-2.5 2.5z" fill="currentColor" fill-opacity="0.16" />
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+    <circle cx="13" cy="9.5" r="3" fill="currentColor" fill-opacity="0.2" />
+    <path d="M13 7.5v4M11 9.5h4" stroke-width="1.4" />
+  </symbol>
+
+  <!-- Mão das Sombras / Fator da Bruxa (Subaru & Satella) -->
+  <symbol id="icon-rezero-witch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2C6.5 2 4 6 4 11c0 6 5 11 8 11s8-5 8-11c0-5-2.5-9-8-9z" fill="currentColor" fill-opacity="0.18" />
+    <path d="M12 6c-2 2-3 4-3 6a3 3 0 0 0 6 0c0-2-1-4-3-6z" fill="currentColor" />
+    <path d="M8 12c-1.5 2-2 4 0 6M16 12c1.5 2 2 4 0 6" stroke-width="1.2" />
+  </symbol>
+
+  <!-- Insígnia de Besta Mágica (Meili Portroute) -->
+  <symbol id="icon-rezero-mabeast" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8" fill="currentColor" fill-opacity="0.15" />
+    <path d="M9 10l3-5 3 5" stroke-width="1.8" />
+    <circle cx="9" cy="13" r="1.5" fill="currentColor" />
+    <circle cx="15" cy="13" r="1.5" fill="currentColor" />
+    <path d="M10 17c1 1 3 1 4 0" stroke-width="1.5" />
+  </symbol>
+
+  <!-- ======================================================================
+       K-ON!
+       ====================================================================== -->
+  <!-- Guitarra Heritage Cherry Sunburst / Instrumento HTT -->
+  <symbol id="icon-guitar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15 13c2 2 4 1 5-1s0-4-2-5l-4-4 1-1-2-2-1 1-7 7c1 2 0 4-2 5s-3 3-1 5 3 0 5-2c1-1 3-1 5-1z" fill="currentColor" fill-opacity="0.18" />
+    <circle cx="16" cy="9" r="1.5" fill="currentColor" />
+    <line x1="5" y1="19" x2="13" y2="11" stroke-width="1.2" />
+  </symbol>
+
+  <!-- Xícara de Chá fumegante do Chá das Cinco -->
+  <symbol id="icon-tea-cup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 8h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z" fill="currentColor" fill-opacity="0.15" />
+    <path d="M16 9h2a2.5 2.5 0 0 1 0 5h-2" />
+    <line x1="2" y1="20" x2="18" y2="20" stroke-width="1.8" />
+    <path d="M7 3c0.8 1 0.8 2 0 3M11 2c0.8 1 0.8 2 0 3" stroke-width="1.2" />
+  </symbol>
+
+  <!-- Fatia de bolo com morango da Mugi -->
+  <symbol id="icon-cake-slice" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="4,18 20,18 20,11 4,14" fill="currentColor" fill-opacity="0.18" />
+    <polygon points="4,14 20,11 15,6 3,11" />
+    <circle cx="10" cy="6" r="2" fill="currentColor" />
+    <line x1="4" y1="16" x2="20" y2="14.5" stroke-dasharray="2 1.5" />
+  </symbol>
+</svg>

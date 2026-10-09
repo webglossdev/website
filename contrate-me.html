@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manutenção | Leonardo P. Soares</title>
-    <meta name="description" content="Página profissional em manutenção.">
+    <title>Contrate-me | Leonardo P. Soares</title>
+    <meta name="description" content="Serviços e projetos profissionais de Leonardo P. Soares — Soluções sob medida em software, automação e hardware com temática de Re:Zero.">
     <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
 
     <!-- Script síncrono anti-FOUC (Prevenção de flash de tema) -->
@@ -18,25 +18,81 @@
     <!-- Fontes Google Otimizadas (display=swap, zero CLS) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
+<body data-theme="rezero">
     <div class="content-wrapper">
-        <header class="hero">
-            <h1>Manutenção</h1>
-            <p class="subtitle">Essa página profissional está em reformulação cirúrgica. Em breve, novos detalhes e métricas estarão disponíveis.</p>
+        <header class="hero glass-panel">
+            <h1>Contrate-me</h1>
+            <p class="subtitle">Um refúgio de contratos, ideias técnicas e soluções sob medida para você me contratar! <svg class="anime-icon" style="color: var(--accent-pink);" aria-hidden="true"><use href="#icon-rezero-butterfly"></use></svg></p>
         </header>
 
-        <section class="glass-card" style="max-width: 680px; margin: 0 auto; text-align: center; padding: 40px 28px;">
-            <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 24px;">
-                Para oportunidades ou parcerias imediatas, entre em contato direto pelo canal de transmissão ou confira os repositórios públicos.
+        <!-- Roster de Guardiões e Inspirações de Re:Zero -->
+        <div class="rezero-character-roster" style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px;">
+            <span class="lb-badge" style="background: rgba(236, 72, 153, 0.15); color: #f43f5e; border: 1px solid rgba(236, 72, 153, 0.35); font-size: 11px; padding: 4px 12px;">
+                <svg class="anime-icon" style="margin-right: 5px;"><use href="#icon-rezero-butterfly"></use></svg> Beatrice • Biblioteca Proibida
+            </span>
+            <span class="lb-badge" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); font-size: 11px; padding: 4px 12px;">
+                <svg class="anime-icon" style="margin-right: 5px;"><use href="#icon-rezero-maid-bow"></use></svg> Rem &amp; Ram • Mansão Roswaal
+            </span>
+            <span class="lb-badge" style="background: rgba(249, 115, 22, 0.15); color: #f97316; border: 1px solid rgba(249, 115, 22, 0.35); font-size: 11px; padding: 4px 12px;">
+                <svg class="anime-icon" style="margin-right: 5px;"><use href="#icon-rezero-witch"></use></svg> Subaru • Resiliência &amp; Retorno
+            </span>
+            <span class="lb-badge" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.35); font-size: 11px; padding: 4px 12px;">
+                <svg class="anime-icon" style="margin-right: 5px;"><use href="#icon-rezero-mabeast"></use></svg> Meili • Domadora de Bestas
+            </span>
+        </div>
+
+        <section class="glass-card" style="max-width: 720px; margin: 0 auto; text-align: center; padding: 42px 30px;">
+            <div style="margin-bottom: 20px;">
+                <svg class="anime-icon" style="width: 52px; height: 52px; color: var(--accent-pink);" aria-hidden="true">
+                    <use href="#icon-rezero-butterfly"></use>
+                </svg>
+            </div>
+            <h2 style="font-family: var(--font-display); font-size: 1.55rem; margin-bottom: 14px; color: var(--text-primary);">
+                Contratos na Biblioteca Proibida
+            </h2>
+            <p style="font-size: 1.02rem; color: var(--text-secondary); margin-bottom: 26px; line-height: 1.75;">
+                Esta página detalhada de contratação está sendo preparada com todo o capricho (quase como a Beatrice catalogando os grimórios proibidos). Como meu portfólio técnico e certificações já estão consolidados no Sobre Mim, você já pode conferir minhas soluções ou falar comigo diretamente para darmos início a um novo projeto!
             </p>
+
+            <!-- Grid de Áreas de Atuação Técnica -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 30px; text-align: left;">
+                <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid var(--liquid-border-subtle); border-radius: var(--radius-md); padding: 14px 16px;">
+                    <strong style="color: var(--accent-pink); font-size: 0.95rem; display: block; margin-bottom: 4px;">⚡ Fullstack &amp; Web</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">Aplicações modernas, SPAs, APIs e integrações completas.</span>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid var(--liquid-border-subtle); border-radius: var(--radius-md); padding: 14px 16px;">
+                    <strong style="color: var(--accent-cyan); font-size: 0.95rem; display: block; margin-bottom: 4px;">🤖 Automação &amp; IA</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">Scripts, automação de fluxos, bots e agentes inteligentes.</span>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid var(--liquid-border-subtle); border-radius: var(--radius-md); padding: 14px 16px;">
+                    <strong style="color: var(--accent-gold); font-size: 0.95rem; display: block; margin-bottom: 4px;">🛠️ Hardware &amp; DIY</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">Desbloqueios de firmware, bancadas e reparos customizados.</span>
+                </div>
+            </div>
+
             <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-                <a href="/contato" class="btn-primary">Ir para Contato</a>
-                <a href="/projetos" class="btn-secondary">Ver Projetos</a>
+                <a href="/contato" class="btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+                    <svg class="anime-icon">
+                        <use href="#icon-rezero-butterfly"></use>
+                    </svg> Falar Comigo no Contato
+                </a>
+                <a href="/projetos" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+                    <svg class="anime-icon">
+                        <use href="#icon-rezero-tome"></use>
+                    </svg> Ver Projetos
+                </a>
+                <a href="/sobre" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+                    <svg class="anime-icon">
+                        <use href="#icon-rezero-maid-bow"></use>
+                    </svg> Sobre Mim &amp; Trajetória
+                </a>
             </div>
         </section>
     </div>

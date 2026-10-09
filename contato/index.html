@@ -18,52 +18,71 @@
     <!-- Fontes Google Otimizadas (display=swap, zero CLS) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
+<body data-theme="kon">
     <div class="content-wrapper">
-        <header class="hero">
+        <header class="hero glass-panel">
             <h1>Contato</h1>
-            <p class="subtitle">Quer conversar? Me acha por aqui. 💬</p>
+            <p class="subtitle">Quer conversar sobre tecnologia, jogos ou ideias de projetos? Me acha por aqui. <svg
+                    class="anime-icon" style="color: var(--accent-gold);" aria-hidden="true">
+                    <use href="#icon-tea-cup"></use>
+                </svg></p>
         </header>
 
         <section class="contact-grid">
             <a href="mailto:webglossdev@proton.me" class="bubble-card">
                 <span class="tape-label">SIDE-A // DIRECT TRANSMISSION</span>
-                <h3>📧 E-mail</h3>
+                <h3><svg class="anime-icon" style="color: var(--accent-gold);">
+                        <use href="#icon-tea-cup"></use>
+                    </svg> E-mail</h3>
                 <p>webglossdev@proton.me</p>
             </a>
 
             <a href="https://wa.me/5521979475834" class="bubble-card">
                 <span class="tape-label">SIDE-A // INSTANT COMM</span>
-                <h3>📞 WhatsApp</h3>
+                <h3><svg class="anime-icon" style="color: var(--accent-rose);">
+                        <use href="#icon-cake-slice"></use>
+                    </svg> WhatsApp</h3>
                 <p>(21) 97947-5834</p>
             </a>
 
             <a href="https://linktr.ee/webglossdev" target="_blank" rel="noopener noreferrer" class="bubble-card">
                 <span class="tape-label">SIDE-B // EXTERNAL PORTAL</span>
-                <h3>🔗 Linktree</h3>
+                <h3><svg class="anime-icon" style="color: var(--accent-gold);">
+                        <use href="#icon-guitar"></use>
+                    </svg> Linktree</h3>
                 <p>Todos os meus links em um só lugar.</p>
             </a>
 
             <a href="https://github.com/webglossdev" target="_blank" rel="noopener noreferrer" class="bubble-card">
                 <span class="tape-label">SIDE-B // SOURCE REPO</span>
-                <h3>💻 GitHub</h3>
+                <h3><svg class="anime-icon" style="color: var(--accent-rose);">
+                        <use href="#icon-guitar"></use>
+                    </svg> GitHub</h3>
                 <p>Repositórios e código open source.</p>
             </a>
         </section>
 
-        <section class="glass-card" style="max-width: 760px; margin: 0 auto;">
-            <h2>📬 Como eu prefiro ser contatado</h2>
-            <p>O e-mail é o melhor caminho pra qualquer coisa — dúvidas, ideias, feedback sobre algum projeto,
+        <section class="glass-card contact-preferences">
+            <h2><svg class="anime-icon" style="color: var(--accent-gold);">
+                    <use href="#icon-tea-cup"></use>
+                </svg> Como eu prefiro ser contatado</h2>
+            <p>O Whatsapp é o melhor caminho pra qualquer coisa — dúvidas, ideias, feedback sobre algum projeto,
                 ou só pra trocar uma ideia sobre tech. Se for sobre um projeto específico, vale citar o nome
-                que eu respondo mais rápido.</p>
+                que eu respondo mais rápido. Caso queia mandar algo mais longo e formal, mande no meu e-mail, se eu não
+                responder em duas semanas me dá um toque no Whatsapp</p>
             <p style="margin-top: 16px; font-size: 0.9rem; color: var(--text-muted);">
-                💼 Se você é de uma empresa e está me procurando para trabalho,
-                <a href="/contrate-me.html" style="color: var(--accent-gold); text-decoration: underline;">acesse minha página profissional</a>.
+                <svg class="anime-icon" style="color: var(--accent-rose);">
+                    <use href="#icon-cake-slice"></use>
+                </svg> Se você é de uma empresa e está me procurando para trabalho,
+                <a href="/contrate-me.html" style="color: var(--accent-gold); text-decoration: underline;">acesse minha
+                    página profissional</a>.
             </p>
         </section>
     </div>

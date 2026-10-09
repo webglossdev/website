@@ -7,7 +7,7 @@
     <title>Leonardo P. Soares | Página Inicial</title>
     <meta name="description" content="Website pessoal do webglossdev (Leonardo).">
     <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
-    
+
     <!-- Script síncrono anti-FOUC (Prevenção de flash de tema) -->
     <script>
         if (localStorage.getItem('theme') === 'light') {
@@ -18,18 +18,20 @@
     <!-- Fontes Google Otimizadas (display=swap, zero CLS) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
+<body data-theme="chuunibyou">
 
     <div class="content-wrapper">
-        <header class="hero">
+        <header class="hero glass-panel">
             <p class="hero-greeting">Oi, eu sou o</p>
             <h1>Leonardo P. Soares</h1>
-            <p class="subtitle">Estudante, maker e entusiasta de tecnologia. 🚀</p>
+            <p class="subtitle">Estudante, maker e entusiasta de tecnologia.</p>
 
             <div class="hero-buttons">
                 <a href="/sobre" class="btn-primary">Sobre Mim</a>
@@ -37,7 +39,7 @@
             </div>
         </header>
 
-        <section class="pro-headline">
+        <section class="pro-headline glass-bubble">
             <p id="comeco">Carioca e apaixonado por tecnologia desde pequeno.
                 Gosto de montar e consertar computadores e eletrônicos, mexer com inteligência artificial e sistemas,
                 aprendendo algo novo todo dia. Esse aqui é a minha página da internet
@@ -45,53 +47,55 @@
         </section>
 
         <section class="quick-stats">
-            <div class="stat-badge">🖥️ Hardware & Maker</div>
-            <div class="stat-badge">🤖 IA & Machine Learning</div>
-            <div class="stat-badge">🎮 Gamer</div>
-            <div class="stat-badge">🔧 Conserto de Eletrônicos</div>
-            <div class="stat-badge">🏠 HomeLab</div>
+            <div class="stat-badge"><svg class="anime-icon" style="color: var(--accent-cyan);"><use href="#icon-eyepatch"></use></svg> Hardware & Maker</div>
+            <div class="stat-badge"><svg class="anime-icon" style="color: var(--accent-gold);"><use href="#icon-rune-circle"></use></svg> IA & Machine Learning</div>
+            <div class="stat-badge"><svg class="anime-icon" style="color: var(--accent-red);"><use href="#icon-dekomori-balls"></use></svg> Gamer</div>
+            <div class="stat-badge"><svg class="anime-icon" style="color: var(--accent-violet);"><use href="#icon-rune-circle"></use></svg> Conserto de Eletrônicos</div>
+            <div class="stat-badge"><svg class="anime-icon" style="color: var(--accent-cyan);"><use href="#icon-kumin-pillow"></use></svg> HomeLab</div>
         </section>
 
         <section id="interesses" class="home-interests">
-            <h2 class="section-title">O que me interessa</h2>
+            <div class="section-header">
+                <h2 class="section-title"><svg class="anime-icon" style="color: var(--accent-cyan);"><use href="#icon-eyepatch"></use></svg> O que me interessa</h2>
+            </div>
             <div class="interests-grid">
                 <div class="interest-card">
-                    <div class="interest-icon">🖥️</div>
+                    <div class="interest-icon"><svg class="anime-icon anime-icon-lg" style="color: var(--accent-cyan);"><use href="#icon-eyepatch"></use></svg></div>
                     <h3>Hardware & Maker</h3>
                     <p>Monto e conserto computadores, faço overclock e estou aprendendo
                         eletrônica. Montei meu primeiro computador desktop sozinho desde cedo.</p>
                 </div>
 
                 <div class="interest-card">
-                    <div class="interest-icon">🤖</div>
+                    <div class="interest-icon"><svg class="anime-icon anime-icon-lg" style="color: var(--accent-gold);"><use href="#icon-rune-circle"></use></svg></div>
                     <h3>Inteligência Artificial</h3>
                     <p>Rodo LLMs locais, mexo com APIs do Gemini e Pollinatios para projetos e também sei fazer
                         inferência de voz com Applio.</p>
                 </div>
 
                 <div class="interest-card">
-                    <div class="interest-icon">🏠</div>
+                    <div class="interest-icon"><svg class="anime-icon anime-icon-lg" style="color: var(--accent-cyan);"><use href="#icon-kumin-pillow"></use></svg></div>
                     <h3>HomeLab</h3>
                     <p>Tenho meu Worksation em casa pra rodar alguns projetos e um servidor da Oracle Cloud em Vinhedo
                         (Always Free) se eu quiser fazer algo fora de casa. </p>
                 </div>
 
                 <div class="interest-card">
-                    <div class="interest-icon">🎬</div>
+                    <div class="interest-icon"><svg class="anime-icon anime-icon-lg" style="color: var(--accent-violet);"><use href="#icon-rune-circle"></use></svg></div>
                     <h3>Audiovisual</h3>
                     <p>Edito vídeos e áudio no DaVinci Resolve e faço design básico
                         no Figma e Canva. Tenho vídeos planejados pro YouTube.</p>
                 </div>
 
                 <div class="interest-card">
-                    <div class="interest-icon">🎮</div>
+                    <div class="interest-icon"><svg class="anime-icon anime-icon-lg" style="color: var(--accent-red);"><use href="#icon-dekomori-balls"></use></svg></div>
                     <h3>Gaming</h3>
                     <p>Jogo principalmente OSU!, mas também curto jogar com amigos.
                         É o meu jeito de relaxar entre estudos e projetos.</p>
                 </div>
 
                 <div class="interest-card">
-                    <div class="interest-icon">📚</div>
+                    <div class="interest-icon"><svg class="anime-icon anime-icon-lg" style="color: var(--accent-gold);"><use href="#icon-eyepatch"></use></svg></div>
                     <h3>Olimpíadas Científicas</h3>
                     <p>Gosto bastante de participar em olimpíadas e competições relacionados aos meus hobbies por
                         diversão.</p>
@@ -100,10 +104,12 @@
         </section>
 
         <section class="home-featured">
-            <h2 class="section-title">Projetos em Destaque</h2>
+            <div class="section-header">
+                <h2 class="section-title"><svg class="anime-icon" style="color: var(--accent-gold);"><use href="#icon-rune-circle"></use></svg> Projetos em Destaque</h2>
+            </div>
             <div class="featured-grid">
                 <a href="https://calendario-olimpico.vercel.app/" class="featured-card">
-                    <div class="featured-tag">🌐 Público</div>
+                    <div class="featured-tag"><svg class="anime-icon" style="margin-right: 4px; vertical-align: -0.12em;"><use href="#icon-rune-circle"></use></svg> Público</div>
                     <h3>Calendário Olímpico</h3>
                     <p>Website que criei pra englobar todas as olimpíadas nacionais, suas datas, materiais de estudo,
                         etc. Não tenho tempo pra mante-lo atualizado.</p>
@@ -116,7 +122,7 @@
                 </a>
 
                 <a href="ajuda/index.html" class="featured-card" target="_blank">
-                    <div class="featured-tag">🚧 Em Desenvolvimento</div>
+                    <div class="featured-tag"><svg class="anime-icon" style="margin-right: 4px; vertical-align: -0.12em;"><use href="#icon-eyepatch"></use></svg> Em Desenvolvimento</div>
                     <h3>Diagnóstico Técnico</h3>
                     <p>Quero consertar eletrônicos e ganhar uma grana, então esse vai ser o primeiro contato do cliente
                         comigo.</p>
@@ -132,7 +138,7 @@
 
         <section class="home-cta">
             <div class="cta-card">
-                <div class="cta-icon">💼</div>
+                <div class="cta-icon"><svg class="anime-icon anime-icon-lg" style="color: var(--accent-gold);"><use href="#icon-rune-circle"></use></svg></div>
                 <div class="cta-text">
                     <h3>Está me procurando para trabalho?</h3>
                     <p>Tenho uma página dedicada com minhas habilidades, formação, certificados e currículo.</p>

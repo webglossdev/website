@@ -19,22 +19,30 @@
     <!-- Fontes Google Otimizadas (display=swap, zero CLS) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
+<body data-theme="madoka">
 
     <div class="content-wrapper">
-        <header class="hero">
+        <header class="hero glass-panel">
             <h1>Sobre Mim</h1>
-            <p class="subtitle">Um pouco mais sobre quem eu sou e o que gosto de fazer.</p>
+            <p class="subtitle">Um pouco mais sobre quem eu sou, o que gosto de fazer e meus contratos com a tecnologia.
+                <svg class="anime-icon" style="color: var(--accent-rose);" aria-hidden="true">
+                    <use href="#icon-soulgem-madoka"></use>
+                </svg>
+            </p>
         </header>
 
         <!-- Quem sou eu -->
         <section class="about-section glass-card" style="max-width: 900px;">
-            <h2>👋 Quem sou eu?</h2>
+            <h2><svg class="anime-icon" style="color: var(--accent-rose);" aria-hidden="true">
+                    <use href="#icon-soulgem-madoka"></use>
+                </svg> Quem sou eu?</h2>
             <p>Eu sou o Leonardo, moro no RJ. A área da tecnologia me intriga muito, desejo
                 aprender tudo sobre, mesmo que seja difícil, afinal, quem é curioso também é muito teimoso! <br> Minha
                 curiosidade é algo bom e ruim, é bom porque me faz querer aprender coisas novas, saber mais sobre algo e
@@ -62,13 +70,20 @@
 
         <!-- O que eu faço offline -->
         <section class="about-section" style="max-width: 900px; margin: 0 auto;">
-            <h2 class="section-title" style="margin-top: 48px;">O que eu faço offline (ou quase)</h2>
+            <div class="section-header">
+                <h2 class="section-title" style="margin-top: 48px;"><svg class="anime-icon"
+                        style="color: var(--accent-rose);">
+                        <use href="#icon-ribbon-bow"></use>
+                    </svg> O que eu faço offline (ou quase)</h2>
+            </div>
 
             <div class="hobby-grid">
                 <div class="hobby-card">
                     <img src="/assets/elec.jpeg" alt="Consertando eletrônicos" class="hobby-card-img" loading="lazy">
                     <div class="hobby-card-body">
-                        <h3>🔧 Consertar e Modificar Eletrônicos</h3>
+                        <h3><svg class="anime-icon" style="color: var(--accent-rose);">
+                                <use href="#icon-madoka-arrow"></use>
+                            </svg> Consertar e Modificar Eletrônicos</h3>
                         <p>Nossa, só de pensar em abrir algo pra consertar e ficar horas medindo coisa com multímetro só
                             pro problema ser algo banal me deixa ansioso pra começar. Se me pedem pra modificar algo
                             então? Vixe, fico maluco pra fazer.</p>
@@ -78,7 +93,9 @@
                 <div class="hobby-card">
                     <img src="/assets/davinci-resolve.jpg" alt="DaVinci Resolve" class="hobby-card-img" loading="lazy">
                     <div class="hobby-card-body">
-                        <h3>🎬 Edição Audiovisual</h3>
+                        <h3><svg class="anime-icon" style="color: var(--accent-lilac);">
+                                <use href="#icon-musical-note"></use>
+                            </svg> Edição Audiovisual</h3>
                         <p>Tenho alguns vídeos pra editar no Davinci Resolve 20 porque me interesso em edição e criação
                             de roteiros, "Não começou por que? Teu canal tá Vazio.". <br>Bom, parte disso é porque minha
                             GPU quebrou e sem ela não consigo usar o software de edição que estava acostumado à usar, a
@@ -90,7 +107,9 @@
                 <div class="hobby-card">
                     <img src="/assets/osu.jpg" alt="Gaming" class="hobby-card-img" loading="lazy">
                     <div class="hobby-card-body">
-                        <h3>🎮 Jogatina</h3>
+                        <h3><svg class="anime-icon" style="color: var(--accent-rose);">
+                                <use href="#icon-soulgem-sayaka"></use>
+                            </svg> Jogatina</h3>
                         <p>Gosto de jogar OSU! (não acredito que jogo isso há três anos e continuo viciado), e qualquer
                             outro jogo se eu estiver com meus amigos. <br> 'Ninguém é de ferro né? Tem que deixar o mlk
                             ter
@@ -102,7 +121,9 @@
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5pSkuel2pgxuxGi1t96S6UOE4aU0ueD8lOo1tRvUy9udAxXqjOWYAAmY&s=10"
                         alt="ONIA" class="hobby-card-img" loading="lazy">
                     <div class="hobby-card-body">
-                        <h3>📚 Estudar para Olimpíadas</h3>
+                        <h3><svg class="anime-icon" style="color: var(--accent-gold);">
+                                <use href="#icon-soulgem-mami"></use>
+                            </svg> Estudar para Olimpíadas</h3>
                         <p>SÓ depois de estudar o que precisar! (e jogar também né). Mas estudo para aquelas com temas
                             relacionados à tecnologia, como: ONIA, OBI, OBICT, etc.</p>
                     </div>
@@ -111,7 +132,9 @@
                 <div class="hobby-card">
                     <img src="/assets/vscode-minimap.png" alt="Programação" class="hobby-card-img" loading="lazy">
                     <div class="hobby-card-body">
-                        <h3>💻 Tempo ""Livre""</h3>
+                        <h3><svg class="anime-icon" style="color: var(--accent-rose);">
+                                <use href="#icon-pocky-sticks"></use>
+                            </svg> Tempo ""Livre""</h3>
                         <p>Tire os estudos escolares da minha rotina e você vai ver que ainda tô estudando algo só pela
                             diversão mesmo, fazendo algum projeto pra guardar e nunca mais ver e também jogando (afinal,
                             não posso perder minha classificação no jogo né kk).</p>
@@ -122,7 +145,9 @@
                     <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600" alt="Aprender Sempre"
                         class="hobby-card-img" loading="lazy">
                     <div class="hobby-card-body">
-                        <h3>📺 Consumindo conteúdo</h3>
+                        <h3><svg class="anime-icon" style="color: var(--accent-lilac);">
+                                <use href="#icon-soulgem-homura"></use>
+                            </svg> Consumindo conteúdo</h3>
                         <p>Não podia faltar né? Obviamente no kit jovem do século XXI não podia faltar: Youtube,
                             Instagram, etc. Não curto muito vídeos curtos, mas assisto de vez em quando. Também vejo
                             animes, com baixa frequência, mas ainda vejo.</p>
@@ -133,9 +158,13 @@
 
         <!-- O que eu sei fazer (Habilidades) -->
         <section class="about-section glass-card" style="max-width: 900px; margin-top: 48px;">
-            <h2>🛠️ O que eu sei fazer</h2>
+            <h2><svg class="anime-icon" style="color: var(--accent-rose);">
+                    <use href="#icon-soulgem-madoka"></use>
+                </svg> O que eu sei fazer</h2>
             <div class="stack-grid">
-                <h3>🔧 Hardware & Reparos</h3>
+                <h3><svg class="anime-icon" style="color: var(--accent-rose);">
+                        <use href="#icon-madoka-arrow"></use>
+                    </svg> Hardware & Reparos</h3>
                 <div class="stack-bubble">
                     <h3>Montagem e Manutenção de PCs</h3>
                     <p>Sei montar desktops e fazer a manutenção dos mesmos, sei também fazer manutenção em outros
@@ -144,7 +173,9 @@
                 </div>
 
 
-                <h3>💻 Software & Sistemas</h3>
+                <h3><svg class="anime-icon" style="color: var(--accent-lilac);">
+                        <use href="#icon-soulgem-homura"></use>
+                    </svg> Software & Sistemas</h3>
                 <div class="stack-bubble">
                     <h3>Instalação e gerênciamento de sistemas operacionais</h3>
                     <p>Posso instalar windows, linux, macos (hackintosh também), e sei fazer gerênciamento do windows,
@@ -163,7 +194,9 @@
                 </div>
 
                 <div class="collapsible-hidden-area">
-                    <h3>🌐 Redes & Infraestrutura</h3>
+                    <h3><svg class="anime-icon" style="color: var(--accent-cyan);">
+                            <use href="#icon-soulgem-sayaka"></use>
+                        </svg> Redes & Infraestrutura</h3>
                     <div class="stack-bubble">
                         <h3>Redes Privadas & VPN</h3>
                         <p>Sei configurar uma rede privada de computadores com Tailscale, tenho a minha própria pra
@@ -176,7 +209,9 @@
                             deploy de websites estáticos com Vercel e integração deles via repositório no GitHub.</p>
                     </div>
 
-                    <h3>🤖 IA & Machine Learning</h3>
+                    <h3><svg class="anime-icon" style="color: var(--accent-gold);">
+                            <use href="#icon-soulgem-mami"></use>
+                        </svg> IA & Machine Learning</h3>
                     <div class="stack-bubble">
                         <h3>LLMs Locais & APIs</h3>
                         <p>Execução de modelos de linguagem locais com Ollama e LMStudio. Integração com
@@ -190,7 +225,9 @@
                             com eles já que estou sem GPU.</p>
                     </div>
 
-                    <h3>🎬 Audiovisual</h3>
+                    <h3><svg class="anime-icon" style="color: var(--accent-rose);">
+                            <use href="#icon-musical-note"></use>
+                        </svg> Audiovisual</h3>
                     <div class="stack-bubble">
                         <h3>Edição de Vídeo & Áudio</h3>
                         <p>Edição intermediária de vídeo e áudio no DaVinci Resolve
@@ -205,7 +242,9 @@
 
         <!-- Ferramentas que utilizo -->
         <section class="about-section glass-card" style="max-width: 900px; margin-top: 48px;">
-            <h2>🚀 Ferramentas que utilizo</h2>
+            <h2><svg class="anime-icon" style="color: var(--accent-rose);">
+                    <use href="#icon-madoka-arrow"></use>
+                </svg> Ferramentas que utilizo</h2>
             <div class="stack-grid">
                 <div class="stack-bubble">
 
@@ -234,7 +273,7 @@
 
                     <div class="stack-bubble">
 
-                        <h3><img src="assets/oracle.svg" alt="Oracle" class="tech-icon"> Oracle Cloud VPS / Servidor
+                        <h3><img src="/assets/oracle.svg" alt="Oracle" class="tech-icon"> Oracle Cloud VPS / Servidor
                             Linux</h3>
                         <p>Eu consigo criar, gerenciar e manter uma VPS com Linux (Distros baseadas em Debian),
                             configurar a firewall do servidor e do sistema. (Usado nesse site anteriormente.)</p>
@@ -284,7 +323,7 @@
 
                     <div class="stack-bubble">
                         <span class="stack-badge">Usado no site</span>
-                        <h3><img src="assets/antigravity.svg" alt="Google Antigravity" class="tech-icon"> Google
+                        <h3><img src="/assets/antigravity.svg" alt="Google Antigravity" class="tech-icon"> Google
                             Antigravity
                         </h3>
                         <p>IDE que eu uso para codar, de vez em quando usando os agentes pra me ajudar com o código os
@@ -314,27 +353,27 @@
                     </div>
 
                     <div class="stack-bubble">
-                        <h3><img src="assets/playit.png" alt="Playit" class="tech-icon"> Playit.gg</h3>
+                        <h3><img src="/assets/playit.png" alt="Playit" class="tech-icon"> Playit.gg</h3>
                         <p>Usava para expor serviços da minha rede local para a internet sem precisar configurar
                             redirecionamento de portas.</p>
                     </div>
 
 
                     <div class="stack-bubble">
+                        <span class="stack-badge">Usado no site</span>
                         <h3><img src="https://www.svgrepo.com/show/353564/cloudflare.svg" alt="Cloudflared"
                                 class="tech-icon">
                             Cloudflared</h3>
-                        <span class="stack-badge">Usado no site</span>
                         <p>Uso pra direcionar os projetos hosteados no meu workstation em casa por um tunnel pro meu
                             domínio
                             gerenciado pela cloudflare com proteção.</p>
                     </div>
 
                     <div class="stack-bubble">
+                        <span class="stack-badge">Usado no site</span>
                         <h3><img src="https://www.svgrepo.com/show/353564/cloudflare.svg" alt="Cloudflared"
                                 class="tech-icon">
                             Cloudflare Zero Trust</h3>
-                        <span class="stack-badge">Usado no site</span>
                         <p>Uso nos meus sites e projetos pra proteção contra ataques ddos, esconder meu ip real do
                             público e manter a página em cache caso o back-end caia fora do ar.</p>
                     </div>
@@ -347,7 +386,7 @@
                     </div>
 
                     <div class="stack-bubble">
-                        <h3><img src="assets/MCP.svg" alt="MCP" class="tech-icon"> MCP Servers</h3>
+                        <h3><img src="/assets/MCP.svg" alt="MCP" class="tech-icon"> MCP Servers</h3>
                         <p>Consigo integrar um servidor MCP à um LLM Local usando Docker MCP, seja com o Claude
                             Desktop, Gemini CLI, Ollama/LMStudio ou à uma LLM externa com uma API local aberta pra web.
                         </p>
@@ -380,11 +419,14 @@
 
         <!-- Formação & Educação -->
         <section class="about-section glass-card" style="max-width: 900px; margin-top: 48px;">
-            <h2>🎓 Formação & Educação</h2>
+            <h2><svg class="anime-icon" style="color: var(--accent-lilac);">
+                    <use href="#icon-soulgem-homura"></use>
+                </svg> Formação & Educação</h2>
             <div class="formation-list">
-                <a href="https://pensi.com.br/">
+                <a href="https://pensi.com.br/" target="_blank" rel="noopener noreferrer">
                     <div class="active-goal-card">
-                        <span class="goal-icon">🎓</span>
+                        <span class="goal-icon"><img src="/assets/pensi.svg" alt="Colégio PENSI"
+                                class="education-logo"></span>
                         <div>
                             <h4>Colégio PENSI Copacabana</h4>
                             <p>Estudante na unidade de Copacabana do PENSI.</p>
@@ -392,11 +434,11 @@
                     </div>
                 </a>
 
-                <a href="https://fiap.com.br/">
+                <a href="https://fiap.com.br/" target="_blank" rel="noopener noreferrer">
                     <div class="active-goal-card">
                         <span class="goal-icon"><img
                                 src="https://www.alura.com.br/assets/img/podcasts/fiapcast-logo.1750260031.svg"
-                                width="30px" alt="D"></span>
+                                alt="FIAP" class="education-logo"></span>
                         <div>
                             <h4>FIAP — Certificações de TI</h4>
                             <p>Atualmente cursando: "Gestão de Infraestrutura de TI" e "Design Thinking".</p>
@@ -404,41 +446,10 @@
                     </div>
                 </a>
 
-
-
-                <!-- <a href="https://www.edx.org/search?q=CS50">
-                    <div class="active-goal-card">
-                        <span class="goal-icon">🧑‍💻</span>
-                        <div>
-                            <h4>Harvard Edx (Trilha "Computer Science and ML")</h4>
-                            <p>CS50x, CS50P, CS50AI (Andamento Pausado para Estudar para a ONIA.)</p>
-                        </div>
-                    </div>
-                </a>
-
-                <div class="active-goal-card">
-                    <span class="goal-icon">🧠</span>
-                    <div>
-                        <h4>Kaggle | Fast.ai | PyTorch para ML, Python & IA</h4>
-                        <p>Estudando nessas três plataformas para a ONIA.</p>
-                    </div>
-                </div>
-
-                <a href="https://tryhackme.com/">
-                    <div class="active-goal-card">
-                        <span class="goal-icon">🛡️</span>
-                        <div>
-                            <h4>TryHackMe | Trilha Completa de CyberSecurity</h4>
-                            <p>Estudando Cibersegurança na TryHackMe. (Andamento pausado para estudar para a
-                                ONIA.)</p>
-                        </div>
-                    </div>
-                </a>
-            -->
-                <a href="https://aulas.devclub.com.br/">
+                <a href="https://aulas.devclub.com.br/" target="_blank" rel="noopener noreferrer">
                     <div class="active-goal-card">
                         <span class="goal-icon"><img src="https://aulas.devclub.com.br/assets/logo-6EGyML0K.png"
-                                width="30px" alt="D"></span>
+                                alt="DevClub" class="education-logo"></span>
                         <div>
                             <h4>DevClub | Cursos de Desenvolvedor</h4>
                             <p>Cursando os cursos de Desenvolvedor Full Stack & MBA em IA e Automações para
@@ -451,29 +462,127 @@
 
         <!-- Conquistas & Certificados -->
         <section class="about-section glass-card" style="max-width: 900px; margin-top: 48px;">
-            <h2>🏆 Conquistas & Certificados</h2>
-
-
+            <h2><svg class="anime-icon" style="color: var(--accent-gold);">
+                    <use href="#icon-soulgem-mami"></use>
+                </svg> Conquistas & Certificados</h2>
 
             <p style="font-size:0.85rem; color: var(--text-muted); margin-bottom: 12px;">Clique numa pasta para
                 ver os certificados</p>
             <div class="folder-system">
                 <div class="folder-tabs">
-                    <div class="folder-tab active" data-panel="panel-devclub">📁 DevClub</div>
-                    <div class="folder-tab" data-panel="panel-onia">📁 ONIA</div>
-                    <div class="folder-tab" data-panel="panel-bradesco">📁 Bradesco</div>
-                    <div class="folder-tab" data-panel="panel-obr">📁 OBR</div>
-                    <div class="folder-tab" data-panel="panel-fiap">📁 FIAP</div>
+                    <div class="folder-tab active" data-panel="panel-devclub"><svg class="anime-icon"
+                            style="margin-right: 4px; color: var(--accent-rose);">
+                            <use href="#icon-soulgem-madoka"></use>
+                        </svg> DevClub</div>
+                    <div class="folder-tab" data-panel="panel-irs"><svg class="anime-icon"
+                            style="margin-right: 4px; color: var(--accent-gold);">
+                            <use href="#icon-locket"></use>
+                        </svg> IRS</div>
+                    <div class="folder-tab" data-panel="panel-onia"><svg class="anime-icon"
+                            style="margin-right: 4px; color: var(--accent-lilac);">
+                            <use href="#icon-soulgem-homura"></use>
+                        </svg> ONIA</div>
+                    <div class="folder-tab" data-panel="panel-bradesco"><svg class="anime-icon"
+                            style="margin-right: 4px; color: var(--accent-gold);">
+                            <use href="#icon-soulgem-mami"></use>
+                        </svg> Bradesco</div>
+                    <div class="folder-tab" data-panel="panel-obr"><svg class="anime-icon"
+                            style="margin-right: 4px; color: var(--accent-cyan);">
+                            <use href="#icon-soulgem-sayaka"></use>
+                        </svg> OBR</div>
+                    <div class="folder-tab" data-panel="panel-fiap"><svg class="anime-icon"
+                            style="margin-right: 4px; color: var(--accent-rose);">
+                            <use href="#icon-soulgem-kyoko"></use>
+                        </svg> FIAP</div>
                 </div>
+
+                <!-- Filtro Interativo por Ano -->
+                <div class="cert-year-filter" id="cert-year-filter">
+                    <span class="year-filter-label"><svg class="anime-icon" style="color: var(--accent-gold);">
+                            <use href="#icon-star-badge"></use>
+                        </svg> Ano:</span>
+                    <button type="button" class="year-chip active" data-year="all">Todos os Anos</button>
+                    <button type="button" class="year-chip" data-year="2026">2026</button>
+                    <button type="button" class="year-chip" data-year="2025">2025</button>
+                    <button type="button" class="year-chip" data-year="2024">2024</button>
+                </div>
+
+
 
                 <div id="panel-devclub" class="folder-panel active">
                     <div class="cert-grid">
-                        <div class="cert-card"
-                            onclick="openLightbox('assets/DEVCLUBC.png', 'Missão Programação com IA do Zero', 'Concluído via DevClub - 03/2026')">
-                            <img src="assets/DEVCLUBC.png" alt="Certif. DevClub" loading="lazy">
+                        <div class="cert-card" data-year="2026"
+                            onclick="openLightbox('/assets/DEVCLUBC.png', 'Missão Programação com IA do Zero', 'Certificado de conclusão da Missão Programação com IA do Zero pela plataforma DevClub.', 'DevClub', '2026')">
+                            <span class="cert-year-tag">03/2026</span>
+                            <img src="/assets/DEVCLUBC.png" alt="Certif. DevClub" loading="lazy">
                             <div class="cert-card-info">
                                 <h4>Missão Programação com IA</h4>
-                                <p>DevClub &middot; 03/2026</p>
+                                <p>DevClub </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="panel-irs" class="folder-panel">
+                    <div class="cert-grid">
+                        <div class="cert-card cert-card-duo" data-year="2025" id="irs-diploma-card"
+                            onclick="handleCertCardClick(event, this, '/assets/irs-frente.png', '/assets/irs-verso.png', 'Programa Desenvolvendo Talentos II', 'Diploma oficial de conclusão do Programa Desenvolvendo Talentos II pelo Instituto Rogerio Steinberg.', 'IRS', '2025', 'Programa Desenvolvendo Talentos II — Grade Curricular & Carga Horária', 'Verso oficial do diploma detalhando todas as oficinas e carga horária (2024: 292h / 2025: 240h — Total: 532 horas): Robótica, LabMaker, Áudio Visual, Excel, Educação Financeira e Empreendedorismo.')">
+                            <span class="cert-year-tag">12/2025</span>
+
+                            <!-- Indicador Flutuante Frente & Verso 3D -->
+                            <div class="cert-duo-indicator"
+                                title="Este documento possui frente e verso! Clique para virar"
+                                onclick="event.stopPropagation(); toggleDiplomaFlip();">
+                                <span class="duo-icon">⟲⟳</span>
+                                <span class="duo-text">Frente &amp; Verso</span>
+                            </div>
+
+                            <!-- 3D Flip Card Container -->
+                            <div class="cert-3d-scene">
+                                <div class="cert-3d-card" id="irs-flip-inner">
+                                    <!-- Face Frontal (Frente) -->
+                                    <div class="cert-face cert-face-front">
+                                        <div class="cert-face-tag">Pág. 1 de 2 • Frente (Diploma Oficial)</div>
+                                        <img src="/assets/irs-frente.png" alt="Diploma IRS - Frente" loading="lazy">
+                                    </div>
+
+                                    <!-- Face Traseira (Verso) -->
+                                    <div class="cert-face cert-face-back">
+                                        <div class="cert-face-tag cert-face-tag-back">Pág. 2 de 2 • Verso (Grade
+                                            Curricular - 532h)</div>
+                                        <img src="/assets/irs-verso.png" alt="Diploma IRS - Verso (Grade Curricular)"
+                                            loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Seletor Tátil de Lado (Frente / Verso) -->
+                            <div class="cert-side-nav" onclick="event.stopPropagation();">
+                                <button type="button" class="cert-side-pill active" id="irs-pill-front"
+                                    onclick="setDiplomaSide('front')">
+                                    <svg class="anime-icon" style="width: 12px; height: 12px; margin-right: 4px;">
+                                        <use href="#icon-star-badge"></use>
+                                    </svg>
+                                    Frente
+                                </button>
+                                <button type="button" class="cert-side-pill highlight-verso" id="irs-pill-back"
+                                    onclick="setDiplomaSide('back')">
+                                    <span class="pulse-beacon"></span>
+                                    <svg class="anime-icon"
+                                        style="width: 12px; height: 12px; margin-right: 4px; color: var(--accent-gold);">
+                                        <use href="#icon-locket"></use>
+                                    </svg>
+                                    Verso (Grade 532h)
+                                </button>
+                            </div>
+
+                            <!-- Informações do Card -->
+                            <div class="cert-card-info">
+                                <div class="cert-card-title-row">
+                                    <h4>Desenvolvendo Talentos II</h4>
+
+                                </div>
+                                <p>Instituto Rogerio Steinberg</p>
+
                             </div>
                         </div>
                     </div>
@@ -481,36 +590,41 @@
 
                 <div id="panel-onia" class="folder-panel">
                     <div class="cert-grid">
-                        <div class="cert-card"
-                            onclick="openLightbox('assets/ONIAP1.png', 'ONIAP1', 'Concluído via Olímpico - 11/2025')">
-                            <img src="assets/ONIAP1.png" alt="Certif. ONIA 1" loading="lazy">
+                        <div class="cert-card" data-year="2025"
+                            onclick="openLightbox('/assets/ONIAP1.png', 'Participação na ONIA 2 | 1ª Fase', 'Certificado de participação na 1ª fase da 2ª Olimpíada Nacional de Inteligência Artificial (ONIA).', 'ONIA', '2025')">
+                            <span class="cert-year-tag">11/2025</span>
+                            <img src="/assets/ONIAP1.png" alt="Certif. ONIA 1" loading="lazy">
                             <div class="cert-card-info">
-                                <h4>Participação na ONIA 2 | 1a Fase</h4>
-                                <p>Olímpico &middot; 11/2025</p>
+                                <h4>Participação na ONIA 2 | 1ª Fase</h4>
+                                <p>EDUSPACE &middot H2IA &middot IIA-LNCC &middot MCTI
+                                <p>
                             </div>
                         </div>
-                        <div class="cert-card"
-                            onclick="openLightbox('assets/ONIAP2.png', 'ONIAP2', 'Concluído via Olímpico - 12/2025')">
-                            <img src="assets/ONIAP2.png" alt="Certif. ONIA 2" loading="lazy">
+                        <div class="cert-card" data-year="2025"
+                            onclick="openLightbox('/assets/ONIAP2.png', 'Participação na ONIA 2 | 2ª Fase', 'Certificado de avanço e participação na 2ª fase da Olimpíada Nacional de Inteligência Artificial (ONIA).', 'ONIA', '2025')">
+                            <span class="cert-year-tag">12/2025</span>
+                            <img src="/assets/ONIAP2.png" alt="Certif. ONIA 2" loading="lazy">
                             <div class="cert-card-info">
-                                <h4>Participação na ONIA 2 | 2a Fase</h4>
-                                <p>Olímpico &middot; 12/2025</p>
+                                <h4>Participação na ONIA 2 | 2ª Fase</h4>
+                                <p>EDUSPACE &middot H2IA &middot IIA-LNCC &middot MCTI</p>
                             </div>
                         </div>
-                        <div class="cert-card"
-                            onclick="openLightbox('assets/ONIAP3.png', 'ONIAP3', 'Concluído via Olímpico - 03/2026')">
-                            <img src="assets/ONIAP3.png" alt="Certif. ONIA 3" loading="lazy">
+                        <div class="cert-card" data-year="2026"
+                            onclick="openLightbox('/assets/ONIAP3.png', 'Participação na ONIA 2 | 3ª Fase', 'Certificado de participação e classificação para a 3ª fase da Olimpíada Nacional de Inteligência Artificial (ONIA).', 'ONIA', '2026')">
+                            <span class="cert-year-tag">03/2026</span>
+                            <img src="/assets/ONIAP3.png" alt="Certif. ONIA 3" loading="lazy">
                             <div class="cert-card-info">
-                                <h4>Participação na ONIA 2 | 3a Fase</h4>
-                                <p>Olímpico &middot; 03/2026</p>
+                                <h4>Participação na ONIA 2 | 3ª Fase</h4>
+                                <p>EDUSPACE &middot H2IA &middot IIA-LNCC &middot MCTI</p>
                             </div>
                         </div>
-                        <div class="cert-card"
-                            onclick="openLightbox('assets/ONIAP3.2.png', 'ONIAP3.2', 'Concluído via Olímpico - 03/2026')">
-                            <img src="assets/ONIAP3.2.png" alt="Certif. ONIA 2" loading="lazy">
+                        <div class="cert-card" data-year="2026"
+                            onclick="openLightbox('/assets/ONIAP3.2.png', 'Participação na ONIA 2 | 3ª Fase 2ª Etapa', 'Certificado de conclusão da 2ª etapa da 3ª fase da Olimpíada Nacional de Inteligência Artificial (ONIA).', 'ONIA', '2026')">
+                            <span class="cert-year-tag">03/2026</span>
+                            <img src="/assets/ONIAP3.2.png" alt="Certif. ONIA 2" loading="lazy">
                             <div class="cert-card-info">
-                                <h4>Participação na ONIA 2 | 3a Fase 2A Etapa</h4>
-                                <p>Olímpico &middot; 03/2026</p>
+                                <h4>Participação na ONIA 2 | 3ª Fase 2ª Etapa</h4>
+                                <p>EDUSPACE &middot H2IA &middot IIA-LNCC &middot MCTI</p>
                             </div>
                         </div>
                     </div>
@@ -518,20 +632,22 @@
 
                 <div id="panel-bradesco" class="folder-panel">
                     <div class="cert-grid">
-                        <div class="cert-card"
-                            onclick="openLightbox('assets/BPOO.png', 'POO', 'Concluído via Bradesco - 11/2025')">
-                            <img src="assets/BPOO.png" alt="Certif. POO" loading="lazy">
+                        <div class="cert-card" data-year="2025"
+                            onclick="openLightbox('/assets/BPOO.png', 'Programação Orientada a Objetos', 'Certificado do curso de Programação Orientada a Objetos emitido pela Fundação Bradesco.', 'Bradesco', '2025')">
+                            <span class="cert-year-tag">11/2025</span>
+                            <img src="/assets/BPOO.png" alt="Certif. POO" loading="lazy">
                             <div class="cert-card-info">
                                 <h4>Programação Orientada a Objetos</h4>
-                                <p>Bradesco &middot; 11/2025</p>
+                                <p>Bradesco EV</p>
                             </div>
                         </div>
-                        <div class="cert-card"
-                            onclick="openLightbox('assets/FTI.png', 'Fundamentos de TI', 'Concluído via Bradesco - 11/2025')">
-                            <img src="assets/FTI.png" alt="Certif. FTI" loading="lazy">
+                        <div class="cert-card" data-year="2025"
+                            onclick="openLightbox('/assets/FTI.png', 'Fundamentos de TI', 'Certificado do curso de Fundamentos de Tecnologia da Informação emitido pela Fundação Bradesco.', 'Bradesco', '2025')">
+                            <span class="cert-year-tag">11/2025</span>
+                            <img src="/assets/FTI.png" alt="Certif. FTI" loading="lazy">
                             <div class="cert-card-info">
                                 <h4>Fundamentos de TI</h4>
-                                <p>Bradesco &middot; 11/2025</p>
+                                <p>Bradesco EV</p>
                             </div>
                         </div>
                     </div>
@@ -539,36 +655,40 @@
 
                 <div id="panel-obr" class="folder-panel">
                     <div class="cert-grid">
-                        <div class="cert-card"
-                            onclick="openLightbox('assets/REG-P.png', 'REG-P', 'Concluído em Maricá - 2024')">
-                            <img src="assets/REG-P.png" alt="Certif. OBR Regional" loading="lazy">
+                        <div class="cert-card" data-year="2024"
+                            onclick="openLightbox('/assets/REG-P.png', 'OBR 2024 | 1ª Fase, Regional', 'Certificado de participação na modalidade prática da 1ª Fase Regional da Olimpíada Brasileira de Robótica em Maricá.', 'OBR', '2024')">
+                            <span class="cert-year-tag">08/2024</span>
+                            <img src="/assets/REG-P.png" alt="Certif. OBR Regional" loading="lazy">
                             <div class="cert-card-info">
-                                <h4>Participação na OBR 2024 | 1a Fase, Regional</h4>
-                                <p>OBR &middot; 2024</p>
+                                <h4>Participação na OBR 2024 | 1ª Fase, Regional</h4>
+                                <p>IFRN &middot RoboCup Brasil</p>
                             </div>
                         </div>
-                        <div class="cert-card"
-                            onclick="openLightbox('assets/EST-P.png', 'EST-P', 'Concluído em Maricá - 2024')">
-                            <img src="assets/EST-P.png" alt="Certif. OBR Estadual" loading="lazy">
+                        <div class="cert-card" data-year="2024"
+                            onclick="openLightbox('/assets/EST-P.png', 'OBR 2024 | 2ª Fase, Estadual', 'Certificado de participação na modalidade prática da 2ª Fase Estadual da Olimpíada Brasileira de Robótica em Maricá.', 'OBR', '2024')">
+                            <span class="cert-year-tag">09/2024</span>
+                            <img src="/assets/EST-P.png" alt="Certif. OBR Estadual" loading="lazy">
                             <div class="cert-card-info">
-                                <h4>Participação na OBR 2024 | 2a Fase, Estadual</h4>
-                                <p>OBR &middot; 2024</p>
+                                <h4>Participação na OBR 2024 | 2ª Fase, Estadual</h4>
+                                <p>IFRN &middot RoboCup Brasil</p>
                             </div>
                         </div>
-                        <div class="cert-card"
-                            onclick="openLightbox('assets/OURODESIGN-EST.png', 'OURODESIGN-EST', 'Concluído em Maricá - 2024')">
-                            <img src="assets/OURODESIGN-EST.png" alt="Certif. Melhor Design" loading="lazy">
+                        <div class="cert-card" data-year="2024"
+                            onclick="openLightbox('/assets/OURODESIGN-EST.png', 'Medalha de Melhor Design na OBR 2024 Estadual', 'Conquista de Medalha de Ouro / Destaque de Melhor Design de Robô na Etapa Estadual da OBR 2024.', 'OBR', '2024')">
+                            <span class="cert-year-tag">09/2024</span>
+                            <img src="/assets/OURODESIGN-EST.png" alt="Certif. Melhor Design" loading="lazy">
                             <div class="cert-card-info">
                                 <h4>Medalha de Melhor Design na OBR 2024 Estadual</h4>
-                                <p>OBR &middot; 2024</p>
+                                <p>IFRN &middot RoboCup Brasil</p>
                             </div>
                         </div>
-                        <div class="cert-card"
-                            onclick="openLightbox('assets/TEO3-P.png', 'TEO3-P', 'Concluído em 2024')">
-                            <img src="assets/TEO3-P.png" alt="Certif. OBR Teórica" loading="lazy">
+                        <div class="cert-card" data-year="2024"
+                            onclick="openLightbox('/assets/TEO3-P.png', 'OBR 2024 | Teórica N3', 'Certificado de participação na modalidade teórica Nível 3 da Olimpíada Brasileira de Robótica 2024.', 'OBR', '2024')">
+                            <span class="cert-year-tag">06/2024</span>
+                            <img src="/assets/TEO3-P.png" alt="Certif. OBR Teórica" loading="lazy">
                             <div class="cert-card-info">
                                 <h4>Participação na OBR 2024 | Teórica N3</h4>
-                                <p>OBR &middot; 2024</p>
+                                <p>IFRN &middot RoboCup Brasil</p>
                             </div>
                         </div>
                     </div>
@@ -576,72 +696,1251 @@
 
                 <div id="panel-fiap" class="folder-panel">
                     <div class="cert-grid">
-                        <div class="cert-card"
-                            onclick="openLightbox('assets/FIAP-ST1.jpg', 'FIAP-ST1', 'Concluído em 2026')">
-                            <img src="assets/FIAP-ST1.jpg" alt="Certif. FIAP-ST1" loading="lazy">
+                        <div class="cert-card" data-year="2026"
+                            onclick="openLightbox('/assets/FIAP-ST1.jpg', 'Participação na Live Semana Tech da FIAP', 'Certificado de participação e conclusão na Live Semana Tech promovida pela FIAP.', 'FIAP', '2026')">
+                            <span class="cert-year-tag">02/2026</span>
+                            <img src="/assets/FIAP-ST1.jpg" alt="Certif. FIAP-ST1" loading="lazy">
                             <div class="cert-card-info">
                                 <h4>Participação na Live Semana Tech da FIAP</h4>
-                                <p>FIAP &middot; 2026</p>
+                                <p>FIAP &middot ALURA</p>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
         </section>
 
         <!-- Meu Setup -->
-        <section class="about-section glass-card" style="max-width: 900px; margin-top: 48px;">
-            <h2>⚙️ Minha Workstation</h2>
-            <div class="setup-specs">
-                <div class="spec-item">
-                    <span class="spec-label">Gabinete</span>
-                    <span class="spec-value">Aerocool XPredator XL-ATX Evil Green</span>
+        <section class="about-section glass-card workstation-section" style="max-width: 900px; margin-top: 48px;">
+            <div class="workstation-header">
+                <div>
+                    <h2><svg class="anime-icon" style="color: var(--accent-rose);">
+                            <use href="#icon-soulgem-kyoko"></use>
+                        </svg> Meu Setup</h2>
+                    <p class="workstation-subtitle">Estação de trabalho completa: PC, áudio customizado DIY, monitores e
+                        periféricos.
+                    </p>
                 </div>
-                <div class="spec-item">
-                    <span class="spec-label">Processador</span>
-                    <span class="spec-value">Ryzen 7 5700G (Underclock e Undervolt)</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Cooler</span>
-                    <span class="spec-value">Noctua NH-D15 chromax.black</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">GPU</span>
-                    <span class="spec-value">APU Vega 11</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Placa Mãe</span>
-                    <span class="spec-value">Asrock B450M HDV R4.0</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Memória</span>
-                    <span class="spec-value">DDR4 24GB 3934mhz CL20 (Overclocked)</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Armazenamento</span>
-                    <span class="spec-value">SSDs 480GB m.2 + 900GB sata, HDDs 1.5TB + 2TB</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Fonte</span>
-                    <span class="spec-value">Aerocool VX-600 - 600W</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">OS</span>
-                    <span class="spec-value">Windows 11 Enterprise LTSC</span>
+
+                <div class="workstation-toggle" role="tablist">
+                    <button type="button" class="workstation-tab-btn active" id="btn-ws-current"
+                        onclick="switchWorkstation('current')">
+                        <svg class="anime-icon" style="margin-right: 6px;">
+                            <use href="#icon-vintage-book"></use>
+                        </svg> Setup Atual
+                    </button>
+                    <button type="button" class="workstation-tab-btn" id="btn-ws-dream"
+                        onclick="switchWorkstation('dream')">
+                        <svg class="anime-icon" style="margin-right: 6px; color: var(--accent-gold);">
+                            <use href="#icon-star-badge"></use>
+                        </svg> Setup dos Sonhos
+                    </button>
                 </div>
             </div>
-            <p style="margin-top: 20px;">Estou planejando meu próximo upgrade para conseguir rodar LLMs pesados
-                e todos os meus projetos localmente 24/7.</p>
+
+            <!-- Painel: Setup Atual -->
+            <div id="ws-panel-current" class="workstation-panel active">
+                <div class="hw-grid">
+                    <div class="hw-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">PROCESSADOR // CPU</span>
+                                <span class="hw-badge hw-badge-tuning">UNDERVOLT &amp; ECO</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre AMD Ryzen 7 5700G" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">AMD Ryzen 7 5700G</h4>
+                        <p class="hw-detail">8 Cores / 16 Threads &bull; Perfil de baixo consumo 24/7</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">PROCESSADOR // CPU</span>
+                                    <h5>AMD Ryzen 7 5700G</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> 8C / 16T, 3.8GHz base / 4.6GHz
+                                    boost, 16MB L3, TDP 65W, litografia 7nm Zen 3 Cezanne.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Configurado com undervolt e Curve Optimizer via BIOS para manter temperaturas
+                                        abaixo de 55°C e consumo mínimo em idle. Foco em estabilidade absoluta 24/7 para
+                                        compilação e servidores locais.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">REFRIGERAÇÃO // COOLER</span>
+                                <span class="hw-badge hw-badge-air">SILENT AIR TOWER</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre Noctua NH-D15" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">Noctua NH-D15 chromax.black</h4>
+                        <p class="hw-detail">Dupla torre com fans PWM de ultra silêncio</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">REFRIGERAÇÃO // COOLER</span>
+                                    <h5>Noctua NH-D15 chromax.black</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> Dupla torre de aletas de alumínio, 6
+                                    heatpipes de cobre, duas ventoinhas NF-A15 de 140mm SSO2 PWM.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Dissipador topo de linha. O processador opera gelado e as ventoinhas giram em
+                                        rotação tão baixa que o ruído sonoro é imperceptível mesmo sob carga máxima.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">GRÁFICOS // GPU</span>
+                                <span class="hw-badge hw-badge-apu">APU INTEGRADA</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre Radeon Vega 11" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">Radeon Vega 11 iGPU</h4>
+                        <p class="hw-detail">Gráficos integrados dedicados à interface do sistema</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">GRÁFICOS // GPU</span>
+                                    <h5>Radeon Vega 11 iGPU</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> 8 CUs integrados, frequência de
+                                    2000MHz, memória VRAM compartilhada de alta velocidade DDR4.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Alimenta os dois monitores com aceleração por hardware fluida para browsers,
+                                        renderização 2D e interface, sem gerar calor excessivo nem consumir energia de
+                                        uma placa dedicada em idle.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">MEMÓRIA // RAM</span>
+                                <span class="hw-badge hw-badge-oc">OVERCLOCKED 3934MHz</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre 24GB DDR4" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">24GB DDR4 3934MHz CL20</h4>
+                        <p class="hw-detail">Overclock afinado e timings de baixa latência</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">MEMÓRIA // RAM</span>
+                                    <h5>24GB DDR4 3934MHz CL20</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> Configuração híbrida calibrada a
+                                    3934MHz, latência primária CL20 e subtimings afinados manualmente.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Ajuste fino de clock e voltagem para impulsionar a largura de banda do Infinity
+                                        Fabric e acelerar o processamento na APU, mantendo estabilidade para VMs
+                                        simultâneas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">PLACA-MÃE // MOTHERBOARD</span>
+                                <span class="hw-badge hw-badge-std">AM4 SOCKET</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre ASRock B450M-HDV" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">ASRock B450M-HDV R4.0</h4>
+                        <p class="hw-detail">PCIe 3.0 &bull; Suporte a NVMe e conexões essenciais</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">PLACA-MÃE // MOTHERBOARD</span>
+                                    <h5>ASRock B450M-HDV R4.0</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> Soquete AM4, Chipset AMD B450, slot
+                                    M.2 PCIe 3.0 x4 Ultra, áudio Realtek ALC887, Gigabit LAN.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Placa compacta e confiável. Com as curvas de ventilação configuradas e undervolt
+                                        no processador, o circuito de VRM opera sempre em temperatura segura.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">ARMAZENAMENTO // STORAGE</span>
+                                <span class="hw-badge hw-badge-storage">4.8TB POOL HÍBRIDO</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre Armazenamento" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">SSDs 1.38TB + HDDs 3.5TB</h4>
+                        <p class="hw-detail">480GB NVMe + 900GB SATA SSDs + HDDs 1.5TB e 2TB para dados</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">ARMAZENAMENTO // STORAGE</span>
+                                    <h5>Pool de Armazenamento Híbrido</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> 480GB NVMe M.2 (SO/Ferramentas) +
+                                    900GB SSDs SATA (Projetos/Docker) + 1.5TB HDD + 2TB HDD (Mídia/Backups).</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Separação lógica por velocidade: NVMe para inicialização em segundos, SSDs SATA
+                                        para I/O rápido em builds, e discos rígidos dedicados para arquivamento frio de
+                                        dumps e mídias.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">ENERGIA // PSU</span>
+                                <span class="hw-badge hw-badge-std">600W POWER</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre Aerocool VX-600" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">Aerocool VX-600 600W</h4>
+                        <p class="hw-detail">Fornecimento estável para o conjunto atual</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">ENERGIA // PSU</span>
+                                    <h5>Aerocool VX-600 600W</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> 600W de potência contínua, ventoinha
+                                    de 120mm com controle térmico inteligente de rotação.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Ampla margem de segurança para a configuração atual focada em APU, trabalhando
+                                        sempre com folga e gerando mínimo de calor na parte inferior do chassi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">GABINETE // CHASSIS</span>
+                                <span class="hw-badge hw-badge-case">FULL TOWER XL-ATX</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre Aerocool XPredator" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">Aerocool XPredator Evil Green</h4>
+                        <p class="hw-detail">Chassis de alto fluxo de ar e amplo espaço interno</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">GABINETE // CHASSIS</span>
+                                    <h5>Aerocool XPredator Evil Green</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> Full Tower, chassi em aço japonês
+                                    0.8mm/1.0mm, aletas reguláveis no teto, fan frontal de 230mm.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Um clássico robusto. As dimensões generosas facilitam a manutenção e garantem
+                                        excelente fluxo de ar natural mesmo com rotação de ventoinhas reduzida.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card hw-card-full">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">SISTEMA OPERACIONAL // OS &amp; RUNTIME</span>
+                                <span class="hw-badge hw-badge-os">ENTERPRISE LTSC</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre Windows 11 LTSC" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">Windows 11 Enterprise LTSC + WSL2 &amp; Docker</h4>
+                        <p class="hw-detail">Núcleo limpo sem telemetria, Hyper-V ativado e contêineres Docker locais
+                        </p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">SISTEMA OPERACIONAL // OS</span>
+                                    <h5>Windows 11 Enterprise LTSC + WSL2</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> Windows 11 Enterprise LTSC (sem
+                                    bloatware/Cortana/telemetrias intrusivas), WSL2 Linux Kernel 6.x, Docker Engine.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>O ambiente perfeito para produção de código: a estabilidade e previsibilidade
+                                        corporativa do Windows LTSC combinada com o poder nativo do Linux via WSL2 para
+                                        pipelines de desenvolvimento.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MONITORES, ÁUDIO E PERIFÉRICOS -->
+                    <div class="hw-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">MONITOR PRINCIPAL // DISPLAY 1</span>
+                                <span class="hw-badge hw-badge-air">IPS FULL HD &bull; POPUP CAM</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre HP Elitedesk E243m" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">HP EliteDisplay E243m</h4>
+                        <p class="hw-detail">23.8" IPS Full HD, webcam retrátil popup HD e áudio estéreo embutido</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">MONITOR PRINCIPAL // DISPLAY 1</span>
+                                    <h5>HP EliteDisplay E243m</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> 23.8" IPS, 1920x1080 (16:9),
+                                    micro-edge em 3 lados, webcam retrátil 720p popup, microfones duplos frontais,
+                                    caixas Bang &amp; Olufsen integradas.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Meu monitor central de foco para programação e terminal. A fidelidade de cor do
+                                        painel IPS e a webcam retrátil embutida mantêm a mesa super limpa e livre de
+                                        fios extras para videochamadas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">MONITOR SECUNDÁRIO // DISPLAY 2</span>
+                                <span class="hw-badge hw-badge-tuning">18.5" AUXILIAR &bull; TELEMETRIA</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre LG FLATRON W1941S" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">LG FLATRON W1941S</h4>
+                        <p class="hw-detail">18.5" widescreen auxiliar para logs, documentações e monitoramento</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">MONITOR SECUNDÁRIO // DISPLAY 2</span>
+                                    <h5>LG FLATRON W1941S</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> 18.5" Widescreen 16:9, resolução
+                                    1366x768, tempo de resposta 5ms, taxa de contraste 8000:1 DFC.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Tela lateral sempre ligada com dashboards do Proxmox, logs de compilação, Spotify
+                                        e documentação de bibliotecas para não poluir o espaço de código principal.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card hw-card-full">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">SISTEMA ACÚSTICO // ÁUDIO DIY</span>
+                                <span class="hw-badge hw-badge-oc">PROJETO ARTESANAL 5.1</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre Sistema de Som DIY" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">Sistema de Som "5.1" Customizado DIY</h4>
+                        <p class="hw-detail">Soundbar quad-speaker TV plasma Samsung 2006 + Subwoofer LG Home Theater +
+                            Subwoofer Microlab + Satélites R+L Microlab + Controladora Z-TB21</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">SISTEMA ACÚSTICO // SOM DIY</span>
+                                    <h5>Sistema de Som "5.1" Customizado</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> Soundbar quad-speaker de TV de
+                                    plasma Samsung (2006), Subwoofer de home theater LG de alta excursão, Subwoofer
+                                    Microlab, Caixas satélites R+L Microlab, Módulo amplificador e crossover Z-TB21
+                                    (Bluetooth 5.0 + AUX).</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Engenharia de áudio caseira pura! Resgatei os transdutores da clássica TV de
+                                        plasma Samsung de 2006 para compor o palco sonoro frontal e combinei os dois
+                                        subwoofers (LG e Microlab) com a controladora Z-TB21. Toda a fiação foi feita
+                                        com condutores e blindagem retirados de cabos HDMI e VGA antigos, garantindo
+                                        sinal limpo sem chiados cruzando todo o escritório.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">MOUSE // PERIFÉRICOS</span>
+                                <span class="hw-badge hw-badge-tuning">PIXART 32K DPI</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre Redragon Lonewolf2" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">Redragon Lonewolf2 M721-PRO</h4>
+                        <p class="hw-detail">Sensor Pixart PMW3335 até 32.000 DPI, switches ópticos e botões macro
+                            programáveis</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">MOUSE // PERIFÉRICOS</span>
+                                    <h5>Redragon Lonewolf2 M721-PRO</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> Sensor óptico Pixart PMW3335 (100 a
+                                    32.000 DPI, 400 IPS, 40G), 10 botões customizáveis, memória onboard para perfis.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Pegada confortável para longas sessões de código. Os botões laterais extras foram
+                                        configurados como macros rápidas para navegação de abas no IDE e comandos
+                                        frequentes no terminal.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">TECLADO // PERIFÉRICOS</span>
+                                <span class="hw-badge hw-badge-case">FOAM MOD &bull; SWITCH AZUL</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre Redragon Kumara Pro" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">Redragon Kumara Pro</h4>
+                        <p class="hw-detail">Custom FOAM MOD interno, switches mecânicos azul táctil e conexões tri-mode
+                        </p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">TECLADO // PERIFÉRICOS</span>
+                                    <h5>Redragon Kumara Pro (Custom Mod)</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> Layout TKL 80%, conexões Bluetooth
+                                    5.0 / 2.4GHz sem fio / USB-C, switches azuis táteis com feedback sonoro nítido.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Fiz o custom FOAM MOD inserindo manta de amortecimento acústico de alta densidade
+                                        no fundo da carcaça para eliminar o eco oco metálico. A resposta dos switches
+                                        azuis é fantástica para digitar código com precisão e velocidade.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workstation-footer-note">
+                    <svg class="anime-icon" style="color: var(--accent-gold);">
+                        <use href="#icon-star-badge"></use>
+                    </svg>
+                    <span>Configuração completa, estável e acústica afinada para compilação, testes e uso diário
+                        contínuo. Clique no botão de informação de cada item para ler os detalhes e notas.</span>
+                </div>
+            </div>
+
+            <!-- Painel: Setup dos Sonhos -->
+            <div id="ws-panel-dream" class="workstation-panel">
+                <div class="dream-hero-banner">
+                    <div class="dream-badge">PROJETO DE UPGRADE // LLM COMPUTE RIG</div>
+                    <h3>Setup dos Sonhos: Computação de Alta Densidade e Criação</h3>
+                    <p>Setup planejado para inferência e fine-tuning de LLMs pesadas (70B+ como Llama 3, Qwen e
+                        DeepSeek), Docker MCP clusters e virtualização profunda sem gargalos térmicos ou de VRAM.</p>
+                </div>
+
+                <div class="hw-grid">
+                    <div class="hw-card dream-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">PROCESSADOR // CPU</span>
+                                <span class="hw-badge hw-badge-dream">16C / 32T &bull; 5.7GHz</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre AMD Ryzen 9 9950X" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">AMD Ryzen 9 9950X (Zen 5)</h4>
+                        <p class="hw-detail">16 Núcleos / 32 Threads, IPC de ponta para pipelines de IA e compilação
+                            maciça</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">PROCESSADOR // CPU</span>
+                                    <h5>AMD Ryzen 9 9950X</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> 16C / 32T, boost de até 5.7GHz, 80MB
+                                    de Cache combinado, instruções AVX-512 com throughput dobrado.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Meta para compilação distribuída instantânea e pré-processamento de datasets com
+                                        pipelines AVX-512 sem sobrecarregar a GPU.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card dream-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">ACELERADORES IA // GPU</span>
+                                <span class="hw-badge hw-badge-dream">32GB GDDR7 &bull; TENSOR CORES</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre RTX 5090" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">NVIDIA GeForce RTX 5090 32GB</h4>
+                        <p class="hw-detail">VRAM massiva para rodar quantizações de 70B+ em FP8/FP16 nativo 24/7 com
+                            throughput instantâneo</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">ACELERADORES IA // GPU</span>
+                                    <h5>NVIDIA GeForce RTX 5090 32GB</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> 32GB GDDR7, barramento 512-bit,
+                                    largura de banda de até 1.790 GB/s, Tensor Cores Blackwell de 5ª geração.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>A chave para rodar modelos gigantescos em servidor de inferência local sem
+                                        depender de APIs pagas de nuvem e com zero vazamento de dados.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card dream-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">MEMÓRIA UNIFICADA // RAM</span>
+                                <span class="hw-badge hw-badge-dream">128GB DDR5 6000MHz</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre 128GB DDR5" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">128GB (4x32GB) DDR5 6000MHz CL30</h4>
+                        <p class="hw-detail">Largura de banda elevada para offload de modelos pesados e múltiplos
+                            contêineres Docker simultâneos</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">MEMÓRIA // RAM</span>
+                                    <h5>128GB DDR5 6000MHz CL30</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> 4 módulos de 32GB com perfil AMD
+                                    EXPO calibrado, latência CL30 ultra responsiva.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Capacidade essencial para manter instâncias de desenvolvimento completas, bancos
+                                        vetoriais em RAM e compilações concorrentes no Proxmox.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card dream-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">REFRIGERAÇÃO // COOLING</span>
+                                <span class="hw-badge hw-badge-dream">420mm LIQUID FREEZER</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre Arctic Liquid Freezer" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">Arctic Liquid Freezer III 420 A-RGB</h4>
+                        <p class="hw-detail">Radiador de 420mm com operação silenciosa e fan dedicada para os VRMs da
+                            placa-mãe</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">REFRIGERAÇÃO // COOLING</span>
+                                    <h5>Arctic Liquid Freezer III 420</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> Radiador de 38mm de espessura com 3
+                                    fans de 140mm e ventoinha auxiliar dedicada de 60mm para os VRMs.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>A melhor eficiência térmica em circuito fechado do mercado, mantendo o 9950X
+                                        estável em clocks elevados sem gerar ruído acústico incômodo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card dream-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">PLACA-MÃE // MOTHERBOARD</span>
+                                <span class="hw-badge hw-badge-dream">PCIe 5.0 &bull; USB4 40Gbps</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre ASUS ROG Crosshair" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">ASUS ROG Crosshair X870E Hero</h4>
+                        <p class="hw-detail">VRM 18+2+2 estágios para carga contínua, conectividade 10GbE e slots PCIe
+                            5.0</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">PLACA-MÃE // MOTHERBOARD</span>
+                                    <h5>ASUS ROG Crosshair X870E Hero</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> 18+2+2 fases de alimentação 110A,
+                                    dual USB4 40Gbps, Wi-Fi 7, LAN 5GbE/2.5GbE, 5 slots M.2 integrados.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Plataforma robusta para operação contínua sem degradação térmica, com suporte a
+                                        passthrough de dispositivos IOMMU para máquinas virtuais no Linux.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card dream-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">ARMAZENAMENTO // STORAGE</span>
+                                <span class="hw-badge hw-badge-dream">10TB ULTRA NVMe</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre Armazenamento NVMe" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">2TB PCIe 5.0 + 8TB PCIe 4.0 NVMe</h4>
+                        <p class="hw-detail">Até 14.000 MB/s de leitura para carregamento instantâneo de checkpoints e
+                            pesos de IA em memória</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">ARMAZENAMENTO // STORAGE</span>
+                                    <h5>10TB NVMe em Alta Velocidade</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> 2TB Crucial T705 PCIe 5.0 (14.500
+                                    MB/s) + 8TB Samsung 990 Pro PCIe 4.0.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>I/O ultra veloz para carregar tensores de modelos de 50GB em questão de 3
+                                        segundos diretamente para a VRAM da placa de vídeo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card dream-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">ALIMENTAÇÃO // PSU</span>
+                                <span class="hw-badge hw-badge-dream">TITANIUM ATX 3.1</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre Seasonic 1600W" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">Seasonic PRIME TX-1600W 80+ Titanium</h4>
+                        <p class="hw-detail">Eficiência de 94%+, cabos nativos 12V-2x6 e proteção industrial para
+                            operação 24 horas ininterrupta</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">ALIMENTAÇÃO // PSU</span>
+                                    <h5>Seasonic PRIME TX-1600W Titanium</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> 1600W, certificação 80 Plus Titanium
+                                    / Cybenetics Titanium, cabos 12V-2x6 reforçados.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Alimentação limpa com regulação de microtensão de 0.5%, garantindo vida útil
+                                        prolongada aos componentes de ponta sob carga contínua.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card dream-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">GABINETE // CHASSIS</span>
+                                <span class="hw-badge hw-badge-dream">DUAL CHAMBER FLOW</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre Lian Li O11" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">Lian Li O11 Dynamic EVO XL</h4>
+                        <p class="hw-detail">Câmara dupla, fluxo vertical otimizado e painel de vidro temperado fumê</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">GABINETE // CHASSIS</span>
+                                    <h5>Lian Li O11 Dynamic EVO XL</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> Design modular reversível, suporte a
+                                    até 3 radiadores de 420mm simultâneos, câmara dupla isolada para a fonte.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Gabinete moderno com organização exemplar de cabos e refrigeração vertical para
+                                        que a placa de vídeo receba ar fresco direto do fundo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card dream-card hw-card-full">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">ARQUITETURA DE SO &amp; HIPERVISOR</span>
+                                <span class="hw-badge hw-badge-dream">VIRTUALIZAÇÃO NÍVEL 1</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre Proxmox VE" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">Proxmox VE (Kernel Linux) + VM Windows 11 LTSC Passthrough</h4>
+                        <p class="hw-detail">Hipervisor Type-1 rodando instâncias de Ollama, vLLM e servidores MCP
+                            diretamente no hardware via PCIe IOMMU</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">SISTEMA // HIPERVISOR</span>
+                                    <h5>Proxmox VE + PCIe Passthrough</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> Hipervisor Bare-Metal Debian, ZFS
+                                    storage pool com snapshots automáticos, orquestração de contêineres LXC.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Arquitetura onde a máquina física vira um datacenter pessoal: VMs Linux isoladas
+                                        para IA rodando 24 horas, e passthrough direto de GPU para a estação de trabalho
+                                        principal.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MONITORES, ÁUDIO E PERIFÉRICOS (SONHOS) -->
+                    <div class="hw-card dream-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">MONITOR PRINCIPAL // DISPLAY 1</span>
+                                <span class="hw-badge hw-badge-dream">23.8" IPS &bull; POPUP CAM</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre HP Elitedesk E243m" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">HP EliteDisplay E243m</h4>
+                        <p class="hw-detail">23.8" IPS Full HD, webcam retrátil popup HD e áudio estéreo embutido</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">MONITOR PRINCIPAL // DISPLAY 1</span>
+                                    <h5>HP EliteDisplay E243m</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> 23.8" IPS, micro-bordas, webcam
+                                    retrátil e microfone estéreo integrados.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Mantido inicialmente no projeto pelo formato prático e integrado; posteriormente
+                                        pretendo planejar um upgrade com painel OLED de alta taxa de atualização.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card dream-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">MONITOR SECUNDÁRIO // DISPLAY 2</span>
+                                <span class="hw-badge hw-badge-dream">18.5" AUXILIAR &bull; TELEMETRIA</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre LG FLATRON W1941S" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">LG FLATRON W1941S</h4>
+                        <p class="hw-detail">18.5" widescreen auxiliar para logs, documentações e monitoramento de nós
+                        </p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">MONITOR SECUNDÁRIO // DISPLAY 2</span>
+                                    <h5>LG FLATRON W1941S</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> 18.5" Widescreen 16:9, tempo de
+                                    resposta 5ms, dedicado à telemetria.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Companheiro fiel para acompanhar saídas de compilação contínua e status dos
+                                        contêineres enquanto o monitor principal foca no código.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card dream-card hw-card-full">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">SISTEMA ACÚSTICO // ÁUDIO DIY</span>
+                                <span class="hw-badge hw-badge-dream">PROJETO ARTESANAL 5.1</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre Sistema de Som DIY" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">Sistema de Som "5.1" Customizado DIY</h4>
+                        <p class="hw-detail">Soundbar quad-speaker TV plasma Samsung 2006 + Subwoofer LG Home Theater +
+                            Subwoofer Microlab + Satélites R+L Microlab + Controladora Z-TB21</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">SISTEMA ACÚSTICO // SOM DIY</span>
+                                    <h5>Sistema de Som "5.1" Customizado</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> Soundbar quad-speaker TV Samsung
+                                    plasma, subwoofer LG, subwoofer Microlab, satélites Microlab, módulo Z-TB21.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Mantido com muito orgulho no setup dos sonhos! A assinatura sonora personalizada
+                                        com o cabeamento blindado reciclado de HDMI/VGA entrega uma resposta acústica
+                                        encorpada e única.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card dream-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">MOUSE // PERIFÉRICOS</span>
+                                <span class="hw-badge hw-badge-dream">PIXART 32K DPI</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre Redragon Lonewolf2" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">Redragon Lonewolf2 M721-PRO</h4>
+                        <p class="hw-detail">Sensor Pixart PMW3335 até 32.000 DPI, switches ópticos e botões macro
+                            programáveis</p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">MOUSE // PERIFÉRICOS</span>
+                                    <h5>Redragon Lonewolf2 M721-PRO</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> Sensor Pixart PMW3335, switches
+                                    ópticos de alta durabilidade, 10 botões com macros para IDE e terminal.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>Mesmo mouse de alta precisão configurado para máxima produtividade nos atalhos
+                                        diários.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hw-card dream-card">
+                        <div class="hw-top">
+                            <div class="hw-meta-left">
+                                <span class="hw-category">TECLADO // PERIFÉRICOS</span>
+                                <span class="hw-badge hw-badge-dream">FOAM MOD &bull; SWITCH AZUL</span>
+                            </div>
+                            <button type="button" class="hw-info-btn" title="Ver detalhes e notas pessoais"
+                                aria-label="Detalhes sobre Redragon Kumara Pro" onclick="toggleHwModal(this, event)">
+                                <svg class="hw-info-icon" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke-width="2" />
+                                    <line x1="12" y1="16" x2="12" y2="12" stroke-width="2" />
+                                    <circle cx="12" cy="8" r="1.2" fill="currentColor" />
+                                </svg>
+                            </button>
+                        </div>
+                        <h4 class="hw-title">Redragon Kumara Pro</h4>
+                        <p class="hw-detail">Custom FOAM MOD interno, switches mecânicos azul táctil e conexões tri-mode
+                        </p>
+
+                        <div class="hw-popover">
+                            <div class="hw-popover-header">
+                                <div class="hw-popover-title">
+                                    <span class="hw-popover-badge">TECLADO // PERIFÉRICOS</span>
+                                    <h5>Redragon Kumara Pro (Custom Mod)</h5>
+                                </div>
+                                <button type="button" class="hw-popover-close"
+                                    onclick="closeHwModal(this, event)">✕</button>
+                            </div>
+                            <div class="hw-popover-body">
+                                <p class="hw-popover-specs"><strong>Specs:</strong> Formato TKL 80%, modificação interna
+                                    de espuma isolante (Foam Mod), switches azuis com feedback mecânico sonoro.</p>
+                                <div class="hw-popover-notes">
+                                    <div class="hw-notes-label">💡 Notas do Leonardo:</div>
+                                    <p>O som e o toque do teclado mecânico com amortecimento acústico customizado
+                                        proporcionam uma sensação de digitação imbatível para programar.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workstation-footer-note dream-note">
+                    <svg class="anime-icon" style="color: var(--accent-rose);">
+                        <use href="#icon-soulgem-kyoko"></use>
+                    </svg>
+                    <span>Esta é uma meta de engenharia de hardware em constante refinamento para suportar meus projetos
+                        de inteligência artificial de forma 100% autônoma e privada.</span>
+                </div>
+            </div>
         </section>
 
     </div>
 
-    <!-- Lightbox para certificados -->
-    <div id="cert-lightbox" class="lightbox-shell">
+    <!-- Lightbox Modal para Certificados (Liquid Glass) -->
+    <div id="cert-lightbox" class="lightbox-shell" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
         <div class="lightbox-content">
-            <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
-            <img id="lb-img" src="" alt="Certificado">
+            <button type="button" class="lightbox-close" onclick="closeLightbox()"
+                aria-label="Fechar modal">&times;</button>
+
+            <!-- Seletor de Páginas (Frente e Verso) -->
+            <div id="lb-page-switcher" class="lightbox-page-switcher" style="display: none;">
+                <button type="button" class="lb-page-btn active" id="lb-btn-front"
+                    onclick="switchLightboxPage('front')">
+                    <span class="lb-page-num">1</span>
+                    <span class="lb-page-title">Página 1: Frente (Diploma Oficial)</span>
+                </button>
+                <button type="button" class="lb-page-btn" id="lb-btn-back" onclick="switchLightboxPage('back')">
+                    <span class="lb-page-num">2</span>
+                    <span class="lb-page-title">Página 2: Verso (Grade Curricular • 532h)</span>
+                    <span class="pulse-beacon"></span>
+                </button>
+            </div>
+
+            <div class="lightbox-img-wrapper" id="lb-img-wrapper" onclick="toggleLightboxFlip()"
+                title="Clique na imagem para alternar frente e verso">
+                <img id="lb-img" src="" alt="Certificado em tamanho ampliado">
+            </div>
+
             <div class="lightbox-info">
+                <div class="lightbox-meta">
+                    <span class="lb-badge lb-inst" id="lb-inst">Instituição</span>
+                    <span class="lb-badge lb-year" id="lb-year">Ano</span>
+                    <span class="lb-badge lb-page-indicator" id="lb-page-indicator" style="display: none;">Página 1 de 2: Frente</span>
+                </div>
                 <h3 id="lb-title"></h3>
                 <p id="lb-desc"></p>
+                <div class="lightbox-actions">
+                    <a id="lb-download" href="" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                        <svg class="anime-icon" style="margin-right: 6px;">
+                            <use href="#icon-locket"></use>
+                        </svg> <span id="lb-download-label">Ver Imagem Original</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

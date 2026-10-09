@@ -19,27 +19,29 @@
     <!-- Fontes Google Otimizadas (display=swap, zero CLS) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
+<body data-theme="gosick">
 
     <div class="content-wrapper">
-        <header class="hero">
+        <header class="hero glass-panel">
             <h1>Meus Projetos</h1>
             <p class="subtitle">Laboratório de ideias, infraestrutura e aprendizado contínuo.</p>
         </header>
 
         <!-- Filtros -->
         <div class="project-filters">
-            <button class="filter-btn active" data-filter="all">Todos</button>
-            <button class="filter-btn" data-filter="web">🌐 Web</button>
-            <button class="filter-btn" data-filter="infra">🖥️ Infra</button>
-            <button class="filter-btn" data-filter="ia">🤖 IA</button>
-            <button class="filter-btn" data-filter="hardware">🔧 Hardware</button>
-            <button class="filter-btn" data-filter="outros">📦 Outros</button>
+            <button class="filter-btn active" data-filter="all"><svg class="anime-icon" style="color: var(--accent-emerald);"><use href="#icon-vintage-book"></use></svg> Todos</button>
+            <button class="filter-btn" data-filter="web"><svg class="anime-icon" style="color: var(--accent-gold);"><use href="#icon-locket"></use></svg> Web</button>
+            <button class="filter-btn" data-filter="infra"><svg class="anime-icon" style="color: var(--accent-emerald);"><use href="#icon-pipe"></use></svg> Infra</button>
+            <button class="filter-btn" data-filter="ia"><svg class="anime-icon" style="color: var(--accent-gold);"><use href="#icon-locket"></use></svg> IA</button>
+            <button class="filter-btn" data-filter="hardware"><svg class="anime-icon" style="color: var(--accent-emerald);"><use href="#icon-pipe"></use></svg> Hardware</button>
+            <button class="filter-btn" data-filter="outros"><svg class="anime-icon" style="color: var(--accent-gold);"><use href="#icon-dress-bow"></use></svg> Outros</button>
         </div>
 
         <main class="projects-container">
@@ -48,8 +50,8 @@
                 <div class="project-header">
                     <h2 class="project-title">Diagnóstico Técnico (Ajuda)</h2>
                     <div class="status-badge"
-                        style="background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);">
-                        🚧 Em Desenvolvimento</div>
+                        style="background: rgba(212, 175, 55, 0.15); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3);">
+                        <svg class="anime-icon"><use href="#icon-locket"></use></svg> Em Desenvolvimento</div>
                 </div>
 
                 <div class="tech-stack">
@@ -92,12 +94,12 @@
                 <div class="project-section" style="margin-top: 30px;">
                     <a href="/ajuda/index.html" target="_blank" class="btn-secondary"
                         style="display: inline-flex; align-items: center; gap: 10px;">
-                        🌐 Ver Prévia do Projeto
+                        <svg class="anime-icon"><use href="#icon-locket"></use></svg> Ver Prévia do Projeto
                     </a>
                 </div>
 
                 <button class="toggle-media-btn" onclick="toggleProjectMedia(this)">
-                    📂 Ver Capturas de Tela <i class="fas fa-chevron-down"></i>
+                    <svg class="anime-icon"><use href="#icon-vintage-book"></use></svg> Ver Capturas de Tela <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="project-media-collapse">
                     <div class="project-carousel" data-current-slide="0">
@@ -139,7 +141,7 @@
             <article class="project-card" data-category="web">
                 <div class="project-header">
                     <h2 class="project-title">Meu Website</h2>
-                    <div class="status-badge">📂 Repositório Público</div>
+                    <div class="status-badge"><svg class="anime-icon" style="color: var(--accent-emerald);"><use href="#icon-vintage-book"></use></svg> Repositório Público</div>
                 </div>
                 <div class="github-stats-container" data-repo="webglossdev/website">
                     <div class="stat-loading">Carregando dados do GitHub...</div>
@@ -180,7 +182,7 @@
                 </div>
 
                 <button class="toggle-media-btn" onclick="toggleProjectMedia(this)">
-                    📂 Ver Capturas de Tela <i class="fas fa-chevron-down"></i>
+                    <svg class="anime-icon"><use href="#icon-vintage-book"></use></svg> Ver Capturas de Tela <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="project-media-collapse">
                     <div class="project-carousel" data-current-slide="0">
@@ -212,7 +214,7 @@
             <article class="project-card" data-category="web">
                 <div class="project-header">
                     <h2 class="project-title">Calendário Olímpico</h2>
-                    <div class="status-badge">🌐 Público</div>
+                    <div class="status-badge"><svg class="anime-icon" style="color: var(--accent-emerald);"><use href="#icon-locket"></use></svg> Público</div>
                 </div>
                 <div class="github-stats-container" data-repo="webglossdev/Calendario-Olimpico">
                     <div class="stat-loading">Carregando dados do GitHub...</div>
@@ -243,12 +245,12 @@
                 <div class="project-section" style="margin-top: 30px;">
                     <a href="https://calendario-olimpico.vercel.app" target="_blank" class="btn-secondary"
                         style="display: inline-flex; align-items: center; gap: 10px;">
-                        🌐 Acessar o Site
+                        <svg class="anime-icon"><use href="#icon-locket"></use></svg> Acessar o Site
                     </a>
                 </div>
 
                 <button class="toggle-media-btn" onclick="toggleProjectMedia(this)">
-                    📂 Ver Capturas de Tela <i class="fas fa-chevron-down"></i>
+                    <svg class="anime-icon"><use href="#icon-vintage-book"></use></svg> Ver Capturas de Tela <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="project-media-collapse">
                     <div class="project-carousel" data-current-slide="0">
@@ -284,7 +286,7 @@
             <article class="project-card" data-category="infra">
                 <div class="project-header">
                     <h2 class="project-title">Infraestrutura em Nuvem</h2>
-                    <div class="status-badge">🔒 Privado</div>
+                    <div class="status-badge"><svg class="anime-icon" style="color: var(--accent-gold);"><use href="#icon-pipe"></use></svg> Privado</div>
                 </div>
 
                 <div class="tech-stack">
@@ -313,7 +315,7 @@
             <article class="project-card" data-category="hardware">
                 <div class="project-header">
                     <h2 class="project-title">Workstation Custom</h2>
-                    <div class="status-badge">🔒 Privado</div>
+                    <div class="status-badge"><svg class="anime-icon" style="color: var(--accent-gold);"><use href="#icon-pipe"></use></svg> Privado</div>
                 </div>
 
                 <div class="tech-stack">
@@ -345,7 +347,7 @@
             <article class="project-card" data-category="ia">
                 <div class="project-header">
                     <h2 class="project-title">Playground e Workloads de IA</h2>
-                    <div class="status-badge">🔒 Privado</div>
+                    <div class="status-badge"><svg class="anime-icon" style="color: var(--accent-emerald);"><use href="#icon-locket"></use></svg> Privado</div>
                 </div>
 
                 <div class="tech-stack">
@@ -376,7 +378,7 @@
             <article class="project-card" data-category="infra">
                 <div class="project-header">
                     <h2 class="project-title">Servidor Local</h2>
-                    <div class="status-badge">🔒 Privado</div>
+                    <div class="status-badge"><svg class="anime-icon" style="color: var(--accent-emerald);"><use href="#icon-pipe"></use></svg> Privado</div>
                 </div>
 
                 <div class="tech-stack">
@@ -409,7 +411,7 @@
             <article class="project-card" data-category="outros">
                 <div class="project-header">
                     <h2 class="project-title">Lua UI Hub (Ambiente Roblox)</h2>
-                    <div class="status-badge public">📂 Repositório Público Arquivado</div>
+                    <div class="status-badge public"><svg class="anime-icon" style="color: var(--accent-gold);"><use href="#icon-dress-bow"></use></svg> Repositório Público Arquivado</div>
                 </div>
 
                 <div class="tech-stack">
@@ -443,43 +445,45 @@
 
         <!-- Projetos Futuros -->
         <section class="future-projects">
-            <h2 class="section-title">🔮 Na Prancheta</h2>
+            <div class="section-header">
+                <h2 class="section-title"><svg class="anime-icon" style="color: var(--accent-emerald);"><use href="#icon-vintage-book"></use></svg> Na Prancheta</h2>
+            </div>
             <p style="text-align: center; margin-bottom: 30px; color: var(--text-secondary);">Projetos que estão
                 aguardando apenas eu adquirir mais experiência técnica.</p>
 
             <div class="future-timeline">
                 <div class="future-card">
-                    <h3>🤖 Website de Playground e Ferramentas IA</h3>
+                    <h3><svg class="anime-icon" style="color: var(--accent-emerald);"><use href="#icon-locket"></use></svg> Website de Playground e Ferramentas IA</h3>
                     <p>Website onde usuários acessam diversas ferramentas de IA, incluindo modelos locais e API
                         para integrar em projetos. Open WebUI + Applio + planos gratuitos e pagos.</p>
                 </div>
 
                 <div class="future-card">
-                    <h3>🏠 Casa Inteligente</h3>
+                    <h3><svg class="anime-icon" style="color: var(--accent-gold);"><use href="#icon-pipe"></use></svg> Casa Inteligente</h3>
                     <p>Automatizar minha casa inteira com aparelhos modulares conectados. Sistema centralizado
                         de controle com foco em automação e economia máxima de energia.</p>
                 </div>
 
                 <div class="future-card">
-                    <h3>🤖 Robô Humanoide Controlado por IA</h3>
+                    <h3><svg class="anime-icon" style="color: var(--accent-emerald);"><use href="#icon-pipe"></use></svg> Robô Humanoide Controlado por IA</h3>
                     <p>Robô funcional com exterior impresso em 3D, atuadores mecânicos, e cérebro processado
                         por IA multimodal local (inspirado no Gemini Robotics).</p>
                 </div>
 
                 <div class="future-card">
-                    <h3>🚲 Bicicleta Elétrica DIY</h3>
+                    <h3><svg class="anime-icon" style="color: var(--accent-gold);"><use href="#icon-dress-bow"></use></svg> Bicicleta Elétrica DIY</h3>
                     <p>Bicicleta elétrica do zero: células de lítio, pack de bateria customizado, motor de cubo
                         e painel customizado (talvez com PCB desenhada por mim).</p>
                 </div>
 
                 <div class="future-card">
-                    <h3>📱 Meu Próprio Android Custom (OS)</h3>
+                    <h3><svg class="anime-icon" style="color: var(--accent-emerald);"><use href="#icon-locket"></use></svg> Meu Próprio Android Custom (OS)</h3>
                     <p>Fork do AOSP com KernelSU Next, otimizações de scheduler/kernel e remoção de bloatware.
                         Possível versão GSI no GitHub para a comunidade.</p>
                 </div>
 
                 <div class="future-card">
-                    <h3>💡 Meus próprios apps e ferramentas</h3>
+                    <h3><svg class="anime-icon" style="color: var(--accent-gold);"><use href="#icon-vintage-book"></use></svg> Meus próprios apps e ferramentas</h3>
                     <p>Criar minhas próprias versões de ferramentas e apps que eu uso do zero quando tiver
                         conhecimento suficiente em programação.</p>
                 </div>
