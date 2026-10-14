@@ -266,7 +266,6 @@ const headerHTML = `
         <div class="nav-links right-links desktop-only">
             <a href="/projetos">Projetos</a>
             <a href="/blog">Blog Pessoal</a>
-            <a href="/contrate-me.html">Contrate-me</a>
         </div>
 
         <div class="header-controls desktop-only">
@@ -366,22 +365,13 @@ const headerHTML = `
                         <span class="island-card-sub">Artigos & relicário</span>
                     </div>
                 </a>
-                <a href="/contato" class="island-nav-card" data-nav="contato">
+                <a href="/contato" class="island-nav-card island-nav-card-full" data-nav="contato">
                     <div class="island-card-icon-box" style="color: var(--accent-gold, #f59e0b);">
                         <svg class="anime-icon"><use href="#icon-ribbon-bow"></use></svg>
                     </div>
                     <div class="island-card-details">
                         <span class="island-card-title">Contato</span>
                         <span class="island-card-sub">WhatsApp, GitHub & mensagem</span>
-                    </div>
-                </a>
-                <a href="/contrate-me.html" class="island-nav-card" data-nav="contrate-me">
-                    <div class="island-card-icon-box" style="color: var(--accent-pink, #f43f5e);">
-                        <svg class="anime-icon"><use href="#icon-rezero-butterfly"></use></svg>
-                    </div>
-                    <div class="island-card-details">
-                        <span class="island-card-title">Contrate-me</span>
-                        <span class="island-card-sub">Serviços & soluções</span>
                     </div>
                 </a>
             </div>
