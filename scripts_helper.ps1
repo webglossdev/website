@@ -2,8 +2,8 @@ param(
     [switch]$Watch
 )
 
-$assets = "D:\.exp\IDE-WEBDEV-PAGES\website-main\assets"
-$base = "D:\.exp\IDE-WEBDEV-PAGES\website-main\assets\backgrounds"
+$assets = Join-Path $PSScriptRoot "assets"
+$base = Join-Path $assets "backgrounds"
 $validExtensions = @(".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif", ".mp4", ".webm", ".mov", ".m4v", ".ogv")
 
 # Copy base anime wallpapers to their folders if empty

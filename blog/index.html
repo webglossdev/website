@@ -541,7 +541,7 @@
                                         ${depthCoordStr}
                                     </span>
                                 </div>
-                                <h3>${escapeHtml(post.meta.title || post.filename.replace('.md', ''))}</h3>
+                                <h3>${post.meta.icon ? `<span class="post-card-icon" style="margin-right: 6px;">${escapeHtml(post.meta.icon)}</span>` : ''}${escapeHtml(post.meta.title || post.filename.replace('.md', ''))}</h3>
                                 <p>${escapeHtml(excerpt)}</p>
                             </div>
                             <div class="relic-footer">
@@ -740,7 +740,8 @@
             }
 
             function showPost(filename) {
-                const post = allPosts.find(p => p.filename === filename);
+                const cleanTarget = (filename || '').replace(/\.md$/, '');
+                const post = allPosts.find(p => p.filename.replace(/\.md$/, '') === cleanTarget);
                 if (!post) return;
 
                 currentViewingPost = post;
@@ -753,7 +754,21 @@
                 if (hero) hero.style.display = 'none';
                 if (controls) controls.style.display = 'none';
                 if (postsSection) postsSection.style.display = 'none';
-                if (viewer) viewer.style.display = 'block';
+                if (viewer) {
+                    viewer.style.display = 'block';
+                    if (post.meta.accent) {
+                        viewer.style.setProperty('--accent', post.meta.accent);
+                        viewer.style.setProperty('--accent-glow', `${post.meta.accent}66`);
+                    } else {
+                        viewer.style.removeProperty('--accent');
+                        viewer.style.removeProperty('--accent-glow');
+                    }
+                    if (post.meta.bg) {
+                        viewer.style.background = `radial-gradient(ellipse at top, ${post.meta.bg} 0%, rgba(10, 15, 30, 0.95) 100%)`;
+                    } else {
+                        viewer.style.background = '';
+                    }
+                }
 
                 const titleEl = document.getElementById('viewer-title');
                 const metaEl = document.getElementById('viewer-meta');
@@ -763,7 +778,10 @@
 
                 const layerData = getLayerData(post.meta.layer);
 
-                if (titleEl) titleEl.textContent = post.meta.title || post.filename.replace('.md', '');
+                if (titleEl) {
+                    const iconHtml = post.meta.icon ? `<span class="viewer-post-icon" style="margin-right: 8px;">${escapeHtml(post.meta.icon)}</span>` : '';
+                    titleEl.innerHTML = `${iconHtml}${escapeHtml(post.meta.title || post.filename.replace('.md', ''))}`;
+                }
 
                 // Tag indicando a Camada com a cor do apito correspondente (sem citar nome do apito no texto)
                 if (gradeEl) {
@@ -831,7 +849,12 @@
                 if (hero) hero.style.display = '';
                 if (controls) controls.style.display = '';
                 if (postsSection) postsSection.style.display = '';
-                if (viewer) viewer.style.display = 'none';
+                if (viewer) {
+                    viewer.style.display = 'none';
+                    viewer.style.removeProperty('--accent');
+                    viewer.style.removeProperty('--accent-glow');
+                    viewer.style.background = '';
+                }
 
                 if (originEl) originEl.textContent = 'Orth';
 

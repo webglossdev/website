@@ -218,6 +218,13 @@ const animeIconsSpriteSVG = `
     <circle cx="10" cy="6" r="2" fill="currentColor" />
     <line x1="4" y1="16" x2="20" y2="14.5" stroke-dasharray="2 1.5" />
   </symbol>
+
+  <!-- HONORS & BADGES -->
+  <symbol id="icon-star-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="9" r="6" fill="currentColor" fill-opacity="0.18" />
+    <polygon points="12,5 13.5,7.8 16.5,8.2 14.2,10.3 14.8,13.3 12,11.8 9.2,13.3 9.8,10.3 7.5,8.2 10.5,7.8" fill="currentColor" />
+    <path d="M8.5 14.5L7 22l5-2.5 5 2.5-1.5-7.5" />
+  </symbol>
 </svg>
 `;
 
@@ -259,10 +266,11 @@ const headerHTML = `
         <div class="nav-links right-links desktop-only">
             <a href="/projetos">Projetos</a>
             <a href="/blog">Blog Pessoal</a>
+            <a href="/contrate-me.html">Contrate-me</a>
         </div>
 
         <div class="header-controls desktop-only">
-            <button class="particles-toggle" id="particles-toggle" aria-label="Alternar partículas da Utena" title="Alternar partículas da Utena">
+            <button class="particles-toggle" id="particles-toggle" aria-label="Alternar partículas mágicas" title="Alternar partículas mágicas">
                 <svg class="sparkle-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
                     <path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/>
                 </svg>
@@ -358,13 +366,22 @@ const headerHTML = `
                         <span class="island-card-sub">Artigos & relicário</span>
                     </div>
                 </a>
-                <a href="/contato" class="island-nav-card island-nav-card-full" data-nav="contato">
+                <a href="/contato" class="island-nav-card" data-nav="contato">
                     <div class="island-card-icon-box" style="color: var(--accent-gold, #f59e0b);">
                         <svg class="anime-icon"><use href="#icon-ribbon-bow"></use></svg>
                     </div>
                     <div class="island-card-details">
                         <span class="island-card-title">Contato</span>
                         <span class="island-card-sub">WhatsApp, GitHub & mensagem</span>
+                    </div>
+                </a>
+                <a href="/contrate-me.html" class="island-nav-card" data-nav="contrate-me">
+                    <div class="island-card-icon-box" style="color: var(--accent-pink, #f43f5e);">
+                        <svg class="anime-icon"><use href="#icon-rezero-butterfly"></use></svg>
+                    </div>
+                    <div class="island-card-details">
+                        <span class="island-card-title">Contrate-me</span>
+                        <span class="island-card-sub">Serviços & soluções</span>
                     </div>
                 </a>
             </div>
